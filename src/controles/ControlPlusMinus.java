@@ -369,15 +369,13 @@ public class ControlPlusMinus {
     public Object instruccionesPantalla(int contadorAuxiliar, JFrame frame) {
         switch (contadorAuxiliar) {
             case 0:
-                return ("En esta actividad se te mostrarán varias"
-                        + "\n listas de números de 2 dígitos, \n"
-                        + "cada una con un cuadro a lado. En ese cuadro "
-                        + "\nescribirás el resultado de sumar 3 o \n"
-                        + "restar 3, de acuerdo a como se te vaya indicando.");
+                return ("En esta actividad se te mostrarán varias listas de números\n"
+                        + "de 2 dígitos, cada una con un cuadro a lado. \n\n"
+                        + "En ese cuadro escribirás el resultado de sumar 3 o restar 3,\n"
+                        + " de acuerdo a como se te vaya indicando.");
             case 1:
-                return ("Comenzarás con la lista de números a la que\n"
-                        + " le sumarás 3 a cada número. Pero \n"
-                        + "antes de comenzar pon atención en el siguiente \n"
+                return ("Comenzarás con la lista de números a la que le sumarás 3 a cada número.\n"
+                        + " Antes de comenzar pon atención en el siguiente \n"
                         + "recordatorio sobre como sumar.\n");
             case 2:
                 SumaGif gifSuma = new SumaGif();
@@ -385,19 +383,17 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 3:
                 contador++;
-                return ("A continuación, podrás ver un ejemplo sobre\n"
-                        + "cómo responderás la actividad. Recuerda\n"
-                        + "que sumarás 3 a cada número y el resultado\n"
-                        + "lo colocarás en su cuadro correspondiente.");
+                return ("A continuación, podrás ver un ejemplo sobre cómo responderás la actividad.\n\n"
+                        + "Recuerda que sumarás 3 a cada número\n "
+                        + "y el resultado lo colocarás en su cuadro correspondiente.");
             case 4:
                 SumaEjemplosInterfaz sumaEjemplos = new SumaEjemplosInterfaz();
                 sumaEjemplos.setVisible(true);
                 frame.setVisible(false);
             case 5:
                 contador++;
-                return ("En seguida, se te mostrarán una serie de\n"
-                        + "números para practicar. Trata de responder\n"
-                        + "lo más rápido que puedas.");
+                return ("En seguida, se te mostrarán una serie de números para practicar.\n"
+                        + "Trata de responder lo más rápido que puedas.");
             case 6:
                 SumaPracticaInterfaz sumaPracticas = new SumaPracticaInterfaz();
                 sumaPracticas.setVisible(true);
@@ -406,10 +402,10 @@ public class ControlPlusMinus {
                 contador++;
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica");
             case 8:
-                return ("Ahora va a comenzar la actividad. Así que, se dejará\n"
-                        + " de mostrar el signo “más” (+) y las respuestas correctas\n"
-                        + " e incorrectas. Haz tu mejor esfuerzo y trata de responder\n"
-                        + " lo más rápido posible.  ");
+                return ("Ahora va a comenzar la actividad. \n\n"
+                        + "Se dejará de mostrar el signo “más”(+) \n"
+                        + "y las respuestas correctas e incorrectas.\n\n"
+                        + "Haz tu mejor esfuerzo y trata de responder lo más rápido posible.");
             case 9:
                 SumaEjerciciosInterfaz sumaEjercicios = new SumaEjerciciosInterfaz();
                 sumaEjercicios.setVisible(true);
@@ -419,8 +415,8 @@ public class ControlPlusMinus {
                 return (" RESTAS ");
             case 11:
                 return ("A continuación, se te presentará la segunda parte de la actividad. \n"
-                        + " En la cual, restarás 3 a cada número. Pero antes de iniciar, se \n"
-                        + "te mostrará un recordatorio sobre como restar.");
+                        + "En la cual, restarás 3 a cada número. \n"
+                        + "Antes de comenzar, se te mostrará un recordatorio sobre como restar.");
             case 12:
                 RestaGif gifResta = new RestaGif();
                 gifResta.setVisible(true);
@@ -428,15 +424,15 @@ public class ControlPlusMinus {
             case 13:
                 contador++;
                 return ("Antes de iniciar, podrás ver un ejemplo sobre cómo responder la \n"
-                        + "actividad. Recuerda que restarás 3 a cada número y el resultado\n"
-                        + " lo colocarás en su cuadro correspondiente.");
+                        + "actividad. Recuerda que restarás 3 a cada número \n"
+                        + "y el resultado lo colocarás en su cuadro correspondiente.");
             case 14:
                 RestaEjemplosInterfaz restaEjemplos = new RestaEjemplosInterfaz();
                 restaEjemplos.setVisible(true);
                 frame.setVisible(false);
             case 15:
                 contador++;
-                return ("Ahora, se te mostrará una serie de números para practicar. \n"
+                return ("Ahora, se te mostrará una serie de números para practicar.\n"
                         + "Trata de responder lo más rápido que puedas. ");
             case 16:
                 RestaPracticaInterfaz restaPractica = new RestaPracticaInterfaz();
@@ -446,9 +442,10 @@ public class ControlPlusMinus {
                 contador++;
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica. ");
             case 18:
-                return ("Ahora va a comenzar la actividad. Así que, se dejará de \n"
-                        + "mostrar el signo “menos” (-) y las respuestas correctas\n"
-                        + "e incorrecta. Haz tu mejor esfuerzo y trata de responder lo más rápido posible.");
+                return ("Ahora va a comenzar la actividad.\n\n "
+                        + "Así que, se dejará de mostrar el signo “menos”(-) \n"
+                        + "y las respuestas correctas e incorrecta. \n"
+                        + "Haz tu mejor esfuerzo y trata de responder lo más rápido posible.");
             case 19:
                 RestaEjerciciosInterfaz restaEjercicios = new RestaEjerciciosInterfaz();
                 restaEjercicios.setVisible(true);
@@ -456,7 +453,7 @@ public class ControlPlusMinus {
             case 20:
                 contador++;
                 return ("A continuación, se te mostrará otra lista, en la cual alternarás\n"
-                        + " la suma y resta de 3. Tal y como se muestra en el siguiente ejemplo.");
+                        + "la suma y resta de 3. Tal y como se muestra en el siguiente ejemplo.");
             case 21:
                 AleatorioEjemplosInferfaz aleatorioEjemplos = new AleatorioEjemplosInferfaz();
                 aleatorioEjemplos.setVisible(true);
@@ -474,9 +471,9 @@ public class ControlPlusMinus {
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica. ");
             case 25:
                 return ("Ahora va a comenzar la actividad. Así que, se dejarán de \n"
-                        + "mostrar los signos “más” (+) y “menos” (-), al igual que \n"
-                        + "las respuestas correctas e incorrectas. Haz tu mejor esfuerzo y\n"
-                        + " trata de responder lo más rápido posible.");
+                        + "mostrar los signos “más”(+) y “menos”(-),  \n"
+                        + "al igual que las respuestas correctas e incorrectas.\n "
+                        + "Haz tu mejor esfuerzo y trata de responder lo más rápido posible.");
             case 26:
                 AleatorioEjerciciosInterfaz aleatorioEjercicios = new AleatorioEjerciciosInterfaz();
                 aleatorioEjercicios.setVisible(true);

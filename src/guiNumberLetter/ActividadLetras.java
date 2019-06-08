@@ -24,19 +24,20 @@ import javax.swing.SwingConstants;
  * @author David Hermosillo
  */
 public class ActividadLetras extends javax.swing.JFrame {
-    
+
     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
     ArrayList<JLabel> etiquetas = new ArrayList<>();
-    
+
     GridBagConstraints gbcRespuesta = new GridBagConstraints();
     GridBagConstraints gbcIzquierda = new GridBagConstraints();
     GridBagConstraints gbcDerecha = new GridBagConstraints();
     GridBagConstraints gbcPanel = new GridBagConstraints();
+
     /**
      * Creates new form PracticaNumeros
      */
     public ActividadLetras() {
-        
+
         //se cambia el tamaño del panel y el frame para que este a la resolucion de la pantalla
         initComponents();
         Toolkit tk = Toolkit.getDefaultToolkit();
@@ -54,7 +55,7 @@ public class ActividadLetras extends javax.swing.JFrame {
         valorBIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
         gbcRespuesta.gridx = 0;
         gbcRespuesta.weighty = 0;
-        gbcRespuesta.gridwidth = 3;
+        gbcRespuesta.gridwidth = 2;
         gbcRespuesta.gridy = 0;
         gbcRespuesta.weightx = 1;
 //        gbcIzquierda.gridx = 1;
@@ -66,8 +67,11 @@ public class ActividadLetras extends javax.swing.JFrame {
 //        gbcRespuesta.gridwidth = 2;
 //        gbcRespuesta.gridy = 2;
         gbcIzquierda.gridx = 0;
-        gbcIzquierda.gridwidth = 1;
+        gbcIzquierda.gridwidth = 2;
         gbcIzquierda.gridy = 2;
+        gbcIzquierda.weightx = 0;
+        gbcIzquierda.weighty = 0;
+
         gbcPanel.fill = GridBagConstraints.BOTH;
         gbcPanel.ipady = 250;      //make this component tall
         gbcPanel.weightx = 0.0;
@@ -75,21 +79,24 @@ public class ActividadLetras extends javax.swing.JFrame {
         gbcPanel.gridx = 0;
         gbcPanel.gridy = 1;
         gbcDerecha.fill = GridBagConstraints.HORIZONTAL;
+
+        gbcDerecha.weightx = 0;
+        gbcDerecha.weighty = 0;
         gbcDerecha.gridx = 2;
         gbcDerecha.gridwidth = 1;
         gbcDerecha.gridy = 2;
         panelPrincipal.add(panelIzquierdo, gbcIzquierda);
         panelPrincipal.add(panelDerecho, gbcDerecha);
-        panelPrincipal.add(jLabel1, gbcRespuesta);
+        //panelPrincipal.add(jLabel1, gbcRespuesta);
         panelPrincipal.add(jPanel1, gbcPanel);
         etiquetaRespuesta.setVisible(false);
-        
+
         etiquetas.add(valorADerecho);
         etiquetas.add(valorBDerecho);
         etiquetas.add(valorAIzquierdo);
         etiquetas.add(valorBIzquierdo);
         control.setRepeticiones(5);
-        
+
         panelPrincipal.requestFocus();
     }
 
@@ -109,8 +116,8 @@ public class ActividadLetras extends javax.swing.JFrame {
         panelIzquierdo = new javax.swing.JPanel();
         valorAIzquierdo = new javax.swing.JLabel();
         valorBIzquierdo = new javax.swing.JLabel();
-        etiquetaRespuesta = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        etiquetaRespuesta = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,20 +143,19 @@ public class ActividadLetras extends javax.swing.JFrame {
         panelDerechoLayout.setHorizontalGroup(
             panelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDerechoLayout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
-                .addComponent(valorADerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(valorBDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addGap(0, 314, Short.MAX_VALUE)
+                .addComponent(valorADerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelDerechoLayout.setVerticalGroup(
             panelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDerechoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(41, 41, 41)
                 .addGroup(panelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valorADerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorBDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(valorADerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorBDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         panelIzquierdo.setBackground(new java.awt.Color(255, 255, 255));
@@ -163,37 +169,49 @@ public class ActividadLetras extends javax.swing.JFrame {
         panelIzquierdoLayout.setHorizontalGroup(
             panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIzquierdoLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(valorAIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(valorBIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addComponent(valorAIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 244, Short.MAX_VALUE))
         );
         panelIzquierdoLayout.setVerticalGroup(
             panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIzquierdoLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
                 .addGroup(panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(valorAIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorBIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(valorAIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorBIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         etiquetaRespuesta.setBackground(new java.awt.Color(255, 255, 255));
         etiquetaRespuesta.setFont(new java.awt.Font("Tahoma", 0, 38)); // NOI18N
         etiquetaRespuesta.setForeground(new java.awt.Color(255, 255, 255));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 565, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(131, 131, 131)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(131, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(41, 41, 41)
+                    .addComponent(etiquetaRespuesta)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel1)
+                    .addContainerGap(41, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -203,29 +221,18 @@ public class ActividadLetras extends javax.swing.JFrame {
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(panelIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(panelDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(150, 150, 150)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(etiquetaRespuesta)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(77, 77, 77)
+                .addGap(142, 142, 142)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -240,7 +247,7 @@ public class ActividadLetras extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
+                .addGap(0, 115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,17 +259,17 @@ public class ActividadLetras extends javax.swing.JFrame {
 
     private void panelPrincipalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelPrincipalKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_panelPrincipalKeyTyped
 
     private void panelPrincipalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelPrincipalKeyPressed
         // TODO add your handling code here:
         switch (evt.getKeyChar()) {
             case KeyEvent.VK_C:
-                control.respuestaLetras("Consonante", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);     
+                control.respuestaLetras("Consonante", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
                 break;
             case KeyEvent.VK_V:
-                control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);   
+                control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
                 break;
             case KeyEvent.VK_SPACE:
                 control.setEtiquetaA(valorAIzquierdo);

@@ -7,11 +7,13 @@ package guiPlusMinus;
 
 import controles.ControlPlusMinus;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +24,7 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
 
     String numerosAleatorios[] = new String[5];
     String numerosRespuestas[] = new String[5];
-    
+
     //double startTime;
     GridBagConstraints gbc = new GridBagConstraints();
     ControlPlusMinus control = ControlPlusMinus.getSingletonInstance();
@@ -97,11 +99,15 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
         caja5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         caja1 = new javax.swing.JTextField();
+        r2 = new javax.swing.JLabel();
+        r4 = new javax.swing.JLabel();
+        r1 = new javax.swing.JLabel();
+        r3 = new javax.swing.JLabel();
+        r5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPanel1KeyPressed(evt);
@@ -141,6 +147,11 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
         jLabel10.setText("+ 3 =");
 
         caja2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        caja2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                caja2FocusLost(evt);
+            }
+        });
         caja2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 caja2KeyTyped(evt);
@@ -148,6 +159,11 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
         });
 
         caja3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        caja3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                caja3FocusLost(evt);
+            }
+        });
         caja3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 caja3KeyTyped(evt);
@@ -155,6 +171,11 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
         });
 
         caja4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        caja4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                caja4FocusLost(evt);
+            }
+        });
         caja4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 caja4KeyTyped(evt);
@@ -162,6 +183,11 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
         });
 
         caja5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        caja5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                caja5FocusLost(evt);
+            }
+        });
         caja5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 caja5KeyTyped(evt);
@@ -177,6 +203,12 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
             }
         });
 
+        caja1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        caja1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                caja1FocusLost(evt);
+            }
+        });
         caja1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caja1ActionPerformed(evt);
@@ -202,9 +234,7 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -214,63 +244,86 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(caja3)
-                            .addComponent(caja2)
-                            .addComponent(caja4)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(caja5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(caja1))
-                        .addGap(37, 37, 37))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(caja2, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                    .addComponent(caja3)
+                                    .addComponent(caja4)
+                                    .addComponent(caja5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(r4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(r2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(r5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(r3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                .addComponent(r1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(39, 39, 39))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel6)
-                    .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel6)
+                            .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel7))
+                            .addComponent(caja2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(r1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(r2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel8)
+                        .addComponent(caja3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(r3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel7)
-                    .addComponent(caja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel8)
-                    .addComponent(caja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel9)
-                    .addComponent(caja4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel10)
-                    .addComponent(caja5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel9)
+                                .addComponent(caja4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(r4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10)
+                            .addComponent(caja5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(r5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(jButton1)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(38, 38, 38)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -308,34 +361,34 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
 
     private void caja2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja2KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja2KeyTyped
 
     private void caja3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja3KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja3KeyTyped
 
     private void caja4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja4KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }     // TODO add your handling code here:
     }//GEN-LAST:event_caja4KeyTyped
 
     private void caja5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja5KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }     // TODO add your handling code here:
     }//GEN-LAST:event_caja5KeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -349,15 +402,87 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_caja1ActionPerformed
 
     private void caja1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja1KeyTyped
-        // TODO add your handling code here:
-        int aleatorio = Integer.valueOf(jLabel1.getText());
-        int respuesta = Integer.valueOf(caja1.getText());
-        
-        if(aleatorio + 3 == respuesta) {
-            System.out.println("Le atinaste, we");
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9')) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "solo numeros");
         }
-        
     }//GEN-LAST:event_caja1KeyTyped
+
+    private void caja1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_caja1FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel1.getText());
+            int respuesta = Integer.valueOf(caja1.getText());
+            if (aleatorio + 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r1.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r1.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_caja1FocusLost
+
+    private void caja2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_caja2FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel2.getText());
+            int respuesta = Integer.valueOf(caja2.getText());
+            if (aleatorio - 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r2.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r2.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_caja2FocusLost
+
+    private void caja3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_caja3FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel3.getText());
+            int respuesta = Integer.valueOf(caja3.getText());
+            if (aleatorio + 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r3.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r3.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_caja3FocusLost
+
+    private void caja4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_caja4FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel4.getText());
+            int respuesta = Integer.valueOf(caja4.getText());
+            if (aleatorio - 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r4.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r4.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_caja4FocusLost
+
+    private void caja5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_caja5FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel5.getText());
+            int respuesta = Integer.valueOf(caja5.getText());
+            if (aleatorio + 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r5.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r5.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_caja5FocusLost
 
     /**
      * @param args the command line arguments
@@ -382,5 +507,10 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel r1;
+    private javax.swing.JLabel r2;
+    private javax.swing.JLabel r3;
+    private javax.swing.JLabel r4;
+    private javax.swing.JLabel r5;
     // End of variables declaration//GEN-END:variables
 }
