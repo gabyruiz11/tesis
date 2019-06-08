@@ -684,8 +684,6 @@ public class ControlNumberLetter {
             }
         }
         
-        System.out.println(auxiliar);
-
         return auxiliar;
     }
 
