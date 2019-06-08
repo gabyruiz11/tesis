@@ -19,12 +19,13 @@ import javax.swing.JOptionPane;
  * @author David Hermosillo
  */
 public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
+
     String numerosAleatorios[] = new String[30];
     String numerosRespuestas[] = new String[30];
     double startTime;
     GridBagConstraints gbc = new GridBagConstraints();
     ControlPlusMinus control = ControlPlusMinus.getSingletonInstance();
-    
+
     /**
      * Creates new form SumaEjerciciosInterfaz
      */
@@ -46,97 +47,97 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
         gbc.fill = GridBagConstraints.CENTER;
         jPanel1.add(jPanel2, gbc);
         startTime = System.currentTimeMillis();
-        
+
         jLabel1.setText(control.numeroRandom());
         numerosAleatorios[0] = jLabel1.getText();
-        
+
         jLabel2.setText(control.numeroRandom());
         numerosAleatorios[1] = jLabel2.getText();
-        
+
         jLabel3.setText(control.numeroRandom());
         numerosAleatorios[2] = jLabel3.getText();
-        
+
         jLabel4.setText(control.numeroRandom());
         numerosAleatorios[3] = jLabel4.getText();
-        
+
         jLabel5.setText(control.numeroRandom());
         numerosAleatorios[4] = jLabel5.getText();
-        
+
         jLabel6.setText(control.numeroRandom());
         numerosAleatorios[5] = jLabel6.getText();
-        
+
         jLabel7.setText(control.numeroRandom());
         numerosAleatorios[6] = jLabel7.getText();
-        
+
         jLabel8.setText(control.numeroRandom());
         numerosAleatorios[7] = jLabel8.getText();
-        
+
         jLabel9.setText(control.numeroRandom());
         numerosAleatorios[8] = jLabel9.getText();
-        
+
         jLabel10.setText(control.numeroRandom());
         numerosAleatorios[9] = jLabel10.getText();
-        
+
         jLabel11.setText(control.numeroRandom());
         numerosAleatorios[10] = jLabel11.getText();
-        
+
         jLabel12.setText(control.numeroRandom());
         numerosAleatorios[11] = jLabel12.getText();
-        
+
         jLabel13.setText(control.numeroRandom());
         numerosAleatorios[12] = jLabel13.getText();
-        
+
         jLabel14.setText(control.numeroRandom());
         numerosAleatorios[13] = jLabel14.getText();
-        
+
         jLabel15.setText(control.numeroRandom());
         numerosAleatorios[14] = jLabel15.getText();
-        
+
         jLabel31.setText(control.numeroRandom());
         numerosAleatorios[15] = jLabel31.getText();
-        
+
         jLabel32.setText(control.numeroRandom());
         numerosAleatorios[16] = jLabel32.getText();
-        
+
         jLabel33.setText(control.numeroRandom());
         numerosAleatorios[17] = jLabel33.getText();
-        
+
         jLabel34.setText(control.numeroRandom());
         numerosAleatorios[18] = jLabel34.getText();
-        
+
         jLabel35.setText(control.numeroRandom());
         numerosAleatorios[19] = jLabel35.getText();
-        
+
         jLabel36.setText(control.numeroRandom());
         numerosAleatorios[20] = jLabel36.getText();
-        
+
         jLabel37.setText(control.numeroRandom());
         numerosAleatorios[21] = jLabel37.getText();
-        
+
         jLabel38.setText(control.numeroRandom());
         numerosAleatorios[22] = jLabel38.getText();
-        
+
         jLabel39.setText(control.numeroRandom());
         numerosAleatorios[23] = jLabel39.getText();
-        
+
         jLabel40.setText(control.numeroRandom());
         numerosAleatorios[24] = jLabel40.getText();
-        
+
         jLabel41.setText(control.numeroRandom());
         numerosAleatorios[25] = jLabel41.getText();
-        
+
         jLabel42.setText(control.numeroRandom());
         numerosAleatorios[26] = jLabel42.getText();
-        
+
         jLabel43.setText(control.numeroRandom());
         numerosAleatorios[27] = jLabel43.getText();
-        
+
         jLabel44.setText(control.numeroRandom());
         numerosAleatorios[28] = jLabel44.getText();
-        
+
         jLabel45.setText(control.numeroRandom());
         numerosAleatorios[29] = jLabel45.getText();
-        jPanel1.requestFocus(); 
+        jPanel1.requestFocus();
         jPanel1.setFocusable(true);
     }
 
@@ -1033,48 +1034,48 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_caja23ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
-            numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
-            numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
-            numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
-            numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
-            numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
-            numerosRespuestas[10] = control.verificaciónTextField(caja11.getText());
-            numerosRespuestas[11] = control.verificaciónTextField(caja12.getText());
-            numerosRespuestas[12] = control.verificaciónTextField(caja13.getText());
-            numerosRespuestas[13] = control.verificaciónTextField(caja14.getText());
-            numerosRespuestas[14] = control.verificaciónTextField(caja15.getText());
-            numerosRespuestas[15] = control.verificaciónTextField(caja16.getText());
-            numerosRespuestas[16] = control.verificaciónTextField(caja17.getText());
-            numerosRespuestas[17] = control.verificaciónTextField(caja18.getText());
-            numerosRespuestas[18] = control.verificaciónTextField(caja19.getText());
-            numerosRespuestas[19] = control.verificaciónTextField(caja20.getText());
-            numerosRespuestas[20] = control.verificaciónTextField(caja21.getText());
-            numerosRespuestas[21] = control.verificaciónTextField(caja22.getText());
-            numerosRespuestas[22] = control.verificaciónTextField(caja23.getText());
-            numerosRespuestas[23] = control.verificaciónTextField(caja24.getText());
-            numerosRespuestas[24] = control.verificaciónTextField(caja25.getText());
-            numerosRespuestas[25] = control.verificaciónTextField(caja26.getText());
-            numerosRespuestas[26] = control.verificaciónTextField(caja27.getText());
-            numerosRespuestas[27] = control.verificaciónTextField(caja28.getText());
-            numerosRespuestas[28] = control.verificaciónTextField(caja29.getText());
-            numerosRespuestas[29] = control.verificaciónTextField(caja30.getText());
+        numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
+        numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
+        numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
+        numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
+        numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
+        numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
+        numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
+        numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
+        numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
+        numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
+        numerosRespuestas[10] = control.verificaciónTextField(caja11.getText());
+        numerosRespuestas[11] = control.verificaciónTextField(caja12.getText());
+        numerosRespuestas[12] = control.verificaciónTextField(caja13.getText());
+        numerosRespuestas[13] = control.verificaciónTextField(caja14.getText());
+        numerosRespuestas[14] = control.verificaciónTextField(caja15.getText());
+        numerosRespuestas[15] = control.verificaciónTextField(caja16.getText());
+        numerosRespuestas[16] = control.verificaciónTextField(caja17.getText());
+        numerosRespuestas[17] = control.verificaciónTextField(caja18.getText());
+        numerosRespuestas[18] = control.verificaciónTextField(caja19.getText());
+        numerosRespuestas[19] = control.verificaciónTextField(caja20.getText());
+        numerosRespuestas[20] = control.verificaciónTextField(caja21.getText());
+        numerosRespuestas[21] = control.verificaciónTextField(caja22.getText());
+        numerosRespuestas[22] = control.verificaciónTextField(caja23.getText());
+        numerosRespuestas[23] = control.verificaciónTextField(caja24.getText());
+        numerosRespuestas[24] = control.verificaciónTextField(caja25.getText());
+        numerosRespuestas[25] = control.verificaciónTextField(caja26.getText());
+        numerosRespuestas[26] = control.verificaciónTextField(caja27.getText());
+        numerosRespuestas[27] = control.verificaciónTextField(caja28.getText());
+        numerosRespuestas[28] = control.verificaciónTextField(caja29.getText());
+        numerosRespuestas[29] = control.verificaciónTextField(caja30.getText());
 
-            control.resultadoAlternado(numerosAleatorios, numerosRespuestas, 30);
+        control.resultadoAlternado(numerosAleatorios, numerosRespuestas, 30);
 
-            double estimatedTime = System.currentTimeMillis() - startTime;
-            control.tiempoAlternado(estimatedTime);
+        double estimatedTime = System.currentTimeMillis() - startTime;
+        control.tiempoAlternado(estimatedTime);
 
-            control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
+        control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
 
-            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            control.instruccionesPantalla(control.getContador(), this);
-            instrucciones.show();
-            this.dispose();
+        Instrucciones instrucciones = Instrucciones.getSingletonInstance();
+        control.instruccionesPantalla(control.getContador(), this);
+        instrucciones.show();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
@@ -1126,243 +1127,243 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void caja1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja1KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja1KeyTyped
 
     private void caja2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja2KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja2KeyTyped
 
     private void caja3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja3KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_caja3KeyTyped
 
     private void caja4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja4KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_caja4KeyTyped
 
     private void caja5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja5KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja5KeyTyped
 
     private void caja6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja6KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja6KeyTyped
 
     private void caja7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja7KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja7KeyTyped
 
     private void caja8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja8KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_caja8KeyTyped
 
     private void caja9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja9KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja9KeyTyped
 
     private void caja10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja10KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja10KeyTyped
 
     private void caja11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja11KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja11KeyTyped
 
     private void caja12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja12KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja12KeyTyped
 
     private void caja13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja13KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja13KeyTyped
 
     private void caja14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja14KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja14KeyTyped
 
     private void caja15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja15KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja15KeyTyped
 
     private void caja16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja16KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja16KeyTyped
 
     private void caja17KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja17KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja17KeyTyped
 
     private void caja18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja18KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja18KeyTyped
 
     private void caja19KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja19KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja19KeyTyped
 
     private void caja20KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja20KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja20KeyTyped
 
     private void caja21KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja21KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja21KeyTyped
 
     private void caja22KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja22KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja22KeyTyped
 
     private void caja23KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja23KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja23KeyTyped
 
     private void caja24KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja24KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja24KeyTyped
 
     private void caja25KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja25KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja25KeyTyped
 
     private void caja26KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja26KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja26KeyTyped
 
     private void caja27KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja27KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_caja27KeyTyped
 
     private void caja28KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja28KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja28KeyTyped
 
     private void caja29KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja29KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }          // TODO add your handling code here:
     }//GEN-LAST:event_caja29KeyTyped
 
     private void caja30KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja30KeyTyped
-    char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }          // TODO add your handling code here:
+        }             // TODO add your handling code here:
     }//GEN-LAST:event_caja30KeyTyped
 
     /**

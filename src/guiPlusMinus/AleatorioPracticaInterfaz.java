@@ -12,6 +12,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -124,11 +125,20 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        r4 = new javax.swing.JLabel();
+        r1 = new javax.swing.JLabel();
+        r2 = new javax.swing.JLabel();
+        r3 = new javax.swing.JLabel();
+        r6 = new javax.swing.JLabel();
+        r5 = new javax.swing.JLabel();
+        r8 = new javax.swing.JLabel();
+        r9 = new javax.swing.JLabel();
+        r10 = new javax.swing.JLabel();
+        r7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPanel1KeyPressed(evt);
@@ -144,6 +154,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel11.setText("+ 3 =");
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
@@ -157,6 +172,16 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel12.setText("- 3 =");
 
         jTextField2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField2KeyTyped(evt);
@@ -170,6 +195,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel13.setText("+ 3 =");
 
         jTextField3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField3KeyTyped(evt);
@@ -183,6 +213,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel14.setText("- 3 =");
 
         jTextField4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField4FocusLost(evt);
+            }
+        });
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField4KeyTyped(evt);
@@ -196,6 +231,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel15.setText("+ 3 =");
 
         jTextField5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField5FocusLost(evt);
+            }
+        });
         jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField5KeyTyped(evt);
@@ -209,6 +249,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel16.setText("- 3 =");
 
         jTextField6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField6FocusLost(evt);
+            }
+        });
         jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField6KeyTyped(evt);
@@ -222,6 +267,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel17.setText("+ 3 =");
 
         jTextField7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField7FocusLost(evt);
+            }
+        });
         jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField7KeyTyped(evt);
@@ -235,6 +285,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel18.setText("- 3 =");
 
         jTextField8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField8FocusLost(evt);
+            }
+        });
         jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField8KeyTyped(evt);
@@ -248,6 +303,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel19.setText("+ 3 =");
 
         jTextField9.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField9.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField9FocusLost(evt);
+            }
+        });
         jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField9KeyTyped(evt);
@@ -261,6 +321,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel20.setText("- 3 =");
 
         jTextField10.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField10FocusLost(evt);
+            }
+        });
         jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField10KeyTyped(evt);
@@ -272,6 +337,30 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        r4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                r4FocusLost(evt);
+            }
+        });
+
+        r2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                r2FocusLost(evt);
+            }
+        });
+
+        r3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                r3FocusLost(evt);
+            }
+        });
+
+        r5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                r5FocusLost(evt);
             }
         });
 
@@ -337,65 +426,98 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(45, 45, 45)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(r4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(111, 111, 111))
+                .addGap(153, 153, 153))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel16)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel17)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel18)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel11)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(r1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel12)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(r2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel13)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(r3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel14)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(r4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel15)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(r5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel16)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(r6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel17)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(r7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel18)
+                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(r8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel19)
+                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(r9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel20)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(r10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -405,17 +527,16 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addGap(56, 56, 56))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -446,10 +567,9 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
             numerosRespuestas[7] = control.verificaciónTextField(jTextField8.getText());
             numerosRespuestas[8] = control.verificaciónTextField(jTextField9.getText());
             numerosRespuestas[9] = control.verificaciónTextField(jTextField10.getText());
-            
+
             //control.resultadoSuma(numerosAleatorios, numerosRespuestas, 10);
             //control.imprimirSumas();
-            
             jTextField1.setText("");
             jTextField2.setText("");
             jTextField3.setText("");
@@ -465,82 +585,82 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField4KeyTyped
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField6KeyTyped
 
     private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField7KeyTyped
 
     private void jTextField8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField8KeyTyped
 
     private void jTextField9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField9KeyTyped
 
     private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jTextField10KeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -548,6 +668,172 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         instrucciones.show();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel1.getText());
+            int respuesta = Integer.valueOf(jTextField1.getText());
+            if (aleatorio + 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r1.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r1.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField1FocusLost
+
+    private void r2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_r2FocusLost
+    }//GEN-LAST:event_r2FocusLost
+
+    private void r3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_r3FocusLost
+    }//GEN-LAST:event_r3FocusLost
+
+    private void r4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_r4FocusLost
+    }//GEN-LAST:event_r4FocusLost
+
+    private void r5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_r5FocusLost
+    }//GEN-LAST:event_r5FocusLost
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel2.getText());
+            int respuesta = Integer.valueOf(jTextField2.getText());
+            if (aleatorio - 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r2.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r2.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel3.getText());
+            int respuesta = Integer.valueOf(jTextField3.getText());
+            if (aleatorio + 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r3.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r3.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField3FocusLost
+
+    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel4.getText());
+            int respuesta = Integer.valueOf(jTextField4.getText());
+            if (aleatorio - 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r4.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r4.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField4FocusLost
+
+    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel5.getText());
+            int respuesta = Integer.valueOf(jTextField5.getText());
+            if (aleatorio + 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r5.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r5.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField5FocusLost
+
+    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel6.getText());
+            int respuesta = Integer.valueOf(jTextField6.getText());
+            if (aleatorio - 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r6.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r6.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField6FocusLost
+
+    private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel7.getText());
+            int respuesta = Integer.valueOf(jTextField7.getText());
+            if (aleatorio + 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r7.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r7.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField7FocusLost
+
+    private void jTextField8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel8.getText());
+            int respuesta = Integer.valueOf(jTextField8.getText());
+            if (aleatorio - 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r8.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r8.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField8FocusLost
+
+    private void jTextField9FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField9FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel9.getText());
+            int respuesta = Integer.valueOf(jTextField9.getText());
+            if (aleatorio + 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r9.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r9.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField9FocusLost
+
+    private void jTextField10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusLost
+        try {
+            int aleatorio = Integer.valueOf(jLabel10.getText());
+            int respuesta = Integer.valueOf(jTextField10.getText());
+            if (aleatorio - 3 == respuesta) {
+                ImageIcon bien = new ImageIcon(getClass().getResource("/images/flecha.png"));
+                r10.setIcon(bien);
+            } else {
+                ImageIcon mal = new ImageIcon(getClass().getResource("/images/tacha.png"));
+                r10.setIcon(mal);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jTextField10FocusLost
 
     /**
      * @param args the command line arguments
@@ -587,5 +873,15 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel r1;
+    private javax.swing.JLabel r10;
+    private javax.swing.JLabel r2;
+    private javax.swing.JLabel r3;
+    private javax.swing.JLabel r4;
+    private javax.swing.JLabel r5;
+    private javax.swing.JLabel r6;
+    private javax.swing.JLabel r7;
+    private javax.swing.JLabel r8;
+    private javax.swing.JLabel r9;
     // End of variables declaration//GEN-END:variables
 }

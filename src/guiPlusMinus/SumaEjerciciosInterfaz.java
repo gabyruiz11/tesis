@@ -1031,45 +1031,45 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_caja23ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
-            numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
-            numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
-            numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
-            numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
-            numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
-            numerosRespuestas[10] = control.verificaciónTextField(caja11.getText());
-            numerosRespuestas[11] = control.verificaciónTextField(caja12.getText());
-            numerosRespuestas[12] = control.verificaciónTextField(caja13.getText());
-            numerosRespuestas[13] = control.verificaciónTextField(caja14.getText());
-            numerosRespuestas[14] = control.verificaciónTextField(caja15.getText());
-            numerosRespuestas[15] = control.verificaciónTextField(caja16.getText());
-            numerosRespuestas[16] = control.verificaciónTextField(caja17.getText());
-            numerosRespuestas[17] = control.verificaciónTextField(caja18.getText());
-            numerosRespuestas[18] = control.verificaciónTextField(caja19.getText());
-            numerosRespuestas[19] = control.verificaciónTextField(caja20.getText());
-            numerosRespuestas[20] = control.verificaciónTextField(caja21.getText());
-            numerosRespuestas[21] = control.verificaciónTextField(caja22.getText());
-            numerosRespuestas[22] = control.verificaciónTextField(caja23.getText());
-            numerosRespuestas[23] = control.verificaciónTextField(caja24.getText());
-            numerosRespuestas[24] = control.verificaciónTextField(caja25.getText());
-            numerosRespuestas[25] = control.verificaciónTextField(caja26.getText());
-            numerosRespuestas[26] = control.verificaciónTextField(caja27.getText());
-            numerosRespuestas[27] = control.verificaciónTextField(caja28.getText());
-            numerosRespuestas[28] = control.verificaciónTextField(caja29.getText());
-            numerosRespuestas[29] = control.verificaciónTextField(caja30.getText());
+        numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
+        numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
+        numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
+        numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
+        numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
+        numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
+        numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
+        numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
+        numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
+        numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
+        numerosRespuestas[10] = control.verificaciónTextField(caja11.getText());
+        numerosRespuestas[11] = control.verificaciónTextField(caja12.getText());
+        numerosRespuestas[12] = control.verificaciónTextField(caja13.getText());
+        numerosRespuestas[13] = control.verificaciónTextField(caja14.getText());
+        numerosRespuestas[14] = control.verificaciónTextField(caja15.getText());
+        numerosRespuestas[15] = control.verificaciónTextField(caja16.getText());
+        numerosRespuestas[16] = control.verificaciónTextField(caja17.getText());
+        numerosRespuestas[17] = control.verificaciónTextField(caja18.getText());
+        numerosRespuestas[18] = control.verificaciónTextField(caja19.getText());
+        numerosRespuestas[19] = control.verificaciónTextField(caja20.getText());
+        numerosRespuestas[20] = control.verificaciónTextField(caja21.getText());
+        numerosRespuestas[21] = control.verificaciónTextField(caja22.getText());
+        numerosRespuestas[22] = control.verificaciónTextField(caja23.getText());
+        numerosRespuestas[23] = control.verificaciónTextField(caja24.getText());
+        numerosRespuestas[24] = control.verificaciónTextField(caja25.getText());
+        numerosRespuestas[25] = control.verificaciónTextField(caja26.getText());
+        numerosRespuestas[26] = control.verificaciónTextField(caja27.getText());
+        numerosRespuestas[27] = control.verificaciónTextField(caja28.getText());
+        numerosRespuestas[28] = control.verificaciónTextField(caja29.getText());
+        numerosRespuestas[29] = control.verificaciónTextField(caja30.getText());
 
-            control.resultadoSuma(numerosAleatorios, numerosRespuestas, 30);
+        control.resultadoSuma(numerosAleatorios, numerosRespuestas, 30);
 
-            double estimatedTime = System.currentTimeMillis() - startTime;
-            control.tiempoSuma(estimatedTime);
+        double estimatedTime = System.currentTimeMillis() - startTime;
+        control.tiempoSuma(estimatedTime);
 
-            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            instrucciones.setVisible(true);
-            this.dispose();        
+        Instrucciones instrucciones = Instrucciones.getSingletonInstance();
+        instrucciones.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
@@ -1127,7 +1127,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja1KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1135,7 +1135,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja2KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1143,7 +1143,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja3KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1151,7 +1151,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja4KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1159,7 +1159,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja5KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1167,7 +1167,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja6KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1175,7 +1175,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja7KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1183,7 +1183,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja8KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1191,7 +1191,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja9KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja9KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1199,7 +1199,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja10KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1207,7 +1207,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja11KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }
@@ -1215,7 +1215,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja12KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja12KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }        // TODO add your handling code here:
@@ -1223,55 +1223,55 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja13KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja13KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }      // TODO add your handling code here:
     }//GEN-LAST:event_caja13KeyTyped
 
     private void caja14KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja14KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja14KeyTyped
 
     private void caja15KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja15KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja15KeyTyped
 
     private void caja16KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja16KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja16KeyTyped
 
     private void caja17KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja17KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja17KeyTyped
 
     private void caja18KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja18KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja18KeyTyped
 
     private void caja19KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja19KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }        // TODO add your handling code here:
@@ -1279,23 +1279,23 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja20KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja20KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja20KeyTyped
 
     private void caja21KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja21KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja21KeyTyped
 
     private void caja22KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja22KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }        // TODO add your handling code here:
@@ -1303,63 +1303,63 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void caja23KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja23KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if ((c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja23KeyTyped
 
     private void caja24KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja24KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }      // TODO add your handling code here:
     }//GEN-LAST:event_caja24KeyTyped
 
     private void caja25KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja25KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja25KeyTyped
 
     private void caja26KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja26KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }      // TODO add your handling code here:
     }//GEN-LAST:event_caja26KeyTyped
 
     private void caja27KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja27KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }      // TODO add your handling code here:
     }//GEN-LAST:event_caja27KeyTyped
 
     private void caja28KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja28KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja28KeyTyped
 
     private void caja29KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja29KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
-        }        // TODO add your handling code here:
+        }       // TODO add your handling code here:
     }//GEN-LAST:event_caja29KeyTyped
 
     private void caja30KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja30KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
+        if((c<'0' || c>'9')){
             evt.consume();
             JOptionPane.showMessageDialog(null, "solo numeros");
         }        // TODO add your handling code here:

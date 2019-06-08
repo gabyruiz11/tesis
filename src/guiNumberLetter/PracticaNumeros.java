@@ -57,7 +57,7 @@ public class PracticaNumeros extends javax.swing.JFrame {
         gbcIzquierda.fill = GridBagConstraints.HORIZONTAL;
         gbcIzquierda.gridx = 1;
         gbcIzquierda.gridy = 0;
-        gbcIzquierda.weightx = 1;
+        gbcIzquierda.weightx = 0;
         gbcIzquierda.weighty = 0;
         gbcPanel.fill = GridBagConstraints.BOTH;
         gbcPanel.ipady = 300;      //make this component tall
@@ -66,7 +66,7 @@ public class PracticaNumeros extends javax.swing.JFrame {
         gbcPanel.gridx = 0;
         gbcPanel.gridy = 1;
         gbcDerecha.fill = GridBagConstraints.HORIZONTAL;
-        gbcDerecha.weightx = 1;
+        gbcDerecha.weightx = 0;
         gbcDerecha.weighty = 0;
         gbcDerecha.gridx = 2;
         gbcDerecha.gridy = 0;
