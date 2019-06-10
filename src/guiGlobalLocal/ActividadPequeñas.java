@@ -102,16 +102,16 @@ public class ActividadPequeñas extends javax.swing.JFrame {
         // TODO add your handling code here:
         switch (evt.getKeyChar()) {
             case KeyEvent.VK_A:
-                control.respuestas("Circulo", etiquetaNombre, false);
+                control.respuestas("Circulo", etiquetaNombre, true, "p");
                 break;
             case KeyEvent.VK_S:
-                control.respuestas("Equis", etiquetaNombre, false);
+                control.respuestas("Equis", etiquetaNombre, true, "p");
                 break;
             case KeyEvent.VK_K:
-                control.respuestas("Triangulo", etiquetaNombre, false);
+                control.respuestas("Triangulo", etiquetaNombre, true, "p");
                 break;
             case KeyEvent.VK_L:
-                control.respuestas("Cuadrado", etiquetaNombre, false);
+                control.respuestas("Cuadrado", etiquetaNombre, true, "p");
                 break;
             case KeyEvent.VK_SPACE:
                 control.setEtiquetaImagen(etiquetaImagen);
