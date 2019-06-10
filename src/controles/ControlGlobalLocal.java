@@ -5,12 +5,10 @@
  */
 package controles;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import objetosAuxiliares.ImagenGlobalLocal;
+import objetosNegocio.Globallocal;
 
 /**
  *
@@ -21,26 +19,43 @@ public class ControlGlobalLocal {
     //Variable del objeto control number letter
     private static ControlGlobalLocal controlGlobalLocal;
     
+    //Variable referencia del objeto global local
+    private Globallocal objetoLocalGlobal;
+    
     //Hilos
     private Thread hiloFamiliarizacion, hiloPracticasGrandes, hiloActividadGrandes,
                                         hiloPracticasPequeñas, hiloActividadPequeñas,
                                         hiloPracticasMixto, hiloActividadMixto;
     
     //Contadores
-    private int circulo, equis, triangulo, cuadrado, contadorHiloFamiliarizacion, 
-            contadorHiloPracticaGrande, contadorHiloActividadGrande, 
-            contadorHiloPracticaPequeñas, contadorHiloActividadPequeñas,
-            contadorHiloMixtoPractica, contadorHiloMixtoActividad;
+    private int circulo, equis, triangulo, cuadrado, seriesRepetidas, seriesShifting, contadorHiloFamiliarizacion, 
+                contadorHiloPracticaGrande, contadorHiloActividadGrande, 
+                contadorHiloPracticaPequeñas, contadorHiloActividadPequeñas,
+                contadorHiloMixtoPractica, contadorHiloMixtoActividad;
             
-    
-    //Labels
+    //Etiquetas
     private JLabel etiquetaImagen, etiquetaRespuesta, etiquetaNombre;
     
-    //
-    private int repeticiones, seriesRepetidas, seriesShifting;
+    //Repeticiones
+    private int repeticiones;
+
+    //Variables de salida
+    int respuestasCorrectasNegras, respuestasCorrectasAzules, respuestasCorrectasMixtos,
+        respuestasIncorrectasNegras, respuestasIncorrectasAzules, respuestasIncorrectasMixtos,
+        respuestasOmitidasNegras, respuestasOmitidasAzules, respuestasOmitidasMixtos;
+    
+    //Variables auxiliares de salida
+    long tiempoValidoNegras, tiempoValidoAzules, tiempoValidoMixtos, tiempoShiftingAlternado, tiempoRepeticionesAlternado,
+         tiempoCorrectasNegras, tiempoCorrectasAzules, tiempoCorrectasMixtos,
+         tiempoShiftingAlternadoCorrectas, tiempoRepeticionesAlternadoCorrectas;
+    
+    //variables auxiliares
+    long tiempoInicioAuxiliarA, tiempoInicioAuxiliarB;
+    boolean correcta;
 
     //Constructor de la clase global local
     private ControlGlobalLocal() {
+        objetoLocalGlobal = new Globallocal();
     }
 
     /**
@@ -115,12 +130,6 @@ public class ControlGlobalLocal {
             }
         }
         
-        System.out.println("------------------------");
-        System.out.println("Circulos: " + circulo);
-        System.out.println("Equis: " + equis);
-        System.out.println("Triangulos: " + triangulo);
-        System.out.println("Cuadrado: " + cuadrado);
-        
         return auxiliar;
     }
     
@@ -157,12 +166,6 @@ public class ControlGlobalLocal {
             }
         }
         
-        System.out.println("------------------------");
-        System.out.println("Circulos: " + circulo);
-        System.out.println("Equis: " + equis);
-        System.out.println("Triangulos: " + triangulo);
-        System.out.println("Cuadrado: " + cuadrado);
-        
         return auxiliar;
     }
     
@@ -186,10 +189,6 @@ public class ControlGlobalLocal {
                 return contadorSeriesMixtos();
             }
         } 
-        
-        System.out.println("------------------------");
-        System.out.println("Repetidas: " + seriesRepetidas);
-        System.out.println("Shifting: " + seriesShifting);
         
         return auxiliar;
     }
@@ -225,7 +224,6 @@ public class ControlGlobalLocal {
         } catch (InterruptedException ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error");
         }
-        
     }
     
     /**
@@ -285,13 +283,25 @@ public class ControlGlobalLocal {
                 this.etiquetaNombre.setText("Cuadrado");
                 break;
         }
-
+        
+        long inicio = System.currentTimeMillis();
+        tiempoInicioAuxiliarA = inicio;
+        
         try {
             wait(10000);
         } catch (InterruptedException ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error");
         }
         
+        long transcurrido = System.currentTimeMillis() - inicio;
+        
+        if(transcurrido >= 10000) {
+             respuestasOmitidasNegras++;
+        }
+        
+        if(transcurrido >= 200) {
+            tiempoValidoNegras += transcurrido;
+        }
     }
     
     /**
@@ -352,10 +362,23 @@ public class ControlGlobalLocal {
                 break;
         }
 
+        long inicio = System.currentTimeMillis();
+        tiempoInicioAuxiliarA = inicio;
+        
         try {
             wait(10000);
         } catch (InterruptedException ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error");
+        }
+        
+        long transcurrido = System.currentTimeMillis() - inicio;
+        
+        if(transcurrido >= 10000) {
+             respuestasOmitidasAzules++;
+        }
+        
+        if(transcurrido >= 200) {
+            tiempoValidoAzules += transcurrido;
         }
     }
     
@@ -366,9 +389,9 @@ public class ControlGlobalLocal {
         int ejercicio = contadorSeriesMixtos();
 
         if (ejercicio == 1) {
-
             int orden = ThreadLocalRandom.current().nextInt(1, 2 + 1);
-
+            long tiempoInicio = System.currentTimeMillis();
+            
             if (orden == 1) {
                 int contador = 0;
 
@@ -400,10 +423,17 @@ public class ControlGlobalLocal {
                     getEtiquetaRespuesta().setText("");
                 }
             }
+            
+            long transcurrido = System.currentTimeMillis() - tiempoInicio;
+            
+            if(transcurrido > 200) {
+                tiempoShiftingAlternado += transcurrido;
+            }
+            
         } else {
-
             int orden = ThreadLocalRandom.current().nextInt(1, 2 + 1);
-
+            long tiempoInicio = System.currentTimeMillis();
+            
             if (orden == 1) {
                 int contador = 0;
 
@@ -447,11 +477,17 @@ public class ControlGlobalLocal {
                     getEtiquetaRespuesta().setText("");
                 }
             }
+            
+            long transcurrido = System.currentTimeMillis() - tiempoInicio;
+            
+            if(transcurrido > 200) {
+                tiempoRepeticionesAlternado += transcurrido;
+            }
+            
         }
     }
     
     private synchronized void practicaActividadMixtoB(int figura) {
-        
         switch (figura) {
             case 1:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circulocua.png")));
@@ -551,12 +587,24 @@ public class ControlGlobalLocal {
                 break;
         }
         
+        long inicio = System.currentTimeMillis();
+        tiempoInicioAuxiliarA = inicio;
+        
         try {
             wait(10000);
         } catch (InterruptedException ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error");
         }
         
+        long transcurrido = System.currentTimeMillis() - inicio;
+
+        if(transcurrido >= 10000) {
+             respuestasOmitidasMixtos++;
+        }
+        
+        if(transcurrido >= 200) {
+            tiempoValidoMixtos += transcurrido;
+        }
     }
     
     /**
@@ -564,23 +612,55 @@ public class ControlGlobalLocal {
      * @param respuesta
      * @param etiquetaNombre 
      * @param actividad 
+     * @param tipo 
      */
-    public synchronized void respuestas(String respuesta, JLabel etiquetaNombre, boolean actividad) {
+    public synchronized void respuestas(String respuesta, JLabel etiquetaNombre, boolean actividad, String tipo) {
         if (respuesta.equals(etiquetaNombre.getText())) {
             this.etiquetaRespuesta.setText("Correcto");
-            
-            if(actividad){
-                //Aquí capturarás las respuestas, pero solo en la actividad
+            if (actividad) {
+                if (tipo.equalsIgnoreCase("g")) {
+                    long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliarA;
+                    
+                    if(transcurrido > 200) {
+                        tiempoCorrectasNegras += transcurrido;
+                        respuestasCorrectasNegras++;
+                    }
+                } else if (tipo.equalsIgnoreCase("p")) {
+                    long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliarA;
+                    
+                    if(transcurrido > 200) {
+                        tiempoCorrectasAzules += transcurrido;
+                        respuestasCorrectasAzules++;
+                    }
+                    
+                } else if (tipo.equalsIgnoreCase("m")) {
+                    long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliarA;
+                    
+                    if(transcurrido > 200) {
+                        tiempoCorrectasMixtos += transcurrido;
+                        respuestasCorrectasMixtos++;
+                    }
+                    
+                } else {
+                    //Nothing happens
+                }
             }
-            
             notifyAll();
         } else {
             this.etiquetaRespuesta.setText("Incorrecto");
-            
-            if(actividad) {
-                //Aquí capturarás las respuestas, pero solo en la actividad
+            if (actividad) {
+                if (actividad) {
+                    if (tipo.equalsIgnoreCase("g")) {
+                        respuestasIncorrectasNegras++;
+                    } else if (tipo.equalsIgnoreCase("p")) {
+                        respuestasIncorrectasAzules++;
+                    } else if (tipo.equalsIgnoreCase("m")) {
+                        respuestasIncorrectasMixtos++;
+                    } else {
+                        //Nothing happens
+                    }
+                }
             }
-            
             notifyAll();
         }
     }
@@ -656,7 +736,7 @@ public class ControlGlobalLocal {
         @Override
         public void run() {
             while (contadorHiloActividadGrande < 32) {
-                //numerosSwingPractica();
+                
                 practicaActividadFigurasGrandes();
                 try {
                     Thread.sleep(500);
@@ -710,6 +790,7 @@ public class ControlGlobalLocal {
     Runnable runnableActividadPequeñas = new Runnable() {
         @Override
         public void run() {
+            
             while (contadorHiloActividadPequeñas < 32) {
                 //numerosSwingPractica();
                 practicaActividadFigurasPequeñas();
@@ -721,6 +802,7 @@ public class ControlGlobalLocal {
                 getEtiquetaRespuesta().setText("");
                 contadorHiloActividadPequeñas++;
             }
+            
         }
     };
     
@@ -754,7 +836,7 @@ public class ControlGlobalLocal {
     Runnable runnableActividadMixtas = new Runnable() {
         @Override
         public void run() {
-            while (contadorHiloMixtoPractica < 48) {
+            while (contadorHiloMixtoActividad < 48) {
                 //numerosSwingPractica();
                 practicaActividadMixtoA();
                 try {
@@ -763,10 +845,70 @@ public class ControlGlobalLocal {
 
                 }
                 getEtiquetaRespuesta().setText("");
-                contadorHiloMixtoPractica++;
+                contadorHiloMixtoActividad++;
             }
         }
     };
+    
+    public void calculosGlobalLocal() {
+        //I - Tn
+        this.objetoLocalGlobal.setTiempoNegras((double) this.tiempoValidoNegras);
+        
+        //II - Tz
+        this.objetoLocalGlobal.setTiempoAzules((double) this.tiempoValidoAzules);
+        
+        //III - Ta
+        this.objetoLocalGlobal.setTiempoAlternado((double) this.tiempoValidoMixtos);
+        
+        //IV - Tt
+        this.objetoLocalGlobal.setTiempoTotal((double)(tiempoValidoNegras + tiempoValidoAzules + tiempoValidoMixtos));
+        
+        //V - CGt
+        this.objetoLocalGlobal.setShiftingGlobalTotal((double)(tiempoValidoMixtos - 
+                                                              ((tiempoValidoNegras + tiempoValidoAzules)/2)));
+        
+        //VI - CLt
+        this.objetoLocalGlobal.setShiftingLocalTotal((double)(tiempoShiftingAlternado - tiempoRepeticionesAlternado));
+        
+        //VII - CGc
+        this.objetoLocalGlobal.setShiftingGlobalTotalCorrectas((double)(tiempoCorrectasMixtos - 
+                                                              ((tiempoCorrectasNegras + tiempoCorrectasAzules)/2)));
+        
+        //TCa = tiempoCorrectoMixtos
+        //TCn = tiempoCorrectasNegras
+        //TCz = tiempoCorrectasAzules
+        
+        //VIII - CLc
+        //Está pendiente
+        
+        //IX - RCn
+        this.objetoLocalGlobal.setCorrectasNegras(respuestasCorrectasNegras);
+        
+        //X - RCz
+        this.objetoLocalGlobal.setCorrectasAzules(respuestasCorrectasAzules);
+        
+        //XI - RCa
+        this.objetoLocalGlobal.setCorrectasAlternado(respuestasCorrectasMixtos);
+        
+        //XII - RCt
+        this.objetoLocalGlobal.setCorrectasTotales(respuestasCorrectasNegras + respuestasCorrectasAzules + respuestasCorrectasMixtos);
+        
+        //TPn
+        double tiempoReaccionPromedioNegras = tiempoCorrectasNegras / respuestasCorrectasNegras;
+                
+        //TPz
+        double tiempoReaccionPromedioAzules = tiempoCorrectasAzules / respuestasCorrectasAzules;
+                
+        //TPa        
+        double tiempoReaccionPromedioMixto = tiempoCorrectasMixtos / respuestasCorrectasMixtos;
+        
+        //XIII - CGp
+        this.objetoLocalGlobal.setShiftingGlobalReaccionCorrectas((double)(tiempoReaccionPromedioMixto - 
+                                                     ((tiempoReaccionPromedioNegras + tiempoReaccionPromedioAzules)/2)));
+        
+        
+        
+    }
 
     public JLabel getEtiquetaImagen() {
         return etiquetaImagen;
@@ -798,6 +940,14 @@ public class ControlGlobalLocal {
 
     public void setRepeticiones(int repeticiones) {
         this.repeticiones = repeticiones;
+    }
+
+    public Globallocal getObjetoLocalGlobal() {
+        return objetoLocalGlobal;
+    }
+
+    public void setObjetoLocalGlobal(Globallocal objetoLocalGlobal) {
+        this.objetoLocalGlobal = objetoLocalGlobal;
     }
     
 }
