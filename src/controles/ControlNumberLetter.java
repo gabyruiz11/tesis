@@ -1057,22 +1057,25 @@ public class ControlNumberLetter {
      * @param frame
      * @return
      */
-    public Object instruccionesPantalla(JFrame frame) {
+    public Object instruccionesPantalla(JFrame frame, JLabel label) {
         switch (contadoraux) {
             case 0:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Antes de iniciar con esta actividad, realizarás \n"
                         + "un ejercicio para que te familiarices con los\n"
                         + "números pares e impares.");
             case 1:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, indicarás si el número que \n"
                         + "aparece en el centro de la pantalla pertenece \n"
                         + "a la categoría “PAR”, presionando la \n"
-                        + "tecla “N”. O si pertenece a la categoría \n"
-                        + "“IMPAR”, presionando la tecla “M”.");
+                        + "tecla “P”. O si pertenece a la categoría \n"
+                        + "“IMPAR”, presionando la tecla “I”.");
             case 2:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_par-impar.png")));
                 return ("Por favor, coloca tus dedos índice y medio \n"
-                        + "de la mano derecha en las teclas “N” (pares)\n"
-                        + "y “M” (impares). ");
+                        + "de la mano derecha en las teclas “P” (pares)\n"
+                        + "y “I” (impares). ");
             case 3:
                 frame.setVisible(false);
                 FamiliarizacionNumeros imagenNumeros = new FamiliarizacionNumeros();
@@ -1080,23 +1083,26 @@ public class ControlNumberLetter {
                 this.setPantalla(imagenNumeros);
             case 4:
                 this.setContadoraux(this.getContadoraux() + 1);
-                
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_par-impar.png")));
                 return ("Recuerda solo presionar: \n"
                         + "\n"
-                        + "Tecla «N»: Número par \n"
+                        + "Tecla «P»: Número par \n"
                         + "\n"
-                        + "Tecla «M»: Número impar \n"
+                        + "Tecla «I»: Número impar \n"
                         + "\n"
                         + "Añadir teclado");
             case 5:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("La actividad está por comenzar.\n\n"
                         + "Ésta consistirá en que se te mostrarán un número \n"
                         + "y una letra juntos en la parte superior de la \n"
                         + "pantalla, ya sea a la derecha o a la izquierda.");
             case 6:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Lo que harás es indicar si el número es par o impar, \n"
                         + "justo como lo hiciste en el ejercicio anterior.");
             case 7:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, podrás ver un ejemplo sobre\n"
                         + "cómo se presentarán el número y letra, \n"
                         + "así como la manera de responder.");
@@ -1108,11 +1114,12 @@ public class ControlNumberLetter {
 
             case 9:
                 this.setContadoraux(this.getContadoraux() + 1);
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora, se te mostrará una serie de parejas \n"
                         + "de número y letra para practicar. \n \n"
                         + "Trata de responder lo más rápido que puedas. \n\n"
-                        + "Recuerda presionar la tecla “N” para los pares\n"
-                        + "y la tecla “M” para los impares.");
+                        + "Recuerda presionar la tecla “P” para los pares\n"
+                        + "y la tecla “I” para los impares.");
             case 10:
                 frame.setVisible(false);
                 PracticaNumeros practicanumeros = new PracticaNumeros();
@@ -1120,8 +1127,10 @@ public class ControlNumberLetter {
                 this.setPantalla(practicanumeros);
             case 11:
                 this.setContadoraux(this.getContadoraux() + 1);
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste los ejercicios de práctica.");
             case 12:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora comenzará la actividad.  \n \n"
                         + "Así que, se dejará de indicar cuando la respuesta sea \n"
                         + "correcta e incorrecta. \n\n"
@@ -1134,17 +1143,19 @@ public class ControlNumberLetter {
                 this.setPantalla(actividadNumeros);
             case 14:
                 this.setContadoraux(this.getContadoraux() + 1);
-                
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Antes de continuar con la siguiente parte de \n"
                         + "la actividad, realizarás un ejercicio para que \n"
                         + "te familiarices con las letras vocales y \n"
                         + "consonantes.");
             case 15:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, indicarás si la letra que\n"
                         + "aparece en el centro de la pantalla pertenece\n"
                         + "a la categoría “CONSONANTE”, presionando la tecla “C”.\n"
                         + " O si pertenece a la categoría “VOCAL”, presionando la tecla “V”.\n");
             case 16:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_consonante-vocal.png")));
                 return ("Coloca por favor tus dedos índice y medio de\n"
                         + "la mano izquierda en las teclas “C”\n"
                         + "(consonante) y “V” (vocal).");
@@ -1155,22 +1166,24 @@ public class ControlNumberLetter {
                 this.setPantalla(frameLetras);
             case 18:
                 this.setContadoraux(this.getContadoraux() + 1);
-                
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_consonante-vocal.png")));
                 return ("Recuerda solo presionar:\n\n"
                         + "Tecla «C»: Letra consonante\n"
                         + "\n"
                         + "Tecla «V»: Letra vocal");
             case 19:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En seguida realizarás la siguiente parte de la actividad.\n\n"
                         + "En ésta, el par número-letra\n"
                         + "aparecerá en la parte inferior de la pantalla,\n"
                         + "ya sea a la derecha o a la izquierda.");
             case 20:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Lo que harás es indicar si la letra es\n"
-                        + "CONSONANTE o VOCAL, justo como lo hiciste en\n"
+                        + "consonante o vocal, justo como lo hiciste en\n"
                         + "el ejercicio anterior.");
             case 21:
-
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, podrás ver un ejemplo sobre\n"
                         + "cómo se presentarán el número-letra, así\n"
                         + "como la manera de responder.");
@@ -1181,10 +1194,10 @@ public class ControlNumberLetter {
                 this.setPantalla(instruccionesPantallas2);
             case 23:
                 this.setContadoraux(this.getContadoraux() + 1);
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora, se te mostrará una serie de parejas \n"
                         + "de número y letra para practicar. \n \n"
                         + "Trata de responder lo más rápido que puedas.");
-                
             case 24:
                 frame.setVisible(false);
                 PracticaLetras practicaletras = new PracticaLetras();
@@ -1192,8 +1205,10 @@ public class ControlNumberLetter {
                 this.setPantalla(practicaletras);
             case 25:
                 this.setContadoraux(this.getContadoraux() + 1);
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste los ejercicios de práctica.");
             case 26:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora va a comenzar la actividad.\n\n "
                         + "Así que, se dejará de indicar cuando la respuesta sea\n"
                         + "correcta e incorrecta.\n\n "
@@ -1205,12 +1220,14 @@ public class ControlNumberLetter {
                 this.setPantalla(actividadeLetras);
             case 28:
                 this.setContadoraux(this.getContadoraux() + 1);
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora, el par número-letra se presentará en\n"
                         + "cada uno de los cuatro cuadrantes de la\n"
                         + "pantalla en el sentido de las manecillas del\n"
                         + "reloj (arriba-derecha, arriba-izquierda,\n"
                         + "abajo-izquierda y abajo-derecha).");
             case 29:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_consonante-vocal.png")));
                 return ("Cuando el par número-letra esté en alguno\n"
                         + "de los dos cuadrantes de ARRIBA, indicarás\n"
                         + "si el número es PAR o IMPAR. Cuando se\n"
@@ -1218,6 +1235,7 @@ public class ControlNumberLetter {
                         + "de ABAJO, indicarás si la letra es\n"
                         + "CONSONANTE o VOCAL.");
             case 30:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, se te mostrará una serie de\n"
                         + "parejas de número-letra para practicar. Trata\n"
                         + "de responder lo más rápido que puedas.");
@@ -1227,29 +1245,34 @@ public class ControlNumberLetter {
                 mixtoPractica.setVisible(true);
                 this.setPantalla(mixtoPractica);
             case 32:
-                this.setContadoraux(this.getContadoraux() + 1);
-                return ("¡Muy bien! Terminaste los ejercicios de práctica.");
-            case 33:
-                return ("Ahora va a comenzar la actividad. Así que,\n"
-                        + "se dejará de indicar cuando la respuesta sea\n"
-                        + "correcta e incorrecta. Haz tu mejor esfuerzo\n"
-                        + "y trata de responder lo más rápido posible.");
-            case 34:
-                return ("Recuerda solo presionar:\n"
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_consonante-vocal.png")));
+                return("Recuerda solo presionar:\n"
                         + "\n"
-                        + "Tecla «N»: Número par\n"
+                        + "Tecla «P»: Número par\n"
                         + "\n"
-                        + "Tecla «M»: Número impar\n"
+                        + "Tecla «I»: Número impar\n"
                         + "\n"
                         + "Tecla «C»: Letra consonante\n"
                         + "\n"
                         + "Tecla «V»: Letra vocal");
+                
+            case 33:
+                this.setContadoraux(this.getContadoraux() + 1);
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
+                return ("¡Muy bien! Terminaste los ejercicios de práctica.");
+            case 34:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
+                return ("Ahora va a comenzar la actividad. Así que,\n"
+                        + "se dejará de indicar cuando la respuesta sea\n"
+                        + "correcta e incorrecta. Haz tu mejor esfuerzo\n"
+                        + "y trata de responder lo más rápido posible.");
             case 35:
                 frame.setVisible(false);
                 MixtoActividad mixtoActividad = new MixtoActividad();
                 mixtoActividad.setVisible(true);
                 this.setPantalla(mixtoActividad);
             default:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return "¡Excelente trabajo! Lo hiciste muy bien. Has \n"
                         + "terminado con esta actividad."
                         + "\n\nFIN DE ACTIVIDAD";

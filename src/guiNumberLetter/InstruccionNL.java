@@ -22,6 +22,9 @@ public class InstruccionNL extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     GridBagConstraints gbc = new GridBagConstraints();
+    GridBagConstraints gbcIzquierda = new GridBagConstraints();
+    GridBagConstraints gbcDerecha = new GridBagConstraints();
+    GridBagConstraints gbcPanel = new GridBagConstraints();
     int contador = 0;
 
     public InstruccionNL() {
@@ -33,13 +36,33 @@ public class InstruccionNL extends javax.swing.JFrame {
         this.setSize((int) d.getWidth(), (int) d.getHeight());
         jPanel2.setSize((int) d.getWidth(), (int) d.getHeight());
         jPanel2.setLayout(new GridBagLayout());
-        gbc.gridwidth = 2; // El área de texto ocupa dos columnas.
-        gbc.gridheight = 2; // El área de texto ocupa 2 filas.
-        gbc.fill = GridBagConstraints.CENTER;
-        gbc.fill = GridBagConstraints.BOTH;
-        jPanel2.add(jLabel1, gbc);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/instruccionesNL.png")));
+//        gbc.gridwidth = 2; // El área de texto ocupa dos columnas.
+//        gbc.gridheight = 2; // El área de texto ocupa 2 filas.
+//        gbc.fill = GridBagConstraints.CENTER;
+//        gbc.fill = GridBagConstraints.BOTH;
+//        jPanel2.add(jLabel1, gbc);
         
+        /**
+         * Grid Izquierda
+         */
+        gbcIzquierda.fill = GridBagConstraints.HORIZONTAL;
+        gbcIzquierda.gridx = 1;
+        gbcIzquierda.gridy = 0;
+        gbcIzquierda.weightx = 0;
+        gbcIzquierda.weighty = 0;
+        /**
+         * Grid Derecho
+         */
+        gbcDerecha.fill = GridBagConstraints.HORIZONTAL;
+        gbcDerecha.weightx = 0;
+        gbcDerecha.weighty = 0;
+        gbcDerecha.gridx = 2;
+        gbcDerecha.gridy = 0;
+        
+        jPanel2.add(jLabel1, gbcIzquierda);
+        jPanel2.add(jLabel2, gbcDerecha);
+        
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/instruccionesNL.png")));
         jPanel2.requestFocus();
     }
 
@@ -54,6 +77,7 @@ public class InstruccionNL extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,14 +97,18 @@ public class InstruccionNL extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(205, 205, 205)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(118, 118, 118)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
 
@@ -152,6 +180,7 @@ public class InstruccionNL extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

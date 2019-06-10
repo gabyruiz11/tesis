@@ -21,16 +21,16 @@ import javax.swing.text.StyleConstants;
  * @author Gabriela Guadalupe Ruiz Mora
  */
 public class InstruccionesNumberLetter extends javax.swing.JFrame {
+
     private static InstruccionesNumberLetter instrucciones;
     /**
      * Creates new form InstruccionesNumberLetter
      */
-     GridBagConstraints gbc = new GridBagConstraints();
-     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
-      //Variable contador que sirve para cambiar las instrucciones
- 
+    GridBagConstraints gbc = new GridBagConstraints();
+    GridBagConstraints gbc2 = new GridBagConstraints();
+    ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
+    //Variable contador que sirve para cambiar las instrucciones
 
-     
     public InstruccionesNumberLetter() {
         initComponents();
         //inicializa el jtextpanel
@@ -44,12 +44,20 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
         this.add(jPanel1, BorderLayout.CENTER);
         //se centra el texPanel en el panel
         jPanel1.setLayout(new GridBagLayout());
-        gbc.gridwidth = 2; // El área de texto ocupa dos columnas.
-        gbc.gridheight = 2; // El área de texto ocupa 2 filas.
+        gbc.gridwidth = 1; // El área de texto ocupa dos columnas.
+        gbc.gridheight = 1; // El área de texto ocupa 2 filas.
         gbc.weightx = 2;
-        gbc.weightx = 0.1;
-        gbc.fill = GridBagConstraints.CENTER;
+        // gbc.weightx = 0.1;
+        gbc.gridy = 0;
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.BOTH;
+        gbc2.anchor = GridBagConstraints.PAGE_END;
+        gbc2.weightx = 2;
+        gbc2.gridy = 1;
+        gbc2.gridx = 1;
+
+        jPanel1.add(jLabel1, gbc2);
         jPanel1.add(jTextPane1, gbc);
         //Se centra el texto que se encuentra dentro del jtextpanel
         javax.swing.text.StyledDocument doc = jTextPane1.getStyledDocument();
@@ -57,10 +65,10 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
         StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
         jPanel1.requestFocus();
-        jTextPane1.setVisible(true);        
-        jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this)));
+        jTextPane1.setVisible(true);
+        jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
     }
-    
+
     public static InstruccionesNumberLetter getSingletonInstance() {
         if (instrucciones == null) {
             instrucciones = new InstruccionesNumberLetter();
@@ -68,6 +76,7 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
         }
         return instrucciones;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +89,7 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,7 +100,6 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
             }
         });
 
-        jTextPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTextPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jTextPane1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -109,13 +118,19 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,11 +153,11 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
-            control.setContadoraux(control.getContadoraux()+ 1);
-            jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this)));  
+            control.setContadoraux(control.getContadoraux() + 1);
+            jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
         }
     }//GEN-LAST:event_jPanel1KeyPressed
- /**
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -177,8 +192,9 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
             }
         });
     }
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
