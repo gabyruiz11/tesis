@@ -49,24 +49,33 @@ public class MixtoActividad extends javax.swing.JFrame {
         this.add(panelPrincipal, BorderLayout.CENTER);
         //se centra el texPanel en el panel
         panelPrincipal.setLayout(new GridBagLayout());
-        jPanel1.setLayout(new GridBagLayout());
-        jPanel1.add(etiquetaRespuesta);
-        jPanel1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-//        valorBIzquierdo.setHorizontalAlignment(SwingConstants.LEFT);
-
+        /**
+         * alineacion de texto en jlabel
+         */
+        valorAInferiorDerecho.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorAInferiorIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorASuperiorDerecho.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorASuperiorIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorBInferiorDerecho.setHorizontalAlignment(SwingConstants.LEFT);
+        valorBInferiorIzquierdo.setHorizontalAlignment(SwingConstants.LEFT);
+        valorBSuperiorDerecho.setHorizontalAlignment(SwingConstants.LEFT);
+        valorBSuperiorIzquierdo.setHorizontalAlignment(SwingConstants.LEFT);
+        
         /**
          * Grid superior izquierda
          */
         gbcIzquierda.fill = GridBagConstraints.HORIZONTAL;
-        gbcIzquierda.gridx = 1;
+        gbcIzquierda.gridwidth=1;
+        gbcIzquierda.gridx = 0;
         gbcIzquierda.gridy = 0;
-        gbcIzquierda.weightx = 1;
+        gbcIzquierda.weightx = 0;
         gbcIzquierda.weighty = 0;
         /**
          * Grid superiro derecha 
          */
         gbcDerecha.fill = GridBagConstraints.HORIZONTAL;
-        gbcDerecha.weightx = 1;
+        gbcDerecha.gridwidth=1;
+        gbcDerecha.weightx = 0;
         gbcDerecha.weighty = 0;
         gbcDerecha.gridx = 2;
         gbcDerecha.gridy = 0;
@@ -74,21 +83,26 @@ public class MixtoActividad extends javax.swing.JFrame {
          * Grid Inferior izquierdo
          */
         gbcInferiorIzquierda.fill = GridBagConstraints.HORIZONTAL;
-        gbcInferiorIzquierda.gridx = 1;
+        gbcInferiorIzquierda.gridx = 0;
         gbcInferiorIzquierda.gridwidth = 1;
         gbcInferiorIzquierda.gridy = 2;
+        gbcIzquierda.weightx = 0;
+        gbcIzquierda.weighty = 0;
         /**
          * Grid Inferiro derecho
          */
         gbcInferiorDerecha.fill = GridBagConstraints.HORIZONTAL;
+        gbcDerecha.weightx = 0;
+        gbcDerecha.weighty = 0;
         gbcInferiorDerecha.gridx = 2;
         gbcInferiorDerecha.gridwidth = 1;
         gbcInferiorDerecha.gridy = 2;
+        
         /**
          * Grid de invisible 
          */
         gbcPanel.fill = GridBagConstraints.BOTH;
-        gbcPanel.ipady = 250;      //make this component tall
+        gbcPanel.ipady = 250;      
         gbcPanel.weightx = 0.0;
         gbcPanel.gridwidth = 3;
         gbcPanel.gridx = 0;
@@ -99,7 +113,6 @@ public class MixtoActividad extends javax.swing.JFrame {
         panelPrincipal.add(panelSuperiorIzquierdo, gbcIzquierda);
         panelPrincipal.add(panelInferiorIzquierdo, gbcInferiorIzquierda);
         panelPrincipal.add(panelInferiorDerecho, gbcInferiorDerecha);
-        panelPrincipal.add(panelSuperiorDerecho, gbcDerecha);
         panelPrincipal.add(panelSuperiorDerecho, gbcDerecha);
         panelPrincipal.add(jPanel1, gbcPanel);
 
@@ -157,109 +170,103 @@ public class MixtoActividad extends javax.swing.JFrame {
 
         panelSuperiorDerecho.setBackground(new java.awt.Color(255, 255, 255));
 
-        valorASuperiorDerecho.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorASuperiorDerecho.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
-        valorBSuperiorDerecho.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorBSuperiorDerecho.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
         javax.swing.GroupLayout panelSuperiorDerechoLayout = new javax.swing.GroupLayout(panelSuperiorDerecho);
         panelSuperiorDerecho.setLayout(panelSuperiorDerechoLayout);
         panelSuperiorDerechoLayout.setHorizontalGroup(
             panelSuperiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSuperiorDerechoLayout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
-                .addComponent(valorASuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSuperiorDerechoLayout.createSequentialGroup()
+                .addGap(0, 106, Short.MAX_VALUE)
+                .addComponent(valorASuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelSuperiorDerechoLayout.setVerticalGroup(
             panelSuperiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSuperiorDerechoLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addGroup(panelSuperiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valorASuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorBSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(valorASuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorBSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         panelInferiorIzquierdo.setBackground(new java.awt.Color(255, 255, 255));
 
-        valorAInferiorIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorAInferiorIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
-        valorBInferiorIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorBInferiorIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
         javax.swing.GroupLayout panelInferiorIzquierdoLayout = new javax.swing.GroupLayout(panelInferiorIzquierdo);
         panelInferiorIzquierdo.setLayout(panelInferiorIzquierdoLayout);
         panelInferiorIzquierdoLayout.setHorizontalGroup(
             panelInferiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInferiorIzquierdoLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(valorAInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addComponent(valorAInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 132, Short.MAX_VALUE))
         );
         panelInferiorIzquierdoLayout.setVerticalGroup(
             panelInferiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInferiorIzquierdoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addGroup(panelInferiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valorAInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorBInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(valorAInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorBInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         panelSuperiorIzquierdo.setBackground(new java.awt.Color(255, 255, 255));
 
-        valorASuperiorIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorASuperiorIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
-        valorBSuperiorIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorBSuperiorIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
         javax.swing.GroupLayout panelSuperiorIzquierdoLayout = new javax.swing.GroupLayout(panelSuperiorIzquierdo);
         panelSuperiorIzquierdo.setLayout(panelSuperiorIzquierdoLayout);
         panelSuperiorIzquierdoLayout.setHorizontalGroup(
             panelSuperiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSuperiorIzquierdoLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(valorASuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addComponent(valorASuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 141, Short.MAX_VALUE))
         );
         panelSuperiorIzquierdoLayout.setVerticalGroup(
             panelSuperiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSuperiorIzquierdoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelSuperiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valorBSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorASuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                    .addComponent(valorBSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorASuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 66, Short.MAX_VALUE))
         );
 
         panelInferiorDerecho.setBackground(new java.awt.Color(255, 255, 255));
 
-        valorAInferiorDerecho.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorAInferiorDerecho.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
-        valorBInferiorDerecho.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorBInferiorDerecho.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
         javax.swing.GroupLayout panelInferiorDerechoLayout = new javax.swing.GroupLayout(panelInferiorDerecho);
         panelInferiorDerecho.setLayout(panelInferiorDerechoLayout);
         panelInferiorDerechoLayout.setHorizontalGroup(
             panelInferiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInferiorDerechoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(valorAInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(valorAInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelInferiorDerechoLayout.setVerticalGroup(
             panelInferiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInferiorDerechoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInferiorDerechoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panelInferiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(valorBInferiorDerecho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(valorAInferiorDerecho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(valorBInferiorDerecho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(valorAInferiorDerecho, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -295,7 +302,7 @@ public class MixtoActividad extends javax.swing.JFrame {
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(panelSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 398, Short.MAX_VALUE)
                         .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panelSuperiorDerecho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelInferiorDerecho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

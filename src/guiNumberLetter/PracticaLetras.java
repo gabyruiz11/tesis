@@ -36,52 +36,6 @@ public class PracticaLetras extends javax.swing.JFrame {
      * Creates new form PracticaNumeros
      */
     public PracticaLetras() {
-        
-//        //se cambia el tamaño del panel y el frame para que este a la resolucion de la pantalla
-//        initComponents();
-//        Toolkit tk = Toolkit.getDefaultToolkit();
-//        Dimension d = tk.getScreenSize();
-//        this.setExtendedState(MAXIMIZED_BOTH);
-//        etiquetaRespuesta.setHorizontalAlignment(SwingConstants.CENTER);
-//        gbcRespuesta.fill = GridBagConstraints.BOTH;
-//        this.setSize((int) d.getWidth(), (int) d.getHeight());
-//        panelPrincipal.setSize((int) d.getWidth(), (int) d.getHeight());
-//        this.add(panelPrincipal, BorderLayout.CENTER);
-//        //se centra el texPanel en el panel
-//        panelPrincipal.setLayout(new GridBagLayout());
-//        gbcRespuesta.anchor = GridBagConstraints.PAGE_START;
-//        valorAIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
-//        valorBIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
-//        gbcRespuesta.gridx = 0;
-//        gbcRespuesta.weighty = 0;
-//        gbcRespuesta.gridwidth = 3;
-//        gbcRespuesta.gridy = 0;
-//        gbcRespuesta.weightx = 1;
-////        gbcIzquierda.gridx = 1;
-////        gbcIzquierda.gridy = 0;
-////        gbcIzquierda.weightx = 1;
-////        gbcIzquierda.weighty = 0;
-//        gbcIzquierda.fill = GridBagConstraints.HORIZONTAL;
-////        gbcRespuesta.gridx = 1;
-////        gbcRespuesta.gridwidth = 2;
-////        gbcRespuesta.gridy = 2;
-//        gbcIzquierda.gridx = 0;
-//        gbcIzquierda.gridwidth = 1;
-//        gbcIzquierda.gridy = 2;
-//        gbcPanel.fill = GridBagConstraints.BOTH;
-//        gbcPanel.ipady = 250;      //make this component tall
-//        gbcPanel.weightx = 0.0;
-//        gbcPanel.gridwidth = 3;
-//        gbcPanel.gridx = 0;
-//        gbcPanel.gridy = 1;
-//        gbcDerecha.fill = GridBagConstraints.HORIZONTAL;
-//        gbcDerecha.gridx = 2;
-//        gbcDerecha.gridwidth = 1;
-//        gbcDerecha.gridy = 2;
-//        panelPrincipal.add(panelIzquierdo, gbcIzquierda);
-//        panelPrincipal.add(panelDerecho, gbcDerecha);
-//        panelPrincipal.add(etiquetaRespuesta, gbcRespuesta);
-//        panelPrincipal.add(jPanel1, gbcPanel);
         initComponents();
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension d = tk.getScreenSize();
@@ -91,24 +45,18 @@ public class PracticaLetras extends javax.swing.JFrame {
         this.setSize((int) d.getWidth(), (int) d.getHeight());
         panelPrincipal.setSize((int) d.getWidth(), (int) d.getHeight());
         this.add(panelPrincipal, BorderLayout.CENTER);
-        //se centra el texPanel en el panel
         panelPrincipal.setLayout(new GridBagLayout());
         gbcRespuesta.anchor = GridBagConstraints.PAGE_START;
         valorAIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
-        valorBIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorBIzquierdo.setHorizontalAlignment(SwingConstants.LEFT);
+        valorADerecho.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorBDerecho.setHorizontalAlignment(SwingConstants.LEFT);
         gbcRespuesta.gridx = 0;
         gbcRespuesta.weighty = 0;
         gbcRespuesta.gridwidth = 2;
         gbcRespuesta.gridy = 0;
         gbcRespuesta.weightx = 1;
-//        gbcIzquierda.gridx = 1;
-//        gbcIzquierda.gridy = 0;
-//        gbcIzquierda.weightx = 1;
-//        gbcIzquierda.weighty = 0;
         gbcIzquierda.fill = GridBagConstraints.HORIZONTAL;
-//        gbcRespuesta.gridx = 1;
-//        gbcRespuesta.gridwidth = 2;
-//        gbcRespuesta.gridy = 2;
         gbcIzquierda.gridx = 0;
         gbcIzquierda.gridwidth = 2;
         gbcIzquierda.gridy = 2;
@@ -116,7 +64,7 @@ public class PracticaLetras extends javax.swing.JFrame {
         gbcIzquierda.weighty = 0;
 
         gbcPanel.fill = GridBagConstraints.BOTH;
-        gbcPanel.ipady = 250;      //make this component tall
+        gbcPanel.ipady = 250;      
         gbcPanel.weightx = 0.0;
         gbcPanel.gridwidth = 3;
         gbcPanel.gridx = 0;
@@ -130,7 +78,6 @@ public class PracticaLetras extends javax.swing.JFrame {
         gbcDerecha.gridy = 2;
         panelPrincipal.add(panelIzquierdo, gbcIzquierda);
         panelPrincipal.add(panelDerecho, gbcDerecha);
-        //panelPrincipal.add(jLabel1, gbcRespuesta);
         panelPrincipal.add(jPanel1, gbcPanel);
         
         etiquetas.add(valorADerecho);
@@ -174,11 +121,10 @@ public class PracticaLetras extends javax.swing.JFrame {
         });
 
         panelDerecho.setBackground(new java.awt.Color(255, 255, 255));
-        panelDerecho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        valorADerecho.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorADerecho.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
-        valorBDerecho.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorBDerecho.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
         javax.swing.GroupLayout panelDerechoLayout = new javax.swing.GroupLayout(panelDerecho);
         panelDerecho.setLayout(panelDerechoLayout);
@@ -186,49 +132,46 @@ public class PracticaLetras extends javax.swing.JFrame {
             panelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDerechoLayout.createSequentialGroup()
                 .addGap(0, 233, Short.MAX_VALUE)
-                .addComponent(valorADerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(valorADerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelDerechoLayout.setVerticalGroup(
             panelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDerechoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelDerechoLayout.createSequentialGroup()
                 .addGroup(panelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(valorBDerecho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(valorADerecho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         panelIzquierdo.setBackground(new java.awt.Color(255, 255, 255));
-        panelIzquierdo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        valorAIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorAIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
-        valorBIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        valorBIzquierdo.setFont(new java.awt.Font("Tahoma", 1, 43)); // NOI18N
 
         javax.swing.GroupLayout panelIzquierdoLayout = new javax.swing.GroupLayout(panelIzquierdo);
         panelIzquierdo.setLayout(panelIzquierdoLayout);
         panelIzquierdoLayout.setHorizontalGroup(
             panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIzquierdoLayout.createSequentialGroup()
-                .addComponent(valorAIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(valorAIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 246, Short.MAX_VALUE))
         );
         panelIzquierdoLayout.setVerticalGroup(
             panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIzquierdoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelIzquierdoLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(valorBIzquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(valorAIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         etiquetaRespuesta.setFont(new java.awt.Font("Tahoma", 0, 38)); // NOI18N
 
@@ -236,17 +179,11 @@ public class PracticaLetras extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
-                .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+            .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -269,7 +206,7 @@ public class PracticaLetras extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
                 .addGap(116, 116, 116)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelIzquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelDerecho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

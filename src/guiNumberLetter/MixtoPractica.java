@@ -23,21 +23,22 @@ import javax.swing.SwingConstants;
  * @author David Hermosillo
  */
 public class MixtoPractica extends javax.swing.JFrame {
-    
+
     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
     ArrayList<JLabel> etiquetas = new ArrayList<>();
-    
+
     GridBagConstraints gbcRespuesta = new GridBagConstraints();
     GridBagConstraints gbcIzquierda = new GridBagConstraints();
     GridBagConstraints gbcDerecha = new GridBagConstraints();
     GridBagConstraints gbcInferiorIzquierda = new GridBagConstraints();
     GridBagConstraints gbcInferiorDerecha = new GridBagConstraints();
     GridBagConstraints gbcPanel = new GridBagConstraints();
+
     /**
      * Creates new form PracticaNumeros
      */
     public MixtoPractica() {
-         initComponents();
+        initComponents();
         //se cambia el tamaño del panel y el frame para que este a la resolucion de la pantalla
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension d = tk.getScreenSize();
@@ -48,26 +49,36 @@ public class MixtoPractica extends javax.swing.JFrame {
         this.add(panelPrincipal, BorderLayout.CENTER);
         //se centra el texPanel en el panel
         panelPrincipal.setLayout(new GridBagLayout());
-        jPanel1.setLayout(new GridBagLayout());
-        jPanel1.add(etiquetaRespuesta);
-        jPanel1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-//        valorBIzquierdo.setHorizontalAlignment(SwingConstants.LEFT);
+        /**
+         * alineacion de texto en jlabel
+         */
+        valorAInferiorDerecho.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorAInferiorIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorASuperiorDerecho.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorASuperiorIzquierdo.setHorizontalAlignment(SwingConstants.RIGHT);
+        valorBInferiorDerecho.setHorizontalAlignment(SwingConstants.LEFT);
+        valorBInferiorIzquierdo.setHorizontalAlignment(SwingConstants.LEFT);
+        valorBSuperiorDerecho.setHorizontalAlignment(SwingConstants.LEFT);
+        valorBSuperiorIzquierdo.setHorizontalAlignment(SwingConstants.LEFT);
+        etiquetaRespuesta.setHorizontalAlignment(SwingConstants.CENTER);
 
         /**
          * Grid superior izquierda
          */
         gbcIzquierda.fill = GridBagConstraints.HORIZONTAL;
+        gbcIzquierda.gridwidth = 1;
         gbcIzquierda.gridx = 1;
         gbcIzquierda.gridy = 0;
-        gbcIzquierda.weightx = 1;
+        gbcIzquierda.weightx = 0;
         gbcIzquierda.weighty = 0;
         /**
-         * Grid superiro derecha 
+         * Grid superiro derecha
          */
         gbcDerecha.fill = GridBagConstraints.HORIZONTAL;
-        gbcDerecha.weightx = 1;
+        gbcDerecha.gridwidth = 1;
+        gbcDerecha.weightx = 0;
         gbcDerecha.weighty = 0;
-        gbcDerecha.gridx = 2;
+        gbcDerecha.gridx = 3;
         gbcDerecha.gridy = 0;
         /**
          * Grid Inferior izquierdo
@@ -76,45 +87,47 @@ public class MixtoPractica extends javax.swing.JFrame {
         gbcInferiorIzquierda.gridx = 1;
         gbcInferiorIzquierda.gridwidth = 1;
         gbcInferiorIzquierda.gridy = 2;
+        gbcIzquierda.weightx = 0;
+        gbcIzquierda.weighty = 0;
+
         /**
          * Grid Inferiro derecho
          */
         gbcInferiorDerecha.fill = GridBagConstraints.HORIZONTAL;
-        gbcInferiorDerecha.gridx = 2;
+        gbcDerecha.weightx = 0;
+        gbcDerecha.weighty = 0;
+        gbcInferiorDerecha.gridx = 3;
         gbcInferiorDerecha.gridwidth = 1;
         gbcInferiorDerecha.gridy = 2;
         /**
-         * Grid de invisible 
+         * Grid de invisible
          */
         gbcPanel.fill = GridBagConstraints.BOTH;
-        gbcPanel.ipady = 250;      //make this component tall
+        gbcPanel.ipady = 250;
         gbcPanel.weightx = 0.0;
-        gbcPanel.gridwidth = 3;
+        gbcPanel.gridwidth = 4;
         gbcPanel.gridx = 0;
         gbcPanel.gridy = 1;
         //etiquetaRespuesta.setHorizontalTextPosition(SwingConstants.CENTER);
-        
-        
+
         panelPrincipal.add(panelSuperiorIzquierdo, gbcIzquierda);
         panelPrincipal.add(panelInferiorIzquierdo, gbcInferiorIzquierda);
         panelPrincipal.add(panelInferiorDerecho, gbcInferiorDerecha);
         panelPrincipal.add(panelSuperiorDerecho, gbcDerecha);
-        panelPrincipal.add(panelSuperiorDerecho, gbcDerecha);
         panelPrincipal.add(jPanel1, gbcPanel);
-       
-        
+
         etiquetas.add(valorASuperiorIzquierdo);
         etiquetas.add(valorBSuperiorIzquierdo);
-        
+
         etiquetas.add(valorASuperiorDerecho);
         etiquetas.add(valorBSuperiorDerecho);
-        
+
         etiquetas.add(valorAInferiorDerecho);
         etiquetas.add(valorBInferiorDerecho);
-        
+
         etiquetas.add(valorAInferiorIzquierdo);
         etiquetas.add(valorBInferiorIzquierdo);
-        
+
         panelPrincipal.requestFocus();
     }
 
@@ -166,20 +179,18 @@ public class MixtoPractica extends javax.swing.JFrame {
         panelSuperiorDerechoLayout.setHorizontalGroup(
             panelSuperiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSuperiorDerechoLayout.createSequentialGroup()
-                .addContainerGap(112, Short.MAX_VALUE)
-                .addComponent(valorASuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(0, 158, Short.MAX_VALUE)
+                .addComponent(valorASuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelSuperiorDerechoLayout.setVerticalGroup(
             panelSuperiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSuperiorDerechoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(panelSuperiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valorASuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorBSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(valorASuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorBSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 60, Short.MAX_VALUE))
         );
 
         panelInferiorIzquierdo.setBackground(new java.awt.Color(255, 255, 255));
@@ -193,20 +204,18 @@ public class MixtoPractica extends javax.swing.JFrame {
         panelInferiorIzquierdoLayout.setHorizontalGroup(
             panelInferiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInferiorIzquierdoLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(valorAInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addComponent(valorAInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 120, Short.MAX_VALUE))
         );
         panelInferiorIzquierdoLayout.setVerticalGroup(
             panelInferiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInferiorIzquierdoLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addGroup(panelInferiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valorBInferiorIzquierdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorAInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(valorBInferiorIzquierdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorAInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 82, Short.MAX_VALUE))
         );
 
         panelSuperiorIzquierdo.setBackground(new java.awt.Color(255, 255, 255));
@@ -220,20 +229,18 @@ public class MixtoPractica extends javax.swing.JFrame {
         panelSuperiorIzquierdoLayout.setHorizontalGroup(
             panelSuperiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSuperiorIzquierdoLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(valorASuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addComponent(valorASuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 118, Short.MAX_VALUE))
         );
         panelSuperiorIzquierdoLayout.setVerticalGroup(
             panelSuperiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSuperiorIzquierdoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelSuperiorIzquierdoLayout.createSequentialGroup()
                 .addGroup(panelSuperiorIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valorBSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorASuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addComponent(valorBSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorASuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 60, Short.MAX_VALUE))
         );
 
         panelInferiorDerecho.setBackground(new java.awt.Color(255, 255, 255));
@@ -247,20 +254,18 @@ public class MixtoPractica extends javax.swing.JFrame {
         panelInferiorDerechoLayout.setHorizontalGroup(
             panelInferiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInferiorDerechoLayout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
-                .addComponent(valorAInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valorBInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(0, 147, Short.MAX_VALUE)
+                .addComponent(valorAInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(valorBInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelInferiorDerechoLayout.setVerticalGroup(
             panelInferiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInferiorDerechoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
                 .addGroup(panelInferiorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valorAInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valorBInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(valorAInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valorBInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 82, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -272,16 +277,13 @@ public class MixtoPractica extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+            .addComponent(etiquetaRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -289,36 +291,30 @@ public class MixtoPractica extends javax.swing.JFrame {
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addComponent(panelSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                        .addComponent(panelSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPrincipalLayout.createSequentialGroup()
-                        .addComponent(panelInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(266, 266, 266))
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addComponent(panelInferiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelInferiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addComponent(panelSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelSuperiorIzquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelSuperiorDerecho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelSuperiorIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelSuperiorDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelInferiorDerecho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelInferiorIzquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelInferiorIzquierdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelInferiorDerecho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -337,7 +333,7 @@ public class MixtoPractica extends javax.swing.JFrame {
 
     private void panelPrincipalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelPrincipalKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_panelPrincipalKeyTyped
 
     private void panelPrincipalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelPrincipalKeyPressed
@@ -372,7 +368,7 @@ public class MixtoPractica extends javax.swing.JFrame {
                 control.setEtiquetaF(valorBInferiorDerecho);
                 control.setEtiquetaG(valorAInferiorIzquierdo);
                 control.setEtiquetaH(valorBInferiorIzquierdo);
-                
+
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
                 control.agregarVocalesConsonantes();
                 control.setRepeticiones(5);
