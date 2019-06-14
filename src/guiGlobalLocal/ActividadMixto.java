@@ -117,7 +117,7 @@ public class ActividadMixto extends javax.swing.JFrame {
                 control.setEtiquetaImagen(etiquetaImagen);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
                 control.setEtiquetaNombre(etiquetaNombre);
-                control.setRepeticiones(24);
+                //control.setRepeticiones(12);
                 control.iniciarActividadMixtos();
                 break;
         }
