@@ -1073,7 +1073,7 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
         control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
 
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-        control.instruccionesPantalla(control.getContador(), this);
+        control.instruccionesPantalla(control.getContador(), this, jLabel1);
         instrucciones.show();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -1120,7 +1120,7 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
             control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
 
             Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            control.instruccionesPantalla(control.getContador(), this);
+            control.instruccionesPantalla(control.getContador(), this, jLabel1);
             instrucciones.show();
             this.dispose();
         }
