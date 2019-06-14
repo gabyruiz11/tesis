@@ -117,7 +117,7 @@ public class PracticaMixto extends javax.swing.JFrame {
                 control.setEtiquetaImagen(etiquetaImagen);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
                 control.setEtiquetaNombre(etiquetaNombre);
-                control.setRepeticiones(6);
+                //control.setRepeticiones(6);
                 control.iniciarPracticaMixtos();
                 break;
         }

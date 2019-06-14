@@ -31,13 +31,32 @@ public class ControlGlobalLocal {
     private int circulo, equis, triangulo, cuadrado, seriesRepetidas, seriesShifting, contadorHiloFamiliarizacion, 
                 contadorHiloPracticaGrande, contadorHiloActividadGrande, 
                 contadorHiloPracticaPequeñas, contadorHiloActividadPequeñas,
-                contadorHiloMixtoPractica, contadorHiloMixtoActividad;
+                contadorHiloMixtoPractica, contadorHiloMixtoActividad, auxiliarMixto;
             
     //Etiquetas
     private JLabel etiquetaImagen, etiquetaRespuesta, etiquetaNombre;
     
     //Repeticiones
     private int repeticiones;
+    
+    //Lista de ordenes
+    private final String[] formaUno = {"N","N","A","A","N","A","N","N","A","A","N","N","N"},
+                           formaDos = {"A","A","N","N","A","N","A","A","N","N","A","A","A"},
+                           formaTres = {"N","A","A","A","N","A","N","N","A","A","N","N","N"},
+                           formaCuatro = {"N","N","A","A","N","A","N","N","A","A","N","N","N",
+                                              "N","A","A","N","A","N","N","A","A","N","N","N",
+                                              "N","A","A","N","A","N","N","A","A","N","N","N",
+                                              "N","A","A","N","A","N","N","A","A","N","N","N"},
+                           formaCinco = {"A","A","N","N","A","N","A","A","N","N","A","A","A",
+                                             "A","N","N","A","N","A","A","N","N","A","A","A",
+                                             "A","N","N","A","N","A","A","N","N","A","A","A",
+                                             "A","N","N","A","N","A","A","N","N","A","A","A"},
+                           formaSeis = {"N","A","A","A","N","A","N","N","A","A","N","N","N", 
+                                            "A","A","A","N","A","N","N","A","A","N","N","N",
+                                            "A","A","A","N","A","N","N","A","A","N","N","N",
+                                            "A","A","A","N","A","N","N","A","A","N","N","N"};
+    
+    
 
     //Variables de salida
     int respuestasCorrectasNegras, respuestasCorrectasAzules, respuestasCorrectasMixtos,
@@ -87,14 +106,6 @@ public class ControlGlobalLocal {
      */
     private int numeroAleatoriosPracticaActividad() {
         return ThreadLocalRandom.current().nextInt(1, 12 + 1);
-    }
-    
-    /**
-     * Método que genera números aleatorios para los mixtos
-     * @return 
-     */
-    private int numeroAleatoriosMixto() {
-        return ThreadLocalRandom.current().nextInt(1, 2 + 1);
     }
     
     /**
@@ -170,27 +181,34 @@ public class ControlGlobalLocal {
     }
     
     /**
-     * Método que cuenta el número de figuras de cada tipo en la familiarizacion
-     * @return 
+     * Método que establece la presentación de las figuras en el ejercicio mixto
+     *
+     * @return
      */
-    private int contadorSeriesMixtos() {
-        int auxiliar = numeroAleatoriosMixto();
-        
-        if (auxiliar == 1) {
-            if (seriesRepetidas < this.getRepeticiones()) {
-                seriesRepetidas++;
-            } else {
-                return contadorSeriesMixtos();
+    private String[] ordenMixto(int tipo) {
+        int auxiliar = ThreadLocalRandom.current().nextInt(0, 2 + 1);
+        System.out.println("Lista: " + auxiliar);
+        System.out.println("------------------");
+
+        if (tipo == 0) {
+            switch (auxiliar) {
+                case 0:
+                    return formaUno;
+                case 1:
+                    return formaDos;
+                default:
+                    return formaTres;
             }
         } else {
-            if (seriesShifting < this.getRepeticiones()) {
-                seriesShifting++;
-            } else {
-                return contadorSeriesMixtos();
+            switch (auxiliar) {
+                case 0:
+                    return formaCuatro;
+                case 1:
+                    return formaCinco;
+                default:
+                    return formaSeis;
             }
-        } 
-        
-        return auxiliar;
+        }
     }
 
     /**
@@ -385,106 +403,78 @@ public class ControlGlobalLocal {
     /**
      * Método que establece las imagenes en el swing de los ejercicios mixtos
      */
-    private synchronized void practicaActividadMixtoA() {
-        int ejercicio = contadorSeriesMixtos();
-
-        if (ejercicio == 1) {
-            int orden = ThreadLocalRandom.current().nextInt(1, 2 + 1);
-            long tiempoInicio = System.currentTimeMillis();
-            
-            if (orden == 1) {
-                int contador = 0;
-
-                while (contador < 2) {
-                    int figura = ThreadLocalRandom.current().nextInt(1, 12 + 1);
-                    contador++;
-                    this.practicaActividadMixtoB(figura);
-                    
-                    try {
-                        wait(500);
-                    } catch (InterruptedException ex) {
-                        JOptionPane.showMessageDialog(null, "Ocurrió un error");
-                    }
-                    getEtiquetaRespuesta().setText("");
+    private synchronized void practicaActividadMixtoA(int tipo) {
+        String primerValor = "a", segundoValor = "b", auxiliarValor = "c";
+        int contadorGeneral = 0, contadorAuxiliar = 0;
+        
+        for (String auxiliar : ordenMixto(tipo)) {
+            if (auxiliar.equals("N")) {
+                int figura = ThreadLocalRandom.current().nextInt(1, 12 + 1);
+                this.practicaActividadMixtoB(figura);
+                
+                switch (contadorAuxiliar) {
+                    case 0:
+                        primerValor = "N";
+                        contadorAuxiliar++;
+                        break;
+                    case 1:
+                        segundoValor = "N";
+                        auxiliarValor = segundoValor;
+                        contadorAuxiliar = 0;
+                        break;
                 }
+                
+                try {
+                    wait(500);
+                } catch (InterruptedException ex) {
+                    JOptionPane.showMessageDialog(null, "Ocurrió un error");
+                }
+                
+                getEtiquetaRespuesta().setText("");
             } else {
-                int contador = 0;
-
-                while (contador < 2) {
-                    int figura = ThreadLocalRandom.current().nextInt(13, 24 + 1);
-                    contador++;
-                    this.practicaActividadMixtoB(figura);
-                    
-                    try {
-                        wait(500);
-                    } catch (InterruptedException ex) {
-                        JOptionPane.showMessageDialog(null, "Ocurrió un error");
-                    }
-                    getEtiquetaRespuesta().setText("");
+                int figura = ThreadLocalRandom.current().nextInt(13, 24 + 1);
+                this.practicaActividadMixtoB(figura);
+                
+                switch (contadorAuxiliar) {
+                    case 0:
+                        primerValor = "A";
+                        contadorAuxiliar++;
+                        break;
+                    case 1:
+                        segundoValor = "A";
+                        auxiliarValor = segundoValor;
+                        contadorAuxiliar = 0;
+                        break;
                 }
-            }
-            
-            long transcurrido = System.currentTimeMillis() - tiempoInicio;
-            
-            if(transcurrido > 200) {
-                tiempoShiftingAlternado += transcurrido;
-            }
-            
-        } else {
-            int orden = ThreadLocalRandom.current().nextInt(1, 2 + 1);
-            long tiempoInicio = System.currentTimeMillis();
-            
-            if (orden == 1) {
-                int contador = 0;
-
-                while (contador < 2) {
-                    if (contador == 0) {
-                        int figura = ThreadLocalRandom.current().nextInt(1, 12 + 1);
-                        contador++;
-                        this.practicaActividadMixtoB(figura);
-                    } else if (contador == 1) {
-                        int figura = ThreadLocalRandom.current().nextInt(13, 24 + 1);
-                        contador++;
-                        this.practicaActividadMixtoB(figura);
-                    }
-                    
-                    try {
-                        wait(500);
-                    } catch (InterruptedException ex) {
-                        JOptionPane.showMessageDialog(null, "Ocurrió un error");
-                    }
-                    getEtiquetaRespuesta().setText("");
+                
+                try {
+                    wait(500);
+                } catch (InterruptedException ex) {
+                    JOptionPane.showMessageDialog(null, "Ocurrió un error");
                 }
-            } else {
-                int contador = 0;
-
-                while (contador < 2) {
-                    if (contador == 0) {
-                        int figura = ThreadLocalRandom.current().nextInt(13, 24 + 1);
-                        contador++;
-                        this.practicaActividadMixtoB(figura);
-                    } else if (contador == 1) {
-                        int figura = ThreadLocalRandom.current().nextInt(1, 12 + 1);
-                        contador++;
-                        this.practicaActividadMixtoB(figura);
-                    }
-                    
-                    try {
-                        wait(500);
-                    } catch (InterruptedException ex) {
-                        JOptionPane.showMessageDialog(null, "Ocurrió un error");
-                    }
-                    getEtiquetaRespuesta().setText("");
+                
+                getEtiquetaRespuesta().setText("");
+            } 
+            
+            if (!(contadorGeneral == 0)) {
+                if (auxiliarValor.equals(primerValor)) {
+                    seriesRepetidas++;
+                } else {
+                    seriesShifting++;
                 }
-            }
+                System.out.println("Repetidas: " + seriesRepetidas);
+                System.out.println("Shifting: " + seriesShifting);
+            } 
             
-            long transcurrido = System.currentTimeMillis() - tiempoInicio;
-            
-            if(transcurrido > 200) {
-                tiempoRepeticionesAlternado += transcurrido;
-            }
-            
+            contadorGeneral++;
         }
+
+//        long transcurrido = System.currentTimeMillis() - tiempoInicio;
+//
+//        if (transcurrido > 200) {
+//            tiempoRepeticionesAlternado += transcurrido;
+//        }
+ 
     }
     
     private synchronized void practicaActividadMixtoB(int figura) {
@@ -814,9 +804,9 @@ public class ControlGlobalLocal {
     Runnable runnablePracticasMixtas = new Runnable() {
         @Override
         public void run() {
-            while (contadorHiloMixtoPractica < 12) {
+            while (contadorHiloMixtoPractica < 1) {
                 //numerosSwingPractica();
-                practicaActividadMixtoA();
+                practicaActividadMixtoA(0);
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException ex) {
@@ -836,9 +826,9 @@ public class ControlGlobalLocal {
     Runnable runnableActividadMixtas = new Runnable() {
         @Override
         public void run() {
-            while (contadorHiloMixtoActividad < 48) {
+            while (contadorHiloMixtoActividad < 1) {
                 //numerosSwingPractica();
-                practicaActividadMixtoA();
+                practicaActividadMixtoA(1);
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException ex) {
@@ -949,5 +939,15 @@ public class ControlGlobalLocal {
     public void setObjetoLocalGlobal(Globallocal objetoLocalGlobal) {
         this.objetoLocalGlobal = objetoLocalGlobal;
     }
+
+    public int getAuxiliarMixto() {
+        return auxiliarMixto;
+    }
+
+    public void setAuxiliarMixto(int auxiliarMixto) {
+        this.auxiliarMixto = auxiliarMixto;
+    }
+    
+    
     
 }
