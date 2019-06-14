@@ -30,13 +30,14 @@ public class Instrucciones extends javax.swing.JFrame {
      */
     
     GridBagConstraints gbc = new GridBagConstraints();
+    GridBagConstraints gbc2 = new GridBagConstraints();
     
     private Instrucciones() {
         initComponents();
         //inicializa el jtextpanel
         jTextPane1.setText(" ");
         jTextPane1.setVisible(false);
-        jLabel1.setVisible(false);
+        jLabel1.setVisible(true);
         //se cambia el tamaño del panel y el frame para que este a la resolucion de la pantalla
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension d = tk.getScreenSize();
@@ -46,12 +47,20 @@ public class Instrucciones extends javax.swing.JFrame {
         this.add(jPanel1, BorderLayout.CENTER);
         //se centra el texPanel en el panel
         jPanel1.setLayout(new GridBagLayout());
-        gbc.gridwidth = 2; // El área de texto ocupa dos columnas.
-        gbc.gridheight = 2; // El área de texto ocupa 2 filas.
+        gbc.gridwidth = 1; // El área de texto ocupa dos columnas.
+        gbc.gridheight = 1; // El área de texto ocupa 2 filas.
         gbc.weightx = 2;
-        gbc.weightx = 0.1;
-        gbc.fill = GridBagConstraints.CENTER;
+        // gbc.weightx = 0.1;
+        gbc.gridy = 0;
+        gbc.gridx = 1;
+        gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.BOTH;
+        gbc2.anchor = GridBagConstraints.PAGE_END;
+        gbc2.weightx = 2;
+        gbc2.gridy = 1;
+        gbc2.gridx = 1;
+
+        jPanel1.add(jLabel1, gbc2);
         jPanel1.add(jTextPane1, gbc);
         //Se centra el texto que se encuentra dentro del jtextpanel
         javax.swing.text.StyledDocument doc = jTextPane1.getStyledDocument();
@@ -107,29 +116,30 @@ public class Instrucciones extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1184, 1184, 1184))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(144, 144, 144))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(569, 569, 569)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(371, 371, 371)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,7 +164,7 @@ public class Instrucciones extends javax.swing.JFrame {
 //                jTextPane1.add(label);
             //} else {
             System.out.println("Antes de oprimir: " + control.getContador());
-            jTextPane1.setText(String.valueOf(control.instruccionesPantalla(control.getContador(), this)));
+            jTextPane1.setText(String.valueOf(control.instruccionesPantalla(control.getContador(), this, jLabel1)));
             control.setContador(control.getContador() + 1);
             System.out.println("Después de oprimir: " + control.getContador());
             ///}

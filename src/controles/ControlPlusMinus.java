@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 import objetosNegocio.Plusminus;
 import persistencia.Persistencia;
 import java.util.concurrent.ThreadLocalRandom;
+import javax.swing.JLabel;
 /**
  *
  * @author David Hermosillo
@@ -366,14 +367,16 @@ public class ControlPlusMinus {
         this.contador = contador;
     }
     
-    public Object instruccionesPantalla(int contadorAuxiliar, JFrame frame) {
+    public Object instruccionesPantalla(int contadorAuxiliar, JFrame frame, JLabel label) {
         switch (contadorAuxiliar) {
             case 0:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En esta actividad se te mostrarán varias listas de números\n"
                         + "de 2 dígitos, cada una con un cuadro a lado. \n\n"
                         + "En ese cuadro escribirás el resultado de sumar 3 o restar 3,\n"
                         + " de acuerdo a como se te vaya indicando.");
             case 1:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Comenzarás con la lista de números a la que le sumarás 3 a cada número.\n"
                         + " Antes de comenzar pon atención en el siguiente \n"
                         + "recordatorio sobre como sumar.\n");
@@ -383,6 +386,7 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 3:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, podrás ver un ejemplo sobre cómo responderás la actividad.\n\n"
                         + "Recuerda que sumarás 3 a cada número\n "
                         + "y el resultado lo colocarás en su cuadro correspondiente.");
@@ -392,6 +396,7 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 5:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En seguida, se te mostrarán una serie de números para practicar.\n"
                         + "Trata de responder lo más rápido que puedas.");
             case 6:
@@ -400,8 +405,10 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 7:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica");
             case 8:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora va a comenzar la actividad. \n\n"
                         + "Se dejará de mostrar el signo “más”(+) \n"
                         + "y las respuestas correctas e incorrectas.\n\n"
@@ -414,6 +421,7 @@ public class ControlPlusMinus {
                 contador++;
                 return (" RESTAS ");
             case 11:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, se te presentará la segunda parte de la actividad. \n"
                         + "En la cual, restarás 3 a cada número. \n"
                         + "Antes de comenzar, se te mostrará un recordatorio sobre como restar.");
@@ -423,6 +431,7 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 13:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Antes de iniciar, podrás ver un ejemplo sobre cómo responder la \n"
                         + "actividad. Recuerda que restarás 3 a cada número \n"
                         + "y el resultado lo colocarás en su cuadro correspondiente.");
@@ -432,6 +441,7 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 15:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora, se te mostrará una serie de números para practicar.\n"
                         + "Trata de responder lo más rápido que puedas. ");
             case 16:
@@ -440,8 +450,10 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 17:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica. ");
             case 18:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora va a comenzar la actividad.\n\n "
                         + "Así que, se dejará de mostrar el signo “menos”(-) \n"
                         + "y las respuestas correctas e incorrecta. \n"
@@ -452,6 +464,7 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 20:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, se te mostrará otra lista, en la cual alternarás\n"
                         + "la suma y resta de 3. Tal y como se muestra en el siguiente ejemplo.");
             case 21:
@@ -460,6 +473,7 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 22:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En seguida, se te presentarán una serie de números para practicar. \n"
                         + "Trata de responder lo más rápido que puedas. ");
             case 23:
@@ -468,8 +482,10 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 24:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica. ");
             case 25:
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora va a comenzar la actividad. Así que, se dejarán de \n"
                         + "mostrar los signos “más”(+) y “menos”(-),  \n"
                         + "al igual que las respuestas correctas e incorrectas.\n "
@@ -480,6 +496,7 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
             case 27:
                 contador++;
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return ("¡Excelente trabajo! Lo hiciste muy bien. Has terminado con esta actividad.");
 
             default:

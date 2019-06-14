@@ -34,36 +34,19 @@ public class InstruccionNL extends javax.swing.JFrame {
         Dimension d = tk.getScreenSize();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setSize((int) d.getWidth(), (int) d.getHeight());
-        jPanel2.setSize((int) d.getWidth(), (int) d.getHeight());
-        jPanel2.setLayout(new GridBagLayout());
-//        gbc.gridwidth = 2; // El área de texto ocupa dos columnas.
-//        gbc.gridheight = 2; // El área de texto ocupa 2 filas.
-//        gbc.fill = GridBagConstraints.CENTER;
-//        gbc.fill = GridBagConstraints.BOTH;
-//        jPanel2.add(jLabel1, gbc);
+        jPanel1.setSize((int) d.getWidth(), (int) d.getHeight());
+       
+        jPanel1.setLayout(new GridBagLayout());
+        gbc.gridwidth = 2; // El área de texto ocupa dos columnas.
+        gbc.gridheight = 2; // El área de texto ocupa 2 filas.
+//        gbc.weightx = 1;
+//        gbc.weightx = 0.1;
+        gbc.fill = GridBagConstraints.CENTER;
+        gbc.fill = GridBagConstraints.BOTH;
+        jPanel1.add(jLabel1, gbc);
         
-        /**
-         * Grid Izquierda
-         */
-        gbcIzquierda.fill = GridBagConstraints.HORIZONTAL;
-        gbcIzquierda.gridx = 1;
-        gbcIzquierda.gridy = 0;
-        gbcIzquierda.weightx = 0;
-        gbcIzquierda.weighty = 0;
-        /**
-         * Grid Derecho
-         */
-        gbcDerecha.fill = GridBagConstraints.HORIZONTAL;
-        gbcDerecha.weightx = 0;
-        gbcDerecha.weighty = 0;
-        gbcDerecha.gridx = 2;
-        gbcDerecha.gridy = 0;
-        
-        jPanel2.add(jLabel1, gbcIzquierda);
-        jPanel2.add(jLabel2, gbcDerecha);
-        
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/instruccionesNL.png")));
-        jPanel2.requestFocus();
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-impar.jpg")));
+        jPanel1.requestFocus();
     }
 
     /**
@@ -75,70 +58,63 @@ public class InstruccionNL extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPanel2KeyPressed(evt);
+                jPanel1KeyPressed(evt);
             }
         });
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("   ");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 337, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(120, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 260, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyPressed
+    private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
             contador++;
             
             if (contador == 1) {
-                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/instruccionesNL1.png")));
+                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-par.jpg")));
             } else {
                 InstruccionesNumberLetter instrucciones = InstruccionesNumberLetter.getSingletonInstance();
                 instrucciones.setVisible(true);
                 this.setVisible(false);
             }
         }
-    }//GEN-LAST:event_jPanel2KeyPressed
+    }//GEN-LAST:event_jPanel1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -180,7 +156,6 @@ public class InstruccionNL extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -1114,7 +1114,7 @@ public class ControlNumberLetter {
 
             case 9:
                 this.setContadoraux(this.getContadoraux() + 1);
-                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
+                label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_par-impar.png")));
                 return ("Ahora, se te mostrará una serie de parejas \n"
                         + "de número y letra para practicar. \n \n"
                         + "Trata de responder lo más rápido que puedas. \n\n"
