@@ -45,7 +45,7 @@ public class InstruccionNL extends javax.swing.JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         jPanel1.add(jLabel1, gbc);
         
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-impar.jpg")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-impar.png")));
         jPanel1.requestFocus();
     }
 
@@ -107,7 +107,7 @@ public class InstruccionNL extends javax.swing.JFrame {
             contador++;
             
             if (contador == 1) {
-                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-par.jpg")));
+                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-par.png")));
             } else {
                 InstruccionesNumberLetter instrucciones = InstruccionesNumberLetter.getSingletonInstance();
                 instrucciones.setVisible(true);
@@ -145,7 +145,7 @@ public class InstruccionNL extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
