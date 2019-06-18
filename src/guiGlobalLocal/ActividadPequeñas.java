@@ -6,6 +6,12 @@
 package guiGlobalLocal;
 
 import controles.ControlGlobalLocal;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 
 /**
@@ -16,12 +22,32 @@ public class ActividadPequeñas extends javax.swing.JFrame {
 
     ControlGlobalLocal control = ControlGlobalLocal.getSingletonInstance();
     
+    GridBagConstraints gbc = new GridBagConstraints();
+    GridBagConstraints gbc1 = new GridBagConstraints();
+    GridBagConstraints gbc2 = new GridBagConstraints();
     /**
      * Creates new form familiarizacionFiguras
      */
     public ActividadPequeñas() {
-        initComponents();
-        
+       initComponents();
+        //se cambia el tamaño del panel y el frame para que este a la resolucion de la pantalla
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension d = tk.getScreenSize();
+        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setSize((int) d.getWidth(), (int) d.getHeight());
+        panelPrincipal.setSize((int) d.getWidth(), (int) d.getHeight());
+        this.add(panelPrincipal, BorderLayout.CENTER);
+        //se centra el texPanel en el panel
+        panelPrincipal.setLayout(new GridBagLayout());
+        gbc.gridy = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc2.gridy = 1;
+        gbc2.anchor = GridBagConstraints.CENTER;
+        panelPrincipal.add(etiquetaNombre, gbc2);
+        panelPrincipal.add(etiquetaImagen, gbc1);
+        panelPrincipal.add(etiquetaRespuesta, gbc);
+        etiquetaRespuesta.setVisible(false);
+        etiquetaNombre.setVisible(false);
         panelPrincipal.requestFocus();
     }
 
@@ -41,15 +67,18 @@ public class ActividadPequeñas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         panelPrincipal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 panelPrincipalKeyPressed(evt);
             }
         });
 
-        etiquetaRespuesta.setText("jLabel2");
+        etiquetaImagen.setBackground(new java.awt.Color(255, 255, 255));
 
-        etiquetaNombre.setText("jLabel1");
+        etiquetaRespuesta.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+
+        etiquetaNombre.setFont(new java.awt.Font("Tahoma", 0, 38)); // NOI18N
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
@@ -57,10 +86,10 @@ public class ActividadPequeñas extends javax.swing.JFrame {
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(etiquetaImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(etiquetaImagen)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(268, Short.MAX_VALUE)
+                .addContainerGap(336, Short.MAX_VALUE)
                 .addComponent(etiquetaRespuesta)
                 .addGap(170, 170, 170)
                 .addComponent(etiquetaNombre)
@@ -70,29 +99,26 @@ public class ActividadPequeñas extends javax.swing.JFrame {
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(etiquetaImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(etiquetaImagen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaRespuesta)
                     .addComponent(etiquetaNombre))
-                .addGap(23, 23, 23))
+                .addGap(65, 65, 65))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
