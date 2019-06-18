@@ -5,6 +5,7 @@
  */
 package controles;
 
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -56,21 +57,36 @@ public class ControlGlobalLocal {
                                             "A","A","A","N","A","N","N","A","A","N","N","N",
                                             "A","A","A","N","A","N","N","A","A","N","N","N"};
     
-    
-
     //Variables de salida
     int respuestasCorrectasNegras, respuestasCorrectasAzules, respuestasCorrectasMixtos,
         respuestasIncorrectasNegras, respuestasIncorrectasAzules, respuestasIncorrectasMixtos,
         respuestasOmitidasNegras, respuestasOmitidasAzules, respuestasOmitidasMixtos;
     
     //Variables auxiliares de salida
-    long tiempoValidoNegras, tiempoValidoAzules, tiempoValidoMixtos, tiempoShiftingAlternado, tiempoRepeticionesAlternado,
-         tiempoCorrectasNegras, tiempoCorrectasAzules, tiempoCorrectasMixtos,
-         tiempoShiftingAlternadoCorrectas, tiempoRepeticionesAlternadoCorrectas;
+    long tiempoValidoNegras, tiempoValidoAzules, tiempoValidoMixtos, //tiempoShiftingAlternado, tiempoRepeticionesAlternado,
+         sumatoriaTiempoReaccionNegras, sumatoriaTiempoReaccionAzules, sumatoriaTiempoReaccionAlternado;
+    long acumuladoNegro, acumuladoAzules, acumuladoMixtos;
     
-    //variables auxiliares
-    long tiempoInicioAuxiliarA, tiempoInicioAuxiliarB;
-    boolean correcta;
+    //Variables auxiliares de apoyo
+    long auxiliarTiempoInicio, auxiliarTiempoTranscurrido;
+    
+    //Listas de valores
+    ArrayList<Long> listaTiemposNegras = new ArrayList();
+    ArrayList<Long> listaTiemposAzules = new ArrayList();
+    ArrayList<Long> listaTiemposMixtos = new ArrayList();
+    
+    ArrayList<Long> listaTiemposCorrectosNegras = new ArrayList();
+    ArrayList<Long> listaTiemposCorrectosAzules = new ArrayList();
+    ArrayList<Long> listaTiemposCorrectosMixtos = new ArrayList();
+    
+    ArrayList<Long> listaTiemposIncorrectosNegras = new ArrayList();
+    ArrayList<Long> listaTiemposIncorrectosAzules = new ArrayList();
+    ArrayList<Long> listaTiemposIncorrectosMixtos = new ArrayList();
+    
+    ArrayList<Long> listaTiemposOmitidosNegras = new ArrayList();
+    ArrayList<Long> listaTiemposOmitidosAzules = new ArrayList();
+    ArrayList<Long> listaTiemposOmitidosMixtos = new ArrayList();
+    
 
     //Constructor de la clase global local
     private ControlGlobalLocal() {
@@ -303,7 +319,7 @@ public class ControlGlobalLocal {
         }
         
         long inicio = System.currentTimeMillis();
-        tiempoInicioAuxiliarA = inicio;
+        auxiliarTiempoInicio = inicio;
         
         try {
             wait(10000);
@@ -313,11 +329,13 @@ public class ControlGlobalLocal {
         
         long transcurrido = System.currentTimeMillis() - inicio;
         
-        if(transcurrido >= 10000) {
+        if(transcurrido >= 10000 || transcurrido <= 200) {
              respuestasOmitidasNegras++;
+             listaTiemposOmitidosNegras.add(transcurrido);
         }
         
-        if(transcurrido >= 200) {
+        if(transcurrido > 200) {
+            listaTiemposNegras.add(transcurrido);
             tiempoValidoNegras += transcurrido;
         }
     }
@@ -381,7 +399,7 @@ public class ControlGlobalLocal {
         }
 
         long inicio = System.currentTimeMillis();
-        tiempoInicioAuxiliarA = inicio;
+        auxiliarTiempoInicio = inicio;
         
         try {
             wait(10000);
@@ -391,11 +409,13 @@ public class ControlGlobalLocal {
         
         long transcurrido = System.currentTimeMillis() - inicio;
         
-        if(transcurrido >= 10000) {
+        if(transcurrido >= 10000 || transcurrido <= 200) {
              respuestasOmitidasAzules++;
+             listaTiemposOmitidosAzules.add(transcurrido);
         }
         
-        if(transcurrido >= 200) {
+        if(transcurrido > 200) {
+            listaTiemposAzules.add(transcurrido);
             tiempoValidoAzules += transcurrido;
         }
     }
@@ -404,77 +424,71 @@ public class ControlGlobalLocal {
      * Método que establece las imagenes en el swing de los ejercicios mixtos
      */
     private synchronized void practicaActividadMixtoA(int tipo) {
-        String primerValor = "a", segundoValor = "b", auxiliarValor = "c";
+        String primerValor = "a", segundoValor, auxiliarValor = "c";
         int contadorGeneral = 0, contadorAuxiliar = 0;
+        boolean eventoUno = true, eventoDos = true;
         
         for (String auxiliar : ordenMixto(tipo)) {
             if (auxiliar.equals("N")) {
                 int figura = ThreadLocalRandom.current().nextInt(1, 12 + 1);
                 this.practicaActividadMixtoB(figura);
-                
+
                 switch (contadorAuxiliar) {
-                    case 0:
+                    case 0:                        
                         primerValor = "N";
                         contadorAuxiliar++;
                         break;
-                    case 1:
+                    case 1:                      
                         segundoValor = "N";
                         auxiliarValor = segundoValor;
                         contadorAuxiliar = 0;
                         break;
                 }
-                
+
                 try {
                     wait(500);
                 } catch (InterruptedException ex) {
                     JOptionPane.showMessageDialog(null, "Ocurrió un error");
                 }
-                
+
                 getEtiquetaRespuesta().setText("");
             } else {
                 int figura = ThreadLocalRandom.current().nextInt(13, 24 + 1);
                 this.practicaActividadMixtoB(figura);
-                
+
                 switch (contadorAuxiliar) {
-                    case 0:
+                    case 0:                       
                         primerValor = "A";
                         contadorAuxiliar++;
                         break;
-                    case 1:
+
+                    case 1:                        
                         segundoValor = "A";
                         auxiliarValor = segundoValor;
                         contadorAuxiliar = 0;
                         break;
                 }
-                
+
                 try {
                     wait(500);
                 } catch (InterruptedException ex) {
                     JOptionPane.showMessageDialog(null, "Ocurrió un error");
                 }
-                
+
                 getEtiquetaRespuesta().setText("");
-            } 
-            
+            }
+
             if (!(contadorGeneral == 0)) {
                 if (auxiliarValor.equals(primerValor)) {
                     seriesRepetidas++;
                 } else {
                     seriesShifting++;
                 }
-                System.out.println("Repetidas: " + seriesRepetidas);
-                System.out.println("Shifting: " + seriesShifting);
-            } 
-            
+            }
+
             contadorGeneral++;
         }
 
-//        long transcurrido = System.currentTimeMillis() - tiempoInicio;
-//
-//        if (transcurrido > 200) {
-//            tiempoRepeticionesAlternado += transcurrido;
-//        }
- 
     }
     
     private synchronized void practicaActividadMixtoB(int figura) {
@@ -578,7 +592,7 @@ public class ControlGlobalLocal {
         }
         
         long inicio = System.currentTimeMillis();
-        tiempoInicioAuxiliarA = inicio;
+        auxiliarTiempoInicio = inicio;
         
         try {
             wait(10000);
@@ -588,11 +602,13 @@ public class ControlGlobalLocal {
         
         long transcurrido = System.currentTimeMillis() - inicio;
 
-        if(transcurrido >= 10000) {
+        if(transcurrido >= 10000 || transcurrido <= 200) {
              respuestasOmitidasMixtos++;
+             listaTiemposOmitidosMixtos.add(transcurrido);
         }
         
-        if(transcurrido >= 200) {
+        if(transcurrido > 200) {
+            listaTiemposMixtos.add(transcurrido);
             tiempoValidoMixtos += transcurrido;
         }
     }
@@ -609,28 +625,29 @@ public class ControlGlobalLocal {
             this.etiquetaRespuesta.setText("Correcto");
             if (actividad) {
                 if (tipo.equalsIgnoreCase("g")) {
-                    long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliarA;
+                    auxiliarTiempoTranscurrido = System.currentTimeMillis() - auxiliarTiempoInicio;
                     
-                    if(transcurrido > 200) {
-                        tiempoCorrectasNegras += transcurrido;
+                    if(auxiliarTiempoTranscurrido > 200) {
+                        listaTiemposCorrectosNegras.add(auxiliarTiempoTranscurrido);
+                        sumatoriaTiempoReaccionNegras += auxiliarTiempoTranscurrido;
                         respuestasCorrectasNegras++;
                     }
-                } else if (tipo.equalsIgnoreCase("p")) {
-                    long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliarA;
+                } else if (tipo.equalsIgnoreCase("p")) {                    
+                    auxiliarTiempoTranscurrido = System.currentTimeMillis() - auxiliarTiempoInicio;
                     
-                    if(transcurrido > 200) {
-                        tiempoCorrectasAzules += transcurrido;
+                    if(auxiliarTiempoTranscurrido > 200) {
+                        listaTiemposCorrectosAzules.add(auxiliarTiempoTranscurrido);
+                        sumatoriaTiempoReaccionAzules += auxiliarTiempoTranscurrido;
                         respuestasCorrectasAzules++;
                     }
-                    
                 } else if (tipo.equalsIgnoreCase("m")) {
-                    long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliarA;
+                    auxiliarTiempoTranscurrido = System.currentTimeMillis() - auxiliarTiempoInicio;
                     
-                    if(transcurrido > 200) {
-                        tiempoCorrectasMixtos += transcurrido;
+                    if(auxiliarTiempoTranscurrido > 200) {
+                        listaTiemposCorrectosMixtos.add(auxiliarTiempoTranscurrido);
+                        sumatoriaTiempoReaccionAlternado += auxiliarTiempoTranscurrido;
                         respuestasCorrectasMixtos++;
-                    }
-                    
+                    }        
                 } else {
                     //Nothing happens
                 }
@@ -641,11 +658,26 @@ public class ControlGlobalLocal {
             if (actividad) {
                 if (actividad) {
                     if (tipo.equalsIgnoreCase("g")) {
-                        respuestasIncorrectasNegras++;
+                        auxiliarTiempoTranscurrido = System.currentTimeMillis() - auxiliarTiempoInicio;
+
+                        if (auxiliarTiempoTranscurrido > 200) {
+                            listaTiemposIncorrectosNegras.add(auxiliarTiempoTranscurrido);
+                            respuestasIncorrectasNegras++;
+                        }                          
                     } else if (tipo.equalsIgnoreCase("p")) {
-                        respuestasIncorrectasAzules++;
+                        auxiliarTiempoTranscurrido = System.currentTimeMillis() - auxiliarTiempoInicio;
+
+                        if (auxiliarTiempoTranscurrido > 200) {
+                            listaTiemposIncorrectosAzules.add(auxiliarTiempoTranscurrido);
+                            respuestasIncorrectasAzules++;
+                        }                        
                     } else if (tipo.equalsIgnoreCase("m")) {
-                        respuestasIncorrectasMixtos++;
+                        auxiliarTiempoTranscurrido = System.currentTimeMillis() - auxiliarTiempoInicio;
+
+                        if (auxiliarTiempoTranscurrido > 200) {
+                            listaTiemposIncorrectosMixtos.add(auxiliarTiempoTranscurrido);
+                            respuestasIncorrectasMixtos++;
+                        }
                     } else {
                         //Nothing happens
                     }
@@ -653,6 +685,553 @@ public class ControlGlobalLocal {
             }
             notifyAll();
         }
+    }
+    
+    /**
+     * Método que hace los cálculos de las variables de análisis
+     */
+    public void calculosGlobalLocal() {
+        //I - Tn - REVISADA - Tiempo total en el bloque de figuras negras
+        this.objetoLocalGlobal.setTiempoNegras((double) this.tiempoValidoNegras);
+        
+        //II - Tz- REVISADA - Tiempo total en el bloque de figuras negras
+        this.objetoLocalGlobal.setTiempoAzules((double) this.tiempoValidoAzules);
+        
+        //III - Ta - REVISADA - Tiempo total en el bloque de figuras alternadas
+        this.objetoLocalGlobal.setTiempoAlternado((double) this.tiempoValidoMixtos);
+        
+        //IV - Tt - REVISADA - Tiempo total en la tarea
+        this.objetoLocalGlobal.setTiempoTotal((double)(tiempoValidoNegras + tiempoValidoAzules + tiempoValidoMixtos));
+        
+        //V - CGt - REVISADA - Costo del shifting global con el tiempo total
+        this.objetoLocalGlobal.setShiftingGlobalTotal((double)(tiempoValidoMixtos - 
+                                                              ((tiempoValidoNegras + tiempoValidoAzules)/2)));
+        
+        //VI - CLt - NO HECHA - Costo del shifting local con el tiempo total
+        //------------------------------------------------------------------
+        
+        //Variables auxiliares:
+        
+            //TCn
+            long TCn = sumatoriaTiempoReaccionNegras;
+        
+            //TCz
+            long TCz = sumatoriaTiempoReaccionAzules;
+        
+            //TCa
+            long TCa = sumatoriaTiempoReaccionAlternado;
+        
+        //VII - CGc - REVISADA - Costo del shifing global con el tiempo total de las respuestas correctas
+        this.objetoLocalGlobal.setShiftingGlobalTotalCorrectas((double)(TCa - ((TCn + TCz)/2)));
+        
+        //VIII - CLc - NO HECHA - Costo del shifting local con el tiempo total de las respuestas correctas
+        //------------------------------------------------------------------------------------------------
+        
+        //IX - RCn - REVISADA - Respuestas correctas en el bloque de solo figuras negras
+        this.objetoLocalGlobal.setCorrectasNegras(respuestasCorrectasNegras);
+        
+        //X - RCz - REVISADA - Respuestas correctas en el bloque de solo figuras azules
+        this.objetoLocalGlobal.setCorrectasAzules(respuestasCorrectasAzules);
+        
+        //XI - RCa - REVISADA - Respuestas correctas en el bloque de solo figuras alternadas
+        this.objetoLocalGlobal.setCorrectasAlternado(respuestasCorrectasMixtos);
+        
+        //XII - RCt - REVISADA - Respuestas correctas totales en toda la actividad
+        this.objetoLocalGlobal.setCorrectasTotales(respuestasCorrectasNegras + respuestasCorrectasAzules + respuestasCorrectasMixtos);
+        
+        //Variables auxiliares:
+        
+            //TPn = TCn/RCn
+            double TPn = TCn / respuestasCorrectasNegras;
+            
+            //TPn = TCz/RCz
+            double TPz = TCz / respuestasCorrectasAzules;
+            
+            //TPa = TCa/RCa
+            double TPa = TCa / respuestasCorrectasMixtos;
+        
+        //XIII - CGp - REVISADA - Costo del shifting global con el tiempo de reacción promedio de las respuestas correctas
+        this.objetoLocalGlobal.setShiftingGlobalReaccionCorrectas((double)(TPa - ((TPn + TPz)/2)));
+        
+        //XIV - CLp - NO HECHA - Costo del shifting local con el tiempo de reacción promedio de las respuestas correctas
+        //--------------------------------------------------------------------------------------------------------------
+        
+        //Variables auxiliares:
+        
+            //Rn
+            int Rn = respuestasCorrectasNegras + respuestasIncorrectasNegras;
+            
+            //Rz
+            int Rz = respuestasCorrectasAzules + respuestasIncorrectasAzules;
+            
+            //Ra
+            int Ra = respuestasCorrectasMixtos + respuestasIncorrectasMixtos;
+            
+            //Pn = [(RCn)(100)]/Rn
+            double Pn = ((respuestasCorrectasNegras * 100) / Rn);
+            
+            //Pz = [(RCz)(100)]/Rz
+            double Pz = ((respuestasCorrectasAzules * 100) / Rz);
+            
+            //Pa = [(RCa)(100)]/Ra
+            double Pa = ((respuestasCorrectasMixtos * 100) / Ra);
+            
+        //XV - CGp - REVISADA - Costo del shifting global con porcentaje de respuestas correctas
+        this.objetoLocalGlobal.setShiftingGlobalPorcentajeCorrectas((double)(Pa - ((Pn + Pz)/2)));
+        
+        //XVI - CLp - NO HECHA - Costo del shifting local con porcentaje de respuestas correctas
+        //--------------------------------------------------------------------------------------
+         
+        //XVII - In - REVISADA - Respuestas incorrectas de solo el bloque de figuras negras
+        this.objetoLocalGlobal.setIncorrectasNegras(respuestasIncorrectasNegras);
+         
+        //XVIII - Iz - REVISADA - Respuestas incorrectas de solo el bloque de figuras azules
+        this.objetoLocalGlobal.setIncorrectasAzules(respuestasIncorrectasAzules);
+         
+        //XIX - Ia - REVISADA - Respuestas incorrectas de solo el bloque de figuras mixtas
+        this.objetoLocalGlobal.setIncorrectasAlternado(respuestasIncorrectasMixtos);
+        
+        //XX - It - REVISADA - Respuestas incorrectas totales en toda la actividad
+        this.objetoLocalGlobal.setIncorrectasTotales(respuestasIncorrectasNegras + respuestasIncorrectasAzules + respuestasIncorrectasMixtos);
+        
+        //XXI - ONn - REVISADA - Omisiones y respuestas nulas en el bloque de solo figuras negras
+        this.objetoLocalGlobal.setOmisionesNulasNegras(respuestasOmitidasNegras);
+        
+        //XXII - ONz - REVISADA - Omisiones y respuestas nulas en el bloque de solo figuras azules
+        this.objetoLocalGlobal.setOmisionesNulasAzules(respuestasOmitidasAzules);
+        
+        //XXIII - ONa - REVISADA - Omisiones y respuestas nulas en el bloque de solo figuras alternadas
+        this.objetoLocalGlobal.setOmisionesNulasAlternado(respuestasOmitidasMixtos);
+        
+        //XXIV - ONt - REVISADA - Omisiones y respuestas nulas en toda la actividad
+        this.objetoLocalGlobal.setOmisionesNulasTotales(respuestasOmitidasNegras + respuestasOmitidasAzules + respuestasOmitidasMixtos);
+        
+        //Variables auxiliares:
+        
+            //---------------------------------------------------------
+            //MTTn = Tn/Rn - 1 PASO
+            double MTTn = tiempoValidoNegras / Rn;
+            
+            //DETn - 2 PASO
+            listaTiemposNegras.forEach((auxiliar) -> {
+                
+                double calculoUno = auxiliar - MTTn;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoNegro += calculoDos;
+                
+            });
+            
+            //4 PASO
+            acumuladoNegro = acumuladoNegro / Rn;
+            
+            //5 PASO
+            double DETn = Math.sqrt(acumuladoNegro);
+            //---------------------------------------------------------
+            
+            double PSTn = MTTn + (DETn * 2.5);
+            double PITn = MTTn - (DETn * 2.5);
+        
+            //---------------------------------------------------------
+            //MTTn = Tn/Rn - 1 PASO
+            double MTTz = tiempoValidoAzules / Rz;
+            
+            //DETn - 2 PASO
+            listaTiemposAzules.forEach((auxiliar) -> {
+                
+                double calculoUno = auxiliar - MTTz;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoAzules += calculoDos;
+                
+            });
+            
+            //4 PASO
+            acumuladoAzules = acumuladoAzules / Rz;
+            
+            //5 PASO
+            double DETz = Math.sqrt(acumuladoAzules);
+            //---------------------------------------------------------
+        
+            double PSTz = MTTz + (DETz * 2.5);
+            double PITz = MTTz - (DETz * 2.5);
+            
+            //---------------------------------------------------------
+            //MTTn = Tn/Rn - 1 PASO
+            double MTTa = tiempoValidoMixtos / Ra;
+            
+            //DETn - 2 PASO
+            listaTiemposMixtos.forEach((auxiliar) -> {
+                
+                double calculoUno = auxiliar - MTTa;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoMixtos += calculoDos;
+                
+            });
+            
+            //4 PASO
+            acumuladoMixtos = acumuladoMixtos / Ra;
+            
+            //5 PASO
+            double DETa = Math.sqrt(acumuladoMixtos);
+            //---------------------------------------------------------
+        
+            double PSTa = MTTa + (DETa * 2.5);
+            double PITa = MTTa - (DETa * 2.5);
+            
+        //XXV - TXn - REVISADA - Tiempo total en el bloque de figuras negras
+        double acumuladoNegrasAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposNegras) {
+            if(auxiliar >= PITn && auxiliar <= PSTn) {
+                acumuladoNegrasAuxiliar += auxiliar;
+            }
+        }
+        
+       this.objetoLocalGlobal.setTiempoTotalNegras(acumuladoNegrasAuxiliar);
+       
+       //XXVI - TXz - REVISADA - Tiempo total en el bloque de figuras azules
+       double acumuladoAzulesAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposAzules) {
+            if(auxiliar >= PITz && auxiliar <= PSTz) {
+                acumuladoAzulesAuxiliar += auxiliar;
+            }
+        }
+        
+       this.objetoLocalGlobal.setTiempoTotalAzules(acumuladoAzulesAuxiliar);
+       
+       //XXVII - TXa - REVISADA - Tiempo total en el bloque de alternado
+       double acumuladoMixtosAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposMixtos) {
+            if(auxiliar >= PITa && auxiliar <= PSTa) {
+                acumuladoMixtosAuxiliar += auxiliar;
+            }
+        }
+        
+       this.objetoLocalGlobal.setTiempoTotalAzules(acumuladoMixtosAuxiliar);
+       
+       //XXVIII - TXt - REVISADA - Tiempo total en la tarea
+       this.objetoLocalGlobal.setTiempoTotalTarea(acumuladoNegrasAuxiliar + acumuladoAzulesAuxiliar + acumuladoMixtosAuxiliar);
+       
+       //XXIX - CGXt - REVISADA - Costo del shifting global con el tiempo total
+       this.objetoLocalGlobal.setShiftingGlobalTiempoTotal((double)(acumuladoMixtosAuxiliar - ((acumuladoNegrasAuxiliar + acumuladoAzulesAuxiliar)/2)));
+       
+       //XXX - CLXt - NO HECHA - Costo del shifting local con el tiempo total
+       //--------------------------------------------------------------------
+       
+       //Variables auxiliares:
+            double acumuladoTotalNegro = 0;
+            
+            //---------------------------------------------------------
+            //1 PASO
+            double MCTn = TCn / respuestasCorrectasNegras;
+            
+            //DETn - 2 PASO
+            
+            for (Long auxiliarTotalNegra : listaTiemposCorrectosNegras) {
+                
+                double calculoUno = auxiliarTotalNegra - MCTn;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoTotalNegro += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoTotalNegro = acumuladoTotalNegro / respuestasCorrectasNegras;
+            
+            //5 PASO
+            double DECn = Math.sqrt(acumuladoTotalNegro);
+            //---------------------------------------------------------
+            
+            double PSCn = MCTn + (DECn * 2.5);
+            double PICn = MCTn - (DECn * 2.5);
+            
+        //Variables auxiliares:
+            double acumuladoTotalAzules = 0;
+            
+            //---------------------------------------------------------
+            //1 PASO
+            double MCTz = TCz / respuestasCorrectasAzules;
+            
+            //DETn - 2 PASO
+            
+            for (Long auxiliarTotalAzules : listaTiemposCorrectosAzules) {
+                
+                double calculoUno = auxiliarTotalAzules - MCTz;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoTotalAzules += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoTotalAzules = acumuladoTotalAzules / respuestasCorrectasAzules;
+            
+            //5 PASO
+            double DECz = Math.sqrt(acumuladoTotalAzules);
+            //---------------------------------------------------------
+            
+            double PSCz = MCTz + (DECz * 2.5);
+            double PICz = MCTz - (DECz * 2.5);
+            
+        //Variables auxiliares:
+            double acumuladoTotalMixto = 0;
+            
+            //---------------------------------------------------------
+            //1 PASO
+            double MCTa = TCa / respuestasCorrectasMixtos;
+            
+            //DETn - 2 PASO
+            
+            for (Long auxiliarTotalMixto : listaTiemposCorrectosMixtos) {
+                
+                double calculoUno = auxiliarTotalMixto - MCTa;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoTotalMixto += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoTotalMixto = acumuladoTotalMixto / respuestasCorrectasMixtos;
+            
+            //5 PASO
+            double DECa = Math.sqrt(acumuladoTotalMixto);
+            //---------------------------------------------------------
+            
+            double PSCa = MCTn + (DECa * 2.5);
+            double PICa = MCTn - (DECa * 2.5);
+
+        //XXXI - TCan - REVISADA - Tiempo de reacción de las respuestas correctas en el bloque de solo figuras negras:
+        double acumuladoCorrectasNegrasAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosNegras) {
+            if(auxiliar >= PICn && auxiliar <= PSCn) {
+                acumuladoCorrectasNegrasAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoLocalGlobal.setTiempoReaccionCorrectasNegras(acumuladoCorrectasNegrasAuxiliar);
+        
+        //XXXII - TCan - REVISADA - Tiempo de reacción de las respuestas correctas en el bloque de solo figuras azules:
+        double acumuladoCorrectasAzulesAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosAzules) {
+            if(auxiliar >= PICz && auxiliar <= PSCz) {
+                acumuladoCorrectasAzulesAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoLocalGlobal.setTiempoReaccionCorrectasAzules(acumuladoCorrectasAzulesAuxiliar);
+        
+        //XXXIII - TCaz - REVISADA - Tiempo de reacción de las respuestas correctas en el bloque de solo figuras mixtas:
+        double acumuladoCorrectasMixtoAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosMixtos) {
+            if(auxiliar >= PICa && auxiliar <= PSCa) {
+                acumuladoCorrectasMixtoAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoLocalGlobal.setTiempoReaccionCorrectasAlternado(acumuladoCorrectasMixtoAuxiliar);
+        
+        //XXXIV - TCat - Revisada
+        this.objetoLocalGlobal.setTiempoReaccionCorrectasTotales(acumuladoCorrectasNegrasAuxiliar + 
+                                                                 acumuladoCorrectasAzulesAuxiliar +
+                                                                 acumuladoCorrectasMixtoAuxiliar);
+        
+        //XXXV - CGac - REVISADA - Costo del shifting global con el tiempo total de las respuestas correctas
+        this.objetoLocalGlobal.setShiftingGlobalTiempoTotalCorrectas((double)(acumuladoCorrectasMixtoAuxiliar - 
+                                             ((acumuladoCorrectasNegrasAuxiliar + acumuladoCorrectasAzulesAuxiliar)/2)));
+       
+        //XXXVI - CLac - NO HECHA - Costo del shifting local con el tiempo total de las respuestas correctas
+        //--------------------------------------------------------------------------------------------------
+       
+        //XXXVII - RCan - REVISADA - Respuestas correctas en el bloque de solo figuras negras
+        int contadorCorrectasNegras = 0;
+       
+        for (Long auxiliar : listaTiemposCorrectosNegras) {
+            if (auxiliar >= PICn && auxiliar <= PSCn) {
+                contadorCorrectasNegras++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setCorrectasTotalesNegras(contadorCorrectasNegras);
+        
+        //XXXVIII - RCaz - REVISADA - Respuestas correctas en el bloque de solo figuras azules
+        int contadorCorrectasAzules = 0;
+       
+        for (Long auxiliar : listaTiemposCorrectosAzules) {
+            if(auxiliar >= PICz && auxiliar <= PSCz) {
+                contadorCorrectasAzules++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setCorrectasTotalesAzules(contadorCorrectasAzules);
+        
+        //XXXIX - RCaa - REVISADA - Respuestas correctas en el bloque de solo figuras mixtas
+        int contadorCorrectasMixtos = 0;
+       
+        for (Long auxiliar : listaTiemposCorrectosMixtos) {
+            if(auxiliar >= PICa && auxiliar <= PSCa) {
+                contadorCorrectasMixtos++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setCorrectasTotalesAlternado(contadorCorrectasMixtos);
+        
+        //XL - RCat - REVISADA - Respuestas correctas en toda la tarea
+        this.objetoLocalGlobal.setCorrectasTotalesTarea(contadorCorrectasNegras + 
+                                                        contadorCorrectasAzules + 
+                                                        contadorCorrectasMixtos);
+        
+        //Variables auxiliares
+        
+            //TPΔZ
+            double TPan = acumuladoCorrectasNegrasAuxiliar / contadorCorrectasNegras;
+            
+            //TPΔZ
+            double TPaz = acumuladoCorrectasAzulesAuxiliar / contadorCorrectasAzules;
+            
+            //TPΔZ
+            double TPaa = acumuladoCorrectasMixtoAuxiliar / contadorCorrectasMixtos;
+            
+        //XLI - CGap - REVISADA - Costo del shifting global con el tiempo de reacción promedio de las respuestas correctas
+        this.objetoLocalGlobal.setShiftingGlobalTiempoReaccionCorrectas((double)(TPaa - ((TPan + TPaz)/2)));
+        
+        //XLII - CLap - NO HECHA - Costo del shifting local con el tiempo de reacción promedio de las respuestas correctas
+        //----------------------------------------------------------------------------------------------------------------
+        
+        //Variables auxiliares
+        
+            //Ran
+            int contadorRespuetasTotalesNegras = 0;
+            
+            for (Long auxiliar : listaTiemposNegras) {
+                if (auxiliar >= PITn && auxiliar <= PSTn) {
+                    contadorRespuetasTotalesNegras++;
+                }
+            }
+            
+            //Pan
+            double Pan = (contadorCorrectasNegras * 100)/contadorRespuetasTotalesNegras;
+            
+            //----------------------------------------------------------------------------
+            
+            //Raz
+            int contadorRespuetasTotalesAzules = 0;
+            
+            for (Long auxiliar : listaTiemposAzules) {
+                if (auxiliar >= PITz && auxiliar <= PSTz) {
+                    contadorRespuetasTotalesAzules++;
+                }
+            }
+            
+            //Paz
+            double Paz = (contadorCorrectasAzules * 100)/contadorRespuetasTotalesAzules;
+            
+            //----------------------------------------------------------------------------
+            
+            //Raa
+            int contadorRespuetasTotalesMixtos = 0;
+            
+            for (Long auxiliar : listaTiemposMixtos) {
+                if (auxiliar >= PITa && auxiliar <= PSTa) {
+                    contadorRespuetasTotalesMixtos++;
+                }
+            }
+            
+            //Paa
+            double Paa = (contadorCorrectasMixtos * 100)/contadorRespuetasTotalesMixtos;
+            
+        //XLIII - REVISADA - Costo del shifting global con porcentaje de respuestas correctas
+        this.objetoLocalGlobal.setShiftingGlobalPorcentajeTotalCorrectas((double)(Paa - ((Pan + Paz)/2)));
+        
+        //XLIV - NO HECHA - Costo del shifting local con porcentaje de respuestas correctas
+        //---------------------------------------------------------------------------------
+        
+        //XLV - RIan - REVISADA - Respuestas incorrectas en el bloque de solo figuras negras
+        int contadorIncorrectasNegras = 0;
+       
+        for (Long auxiliar : listaTiemposIncorrectosNegras) {
+            if (auxiliar >= PITn && auxiliar <= PSTn) {
+                contadorIncorrectasNegras++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setIncorrectasTotalesNegras(contadorIncorrectasNegras);
+        
+        //XLVI - RIaz - REVISADA - Respuestas incorrectas en el bloque de solo figuras azules
+        int contadorIncorrectasAzules = 0;
+       
+        for (Long auxiliar : listaTiemposIncorrectosAzules) {
+            if (auxiliar >= PITz && auxiliar <= PSTz) {
+                contadorIncorrectasAzules++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setIncorrectasTotalesAzules(contadorIncorrectasAzules);
+        
+        //XLVII - RIaa - REVISADA - Respuestas incorrectas en el bloque de solo figuras mixtas
+        int contadorIncorrectasMixtos = 0;
+       
+        for (Long auxiliar : listaTiemposIncorrectosMixtos) {
+            if (auxiliar >= PITa && auxiliar <= PSTa) {
+                contadorIncorrectasMixtos++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setIncorrectasTotalesAlternado(contadorIncorrectasMixtos);
+        
+        //XLVIII - RIat - REVISADA - Respuestas incorrectas en toda la tarea
+        this.objetoLocalGlobal.setIncorrectasTotalesTarea(contadorIncorrectasNegras + 
+                                                          contadorIncorrectasAzules +
+                                                          contadorIncorrectasMixtos); 
+        
+        //XLIX - ONan - REVISADA - Respuestas omitidas en el bloque de solo figuras negras
+        int contadorOmitidasNegras = 0;
+       
+        for (Long auxiliar : listaTiemposOmitidosNegras) {
+            if (auxiliar >= PITn && auxiliar <= PSTn) {
+                contadorOmitidasNegras++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setOmisionesNulasTotalesNegras(contadorOmitidasNegras);
+        
+        //L - ONaz - REVISADA - Respuestas omitidas en el bloque de solo figuras azules
+        int contadorOmitidasAzules = 0;
+       
+        for (Long auxiliar : listaTiemposOmitidosAzules) {
+            if (auxiliar >= PITz && auxiliar <= PSTz) {
+                contadorOmitidasAzules++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setOmisionesNulasTotalesAzules(contadorOmitidasAzules);
+        
+        //LI - ONaa - REVISADA - Respuestas omitidas en el bloque de solo figuras azules
+        int contadorOmitidasMixtos = 0;
+       
+        for (Long auxiliar : listaTiemposOmitidosMixtos) {
+            if (auxiliar >= PITa && auxiliar <= PSTa) {
+                contadorOmitidasMixtos++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setOmisionesNulasTotalesAlternado(contadorOmitidasMixtos);
+        
+        //LII - ONaa - REVISADA - Respuestas omitidas en toda la tarea
+        this.objetoLocalGlobal.setOmisionesNulasTotalesTarea(contadorOmitidasNegras + 
+                                                             contadorOmitidasAzules +
+                                                             contadorOmitidasMixtos); 
     }
     
     /**
@@ -839,66 +1418,6 @@ public class ControlGlobalLocal {
             }
         }
     };
-    
-    public void calculosGlobalLocal() {
-        //I - Tn
-        this.objetoLocalGlobal.setTiempoNegras((double) this.tiempoValidoNegras);
-        
-        //II - Tz
-        this.objetoLocalGlobal.setTiempoAzules((double) this.tiempoValidoAzules);
-        
-        //III - Ta
-        this.objetoLocalGlobal.setTiempoAlternado((double) this.tiempoValidoMixtos);
-        
-        //IV - Tt
-        this.objetoLocalGlobal.setTiempoTotal((double)(tiempoValidoNegras + tiempoValidoAzules + tiempoValidoMixtos));
-        
-        //V - CGt
-        this.objetoLocalGlobal.setShiftingGlobalTotal((double)(tiempoValidoMixtos - 
-                                                              ((tiempoValidoNegras + tiempoValidoAzules)/2)));
-        
-        //VI - CLt
-        this.objetoLocalGlobal.setShiftingLocalTotal((double)(tiempoShiftingAlternado - tiempoRepeticionesAlternado));
-        
-        //VII - CGc
-        this.objetoLocalGlobal.setShiftingGlobalTotalCorrectas((double)(tiempoCorrectasMixtos - 
-                                                              ((tiempoCorrectasNegras + tiempoCorrectasAzules)/2)));
-        
-        //TCa = tiempoCorrectoMixtos
-        //TCn = tiempoCorrectasNegras
-        //TCz = tiempoCorrectasAzules
-        
-        //VIII - CLc
-        //Está pendiente
-        
-        //IX - RCn
-        this.objetoLocalGlobal.setCorrectasNegras(respuestasCorrectasNegras);
-        
-        //X - RCz
-        this.objetoLocalGlobal.setCorrectasAzules(respuestasCorrectasAzules);
-        
-        //XI - RCa
-        this.objetoLocalGlobal.setCorrectasAlternado(respuestasCorrectasMixtos);
-        
-        //XII - RCt
-        this.objetoLocalGlobal.setCorrectasTotales(respuestasCorrectasNegras + respuestasCorrectasAzules + respuestasCorrectasMixtos);
-        
-        //TPn
-        double tiempoReaccionPromedioNegras = tiempoCorrectasNegras / respuestasCorrectasNegras;
-                
-        //TPz
-        double tiempoReaccionPromedioAzules = tiempoCorrectasAzules / respuestasCorrectasAzules;
-                
-        //TPa        
-        double tiempoReaccionPromedioMixto = tiempoCorrectasMixtos / respuestasCorrectasMixtos;
-        
-        //XIII - CGp
-        this.objetoLocalGlobal.setShiftingGlobalReaccionCorrectas((double)(tiempoReaccionPromedioMixto - 
-                                                     ((tiempoReaccionPromedioNegras + tiempoReaccionPromedioAzules)/2)));
-        
-        
-        
-    }
 
     public JLabel getEtiquetaImagen() {
         return etiquetaImagen;
@@ -947,7 +1466,5 @@ public class ControlGlobalLocal {
     public void setAuxiliarMixto(int auxiliarMixto) {
         this.auxiliarMixto = auxiliarMixto;
     }
-    
-    
     
 }
