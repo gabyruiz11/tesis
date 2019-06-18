@@ -38,7 +38,7 @@ public class InstruccionNL2 extends javax.swing.JFrame {
         gbc.fill = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.BOTH;
         jPanel2.add(jLabel1, gbc);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inlm.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-conso.png")));
         
         jPanel2.requestFocus();
     }
@@ -103,7 +103,7 @@ public class InstruccionNL2 extends javax.swing.JFrame {
             contador++;
             
             if (contador == 1) {
-                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inlm1.png")));
+                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-vocal.png")));
             } else {
                 InstruccionesNumberLetter instrucciones = InstruccionesNumberLetter.getSingletonInstance();
                 instrucciones.setVisible(true);
