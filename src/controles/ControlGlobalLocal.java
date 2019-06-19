@@ -198,6 +198,7 @@ public class ControlGlobalLocal {
     private int contadorFigurasPracticaActividad() {
         int auxiliar = numeroAleatoriosPracticaActividad();
 
+        
         if (auxiliar >= 1 && auxiliar <= 3) {
             if (circulo < this.getRepeticiones()) {
                 circulo++;
@@ -1469,6 +1470,7 @@ public class ControlGlobalLocal {
         }
     };
 
+    
     public Object instruccionesPantalla(JFrame frame, JLabel label) {
         switch (contadoraux) {
             case 0:
