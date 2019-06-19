@@ -2341,6 +2341,7 @@ public class ControlNumberLetter {
                 mixtoPractica.setVisible(true);
                 this.setPantalla(mixtoPractica);
             case 32:
+                this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_consonante-vocal.png")));
                 return("Recuerda solo presionar:\n"
                         + "\n"
@@ -2353,7 +2354,6 @@ public class ControlNumberLetter {
                         + "Tecla «V»: Letra vocal");
                 
             case 33:
-                this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste los ejercicios de práctica.");
             case 34:
@@ -2368,6 +2368,7 @@ public class ControlNumberLetter {
                 mixtoActividad.setVisible(true);
                 this.setPantalla(mixtoActividad);
             default:
+                this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return "¡Excelente trabajo! Lo hiciste muy bien. Has \n"
                         + "terminado con esta actividad."
