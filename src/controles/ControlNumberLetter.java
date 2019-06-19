@@ -1014,7 +1014,6 @@ public class ControlNumberLetter {
             consonante = 0;
             pares = 0;
             impares = 0;
-            
             getPantalla().setVisible(false);
             InstruccionesNumberLetter instrucciones = InstruccionesNumberLetter.getSingletonInstance();
             instrucciones.setVisible(true);

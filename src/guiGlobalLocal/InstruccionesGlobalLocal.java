@@ -5,6 +5,7 @@
  */
 package guiGlobalLocal;
 
+import controles.ControlGlobalLocal;
 import guiNumberLetter.*;
 import controles.ControlNumberLetter;
 import java.awt.BorderLayout;
@@ -29,7 +30,7 @@ public class InstruccionesGlobalLocal extends javax.swing.JFrame {
      */
     GridBagConstraints gbc = new GridBagConstraints();
     GridBagConstraints gbc2 = new GridBagConstraints();
-    ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
+    ControlGlobalLocal control = ControlGlobalLocal.getSingletonInstance();
     //Variable contador que sirve para cambiar las instrucciones
 
     public InstruccionesGlobalLocal() {
