@@ -14,7 +14,6 @@ import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
@@ -353,22 +352,22 @@ public class MixtoActividad extends javax.swing.JFrame {
             case KeyEvent.VK_N:
                 //control.respuestaNumeros("par", control.recorrerListaNumeros(etiquetas), etiquetaRespuesta);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.respuestaMixtos(1);
+                control.respuestaMixtos(1, true);
                 break;
             case KeyEvent.VK_M:
                 //control.respuestaNumeros("impar", control.recorrerListaNumeros(etiquetas), etiquetaRespuesta);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.respuestaMixtos(2);
+                control.respuestaMixtos(2, true);
                 break;
             case KeyEvent.VK_C:
                 //control.respuestaLetras("Consonante", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.respuestaMixtos(3);
+                control.respuestaMixtos(3, true);
                 break;
             case KeyEvent.VK_V:
                 //control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.respuestaMixtos(4);
+                control.respuestaMixtos(4, true);
                 break;
             case KeyEvent.VK_SPACE:
                 control.setEtiquetaA(valorASuperiorIzquierdo);
@@ -382,7 +381,7 @@ public class MixtoActividad extends javax.swing.JFrame {
 
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
                 control.agregarVocalesConsonantes();
-                control.setRepeticiones(64);
+                control.setRepeticiones(32);
                 control.actividadMixto();
                 break;
             default:

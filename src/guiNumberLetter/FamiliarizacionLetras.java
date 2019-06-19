@@ -118,7 +118,7 @@ public class FamiliarizacionLetras extends javax.swing.JFrame {
         Color verde = Color.decode("#1A8803");
         switch (evt.getKeyChar()) {
             case KeyEvent.VK_C:
-                control.respuestaLetras("Consonante", etiquetaString, etiquetaRespuesta);
+                control.respuestaLetras("Consonante", etiquetaString, etiquetaRespuesta, false);
                 if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                     this.etiquetaRespuesta.setForeground(verde);
                 } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
@@ -126,7 +126,7 @@ public class FamiliarizacionLetras extends javax.swing.JFrame {
                 }
                 break;
             case KeyEvent.VK_V:
-                control.respuestaLetras("Vocal", etiquetaString, etiquetaRespuesta);
+                control.respuestaLetras("Vocal", etiquetaString, etiquetaRespuesta, false);
                 if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                     this.etiquetaRespuesta.setForeground(verde);
                 } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {

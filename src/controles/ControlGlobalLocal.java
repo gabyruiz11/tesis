@@ -914,7 +914,7 @@ public class ControlGlobalLocal {
             }
         }
         
-       this.objetoLocalGlobal.setTiempoTotalAzules(acumuladoMixtosAuxiliar);
+       this.objetoLocalGlobal.setTiempoTotalAlternado(acumuladoMixtosAuxiliar);
        
        //XXVIII - TXt - REVISADA - Tiempo total en la tarea
        this.objetoLocalGlobal.setTiempoTotalTarea(acumuladoNegrasAuxiliar + acumuladoAzulesAuxiliar + acumuladoMixtosAuxiliar);

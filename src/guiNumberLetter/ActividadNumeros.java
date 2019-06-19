@@ -257,7 +257,7 @@ public class ActividadNumeros extends javax.swing.JFrame {
         switch (evt.getKeyChar()) {
 
             case KeyEvent.VK_N:
-                control.respuestaNumeros("par", control.recorrerListaNumeros(etiquetas), etiquetaRespuesta);
+                control.respuestaNumeros("par", control.recorrerListaNumeros(etiquetas), etiquetaRespuesta, true);
                 if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                     this.etiquetaRespuesta.setForeground(verde);
                 } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
@@ -265,7 +265,7 @@ public class ActividadNumeros extends javax.swing.JFrame {
                 }
                 break;
             case KeyEvent.VK_M:
-                control.respuestaNumeros("impar", control.recorrerListaNumeros(etiquetas), etiquetaRespuesta);
+                control.respuestaNumeros("impar", control.recorrerListaNumeros(etiquetas), etiquetaRespuesta, true);
                 if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                     this.etiquetaRespuesta.setForeground(verde);
                 } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
