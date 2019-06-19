@@ -237,7 +237,7 @@ public class PracticaLetras extends javax.swing.JFrame {
         Color verde = Color.decode("#1A8803");
         switch (evt.getKeyChar()) {
             case KeyEvent.VK_C:
-                control.respuestaLetras("Consonante", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
+                control.respuestaLetras("Consonante", control.recorrerListaLetras(etiquetas), etiquetaRespuesta, false);
                 if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                     this.etiquetaRespuesta.setForeground(verde);
                 } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
@@ -245,7 +245,7 @@ public class PracticaLetras extends javax.swing.JFrame {
                 }
                 break;
             case KeyEvent.VK_V:
-                control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
+                control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta, false);
                 if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                     this.etiquetaRespuesta.setForeground(verde);
                 } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {

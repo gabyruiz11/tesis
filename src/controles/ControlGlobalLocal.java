@@ -736,7 +736,6 @@ public class ControlGlobalLocal {
     /**
      * Método que hace los cálculos de las variables de análisis
      */
-   
 
     /**
      * Método que ejecuta el hilo de la familiarización

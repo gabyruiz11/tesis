@@ -60,8 +60,46 @@ public class ControlNumberLetter {
     private int pares = 0, impares = 0, repeticiones = 0,
                 vocal = 0, consonante = 0, relojSwing = 0;
 
-    private Color verde = Color.decode("#1A8803");
+    private final Color verde = Color.decode("#1A8803");
     private JFrame pantalla = null;
+    
+    //Variables de salida
+    private int correctasLetras, correctasNumeros, correctasMixtos,
+                incorrectasLetras, incorrectasNumeros, incorrectasMixtos,
+                omitidasLetras, omitidasNumeros, omitidasMixtos,
+                correctasImpares, correctasPares,
+                incorrectasImpares, incorrectasPares;
+    
+    private long acumuladoTiempoLetra, acumuladoTiempoNumero, acumuladoTiempoMixtos, 
+                 acumuladoTiempoImpares, acumuladoTiempoPares,
+            
+                 acumuladoTiempoCorrectoLetra, acumuladoTiempoCorrectaNumero, acumuladoTiempoCorrectoMixtos,
+                 acumuladoTiempoCorrectoImpares, acumuladoTiempoCorrectoPares;
+    
+    //Variables auxiliares
+    long tiempoInicioAuxiliar;
+    
+    ArrayList<Long> listaTiemposLetras = new ArrayList();
+    ArrayList<Long> listaTiemposNumeros = new ArrayList();
+    ArrayList<Long> listaTiemposMixtos = new ArrayList();
+    
+    ArrayList<Long> listaTiemposCorrectosLetras = new ArrayList();
+    ArrayList<Long> listaTiemposCorrectosNumeros = new ArrayList();
+    ArrayList<Long> listaTiemposCorrectosMixtos = new ArrayList();
+    
+    ArrayList<Long> listaTiemposIncorrectosLetras = new ArrayList();
+    ArrayList<Long> listaTiemposIncorrectosNumeros = new ArrayList();
+    ArrayList<Long> listaTiemposIncorrectosMixtos = new ArrayList();
+    
+    ArrayList<Long> listaTiemposOmitidosLetras = new ArrayList();
+    ArrayList<Long> listaTiemposOmitidosNumeros = new ArrayList();
+    ArrayList<Long> listaTiemposOmitidosMixtos = new ArrayList();
+    
+    ArrayList<Long> listaTiemposPares = new ArrayList();
+    ArrayList<Long> listaTiemposImpares = new ArrayList();
+    
+    ArrayList<Long> listaTiemposCorrectosPares = new ArrayList();
+    ArrayList<Long> listaTiemposCorrectosImpares = new ArrayList();
 
     /**
      * Constuctor que crea un objeto de tipo control con el objeto de plus minus
@@ -397,12 +435,13 @@ public class ControlNumberLetter {
                 relojSwing = 0;
                 break;
         }
-
+        
         try {
             wait(10000);
         } catch (InterruptedException ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error");
         }
+        
     }
 
     /**
@@ -439,10 +478,23 @@ public class ControlNumberLetter {
             }
         }
 
+        long inicio = System.currentTimeMillis();
+        tiempoInicioAuxiliar = inicio;
+
         try {
             wait(10000);
         } catch (InterruptedException ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error");
+        }
+        
+        long transcurrido = System.currentTimeMillis() - inicio;
+        
+        if(transcurrido > 200 && transcurrido < 10000) {
+            acumuladoTiempoNumero += transcurrido;
+            listaTiemposNumeros.add(transcurrido);
+        } else {
+            omitidasNumeros++;
+            listaTiemposOmitidosNumeros.add(transcurrido);
         }
     }
 
@@ -480,12 +532,143 @@ public class ControlNumberLetter {
                 etiquetaB.setText("");
             }
         }
+        
+        long inicio = System.currentTimeMillis();
+        tiempoInicioAuxiliar = inicio;
 
         try {
             wait(10000);
         } catch (InterruptedException ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error");
         }
+        
+        long transcurrido = System.currentTimeMillis() - inicio;
+        
+        if(transcurrido > 200 && transcurrido < 10000) {
+            acumuladoTiempoLetra += transcurrido;
+            listaTiemposLetras.add(transcurrido);
+        } else {
+            omitidasLetras++;
+            listaTiemposOmitidosLetras.add(transcurrido);
+        }
+        
+    }
+    
+    /**
+     * Método que cambia los números en el swing de la actividad de mixtos
+     */
+    public synchronized void mixtoSwingActividad() {
+        int aleatorio = ThreadLocalRandom.current().nextInt(0, 1 + 1);
+        int numero;
+        String letra;
+
+        switch (relojSwing) {
+            case 0:
+                numero = this.parImpar();
+                letra = this.letraAleatorias();
+
+                if (aleatorio == 0) {
+                    this.getEtiquetaA().setText(String.valueOf(numero));
+                    this.getEtiquetaB().setText(letra);
+                } else {
+                    this.getEtiquetaA().setText(letra);
+                    this.getEtiquetaB().setText(String.valueOf(numero));
+                }
+
+                this.getEtiquetaC().setText("");
+                this.getEtiquetaD().setText("");
+                this.getEtiquetaE().setText("");
+                this.getEtiquetaF().setText("");
+                this.getEtiquetaG().setText("");
+                this.getEtiquetaH().setText("");
+
+                relojSwing++;
+                break;
+            case 1:
+                numero = this.parImpar();
+                letra = this.letraAleatorias();
+
+                if (aleatorio == 0) {
+                    this.getEtiquetaC().setText(String.valueOf(numero));
+                    this.getEtiquetaD().setText(letra);
+                } else {
+                    this.getEtiquetaC().setText(letra);
+                    this.getEtiquetaD().setText(String.valueOf(numero));
+                }
+
+                this.getEtiquetaA().setText("");
+                this.getEtiquetaB().setText("");
+                this.getEtiquetaE().setText("");
+                this.getEtiquetaF().setText("");
+                this.getEtiquetaG().setText("");
+                this.getEtiquetaH().setText("");
+
+                relojSwing++;
+                break;
+            case 2:
+                numero = numeroAleatorios();
+                letra = vocalConsonante();
+
+                if (aleatorio == 0) {
+                    this.getEtiquetaE().setText(String.valueOf(numero));
+                    this.getEtiquetaF().setText(letra);
+                } else {
+                    this.getEtiquetaE().setText(letra);
+                    this.getEtiquetaF().setText(String.valueOf(numero));
+                }
+
+                this.getEtiquetaA().setText("");
+                this.getEtiquetaB().setText("");
+                this.getEtiquetaC().setText("");
+                this.getEtiquetaD().setText("");
+                this.getEtiquetaG().setText("");
+                this.getEtiquetaH().setText("");
+
+                relojSwing++;
+                break;
+            case 3:
+                numero = numeroAleatorios();
+                letra = vocalConsonante();
+
+                if (aleatorio == 0) {
+                    this.getEtiquetaG().setText(String.valueOf(numero));
+                    this.getEtiquetaH().setText(letra);
+                } else {
+                    this.getEtiquetaG().setText(letra);
+                    this.getEtiquetaH().setText(String.valueOf(numero));
+                }
+
+                this.getEtiquetaA().setText("");
+                this.getEtiquetaB().setText("");
+                this.getEtiquetaC().setText("");
+                this.getEtiquetaD().setText("");
+                this.getEtiquetaE().setText("");
+                this.getEtiquetaF().setText("");
+
+                relojSwing = 0;
+                break;
+        }
+
+        long inicio = System.currentTimeMillis();
+        tiempoInicioAuxiliar = inicio;
+        
+        try {
+            wait(10000);
+        } catch (InterruptedException ex) {
+            JOptionPane.showMessageDialog(null, "Ocurrió un error");
+        }
+        
+        long transcurrido = System.currentTimeMillis() - inicio;
+        System.out.println(transcurrido);
+        
+        if(transcurrido > 200 && transcurrido < 10000) {
+            acumuladoTiempoMixtos += transcurrido;
+            listaTiemposMixtos.add(transcurrido);
+        } else {
+            omitidasMixtos++;
+            listaTiemposOmitidosMixtos.add(transcurrido);
+        }
+        
     }
 
     /**
@@ -494,8 +677,9 @@ public class ControlNumberLetter {
      * @param respuesta
      * @param numero
      * @param etiquetaRespuesta
+     * @param tipo
      */
-    public synchronized void respuestaNumeros(String respuesta, int numero, JLabel etiquetaRespuesta) {
+    public synchronized void respuestaNumeros(String respuesta, int numero, JLabel etiquetaRespuesta, boolean tipo) {
         String auxiliar;
 
         if (numero % 2 == 0) {
@@ -506,9 +690,30 @@ public class ControlNumberLetter {
 
         if (auxiliar.equals(respuesta)) {
             etiquetaRespuesta.setText("Correcto");
+            
+            if (tipo == true) {
+                long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+
+                if (transcurrido > 200 && transcurrido < 10000) {
+                    acumuladoTiempoCorrectaNumero += transcurrido;
+                    correctasNumeros++;
+                    listaTiemposCorrectosNumeros.add(transcurrido);
+                }
+            }
+            
             notifyAll();
         } else {
             etiquetaRespuesta.setText("Incorrecto");
+            
+            if(tipo == true) {
+                long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+                
+                if (transcurrido > 200 && transcurrido < 10000) {
+                    incorrectasNumeros++;
+                    listaTiemposIncorrectosNumeros.add(transcurrido);
+                }
+            }
+            
             notifyAll();
         }
     }
@@ -520,7 +725,7 @@ public class ControlNumberLetter {
      * @param etiquetaString
      * @param etiquetaRespuesta
      */
-    public synchronized void respuestaLetras(String respuesta, JLabel etiquetaString, JLabel etiquetaRespuesta) {
+    public synchronized void respuestaLetras(String respuesta, JLabel etiquetaString, JLabel etiquetaRespuesta, boolean tipo) {
         String auxiliar = "";
 
         String[] listaVocales = {"A", "E", "I", "U"};
@@ -542,9 +747,134 @@ public class ControlNumberLetter {
 
         if (respuesta.equals(auxiliar)) {
             etiquetaRespuesta.setText("Correcto");
+            
+            if (tipo == true) {
+                long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+
+                if (transcurrido > 200 && transcurrido < 10000) {
+                    acumuladoTiempoCorrectoLetra += transcurrido;
+                    correctasLetras++;
+                    listaTiemposCorrectosLetras.add(transcurrido);
+                }
+            }
+            
             notifyAll();
         } else {
             etiquetaRespuesta.setText("Incorrecto");
+            
+            if (tipo == true) {
+                long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+
+                if (transcurrido > 200 && transcurrido < 10000) {
+                    incorrectasLetras++;
+                    listaTiemposIncorrectosLetras.add(transcurrido);
+                }
+            }
+            
+            notifyAll();
+        }
+    }
+    
+    /**
+     * Método que evalua los resultados de los swing en los números del ejercicio mixto
+     *
+     * @param respuesta
+     * @param numero
+     * @param etiquetaRespuesta
+     * @param tipo
+     */
+    public synchronized void respuestaNumerosMixtos(String respuesta, int numero, JLabel etiquetaRespuesta, boolean tipo) {
+        String auxiliar;
+
+        if (numero % 2 == 0) {
+            auxiliar = "par";
+        } else {
+            auxiliar = "impar";
+        }
+
+        if (auxiliar.equals(respuesta)) {
+            etiquetaRespuesta.setText("Correcto");
+            
+            if (tipo == true) {
+                long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+
+                if (transcurrido > 200 && transcurrido < 10000) {
+                    acumuladoTiempoCorrectoMixtos += transcurrido;
+                    correctasMixtos++;
+                    listaTiemposCorrectosMixtos.add(transcurrido);
+                }
+            }
+            
+            notifyAll();
+        } else {
+            etiquetaRespuesta.setText("Incorrecto");
+            
+            if (tipo == true) {
+                long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+
+                if (transcurrido > 200 && transcurrido < 10000) {
+                    incorrectasMixtos++;
+                    listaTiemposIncorrectosMixtos.add(transcurrido);
+                }
+            }
+            
+            notifyAll();
+        }
+    }
+    
+    /**
+     * Método que evalua los resultados de los swing en las letras
+     *
+     * @param respuesta
+     * @param etiquetaString
+     * @param etiquetaRespuesta
+     */
+    public synchronized void respuestaLetrasMixtos(String respuesta, JLabel etiquetaString, JLabel etiquetaRespuesta, boolean tipo) {
+        String auxiliar = "";
+
+        String[] listaVocales = {"A", "E", "I", "U"};
+        String[] listaConsonantes = {"G", "K", "M", "R"};
+
+        for (String auxiliarVocal : listaVocales) {
+            if (auxiliarVocal.equals(etiquetaString.getText())) {
+                auxiliar = "Vocal";
+                break;
+            }
+        }
+
+        for (String auxiliarConsonante : listaConsonantes) {
+            if (auxiliarConsonante.equals(etiquetaString.getText())) {
+                auxiliar = "Consonante";
+                break;
+            }
+        }
+
+        if (respuesta.equals(auxiliar)) {
+            etiquetaRespuesta.setText("Correcto");
+            
+            if (tipo == true) {
+                long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+
+                if (transcurrido > 200 && transcurrido < 10000) {
+                    acumuladoTiempoCorrectoMixtos += transcurrido;
+                    correctasMixtos++;
+                    listaTiemposCorrectosMixtos.add(transcurrido);
+                }
+            }
+            
+            notifyAll();
+        } else {
+            etiquetaRespuesta.setText("Incorrecto");
+            
+            if (tipo == true) {
+                long transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+
+                if (transcurrido > 200 && transcurrido < 10000) {
+                    incorrectasMixtos++;
+                    listaTiemposIncorrectosMixtos.add(transcurrido);
+                }
+            }
+            
             notifyAll();
         }
     }
@@ -554,9 +884,11 @@ public class ControlNumberLetter {
      *
      * @param opcion
      */
-    public synchronized void respuestaMixtos(int opcion) {
+    public synchronized void respuestaMixtos(int opcion, boolean tipo) {
         ArrayList<JLabel> listaAuxiliar;
-
+        long transcurrido;
+        boolean eventoUno = false, eventoDos = false;
+        
         switch (opcion) {
             case 1:
                 listaAuxiliar = new ArrayList();
@@ -567,16 +899,48 @@ public class ControlNumberLetter {
 
                 if (verificarNumerosMixto(listaAuxiliar) == -1) {
                     etiquetaRespuesta.setText("Incorrecto");
+                    this.etiquetaRespuesta.setForeground(Color.red);
+                    
+                    if(tipo == true) {
+                        incorrectasMixtos++;
+                        incorrectasImpares++;
+                    }
+
                     notifyAll();
                     break;
+                } else {
+                    this.respuestaNumerosMixtos("par", recorrerListaNumeros(listaAuxiliar), this.getEtiquetaRespuesta(), tipo);
+                    if (this.etiquetaRespuesta.getText().equals("Correcto")) {
+                        this.etiquetaRespuesta.setForeground(verde);
+                        
+                        if (tipo == true) {
+                            eventoUno = true;
+                        }
+                        
+                    } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
+                        this.etiquetaRespuesta.setForeground(Color.red);
+                        
+                    }
                 }
+                
+                if (tipo == true) {
+                    transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
 
-                this.respuestaNumeros("par", recorrerListaNumeros(listaAuxiliar), this.getEtiquetaRespuesta());
-                if (this.etiquetaRespuesta.getText().equals("Correcto")) {
-                    this.etiquetaRespuesta.setForeground(verde);
-                } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
-                    this.etiquetaRespuesta.setForeground(Color.red);
+                    if (transcurrido > 200 && transcurrido < 10000) {
+                        acumuladoTiempoImpares += transcurrido;
+                        listaTiemposImpares.add(transcurrido);
+
+                        if (eventoUno == true) {
+                            acumuladoTiempoCorrectoImpares += transcurrido;
+                            listaTiemposCorrectosImpares.add(transcurrido);
+                            
+                            correctasImpares++;
+                        } else {
+                            incorrectasImpares++;  
+                        }
+                    }
                 }
+                
                 break;
             case 2:
                 listaAuxiliar = new ArrayList();
@@ -587,16 +951,47 @@ public class ControlNumberLetter {
 
                 if (verificarNumerosMixto(listaAuxiliar) == -1) {
                     etiquetaRespuesta.setText("Incorrecto");
+                    this.etiquetaRespuesta.setForeground(Color.red);
+                    
+                    if(tipo == true) {
+                        incorrectasMixtos++;
+                        incorrectasPares++;
+                    }
+                    
                     notifyAll();
                     break;
+                } else {
+                    this.respuestaNumerosMixtos("impar", recorrerListaNumeros(listaAuxiliar), this.getEtiquetaRespuesta(), tipo);
+                    if (this.etiquetaRespuesta.getText().equals("Correcto")) {
+                        this.etiquetaRespuesta.setForeground(verde);
+                        
+                        if (tipo == true) {
+                            eventoUno = true;
+                        }
+                        
+                    } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
+                        this.etiquetaRespuesta.setForeground(Color.red);
+                    }
                 }
+                
+                if (tipo == true) {
+                    transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
 
-                this.respuestaNumeros("impar", recorrerListaNumeros(listaAuxiliar), this.getEtiquetaRespuesta());
-                if (this.etiquetaRespuesta.getText().equals("Correcto")) {
-                    this.etiquetaRespuesta.setForeground(verde);
-                } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
-                    this.etiquetaRespuesta.setForeground(Color.red);
+                    if (transcurrido > 200 && transcurrido < 10000) {
+                        acumuladoTiempoPares += transcurrido;
+                        listaTiemposPares.add(transcurrido);
+
+                        if (eventoUno == true) {
+                            acumuladoTiempoCorrectoPares += transcurrido;
+                            listaTiemposCorrectosPares.add(transcurrido);
+                            
+                            correctasPares++;
+                        } else {
+                            incorrectasPares++;
+                        }
+                    }
                 }
+                
                 break;
             case 3:
                 listaAuxiliar = new ArrayList();
@@ -606,15 +1001,45 @@ public class ControlNumberLetter {
                 listaAuxiliar.add(this.getEtiquetaH());
 
                 try {
-                    this.respuestaLetras("Consonante", this.recorrerListaLetras(listaAuxiliar), this.getEtiquetaRespuesta());
+                    this.respuestaLetrasMixtos("Consonante", this.recorrerListaLetras(listaAuxiliar), this.getEtiquetaRespuesta(), tipo);
                     if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                         this.etiquetaRespuesta.setForeground(verde);
+                        
+                        if(tipo == true) {
+                            eventoUno = true;
+                        }
+                        
                     } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
                         this.etiquetaRespuesta.setForeground(Color.red);
                     }
                 } catch (Exception ex) {
                     etiquetaRespuesta.setText("Incorrecto");
+                    this.etiquetaRespuesta.setForeground(Color.red);
+                    
+                    if(tipo == true) {
+                        incorrectasMixtos++;
+                        incorrectasImpares++;
+                    }
+                    
                     notifyAll();
+                }
+                
+                if (tipo == true) {
+                    transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
+
+                    if (transcurrido > 200 && transcurrido < 10000) {
+                        acumuladoTiempoImpares += transcurrido;
+                        listaTiemposImpares.add(transcurrido);
+
+                        if (eventoUno == true) {
+                            acumuladoTiempoCorrectoImpares += transcurrido;
+                            listaTiemposCorrectosImpares.add(transcurrido);
+                            
+                            correctasImpares++;
+                        } else {
+                            incorrectasImpares++;
+                        }
+                    }
                 }
 
                 break;
@@ -626,25 +1051,49 @@ public class ControlNumberLetter {
                 listaAuxiliar.add(this.getEtiquetaH());
 
                 try {
-                    this.respuestaLetras("Vocal", this.recorrerListaLetras(listaAuxiliar), this.getEtiquetaRespuesta());
+                    this.respuestaLetrasMixtos("Vocal", this.recorrerListaLetras(listaAuxiliar), this.getEtiquetaRespuesta(), tipo);
                     if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                         this.etiquetaRespuesta.setForeground(verde);
+                        
+                        if(tipo == true) {
+                            eventoUno = true;
+                        }
+                        
                     } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
                         this.etiquetaRespuesta.setForeground(Color.red);
                     }
                 } catch (Exception ex) {
                     etiquetaRespuesta.setText("Incorrecto");
+                    this.etiquetaRespuesta.setForeground(Color.red);
+                    
+                    if(tipo == true) {
+                        incorrectasMixtos++;
+                        incorrectasPares++;
+                    }
+                    
                     notifyAll();
                 }
+                
+                if (tipo == true) {
+                    transcurrido = System.currentTimeMillis() - tiempoInicioAuxiliar;
 
+                    if (transcurrido > 200 && transcurrido < 10000) {
+                        acumuladoTiempoPares += transcurrido;
+                        listaTiemposPares.add(transcurrido);
+
+                        if (eventoUno == true) {
+                            acumuladoTiempoCorrectoPares += transcurrido;
+                            listaTiemposCorrectosPares.add(transcurrido);
+                            
+                            correctasPares++;
+                        } else {
+                            incorrectasPares++;
+                        }
+                    }
+                }
+                
                 break;
         }
-        
-                System.out.println(pares);
-                System.out.println(impares);
-                System.out.println(vocal);
-                System.out.println(consonante);
-                System.out.println("------------------");
     }
 
     /**
@@ -668,7 +1117,7 @@ public class ControlNumberLetter {
     }
 
     private int parImpar() {
-        int auxiliar = (int) (Math.random() * 8 + 2);
+        int auxiliar = ThreadLocalRandom.current().nextInt(2, 9 + 1);
 
         if (auxiliar % 2 == 0) {
             if (pares < repeticiones) {
@@ -782,6 +1231,641 @@ public class ControlNumberLetter {
         }
 
         return 1;
+    }
+    
+    public void resultadosNumberLetter() {
+        
+        //I - Tl - REVISADA - Tiempo total en el bloque de letras sin distinción de errores y aciertos
+        this.objetoNumberLetter.setTiempoLetras((double)acumuladoTiempoLetra);
+        
+        //II - Tn - REVISADA - Tiempo total en el bloque de números sin distinción de errores y aciertos
+        this.objetoNumberLetter.setTiempoNumeros((double) acumuladoTiempoNumero);
+        
+        //III - Ta - REVISADA - Tiempo total en el bloque de mixtos sin distinción de errores y aciertos
+        this.objetoNumberLetter.setTiempoAlternado((double) acumuladoTiempoMixtos);
+        
+        //IV - Tt - REVISADA - Tiempo total en toda la tarea sin distinción de errores y aciertos
+        this.objetoNumberLetter.setTiempoTotal((double)(acumuladoTiempoLetra + acumuladoTiempoNumero + acumuladoTiempoMixtos));
+        
+        //V - CGt - REVISADA - Costo del shifting global con el tiempo total
+        this.objetoNumberLetter.setShiftingGlobalTotal((double)(acumuladoTiempoMixtos - 
+                                                              ((acumuladoTiempoLetra + acumuladoTiempoNumero)/2)));
+        
+        //Variables auxiliares
+            //Ti - Tiempo impares
+            long Ti = acumuladoTiempoImpares;
+            
+            //Tp - Tiempo pares
+            long Tp = acumuladoTiempoPares;
+            
+        //VI - CLt - REVISADA - Costo del shifting local con el tiempo total
+        this.objetoNumberLetter.setShiftingLocalTotal((double)(Ti - Tp));
+        
+        //Variables auxiliares
+            //TCl
+            long TCl = acumuladoTiempoCorrectoLetra;
+            
+            //TCn
+            long TCn = acumuladoTiempoCorrectaNumero;
+            
+            //TCa
+            long TCa = acumuladoTiempoCorrectoMixtos;
+            
+        //VII - CGc - REVISADA - Costo del shifting global con el tiempo total de las respuestas correctas
+        this.objetoNumberLetter.setShiftingGlobalTotalCorrectas((double)(TCa - ((TCl + TCn)/2)));
+        
+        //VIII - CLc - REVISADA - Costo del shifting local con el tiempo total de las respuestas correctas
+        this.objetoNumberLetter.setShiftingLocalTotalCorrectas((double)(acumuladoTiempoCorrectoImpares - acumuladoTiempoCorrectoPares));
+        
+        //IX - RCl - REVISADA - Respuestas correctas en el bloque de solo letras
+        this.objetoNumberLetter.setCorrectasLetras(correctasLetras);
+        
+        //X - RCn - REVISADA - Respuestas correctas en el bloque de solo numeros
+        this.objetoNumberLetter.setCorrectasNumeros(correctasNumeros);
+        
+        //XI - RCa - REVISADA - Respuestas correctas en el bloque mixto
+        this.objetoNumberLetter.setCorrectasAlternado(correctasMixtos);
+        
+        //XII - RCt - REVISADA - Respuestas correctas en la actividad
+        this.objetoNumberLetter.setCorrectasTotales(correctasLetras + correctasNumeros + correctasMixtos);
+        
+        //Variables auxiliares
+        
+            //TPl
+            double TPl = TCl / correctasLetras;
+            
+            //TPn
+            double TPn = TCn / correctasNumeros;
+            
+            //TPa
+            double TPa = TCa / correctasMixtos;
+            
+        //XIII - CGp - REVISADA - Costo del shifting global con el tiempo de reacción promedio de las respuestas correctas
+        this.objetoNumberLetter.setShiftingGlobalReaccionCorrectas((TPa - ((TPl + TPn)/2)));
+        
+        //Variables auxiliares
+        
+            //TPi
+            double TPi = acumuladoTiempoCorrectoImpares / correctasImpares;
+            
+            double TPp = acumuladoTiempoCorrectoPares / correctasPares;
+            
+        //XIV - CLp - REVISADA - Costo del shifting global con el tiempo de reacción promedio de las respuestas correctas
+        this.objetoNumberLetter.setShiftingLocalReaccionCorrectas(TPi - TPp);
+        
+        //Variables auxiliares
+            
+            //Rl
+            int Rl = correctasLetras + incorrectasLetras;
+            
+            //Rn
+            int Rn = correctasNumeros + incorrectasNumeros;
+            
+            //Ra
+            int Ra = correctasMixtos + incorrectasMixtos;
+            
+            //Pl
+            double Pl = (correctasLetras * 100) / Rl;
+            
+            //Pn
+            double Pn = (correctasNumeros * 100) / Rn;
+            
+            //Pa
+            double Pa = (correctasMixtos * 100) / Ra;
+            
+        //XV - CGp2 - REVISADA - Costo del shifting global con porcentaje de respuestas correctas
+        this.objetoNumberLetter.setShiftingGlobalPorcentajeCorrectas((Pa - ((Pl + Pn)/2)));
+        
+        //Variables auxiliares
+        
+            //RTp
+            int RTp = correctasPares + incorrectasPares; 
+            
+            //RTi
+            int RTi = correctasImpares + incorrectasImpares;
+            
+            //PCp
+            double PCp = (correctasPares * 100) / RTp;
+            
+            //PCi
+            double PCi = (correctasImpares * 100) / RTi;
+            
+        //XVI - CGp2 - REVISADA - Costo del shifting local con porcentaje de respuestas correctas
+        this.objetoNumberLetter.setShiftingLocalPorcentajeCorrectas(PCi - PCp);
+        
+        //XVII - Il - REVISADA - Respuestas incorrectas del bloque de solo letras
+        this.objetoNumberLetter.setIncorrectasLetras(incorrectasLetras);
+        
+        //XVIII - Il - REVISADA - Respuestas incorrectas del bloque de solo numeros
+        this.objetoNumberLetter.setIncorrectasNumeros(incorrectasNumeros);
+        
+        //XIX - Il - REVISADA - Respuestas incorrectas del bloque de solo mixtos
+        this.objetoNumberLetter.setIncorrectasAlternado(incorrectasMixtos);
+        
+        //XX - Il - REVISADA - Respuestas incorrectas de la tarea
+        this.objetoNumberLetter.setIncorrectasTotales(incorrectasLetras + incorrectasNumeros + incorrectasMixtos);
+        
+        //XXI - ONl - REVISADA - Omisiones y respuestas nulas en el bloque de solo letras
+        this.objetoNumberLetter.setOmisionesNulasLetras(omitidasLetras);
+        
+        //XXII - ONn - REVISADA - Omisiones y respuestas nulas en el bloque de solo numeros
+        this.objetoNumberLetter.setOmisionesNulasNumeros(omitidasNumeros);    
+        
+        //XXIII - ONa - REVISADA - Omisiones y respuestas nulas en el bloque alternado
+        this.objetoNumberLetter.setOmisionesNulasAlternado(omitidasMixtos); 
+        
+        //XXIV - ONt - REVISADA - Omisiones y respuestas nulas en la tarea
+        this.objetoNumberLetter.setOmisionesNulasTotales(omitidasLetras + omitidasNumeros + omitidasMixtos);
+        
+        //Variables auxiliares
+            
+            //1 PASO
+            double MTTl = acumuladoTiempoLetra / Rl;
+            long acumuladoLetras = 0;
+            
+            //2 PASO
+            for (Long auxiliar : listaTiemposLetras) {
+                
+                double calculoUno = auxiliar - MTTl;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoLetras += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoLetras = acumuladoLetras / Rl;
+            
+            //5 PASO
+            double DETl = Math.sqrt(acumuladoLetras);
+            
+            //PSTl
+            double PSTl = MTTl + (DETl * 2.5);
+            double PITl = MTTl - (DETl * 2.5);
+            
+            //-----------------------------------------------
+            
+            //1 PASO
+            double MTTn = acumuladoTiempoNumero / Rn;
+            long acumuladoNumero = 0;
+            
+            //2 PASO
+            for (Long auxiliar : listaTiemposNumeros) {
+                
+                double calculoUno = auxiliar - MTTn;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASOn
+                acumuladoNumero += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoNumero = acumuladoNumero / Rn;
+            
+            //5 PASO
+            double DETn = Math.sqrt(acumuladoNumero);
+            
+            //PSTl
+            double PSTn = MTTn + (DETn * 2.5);
+            double PITn = MTTn - (DETn * 2.5);
+            
+            //-----------------------------------------------
+            
+            //1 PASO
+            double MTTa = acumuladoTiempoMixtos / Ra;
+            long acumuladoMixto = 0;
+            
+            //2 PASO
+            for (Long auxiliar : listaTiemposMixtos) {
+                
+                double calculoUno = auxiliar - MTTa;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASOn
+                acumuladoMixto += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoMixto = acumuladoMixto / Ra;
+            
+            //5 PASO
+            double DETa = Math.sqrt(acumuladoMixto);
+            
+            //PSTl
+            double PSTa = MTTa + (DETa * 2.5);
+            double PITa = MTTa - (DETa * 2.5);
+            
+        //XXV - Txl - REVISADA - Tiempo total en el bloque de las letras
+        double acumuladoLetrasAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposLetras) {
+            if(auxiliar >= PITl && auxiliar <= PSTl) {
+                acumuladoLetrasAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoNumberLetter.setTiempoTotalLetras(acumuladoLetrasAuxiliar);
+        
+        //XXVI - Txn - REVISADA - Tiempo total en el bloque de los números
+        double acumuladoNumerosAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposNumeros) {
+            if(auxiliar >= PITn && auxiliar <= PSTn) {
+                acumuladoNumerosAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoNumberLetter.setTiempoTotalNumeros(acumuladoNumerosAuxiliar);
+        
+        //XXVII - Txa - REVISADA - Tiempo total en el bloque mixto
+        double acumuladoMixtoAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposMixtos) {
+            if(auxiliar >= PITa && auxiliar <= PSTa) {
+                acumuladoMixtoAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoNumberLetter.setTiempoTotalNumeros(acumuladoMixtoAuxiliar);
+        
+        //XXVIII - TXt - REVISADA - Tiempo total en la tarea
+        this.objetoNumberLetter.setTiempoTotalTarea(acumuladoLetrasAuxiliar + acumuladoNumerosAuxiliar + acumuladoMixtoAuxiliar);
+        
+        //XXIX - CGxt - REVISADA - Costo del shifting global con el tiempo total
+        this.objetoNumberLetter.setShiftingGlobalTiempoTotal((double)(acumuladoMixtoAuxiliar - ((acumuladoLetrasAuxiliar + acumuladoNumerosAuxiliar)/2)));
+        
+        //XXX - CLxt - REVISADA - Costo del shifting local con el tiempo total
+        double acumuladoImparesAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposImpares) {
+            if(auxiliar >= PITa && auxiliar <= PSTa) {
+                acumuladoImparesAuxiliar += auxiliar;
+            }
+        }
+        
+        double acumuladoParesAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposPares) {
+            if(auxiliar >= PITa && auxiliar <= PSTa) {
+                acumuladoParesAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoNumberLetter.setShiftingGlobalTiempoTotal(acumuladoImparesAuxiliar - acumuladoParesAuxiliar);
+        
+        //Variables auxiliares
+            
+            //1 PASO
+            double MCTl = TCl / correctasLetras;
+            long acumuladoCorrectoLetras = 0;
+            
+            //2 PASO
+            for (Long auxiliar : listaTiemposCorrectosLetras) {
+                
+                double calculoUno = auxiliar - MCTl;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoCorrectoLetras += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoCorrectoLetras = acumuladoCorrectoLetras / correctasLetras;
+            
+            //5 PASO
+            double DECl = Math.sqrt(acumuladoCorrectoLetras);
+            
+            //PSTl
+            double PSCl = MCTl + (DECl * 2.5);
+            double PICl = MCTl - (DECl * 2.5);
+            
+            //-----------------------------------------------
+            
+            //1 PASO
+            double MCTn = TCn / correctasNumeros;
+            long acumuladoCorrectoNumeros = 0;
+            
+            //2 PASO
+            for (Long auxiliar : listaTiemposCorrectosNumeros) {
+                
+                double calculoUno = auxiliar - MCTn;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoCorrectoNumeros += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoCorrectoNumeros = acumuladoCorrectoNumeros / correctasNumeros;
+            
+            //5 PASO
+            double DECn = Math.sqrt(acumuladoCorrectoNumeros);
+            
+            //PSTl
+            double PSCn = MCTn + (DECn * 2.5);
+            double PICn = MCTn - (DECn * 2.5);
+            
+            //-----------------------------------------------
+            
+            //1 PASO
+            double MCTa = TCa / correctasMixtos;
+            long acumuladoCorrectoMixtos = 0;
+            
+            //2 PASO
+            for (Long auxiliar : listaTiemposCorrectosMixtos) {
+                
+                double calculoUno = auxiliar - MCTa;
+                double calculoDos = Math.pow(calculoUno, 2);
+                
+                //3 PASO
+                acumuladoCorrectoMixtos += calculoDos;
+            }
+            
+            //4 PASO
+            acumuladoCorrectoMixtos = acumuladoCorrectoMixtos / correctasMixtos;
+            
+            //5 PASO
+            double DECa = Math.sqrt(acumuladoCorrectoMixtos);
+            
+            //PSTl
+            double PSCa = MCTa + (DECa * 2.5);
+            double PICa = MCTa - (DECa * 2.5);
+            
+        //XXXI - TCxl - REVISADA - Tiempo de reacción de las respuestas correctas en el bloque de solo letras
+        double acumuladoLetrasCorrectasAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosLetras) {
+            if(auxiliar >= PICl && auxiliar <= PSCl) {
+                acumuladoLetrasCorrectasAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoNumberLetter.setTiempoReaccionCorrectasLetras(acumuladoLetrasCorrectasAuxiliar);
+        
+        //XXXII - TCxn - REVISADA - Tiempo de reacción de las respuestas correctas en el bloque de solo numeros
+        double acumuladoNumerosCorrectasAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosNumeros) {
+            if(auxiliar >= PICn && auxiliar <= PSCn) {
+                acumuladoNumerosCorrectasAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoNumberLetter.setTiempoReaccionCorrectasLetras(acumuladoNumerosCorrectasAuxiliar);
+        
+        //XXXIII - TCxa - REVISADA - Tiempo de reacción de las respuestas correctas en el bloque alternado
+        double acumuladoMixtoCorrectasAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosMixtos) {
+            if(auxiliar >= PICa && auxiliar <= PSCa) {
+                acumuladoMixtoCorrectasAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoNumberLetter.setTiempoReaccionCorrectasLetras(acumuladoMixtoCorrectasAuxiliar);
+        
+        //XXXIV - TCxt - REVISADA - Tiempo total en la tarea
+        this.objetoNumberLetter.setTiempoReaccionCorrectasTotales(acumuladoLetrasCorrectasAuxiliar + acumuladoNumerosCorrectasAuxiliar + acumuladoMixtoCorrectasAuxiliar);
+        
+        //XXXV - CGxt - REVISADA - Costo del shifting global con el tiempo total de las respuestas correctas
+        this.objetoNumberLetter.setShiftingGlobalTiempoTotalCorrectas((double)(acumuladoMixtoCorrectasAuxiliar - ((acumuladoLetrasCorrectasAuxiliar + acumuladoNumerosCorrectasAuxiliar)/2)));
+        
+        //XXXVI - CLxt - REVISADA - Costo del shifting local con el tiempo total de las respuestas correctas
+        double acumuladoImparesCorrectasAuxiliar = 0;
+        int contadorCorrectasImpares = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosImpares) {
+            if(auxiliar >= PICa && auxiliar <= PSCa) {
+                acumuladoImparesCorrectasAuxiliar += auxiliar;
+                contadorCorrectasImpares++;
+            }
+        }
+        
+        double acumuladoParesCorrectasAuxiliar = 0;
+        int contadorCorrectasPares = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosPares) {
+            if(auxiliar >= PICa && auxiliar <= PSCa) {
+                acumuladoParesCorrectasAuxiliar += auxiliar;
+                contadorCorrectasPares++;
+            }
+        }
+        
+        this.objetoNumberLetter.setShiftingLocalTiempoTotalCorrectas(acumuladoImparesCorrectasAuxiliar - acumuladoParesCorrectasAuxiliar);
+        
+        //XXXVII - RCxl - REVISADA - Respuestas correctas en el bloque de solo letras
+        int contadorCorrectasLetras = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosLetras) {
+            if(auxiliar >= PICl && auxiliar <= PSCl) {
+                contadorCorrectasLetras++;
+            }
+        }
+        
+        this.objetoNumberLetter.setCorrectasTotalesLetras(contadorCorrectasLetras);
+        
+        //XXXVIII - RCxn - REVISADA - Respuestas correctas en el bloque de solo números
+        int contadorCorrectasNumeros = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosNumeros) {
+            if(auxiliar >= PICl && auxiliar <= PSCl) {
+                contadorCorrectasNumeros++;
+            }
+        }
+        
+        this.objetoNumberLetter.setCorrectasTotalesNumeros(contadorCorrectasNumeros);
+        
+        //XXXIX - RCxa - REVISADA - Respuestas correctas en el bloque alternado
+        int contadorCorrectasMixto = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosMixtos) {
+            if(auxiliar >= PICl && auxiliar <= PSCl) {
+                contadorCorrectasMixto++;
+            }
+        }
+        
+        this.objetoNumberLetter.setCorrectasTotalesAlternado(contadorCorrectasMixto);
+        
+        //XL - RCat - REVISADA - Respuestas correctas en toda la tarea
+        this.objetoNumberLetter.setCorrectasTotalesTarea(contadorCorrectasLetras + 
+                                                        contadorCorrectasNumeros + 
+                                                        contadorCorrectasMixto);
+        
+        //Variables auxiliares
+        
+            //TPΔZ
+            double TPal = acumuladoLetrasCorrectasAuxiliar / contadorCorrectasLetras;
+            
+            //TPΔZ
+            double TPan = acumuladoNumerosCorrectasAuxiliar / contadorCorrectasNumeros;
+            
+            //TPΔZ
+            double TPaa = acumuladoMixtoCorrectasAuxiliar / contadorCorrectasMixto;
+            
+        //XLI - CGxp - REVISADA - Costo del shifting global con el tiempo de reacción promedio de las respuestas correctas
+        this.objetoNumberLetter.setShiftingGlobalTiempoReaccionCorrectas((double)(TPaa - ((TPal + TPan)/2)));
+        
+        //XLII - CLxp - REVISADA - Costo del shifting global con el tiempo de reacción promedio de las respuestas correctas
+        
+            //TPΔZ
+            double TPai = acumuladoImparesCorrectasAuxiliar / contadorCorrectasImpares;
+            
+            //TPΔZ
+            double TPap = acumuladoParesCorrectasAuxiliar / contadorCorrectasPares;
+            
+        this.objetoNumberLetter.setShiftingLocalTiempoReaccionCorrectas(TPai - TPap);
+        
+        //Variables auxiliares
+        
+            //Ral
+            int contadorRespuetasTotalesLetras = 0;
+            
+            for (Long auxiliar : listaTiemposLetras) {
+                if (auxiliar >= PITl && auxiliar <= PSTl) {
+                    contadorRespuetasTotalesLetras++;
+                }
+            }
+            
+            //Pal
+            double Pal = (contadorCorrectasLetras * 100) / contadorRespuetasTotalesLetras;
+            
+            //----------------------------------------------------------------------------
+            
+            //Ran
+            int contadorRespuetasTotalesNumeros = 0;
+            
+            for (Long auxiliar : listaTiemposNumeros) {
+                if (auxiliar >= PITn && auxiliar <= PSTn) {
+                    contadorRespuetasTotalesNumeros++;
+                }
+            }
+            
+            //Pan
+            double Pan = (contadorCorrectasNumeros * 100) / contadorRespuetasTotalesNumeros;
+            
+            //----------------------------------------------------------------------------
+            
+            //Raa
+            int contadorRespuetasTotalesMixtos = 0;
+            
+            for (Long auxiliar : listaTiemposMixtos) {
+                if (auxiliar >= PITa && auxiliar <= PSTa) {
+                    contadorRespuetasTotalesMixtos++;
+                }
+            }
+            
+            //Paa
+            double Paa = (contadorCorrectasMixto * 100) / contadorRespuetasTotalesMixtos;
+        
+        //XLIII - REVISADA - Costo del shifting global con porcentaje de respuestas correctas
+        this.objetoNumberLetter.setShiftingGlobalPorcentajeTotalCorrectas((double)(Paa - ((Pal + Pan)/2)));
+        
+        //Variables auxiliares
+        
+            //Rai
+            int contadorRespuetasTotalesImpares = 0;
+            
+            for (Long auxiliar : listaTiemposImpares) {
+                if (auxiliar >= PITa && auxiliar <= PSTa) {
+                    contadorRespuetasTotalesImpares++;
+                }
+            }
+            
+            //Pai
+            double Pai = (contadorCorrectasImpares * 100) / contadorRespuetasTotalesImpares;
+            
+            //----------------------------------------------------------------------------
+            
+            //Rap
+            int contadorRespuetasTotalesPares = 0;
+            
+            for (Long auxiliar : listaTiemposPares) {
+                if (auxiliar >= PITa && auxiliar <= PSTa) {
+                    contadorRespuetasTotalesPares++;
+                }
+            }
+            
+            //Pap
+            double Pap = (contadorCorrectasPares * 100) / contadorRespuetasTotalesPares;
+            
+        //XLIV - REVISADA - Costo del shifting local con porcentaje de respuestas correctas
+        this.objetoNumberLetter.setShiftingLocalPorcentajeTotalCorrectas(Pai - Pap);
+        
+        //XLV - RIxl - REVISADA - Respuestas incorrectas en el bloque de solo letras
+        int contadorIncorrectasLetras = 0;
+       
+        for (Long auxiliar : listaTiemposIncorrectosLetras) {
+            if (auxiliar >= PITl && auxiliar <= PSTl) {
+                contadorIncorrectasLetras++;
+            }
+        }
+        
+        this.objetoNumberLetter.setIncorrectasTotalesLetras(contadorIncorrectasLetras);
+        
+        //XLVI - RIxn - REVISADA - Respuestas incorrectas en el bloque de solo numeros
+        int contadorIncorrectasNumeros = 0;
+       
+        for (Long auxiliar : listaTiemposIncorrectosNumeros) {
+            if (auxiliar >= PITn && auxiliar <= PSTn) {
+                contadorIncorrectasNumeros++;
+            }
+        }
+        
+        this.objetoNumberLetter.setIncorrectasTotalesNumeros(contadorIncorrectasNumeros);
+        
+        //XLVII - RIxa - REVISADA - Respuestas incorrectas en el bloque de solo alternado
+        int contadorIncorrectasMixtos = 0;
+       
+        for (Long auxiliar : listaTiemposIncorrectosMixtos) {
+            if (auxiliar >= PITa && auxiliar <= PSTa) {
+                contadorIncorrectasMixtos++;
+            }
+        }
+        
+        this.objetoNumberLetter.setIncorrectasTotalesAlternado(contadorIncorrectasMixtos);
+        
+        //XLVIII - RIat - REVISADA - Respuestas incorrectas en toda la tarea
+        this.objetoNumberLetter.setIncorrectasTotalesTarea(contadorIncorrectasLetras + 
+                                                          contadorIncorrectasNumeros +
+                                                          contadorIncorrectasMixtos); 
+        
+        //XLIX - ONxl - REVISADA - Respuestas omitidas en el bloque de solo figuras negras
+        int contadorOmitidasLetras = 0;
+       
+        for (Long auxiliar : listaTiemposOmitidosLetras) {
+            if (auxiliar >= PITl && auxiliar <= PSTl) {
+                contadorOmitidasLetras++;
+            }
+        }
+        
+        this.objetoNumberLetter.setOmisionesNulasTotalesLetras(contadorOmitidasLetras);
+        
+        //L - ONxn - REVISADA - Respuestas omitidas en el bloque de solo figuras azules
+        int contadorOmitidasNumeros = 0;
+       
+        for (Long auxiliar : listaTiemposOmitidosNumeros) {
+            if (auxiliar >= PITn && auxiliar <= PSTn) {
+                contadorOmitidasNumeros++;
+            }
+        }
+        
+        this.objetoNumberLetter.setOmisionesNulasTotalesNumeros(contadorOmitidasNumeros);
+        
+        //LI - ONxa - REVISADA - Respuestas omitidas en el bloque de solo figuras azules
+        int contadorOmitidasMixtos = 0;
+       
+        for (Long auxiliar : listaTiemposOmitidosMixtos) {
+            if (auxiliar >= PITa && auxiliar <= PSTa) {
+                contadorOmitidasMixtos++;
+            }
+        }
+        
+        this.objetoNumberLetter.setOmisionesNulasTotalesAlternado(contadorOmitidasMixtos);
+        
+        //LII - ONxt - REVISADA - Respuestas omitidas en toda la tarea
+        this.objetoNumberLetter.setOmisionesNulasTotalesTarea(contadorOmitidasLetras + 
+                                                              contadorOmitidasNumeros +
+                                                              contadorOmitidasMixtos); 
     }
 
     /**
@@ -949,6 +2033,7 @@ public class ControlNumberLetter {
             getPantalla().setVisible(false);
             InstruccionesNumberLetter instrucciones = InstruccionesNumberLetter.getSingletonInstance();
             instrucciones.setVisible(true);
+            
         }
     };
 
@@ -1035,8 +2120,8 @@ public class ControlNumberLetter {
     Runnable runnableActividadSwingMixto = new Runnable() {
         @Override
         public void run() {
-            while (contadorHiloActividadMixto < 256) {
-                mixtoSwingPractica();
+            while (contadorHiloActividadMixto < 128) {
+                mixtoSwingActividad();
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException ex) {
@@ -1044,9 +2129,21 @@ public class ControlNumberLetter {
                 }
                 contadorHiloActividadMixto++;
             }
+            
+            System.out.println("Correctas mixto: " + correctasMixtos);
+            System.out.println("Incorrectas mixto: " + incorrectasMixtos);
+            System.out.println("Omitidas mixto: " + omitidasMixtos);
+            
+            System.out.println("Correctas pares: " + correctasPares);
+            System.out.println("Incorrectas pares: " + incorrectasPares);
+            System.out.println("Correctas impares: " + correctasImpares);
+            System.out.println("Incorrectas impares: " + incorrectasImpares);
+            
+            /*
             getPantalla().setVisible(false);
             InstruccionesNumberLetter instrucciones = InstruccionesNumberLetter.getSingletonInstance();
-            instrucciones.setVisible(true);
+            instrucciones.setVisible(true)
+            */
         }
     };
 

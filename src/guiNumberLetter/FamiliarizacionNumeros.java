@@ -131,7 +131,7 @@ public class FamiliarizacionNumeros extends javax.swing.JFrame {
         Color verde = Color.decode("#1A8803");
         switch (evt.getKeyChar()) {
             case KeyEvent.VK_N:
-                control.respuestaNumeros("par", Integer.valueOf(etiquetaString.getText()), etiquetaRespuesta);
+                control.respuestaNumeros("par", Integer.valueOf(etiquetaString.getText()), etiquetaRespuesta, false);
                 if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                     this.etiquetaRespuesta.setForeground(verde);
                 } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
@@ -139,7 +139,7 @@ public class FamiliarizacionNumeros extends javax.swing.JFrame {
                 }
                 break;
             case KeyEvent.VK_M:
-                control.respuestaNumeros("impar", Integer.valueOf(etiquetaString.getText()), etiquetaRespuesta);
+                control.respuestaNumeros("impar", Integer.valueOf(etiquetaString.getText()), etiquetaRespuesta, false);
                 if (this.etiquetaRespuesta.getText().equals("Correcto")) {
                     this.etiquetaRespuesta.setForeground(verde);
                 } else if (this.etiquetaRespuesta.getText().equals("Incorrecto")) {
