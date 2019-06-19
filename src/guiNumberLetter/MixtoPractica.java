@@ -342,22 +342,22 @@ public class MixtoPractica extends javax.swing.JFrame {
             case KeyEvent.VK_N:
                 //control.respuestaNumeros("par", control.recorrerListaNumeros(etiquetas), etiquetaRespuesta);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.respuestaMixtos(1);
+                control.respuestaMixtos(1, false);
                 break;
             case KeyEvent.VK_M:
                 //control.respuestaNumeros("impar", control.recorrerListaNumeros(etiquetas), etiquetaRespuesta);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.respuestaMixtos(2);
+                control.respuestaMixtos(2, false);
                 break;
             case KeyEvent.VK_C:
                 //control.respuestaLetras("Consonante", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.respuestaMixtos(3);
+                control.respuestaMixtos(3, false);
                 break;
             case KeyEvent.VK_V:
                 //control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
                 control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.respuestaMixtos(4);
+                control.respuestaMixtos(4, false);
                 break;
             case KeyEvent.VK_SPACE:
                 control.setEtiquetaA(valorASuperiorIzquierdo);

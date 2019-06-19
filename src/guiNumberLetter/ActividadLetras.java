@@ -275,10 +275,10 @@ public class ActividadLetras extends javax.swing.JFrame {
         // TODO add your handling code here:
         switch (evt.getKeyChar()) {
             case KeyEvent.VK_C:
-                control.respuestaLetras("Consonante", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
+                control.respuestaLetras("Consonante", control.recorrerListaLetras(etiquetas), etiquetaRespuesta, true);
                 break;
             case KeyEvent.VK_V:
-                control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta);
+                control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta, true);
                 break;
             case KeyEvent.VK_SPACE:
                 control.setEtiquetaA(valorAIzquierdo);
