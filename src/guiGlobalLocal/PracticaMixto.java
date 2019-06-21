@@ -117,6 +117,10 @@ public class PracticaMixto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * Cambiar a false y dejar en blanco al finalizar la prueba
+     */
     private void panelPrincipalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_panelPrincipalKeyPressed
         // TODO add your handling code here:
         switch (evt.getKeyChar()) {

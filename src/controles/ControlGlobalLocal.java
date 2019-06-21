@@ -35,14 +35,6 @@ public class ControlGlobalLocal {
     //Variable referencia del objeto global local
     private Globallocal objetoLocalGlobal;
 
-    public JFrame getPantalla() {
-        return pantalla;
-    }
-
-    public void setPantalla(JFrame pantalla) {
-        this.pantalla = pantalla;
-    }
-
     //Hilos
     private Thread hiloFamiliarizacion, hiloPracticasGrandes, hiloActividadGrandes,
             hiloPracticasPequeñas, hiloActividadPequeñas,
@@ -78,24 +70,23 @@ public class ControlGlobalLocal {
                 "A", "A", "A", "N", "A", "N", "N", "A", "A", "N", "N", "N"};
 
     //Variables de salida
-    int respuestasCorrectasNegras, respuestasCorrectasAzules, respuestasCorrectasMixtos,
+    private int respuestasCorrectasNegras, respuestasCorrectasAzules, respuestasCorrectasMixtos,
             respuestasIncorrectasNegras, respuestasIncorrectasAzules, respuestasIncorrectasMixtos,
-            respuestasOmitidasNegras, respuestasOmitidasAzules, respuestasOmitidasMixtos;
+            respuestasOmitidasNegras, respuestasOmitidasAzules, respuestasOmitidasMixtos, correctasRepeticion,
+            correctasShifting, incorrectasRepeticion, incorrectasShifting;
 
     //Variables auxiliares de salida
-    long tiempoValidoNegras, tiempoValidoAzules, tiempoValidoMixtos, //tiempoShiftingAlternado, tiempoRepeticionesAlternado,
-            sumatoriaTiempoReaccionNegras, sumatoriaTiempoReaccionAzules, sumatoriaTiempoReaccionAlternado;
-    long acumuladoNegro, acumuladoAzules, acumuladoMixtos;
+    private long tiempoValidoNegras, tiempoValidoAzules, tiempoValidoMixtos, tiempoShifting, tiempoRepeticion,
+                 sumatoriaTiempoReaccionNegras, sumatoriaTiempoReaccionAzules, sumatoriaTiempoReaccionAlternado,
+                 tiempoShiftingCorrecto, tiempoRepeticionCorrecto;
+    
+    private long acumuladoNegro, acumuladoAzules, acumuladoMixtos;
 
-    private Color verde = Color.decode("#1A8803");
-
-    public int getContadoraux() {
-        return contadoraux;
-    }
-
-    public void setContadoraux(int contadoraux) {
-        this.contadoraux = contadoraux;
-    }
+    private final Color verde = Color.decode("#1A8803");
+    
+    private String valorUnoGlobal = "a", valorDosGlobal = "b", auxiliarGlobal = "c";
+    private int contador = 0;
+    
 
     //Variables auxiliares de apoyo
     long auxiliarTiempoInicio, auxiliarTiempoTranscurrido;
@@ -116,6 +107,12 @@ public class ControlGlobalLocal {
     ArrayList<Long> listaTiemposOmitidosNegras = new ArrayList();
     ArrayList<Long> listaTiemposOmitidosAzules = new ArrayList();
     ArrayList<Long> listaTiemposOmitidosMixtos = new ArrayList();
+    
+    ArrayList<Long> listaTiemposRepeticiones = new ArrayList();
+    ArrayList<Long> listaTiemposShifting = new ArrayList();
+    
+    ArrayList<Long> listaTiemposCorrectosRepeticiones = new ArrayList();
+    ArrayList<Long> listaTiemposCorrectosShifting = new ArrayList();
 
     //Constructor de la clase global local
     private ControlGlobalLocal() {
@@ -473,7 +470,9 @@ public class ControlGlobalLocal {
     private synchronized void practicaActividadMixtoA(int tipo, boolean ejercicio) {
         String primerValor = "a", segundoValor, auxiliarValor = "c";
         int contadorGeneral = 0, contadorAuxiliar = 0;
-        boolean eventoUno = true, eventoDos = true;
+        boolean evento = true;
+        long tiempoInicio = 0, transcurrido = 0;
+        
 
         for (String auxiliar : ordenMixto(tipo)) {
             if (auxiliar.equals("N")) {
@@ -482,10 +481,32 @@ public class ControlGlobalLocal {
 
                 switch (contadorAuxiliar) {
                     case 0:
+                        
+                        if(evento == true) {
+                            //1
+                            tiempoInicio = System.currentTimeMillis();
+                            
+                            evento = false;
+                        } else {
+                            //3
+                            transcurrido = System.currentTimeMillis() - tiempoInicio;
+                            tiempoInicio = System.currentTimeMillis();
+                            evento = true;
+                        }
+                        
                         primerValor = "N";
                         contadorAuxiliar++;
                         break;
                     case 1:
+                        
+                        if(evento == false) {
+                            //2
+                            transcurrido = System.currentTimeMillis() - tiempoInicio;
+                            tiempoInicio = System.currentTimeMillis();
+                        } else {
+                            transcurrido = System.currentTimeMillis() - tiempoInicio;
+                        }
+                                
                         segundoValor = "N";
                         auxiliarValor = segundoValor;
                         contadorAuxiliar = 0;
@@ -505,11 +526,31 @@ public class ControlGlobalLocal {
 
                 switch (contadorAuxiliar) {
                     case 0:
+                        
+                        if(evento == true) {
+                            //1
+                            tiempoInicio = System.currentTimeMillis();
+                            evento = false;
+                        } else {
+                            //3
+                            transcurrido = System.currentTimeMillis() - tiempoInicio;
+                            tiempoInicio = System.currentTimeMillis();
+                            evento = true;
+                        }
+                        
                         primerValor = "A";
                         contadorAuxiliar++;
                         break;
-
                     case 1:
+                        
+                        if(evento == false) {
+                            //2
+                            transcurrido = System.currentTimeMillis() - tiempoInicio;
+                            tiempoInicio = System.currentTimeMillis();
+                        } else {
+                            transcurrido = System.currentTimeMillis() - tiempoInicio;
+                        }
+                        
                         segundoValor = "A";
                         auxiliarValor = segundoValor;
                         contadorAuxiliar = 0;
@@ -529,13 +570,24 @@ public class ControlGlobalLocal {
                 if (!(contadorGeneral == 0)) {
                     if (auxiliarValor.equals(primerValor)) {
                         seriesRepetidas++;
+                        
+                        if(transcurrido > 200) {
+                            tiempoRepeticion += transcurrido;
+                            listaTiemposRepeticiones.add(transcurrido);
+                        }
+                        
                     } else {
                         seriesShifting++;
+                        
+                        if(transcurrido > 200) {
+                            tiempoShifting += transcurrido;
+                            listaTiemposShifting.add(transcurrido);
+                        }
+                        
                     }
                 }
             }
             
-
             contadorGeneral++;
         }
 
@@ -546,98 +598,338 @@ public class ControlGlobalLocal {
             case 1:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circulocua.png")));
                 this.etiquetaNombre.setText("Circulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 2:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circuloequ.png")));
                 this.etiquetaNombre.setText("Circulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 3:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circulotri.png")));
                 this.etiquetaNombre.setText("Circulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 4:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equiscir.png")));
                 this.etiquetaNombre.setText("Equis");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 5:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equiscua.png")));
                 this.etiquetaNombre.setText("Equis");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 6:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equistri.png")));
                 this.etiquetaNombre.setText("Equis");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 7:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangulocir.png")));
                 this.etiquetaNombre.setText("Triangulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 8:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangulocua.png")));
                 this.etiquetaNombre.setText("Triangulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 9:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trianguloequ.png")));
                 this.etiquetaNombre.setText("Triangulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 10:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradocir.png")));
                 this.etiquetaNombre.setText("Cuadrado");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 11:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradoequ.png")));
                 this.etiquetaNombre.setText("Cuadrado");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 12:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradotri.png")));
                 this.etiquetaNombre.setText("Cuadrado");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "N";
+                    contador++;
+                } else {
+                    valorDosGlobal = "N";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 13:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradoazulcir.png")));
                 this.etiquetaNombre.setText("Circulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 14:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equisazulcir.png")));
                 this.etiquetaNombre.setText("Circulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 15:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trianguloazulcir.png")));
                 this.etiquetaNombre.setText("Circulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 16:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circuloazulequ.png")));
                 this.etiquetaNombre.setText("Equis");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 17:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradoazulequ.png")));
                 this.etiquetaNombre.setText("Equis");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 18:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trianguloazulequ.png")));
                 this.etiquetaNombre.setText("Equis");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 19:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circuloazultri.png")));
                 this.etiquetaNombre.setText("Triangulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 20:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradoazultri.png")));
                 this.etiquetaNombre.setText("Triangulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 21:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equisazultri.png")));
                 this.etiquetaNombre.setText("Triangulo");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 22:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circuloazulcua.png")));
                 this.etiquetaNombre.setText("Cuadrado");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 23:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equisazulcua.png")));
                 this.etiquetaNombre.setText("Cuadrado");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
             case 24:
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trianguloazulcua.png")));
                 this.etiquetaNombre.setText("Cuadrado");
+                
+                if(contador == 0) {
+                    valorUnoGlobal = "A";
+                    contador++;
+                } else {
+                    valorDosGlobal = "A";
+                    auxiliarGlobal = valorDosGlobal;
+                    contador = 0;
+                }
+                
                 break;
         }
         
@@ -700,11 +992,22 @@ public class ControlGlobalLocal {
                     }
                 } else if (tipo.equalsIgnoreCase("m")) {
                     auxiliarTiempoTranscurrido = System.currentTimeMillis() - auxiliarTiempoInicio;
-
+                    
                     if (auxiliarTiempoTranscurrido > 200) {
                         listaTiemposCorrectosMixtos.add(auxiliarTiempoTranscurrido);
                         sumatoriaTiempoReaccionAlternado += auxiliarTiempoTranscurrido;
                         respuestasCorrectasMixtos++;
+                        
+                        if(auxiliarGlobal.equals(valorUnoGlobal)) {
+                            tiempoRepeticionCorrecto += auxiliarTiempoTranscurrido;
+                            correctasRepeticion++;
+                            listaTiemposCorrectosRepeticiones.add(auxiliarTiempoTranscurrido);
+                        } else {
+                            tiempoShiftingCorrecto += auxiliarTiempoTranscurrido;
+                            correctasShifting++;
+                            listaTiemposCorrectosShifting.add(auxiliarTiempoTranscurrido);
+                        }
+                        
                     }
                 } else {
                     //Nothing happens
@@ -737,6 +1040,15 @@ public class ControlGlobalLocal {
                         if (auxiliarTiempoTranscurrido > 200) {
                             listaTiemposIncorrectosMixtos.add(auxiliarTiempoTranscurrido);
                             respuestasIncorrectasMixtos++;
+                            
+                            if (auxiliarGlobal.equals(valorUnoGlobal)) {
+                                //tiempoRepeticionCorrecto += auxiliarTiempoTranscurrido;
+                                incorrectasRepeticion++;
+                            } else {
+                                //tiempoShiftingCorrecto += auxiliarTiempoTranscurrido;
+                                incorrectasShifting++;
+                            }
+                            
                         }
                     } else {
                         //Nothing happens
@@ -770,8 +1082,8 @@ public class ControlGlobalLocal {
         this.objetoLocalGlobal.setShiftingGlobalTotal((double)(tiempoValidoMixtos - 
                                                               ((tiempoValidoNegras + tiempoValidoAzules)/2)));
         
-        //VI - CLt - NO HECHA - Costo del shifting local con el tiempo total
-        //------------------------------------------------------------------
+        //VI - CLt - REVISADA - Costo del shifting local con el tiempo total
+        this.objetoLocalGlobal.setShiftingLocalTotal((double)(tiempoShifting - tiempoRepeticion));
         
         //Variables auxiliares:
         
@@ -787,8 +1099,8 @@ public class ControlGlobalLocal {
         //VII - CGc - REVISADA - Costo del shifing global con el tiempo total de las respuestas correctas
         this.objetoLocalGlobal.setShiftingGlobalTotalCorrectas((double)(TCa - ((TCn + TCz)/2)));
         
-        //VIII - CLc - NO HECHA - Costo del shifting local con el tiempo total de las respuestas correctas
-        //------------------------------------------------------------------------------------------------
+        //VIII - CLc - REVISADA - Costo del shifting local con el tiempo total de las respuestas correctas
+        this.objetoLocalGlobal.setShiftingLocalTotalCorrectas((double)(tiempoShiftingCorrecto - tiempoRepeticionCorrecto));
         
         //IX - RCn - REVISADA - Respuestas correctas en el bloque de solo figuras negras
         this.objetoLocalGlobal.setCorrectasNegras(respuestasCorrectasNegras);
@@ -816,8 +1128,15 @@ public class ControlGlobalLocal {
         //XIII - CGp - REVISADA - Costo del shifting global con el tiempo de reacción promedio de las respuestas correctas
         this.objetoLocalGlobal.setShiftingGlobalReaccionCorrectas((double)(TPa - ((TPn + TPz)/2)));
         
-        //XIV - CLp - NO HECHA - Costo del shifting local con el tiempo de reacción promedio de las respuestas correctas
-        //--------------------------------------------------------------------------------------------------------------
+        //Variables auxiliares
+        
+            //TPi
+            double TPs = tiempoShiftingCorrecto / correctasShifting;
+            
+            double TPp = tiempoRepeticionCorrecto / correctasRepeticion;
+        
+        //XIV - CLp - REVISADA - Costo del shifting local con el tiempo de reacción promedio de las respuestas correctas
+        this.objetoLocalGlobal.setShiftingLocalReaccionCorrectas(TPs - TPp);
         
         //Variables auxiliares:
         
@@ -842,8 +1161,22 @@ public class ControlGlobalLocal {
         //XV - CGp - REVISADA - Costo del shifting global con porcentaje de respuestas correctas
         this.objetoLocalGlobal.setShiftingGlobalPorcentajeCorrectas((double)(Pa - ((Pn + Pz)/2)));
         
-        //XVI - CLp - NO HECHA - Costo del shifting local con porcentaje de respuestas correctas
-        //--------------------------------------------------------------------------------------
+        //Variables auxiliares
+        
+            //RTp
+            int RTr = correctasRepeticion + incorrectasRepeticion; 
+            
+            //RTi
+            int RTs = correctasShifting + incorrectasShifting;
+            
+            //PCp
+            double PCr = (correctasRepeticion * 100) / RTr;
+            
+            //PCi
+            double PCs = (correctasShifting * 100) / RTs;
+        
+        //XVI - CLp - REVISADA - Costo del shifting local con porcentaje de respuestas correctas
+        this.objetoLocalGlobal.setShiftingLocalPorcentajeCorrectas(PCs - PCr);
          
         //XVII - In - REVISADA - Respuestas incorrectas de solo el bloque de figuras negras
         this.objetoLocalGlobal.setIncorrectasNegras(respuestasIncorrectasNegras);
@@ -985,8 +1318,25 @@ public class ControlGlobalLocal {
        //XXIX - CGXt - REVISADA - Costo del shifting global con el tiempo total
        this.objetoLocalGlobal.setShiftingGlobalTiempoTotal((double)(acumuladoMixtosAuxiliar - ((acumuladoNegrasAuxiliar + acumuladoAzulesAuxiliar)/2)));
        
-       //XXX - CLXt - NO HECHA - Costo del shifting local con el tiempo total
-       //--------------------------------------------------------------------
+       //XXX - CLXt - REVISADA - Costo del shifting local con el tiempo total
+       double acumuladoShiftingAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposShifting) {
+            if(auxiliar >= PITa && auxiliar <= PSTa) {
+                acumuladoShiftingAuxiliar += auxiliar;
+            }
+        }
+        
+        double acumuladoRepeticionAuxiliar = 0;
+        
+        for (Long auxiliar : listaTiemposRepeticiones) {
+            if(auxiliar >= PITa && auxiliar <= PSTa) {
+                acumuladoRepeticionAuxiliar += auxiliar;
+            }
+        }
+        
+        this.objetoLocalGlobal.setShiftingLocalTiempoTotal(acumuladoShiftingAuxiliar - acumuladoRepeticionAuxiliar);
+        
        
        //Variables auxiliares:
             double acumuladoTotalNegro = 0;
@@ -1114,8 +1464,30 @@ public class ControlGlobalLocal {
         this.objetoLocalGlobal.setShiftingGlobalTiempoTotalCorrectas((double)(acumuladoCorrectasMixtoAuxiliar - 
                                              ((acumuladoCorrectasNegrasAuxiliar + acumuladoCorrectasAzulesAuxiliar)/2)));
        
-        //XXXVI - CLac - NO HECHA - Costo del shifting local con el tiempo total de las respuestas correctas
-        //--------------------------------------------------------------------------------------------------
+        //XXXVI - CLac - REVISADA - Costo del shifting local con el tiempo total de las respuestas correctas
+        double acumuladoShiftingCorrectasAuxiliar = 0;
+        int contadorCorrectasShifting = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosShifting) {
+            if(auxiliar >= PICa && auxiliar <= PSCa) {
+                acumuladoShiftingCorrectasAuxiliar += auxiliar;
+                contadorCorrectasShifting++;
+            }
+        }
+        
+        double acumuladoRepeticionCorrectasAuxiliar = 0;
+        int contadorCorrectasRepeticion = 0;
+        
+        for (Long auxiliar : listaTiemposCorrectosRepeticiones) {
+            if(auxiliar >= PICa && auxiliar <= PSCa) {
+                acumuladoRepeticionCorrectasAuxiliar += auxiliar;
+                contadorCorrectasRepeticion++;
+            }
+        }
+        
+        this.objetoLocalGlobal.setShiftingLocalTiempoTotalCorrectas(acumuladoShiftingCorrectasAuxiliar - 
+                                                                    acumuladoRepeticionCorrectasAuxiliar);
+        
        
         //XXXVII - RCan - REVISADA - Respuestas correctas en el bloque de solo figuras negras
         int contadorCorrectasNegras = 0;
@@ -1169,8 +1541,15 @@ public class ControlGlobalLocal {
         //XLI - CGap - REVISADA - Costo del shifting global con el tiempo de reacción promedio de las respuestas correctas
         this.objetoLocalGlobal.setShiftingGlobalTiempoReaccionCorrectas((double)(TPaa - ((TPan + TPaz)/2)));
         
-        //XLII - CLap - NO HECHA - Costo del shifting local con el tiempo de reacción promedio de las respuestas correctas
-        //----------------------------------------------------------------------------------------------------------------
+        //XLII - CLap - REVISADA - Costo del shifting local con el tiempo de reacción promedio de las respuestas correctas
+        
+            //TPΔs
+            double TPas = acumuladoShiftingCorrectasAuxiliar / contadorCorrectasShifting;
+            
+            //TPΔr
+            double TPar = acumuladoRepeticionCorrectasAuxiliar / contadorCorrectasRepeticion;
+            
+        this.objetoLocalGlobal.setShiftingLocalTiempoReaccionCorrectas(TPas - TPar);
         
         //Variables auxiliares
         
@@ -1217,8 +1596,36 @@ public class ControlGlobalLocal {
         //XLIII - REVISADA - Costo del shifting global con porcentaje de respuestas correctas
         this.objetoLocalGlobal.setShiftingGlobalPorcentajeTotalCorrectas((double)(Paa - ((Pan + Paz)/2)));
         
-        //XLIV - NO HECHA - Costo del shifting local con porcentaje de respuestas correctas
-        //---------------------------------------------------------------------------------
+        //Variables auxiliares
+        
+            //Ras
+            int contadorRespuetasTotalesShifting = 0;
+            
+            for (Long auxiliar : listaTiemposShifting) {
+                if (auxiliar >= PITa && auxiliar <= PSTa) {
+                    contadorRespuetasTotalesShifting++;
+                }
+            }
+            
+            //Pai
+            double Pas = (contadorCorrectasShifting * 100) / contadorRespuetasTotalesShifting;
+            
+            //----------------------------------------------------------------------------
+            
+            //Rar
+            int contadorRespuetasTotalesRepeticion = 0;
+            
+            for (Long auxiliar : listaTiemposRepeticiones) {
+                if (auxiliar >= PITa && auxiliar <= PSTa) {
+                    contadorRespuetasTotalesRepeticion++;
+                }
+            }
+            
+            //Pap
+            double Par = (contadorCorrectasRepeticion * 100) / contadorRespuetasTotalesRepeticion;
+        
+        //XLIV - REVISADA - Costo del shifting local con porcentaje de respuestas correctas
+        this.objetoLocalGlobal.setShiftingLocalPorcentajeTotalCorrectas(Pas - Par);
         
         //XLV - RIan - REVISADA - Respuestas incorrectas en el bloque de solo figuras negras
         int contadorIncorrectasNegras = 0;
@@ -1498,7 +1905,7 @@ public class ControlGlobalLocal {
         @Override
         public void run() {
             while (contadorHiloMixtoPractica < 1) {
-                //numerosSwingPractica();
+                
                 practicaActividadMixtoA(0, false);
                 try {
                     Thread.sleep(500);
@@ -1508,9 +1915,11 @@ public class ControlGlobalLocal {
                 getEtiquetaRespuesta().setText("");
                 contadorHiloMixtoPractica++;
             }
+            
             getPantalla().setVisible(false);
             InstruccionesGlobalLocal instrucciones = InstruccionesGlobalLocal.getSingletonInstance();
             instrucciones.setVisible(true);
+
         }
     };
 
@@ -1756,6 +2165,22 @@ public class ControlGlobalLocal {
 
     public void setAuxiliarMixto(int auxiliarMixto) {
         this.auxiliarMixto = auxiliarMixto;
+    }
+
+    public JFrame getPantalla() {
+        return pantalla;
+    }
+
+    public void setPantalla(JFrame pantalla) {
+        this.pantalla = pantalla;
+    }
+    
+    public int getContadoraux() {
+        return contadoraux;
+    }
+
+    public void setContadoraux(int contadoraux) {
+        this.contadoraux = contadoraux;
     }
 
 }
