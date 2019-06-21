@@ -65,10 +65,11 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
         StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
         jPanel1.requestFocus();
-        jTextPane1.setVisible(true);
+        
         
         jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
         control.setContadoraux(control.getContadoraux() + 1);
+        jTextPane1.setVisible(true);
     }
 
     public static InstruccionesNumberLetter getSingletonInstance() {

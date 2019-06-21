@@ -507,10 +507,12 @@ public class ControlPlusMinus {
                 aleatorioEjercicios.setVisible(true);
                this.setPantalla(aleatorioEjercicios);
             case 27:
+                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return ("¡Excelente trabajo! Lo hiciste muy bien. Has terminado con esta actividad.");
             case 28:
                 controlGeneral.ejecutarEjercicios(this.getPantalla());
+                frame.dispose();
             default:
                 return null;
         }
