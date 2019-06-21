@@ -1117,10 +1117,11 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
             double estimatedTime = System.currentTimeMillis() - startTime;
             control.tiempoAlternado(estimatedTime);
 
-            control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
+            //control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
 
             Instrucciones instrucciones = Instrucciones.getSingletonInstance();
             control.instruccionesPantalla(control.getContador(), this, jLabel1);
+            control.setPantalla(instrucciones);
             instrucciones.show();
             this.dispose();
         }

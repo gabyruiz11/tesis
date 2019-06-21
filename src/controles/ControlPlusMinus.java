@@ -16,7 +16,6 @@ import guiPlusMinus.SumaEjemplosInterfaz;
 import guiPlusMinus.SumaEjerciciosInterfaz;
 import guiPlusMinus.SumaGif;
 import guiPlusMinus.SumaPracticaInterfaz;
-import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import objetosNegocio.Plusminus;
@@ -38,11 +37,17 @@ public class ControlPlusMinus {
     //Variable del objeto control plus minus
     private static ControlPlusMinus controlPlusMinus;
     
+    //Control general
+    ControlGeneral controlGeneral = ControlGeneral.getSingletonInstance();
+    
     //Variable contador que sirve para cambiar las instrucciones
     int contador = 0;
     
     //Variables auxiliares
     boolean relacionUno = false, relacionDos = false, relacionTres = false;
+    
+    //Pantalla
+    JFrame pantalla;
     
     /**
      * Constuctor que crea un objeto de tipo control con el objeto de plus minus
@@ -359,14 +364,6 @@ public class ControlPlusMinus {
         }
     }
     
-    public int getContador() {
-        return contador;
-    }
-
-    public void setContador(int contador) {
-        this.contador = contador;
-    }
-    
     public Object instruccionesPantalla(int contadorAuxiliar, JFrame frame, JLabel label) {
         switch (contadorAuxiliar) {
             case 0:
@@ -498,9 +495,27 @@ public class ControlPlusMinus {
                 contador++;
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return ("¡Excelente trabajo! Lo hiciste muy bien. Has terminado con esta actividad.");
-
+            case 28:
+                controlGeneral.ejecutarEjercicios(this.getPantalla());
             default:
-                return "FIN DE ACTIVIDAD";
+                return null;
         }
     }
+
+    public JFrame getPantalla() {
+        return pantalla;
+    }
+
+    public void setPantalla(JFrame pantalla) {
+        this.pantalla = pantalla;
+    }
+    
+    public int getContador() {
+        return contador;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+    
 }

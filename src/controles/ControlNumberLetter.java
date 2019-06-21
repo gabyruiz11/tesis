@@ -40,6 +40,9 @@ public class ControlNumberLetter {
 
     //Variable del objeto control number letter
     private static ControlNumberLetter controlNumberLetter;
+    
+    //Control general
+    ControlGeneral controlGeneral = ControlGeneral.getSingletonInstance();
 
     //Variables auxiliares
     private List<Integer> numerosImagenes = new ArrayList();
@@ -2130,20 +2133,10 @@ public class ControlNumberLetter {
                 contadorHiloActividadMixto++;
             }
             
-            System.out.println("Correctas mixto: " + correctasMixtos);
-            System.out.println("Incorrectas mixto: " + incorrectasMixtos);
-            System.out.println("Omitidas mixto: " + omitidasMixtos);
-            
-            System.out.println("Correctas pares: " + correctasPares);
-            System.out.println("Incorrectas pares: " + incorrectasPares);
-            System.out.println("Correctas impares: " + correctasImpares);
-            System.out.println("Incorrectas impares: " + incorrectasImpares);
-            
-            /*
             getPantalla().setVisible(false);
             InstruccionesNumberLetter instrucciones = InstruccionesNumberLetter.getSingletonInstance();
-            instrucciones.setVisible(true)
-            */
+            instrucciones.setVisible(true);
+            setPantalla(instrucciones);
         }
     };
 
@@ -2367,12 +2360,16 @@ public class ControlNumberLetter {
                 MixtoActividad mixtoActividad = new MixtoActividad();
                 mixtoActividad.setVisible(true);
                 this.setPantalla(mixtoActividad);
-            default:
+            case 36:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return "¡Excelente trabajo! Lo hiciste muy bien. Has \n"
                         + "terminado con esta actividad."
                         + "\n\nFIN DE ACTIVIDAD";
+            case 37:
+                controlGeneral.ejecutarEjercicios(this.getPantalla());
+            default:
+                return null;
         }
     }
 
