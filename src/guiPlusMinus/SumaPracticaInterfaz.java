@@ -80,7 +80,6 @@ public class SumaPracticaInterfaz extends javax.swing.JFrame {
         jLabel10.setText(control.numeroRandom());
         numerosAleatorios[9] = jLabel5.getText();
 
-        jPanel1.setFocusable(true);
         jPanel1.requestFocus();
     }
 

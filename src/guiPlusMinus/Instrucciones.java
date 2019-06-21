@@ -70,7 +70,7 @@ public class Instrucciones extends javax.swing.JFrame {
         jPanel1.requestFocus();
         jTextPane1.setVisible(true);
         
-        jTextPane1.setText(String.valueOf(control.instruccionesPantalla(control.getContador(), this, jLabel1)));
+        jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
         control.setContador(control.getContador() + 1);
     }
     
@@ -153,7 +153,7 @@ public class Instrucciones extends javax.swing.JFrame {
     
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
-            jTextPane1.setText(String.valueOf(control.instruccionesPantalla(control.getContador(), this, jLabel1)));
+            jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
             control.setContador(control.getContador() + 1);
         }
     }//GEN-LAST:event_jPanel1KeyPressed

@@ -21,18 +21,18 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 /**
  *
  * @author Gabriela Guadalupe Ruiz Mora
  */
 public class RestaGif extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form Instrucciones
      */
-    
     GridBagConstraints gbc = new GridBagConstraints();
-    
+
     public RestaGif() {
         initComponents();
         //inicializa el jtextpanel
@@ -44,6 +44,7 @@ public class RestaGif extends javax.swing.JFrame {
         this.setSize((int) d.getWidth(), (int) d.getHeight());
         jPanel1.setSize((int) d.getWidth(), (int) d.getHeight());
         this.add(jPanel1, BorderLayout.CENTER); 
+         jPanel1.requestFocus();
     }
 
     /**
@@ -59,6 +60,7 @@ public class RestaGif extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -67,18 +69,11 @@ public class RestaGif extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resta.gif"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
         jLabel2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jLabel2KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jLabel2KeyTyped(evt);
             }
         });
 
@@ -86,17 +81,16 @@ public class RestaGif extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(610, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -107,33 +101,29 @@ public class RestaGif extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
-
+        if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
+            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
+            instrucciones.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jPanel1KeyPressed
 
     private void jLabel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyPressed
-        // TODO add your handling code here:
+        if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
+            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
+            instrucciones.setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jLabel2KeyPressed
 
-    private void jLabel2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2KeyTyped
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
-        Instrucciones instrucciones2 = Instrucciones.getSingletonInstance();
-        instrucciones2.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
