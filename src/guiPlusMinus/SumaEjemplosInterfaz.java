@@ -98,7 +98,6 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         cajaCinco = new javax.swing.JTextField();
         botonAceptarEjemplo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         r1 = new javax.swing.JLabel();
         r2 = new javax.swing.JLabel();
         r3 = new javax.swing.JLabel();
@@ -234,25 +233,14 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(29, 29, 29)
-                        .addComponent(botonAceptarEjemplo))
+                    .addComponent(botonAceptarEjemplo)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
@@ -331,9 +319,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
                             .addComponent(cajaCinco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(r5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonAceptarEjemplo)
-                    .addComponent(jButton1))
+                .addComponent(botonAceptarEjemplo)
                 .addContainerGap())
         );
 
@@ -522,11 +508,6 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cajaCincoFocusLost
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.exit(0);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -576,7 +557,6 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField cajaDos;
     private javax.swing.JTextField cajaTres;
     private javax.swing.JTextField cajaUno;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
