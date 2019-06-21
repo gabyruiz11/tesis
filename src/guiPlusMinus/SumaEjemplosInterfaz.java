@@ -66,7 +66,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
 
         jLabel5.setText(control.numeroRandom());
         numerosAleatorios[4] = jLabel5.getText();
-        jPanel1.setFocusable(true);
+        
         jPanel1.requestFocus();
     }
 

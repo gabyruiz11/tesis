@@ -138,7 +138,6 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
         jLabel45.setText(control.numeroRandom());
         numerosAleatorios[29] = jLabel45.getText();
         jPanel1.requestFocus();
-        jPanel1.setFocusable(true);
     }
 
     /**
@@ -1073,8 +1072,7 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
         control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
 
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-        control.instruccionesPantalla(control.getContador(), this, jLabel1);
-        instrucciones.show();
+        instrucciones.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1120,7 +1118,7 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
             //control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
 
             Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            control.instruccionesPantalla(control.getContador(), this, jLabel1);
+            control.instruccionesPantalla(this, jLabel1);
             control.setPantalla(instrucciones);
             instrucciones.show();
             this.dispose();

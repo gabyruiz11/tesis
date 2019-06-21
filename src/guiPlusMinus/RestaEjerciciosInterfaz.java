@@ -138,7 +138,6 @@ public class RestaEjerciciosInterfaz extends javax.swing.JFrame {
         jLabel45.setText(control.numeroRandom());
         numerosAleatorios[29] = jLabel45.getText();
         jPanel1.requestFocus();
-        jPanel1.setFocusable(true);
     }
 
     /**

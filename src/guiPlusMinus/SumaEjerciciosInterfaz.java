@@ -138,7 +138,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
         jLabel45.setText(control.numeroRandom());
         numerosAleatorios[29] = jLabel45.getText();
-        jPanel1.setFocusable(true);
+        
         jPanel1.requestFocus();
     }
 
