@@ -2367,7 +2367,9 @@ public class ControlNumberLetter {
                         + "terminado con esta actividad."
                         + "\n\nFIN DE ACTIVIDAD";
             case 37:
+                getPantalla().setVisible(false);
                 controlGeneral.ejecutarEjercicios(this.getPantalla());
+                
             default:
                 return null;
         }

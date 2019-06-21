@@ -66,11 +66,12 @@ public class InstruccionesGlobalLocal extends javax.swing.JFrame {
         SimpleAttributeSet center = new SimpleAttributeSet();
         StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
-        jPanel1.requestFocus();
+       
         jTextPane1.setVisible(true);
         
         jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
         control.setContadoraux(control.getContadoraux() + 1);
+         jPanel1.requestFocus();
     }
 
     public static InstruccionesGlobalLocal getSingletonInstance() {

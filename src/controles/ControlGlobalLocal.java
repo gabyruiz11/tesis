@@ -2123,8 +2123,8 @@ public class ControlGlobalLocal {
                         + "\n\nFIN DE ACTIVIDAD";
             
             case 31:
+                getPantalla().setVisible(false);
                 controlGeneral.ejecutarEjercicios(this.getPantalla());
-                
             default:
                 return null;
                 
