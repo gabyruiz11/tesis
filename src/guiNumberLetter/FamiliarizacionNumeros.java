@@ -24,6 +24,7 @@ public class FamiliarizacionNumeros extends javax.swing.JFrame {
     boolean auxiliar = true;
 
     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
+    int contador = 0;
     
     GridBagConstraints gbc = new GridBagConstraints();
     GridBagConstraints gbc1 = new GridBagConstraints();
@@ -147,10 +148,15 @@ public class FamiliarizacionNumeros extends javax.swing.JFrame {
                 }
                 break;
             case KeyEvent.VK_SPACE:
-                control.setEtiquetaString(etiquetaString);
-                control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.setEtiquetaImagen(etiquetaImagen);
-                control.familiarizacionNumeros();
+                
+                if (contador == 0) {
+                    control.setEtiquetaString(etiquetaString);
+                    control.setEtiquetaRespuesta(etiquetaRespuesta);
+                    control.setEtiquetaImagen(etiquetaImagen);
+                    control.familiarizacionNumeros();
+                    contador++;
+                }
+                
                 break;
             default:
                 break;

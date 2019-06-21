@@ -23,6 +23,7 @@ public class FamiliarizacionLetras extends javax.swing.JFrame {
     boolean auxiliar = true;
     
     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
+    int contador = 0;
    
     GridBagConstraints gbc = new GridBagConstraints();
     GridBagConstraints gbc1 = new GridBagConstraints();
@@ -134,9 +135,14 @@ public class FamiliarizacionLetras extends javax.swing.JFrame {
                 }
                 break;
             case KeyEvent.VK_SPACE:
-                control.setEtiquetaString(etiquetaString);
-                control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.familiarizacionLetras();
+                
+                if (contador == 0) {
+                    control.setEtiquetaString(etiquetaString);
+                    control.setEtiquetaRespuesta(etiquetaRespuesta);
+                    control.familiarizacionLetras();
+                    contador++;
+                }
+                
                 break;
             default:
                 break;

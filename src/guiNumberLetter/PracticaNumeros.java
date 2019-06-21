@@ -26,6 +26,8 @@ public class PracticaNumeros extends javax.swing.JFrame {
 
     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
     ArrayList<JLabel> etiquetas = new ArrayList<>();
+    int contador = 0;
+    
     GridBagConstraints gbcRespuesta = new GridBagConstraints();
     GridBagConstraints gbcIzquierda = new GridBagConstraints();
     GridBagConstraints gbcDerecha = new GridBagConstraints();
@@ -261,12 +263,17 @@ public class PracticaNumeros extends javax.swing.JFrame {
                 }
                 break;
             case KeyEvent.VK_SPACE:
-                control.setEtiquetaA(valorAIzquierdo);
-                control.setEtiquetaB(valorBIzquierdo);
-                control.setEtiquetaC(valorADerecho);
-                control.setEtiquetaD(valorBDerecho);
-                control.setRepeticiones(5);
-                control.practicaNumeros();
+                
+                if (contador == 0) {
+                    control.setEtiquetaA(valorAIzquierdo);
+                    control.setEtiquetaB(valorBIzquierdo);
+                    control.setEtiquetaC(valorADerecho);
+                    control.setEtiquetaD(valorBDerecho);
+                    control.setRepeticiones(5);
+                    control.practicaNumeros();
+                    contador++;
+                }
+                
                 break;
             default:
                 break;
