@@ -381,9 +381,8 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 SumaGif gifSuma = new SumaGif();
                 gifSuma.setVisible(true);
-               
+               this.setPantalla(gifSuma);
             case 3:
-                this.setContador(this.getContador() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, podrás ver un ejemplo sobre cómo responderás la actividad.\n\n"
                         + "Recuerda que sumarás 3 a cada número\n "
@@ -392,9 +391,9 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 SumaEjemplosInterfaz sumaEjemplos = new SumaEjemplosInterfaz();
                 sumaEjemplos.setVisible(true);
-                
+               this.setPantalla(sumaEjemplos);
             case 5:
-                this.setContador(this.getContador() + 1);
+                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En seguida, se te mostrarán una serie de números para practicar.\n"
                         + "Trata de responder lo más rápido que puedas.");
@@ -402,7 +401,7 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 SumaPracticaInterfaz sumaPracticas = new SumaPracticaInterfaz();
                 sumaPracticas.setVisible(true);
-                
+               this.setPantalla(sumaPracticas);
             case 7:
                 this.setContador(this.getContador() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
@@ -417,9 +416,9 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 SumaEjerciciosInterfaz sumaEjercicios = new SumaEjerciciosInterfaz();
                 sumaEjercicios.setVisible(true);
-                
+               this.setPantalla(sumaEjercicios);
             case 10:
-                this.setContador(this.getContador() + 1);
+                this.setContador(this.getContador()+1);
                 return (" RESTAS ");
             case 11:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
@@ -430,9 +429,10 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 RestaGif gifResta = new RestaGif();
                 gifResta.setVisible(true);
+               this.setPantalla(gifResta);
                 
             case 13:
-                this.setContador(this.getContador() + 1);
+                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Antes de iniciar, podrás ver un ejemplo sobre cómo responder la \n"
                         + "actividad. Recuerda que restarás 3 a cada número \n"
@@ -441,9 +441,10 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 RestaEjemplosInterfaz restaEjemplos = new RestaEjemplosInterfaz();
                 restaEjemplos.setVisible(true);
+               this.setPantalla(restaEjemplos);
                 
             case 15:
-                this.setContador(this.getContador() + 1);
+                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora, se te mostrará una serie de números para practicar.\n"
                         + "Trata de responder lo más rápido que puedas. ");
@@ -451,9 +452,10 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 RestaPracticaInterfaz restaPractica = new RestaPracticaInterfaz();
                 restaPractica.setVisible(true);
+               this.setPantalla(restaPractica);
                 
             case 17:
-                this.setContador(this.getContador() + 1);
+                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica. ");
             case 18:
@@ -466,9 +468,10 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 RestaEjerciciosInterfaz restaEjercicios = new RestaEjerciciosInterfaz();
                 restaEjercicios.setVisible(true);
+               this.setPantalla(restaEjercicios);
                 
             case 20:
-                this.setContador(this.getContador() + 1);
+                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, se te mostrará otra lista, en la cual alternarás\n"
                         + "la suma y resta de 3. Tal y como se muestra en el siguiente ejemplo.");
@@ -476,9 +479,9 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 AleatorioEjemplosInferfaz aleatorioEjemplos = new AleatorioEjemplosInferfaz();
                 aleatorioEjemplos.setVisible(true);
-                
+               this.setPantalla(aleatorioEjemplos);
             case 22:
-                this.setContador(this.getContador() + 1);
+                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En seguida, se te presentarán una serie de números para practicar. \n"
                         + "Trata de responder lo más rápido que puedas. ");
@@ -486,9 +489,10 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 AleatorioPracticaInterfaz aleatorioPracticas = new AleatorioPracticaInterfaz();
                 aleatorioPracticas.setVisible(true);
+               this.setPantalla(aleatorioPracticas);
                 
             case 24:
-                this.setContador(this.getContador() + 1);
+                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica. ");
             case 25:
@@ -501,9 +505,8 @@ public class ControlPlusMinus {
                 frame.setVisible(false);
                 AleatorioEjerciciosInterfaz aleatorioEjercicios = new AleatorioEjerciciosInterfaz();
                 aleatorioEjercicios.setVisible(true);
-                
+               this.setPantalla(aleatorioEjercicios);
             case 27:
-                this.setContador(this.getContador() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return ("¡Excelente trabajo! Lo hiciste muy bien. Has terminado con esta actividad.");
             case 28:
