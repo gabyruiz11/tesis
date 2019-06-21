@@ -31,6 +31,9 @@ public class ControlGlobalLocal {
 
     //Variable del objeto control number letter
     private static ControlGlobalLocal controlGlobalLocal;
+    
+    //Control general
+    ControlGeneral controlGeneral = ControlGeneral.getSingletonInstance();
 
     //Variable referencia del objeto global local
     private Globallocal objetoLocalGlobal;
@@ -1942,9 +1945,11 @@ public class ControlGlobalLocal {
                 getEtiquetaRespuesta().setText("");
                 contadorHiloMixtoActividad++;
             }
+            
             getPantalla().setVisible(false);
             InstruccionesGlobalLocal instrucciones = InstruccionesGlobalLocal.getSingletonInstance();
             instrucciones.setVisible(true);
+            setPantalla(instrucciones);
         }
     };
 
@@ -2110,13 +2115,21 @@ public class ControlGlobalLocal {
                 actividadMixto.setVisible(true);
                 this.setPantalla(actividadMixto);
 
-            default:
+            case 30:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return "¡Excelente trabajo! Lo hiciste muy bien."
                         + "Has terminado con esta actividad."
                         + "\n\nFIN DE ACTIVIDAD";
+            
+            case 31:
+                controlGeneral.ejecutarEjercicios(this.getPantalla());
+                
+            default:
+                return null;
+                
         }
+        
     }
 
     public JLabel getEtiquetaImagen() {

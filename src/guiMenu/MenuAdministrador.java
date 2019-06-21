@@ -5,25 +5,21 @@
  */
 package guiMenu;
 
-import guiPlusMinus.Instrucciones;
-import guiPlusMinus.SumaEjerciciosInterfaz;
-import java.awt.BorderLayout;
+import controles.ControlGeneral;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
-import javax.swing.JLabel;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
 
 /**
  *
  * @author David Hermosillo
  */
 public class MenuAdministrador extends javax.swing.JFrame {
-
+    ControlGeneral controlGeneral = ControlGeneral.getSingletonInstance();
+    
     /**
      * Creates new form MenuAdministrador
      */
@@ -229,9 +225,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-        Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-        this.dispose();
-        instrucciones.show();
+        controlGeneral.ejecutarEjercicios(this);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
@@ -240,7 +234,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
-        
+
         jMenu1.setBackground(Color.red);// TODO add your handling code here:
     }//GEN-LAST:event_jMenu1MouseEntered
 

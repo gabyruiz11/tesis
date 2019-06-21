@@ -68,8 +68,10 @@ public class Instrucciones extends javax.swing.JFrame {
         StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
         jPanel1.requestFocus();
+        jTextPane1.setVisible(true);
         
-        
+        jTextPane1.setText(String.valueOf(control.instruccionesPantalla(control.getContador(), this, jLabel1)));
+        control.setContador(control.getContador() + 1);
     }
     
     public static Instrucciones getSingletonInstance() {
@@ -81,7 +83,6 @@ public class Instrucciones extends javax.swing.JFrame {
         }
         return instrucciones;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -151,26 +152,43 @@ public class Instrucciones extends javax.swing.JFrame {
 
     
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
-        jTextPane1.setVisible(true);
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
-            //if (palabra.matches("(?i).*.gif*")) {
-//                Icon imgIcon = new ImageIcon(this.getClass().getResource(palabra));
-//                JLabel label = new JLabel(imgIcon);
-//                control.setContador(control.getContador() + 1);
-//                Border border = BorderFactory.createLineBorder(Color.blue, 2);
-//                label.setBorder(border);
-//                label.setBounds(668, 43, 46, 14); // You can use your own values
-//                label.setSize(700, 300);
-//                jTextPane1.add(label);
-            //} else {
-            System.out.println("Antes de oprimir: " + control.getContador());
             jTextPane1.setText(String.valueOf(control.instruccionesPantalla(control.getContador(), this, jLabel1)));
             control.setContador(control.getContador() + 1);
-            System.out.println("Después de oprimir: " + control.getContador());
-            ///}
         }
     }//GEN-LAST:event_jPanel1KeyPressed
 
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Instrucciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Instrucciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Instrucciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Instrucciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Instrucciones().setVisible(true);
+            }
+        });
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
