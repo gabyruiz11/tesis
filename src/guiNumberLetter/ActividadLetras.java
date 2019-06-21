@@ -27,6 +27,7 @@ public class ActividadLetras extends javax.swing.JFrame {
 
     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
     ArrayList<JLabel> etiquetas = new ArrayList<>();
+    int contador = 0;
 
     GridBagConstraints gbcRespuesta = new GridBagConstraints();
     GridBagConstraints gbcIzquierda = new GridBagConstraints();
@@ -281,13 +282,18 @@ public class ActividadLetras extends javax.swing.JFrame {
                 control.respuestaLetras("Vocal", control.recorrerListaLetras(etiquetas), etiquetaRespuesta, true);
                 break;
             case KeyEvent.VK_SPACE:
-                control.setEtiquetaA(valorAIzquierdo);
-                control.setEtiquetaB(valorBIzquierdo);
-                control.setEtiquetaC(valorADerecho);
-                control.setEtiquetaD(valorBDerecho);
-                control.agregarVocalesConsonantes();
-                control.setRepeticiones(16);
-                control.actividadLetras();
+                
+                if (contador == 0) {
+                    control.setEtiquetaA(valorAIzquierdo);
+                    control.setEtiquetaB(valorBIzquierdo);
+                    control.setEtiquetaC(valorADerecho);
+                    control.setEtiquetaD(valorBDerecho);
+                    control.agregarVocalesConsonantes();
+                    control.setRepeticiones(16);
+                    control.actividadLetras();
+                    contador++;
+                }
+                
                 break;
             default:
                 break;

@@ -21,6 +21,7 @@ import java.awt.event.KeyEvent;
 public class PracticaPequeñas extends javax.swing.JFrame {
 
     ControlGlobalLocal control = ControlGlobalLocal.getSingletonInstance();
+    int contador = 0;
     
     GridBagConstraints gbc = new GridBagConstraints();
     GridBagConstraints gbc1 = new GridBagConstraints();
@@ -136,11 +137,16 @@ public class PracticaPequeñas extends javax.swing.JFrame {
                 control.respuestas("Cuadrado", etiquetaNombre, false, "");
                 break;
             case KeyEvent.VK_SPACE:
-                control.setEtiquetaImagen(etiquetaImagen);
-                control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.setEtiquetaNombre(etiquetaNombre);
-                control.setRepeticiones(3);
-                control.iniciarPracticasPequeñas();
+                
+                if (contador == 0) {
+                    control.setEtiquetaImagen(etiquetaImagen);
+                    control.setEtiquetaRespuesta(etiquetaRespuesta);
+                    control.setEtiquetaNombre(etiquetaNombre);
+                    control.setRepeticiones(3);
+                    control.iniciarPracticasPequeñas();
+                    contador++;
+                }
+                
                 break;
         }
     }//GEN-LAST:event_panelPrincipalKeyPressed

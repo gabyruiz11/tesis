@@ -26,6 +26,7 @@ public class MixtoPractica extends javax.swing.JFrame {
 
     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
     ArrayList<JLabel> etiquetas = new ArrayList<>();
+    int contador = 0;
 
     GridBagConstraints gbcRespuesta = new GridBagConstraints();
     GridBagConstraints gbcIzquierda = new GridBagConstraints();
@@ -360,19 +361,24 @@ public class MixtoPractica extends javax.swing.JFrame {
                 control.respuestaMixtos(4, false);
                 break;
             case KeyEvent.VK_SPACE:
-                control.setEtiquetaA(valorASuperiorIzquierdo);
-                control.setEtiquetaB(valorBSuperiorIzquierdo);
-                control.setEtiquetaC(valorASuperiorDerecho);
-                control.setEtiquetaD(valorBSuperiorDerecho);
-                control.setEtiquetaE(valorAInferiorDerecho);
-                control.setEtiquetaF(valorBInferiorDerecho);
-                control.setEtiquetaG(valorAInferiorIzquierdo);
-                control.setEtiquetaH(valorBInferiorIzquierdo);
+                
+                if (contador == 0) {
+                    control.setEtiquetaA(valorASuperiorIzquierdo);
+                    control.setEtiquetaB(valorBSuperiorIzquierdo);
+                    control.setEtiquetaC(valorASuperiorDerecho);
+                    control.setEtiquetaD(valorBSuperiorDerecho);
+                    control.setEtiquetaE(valorAInferiorDerecho);
+                    control.setEtiquetaF(valorBInferiorDerecho);
+                    control.setEtiquetaG(valorAInferiorIzquierdo);
+                    control.setEtiquetaH(valorBInferiorIzquierdo);
 
-                control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.agregarVocalesConsonantes();
-                control.setRepeticiones(5);
-                control.practicaMixto();
+                    control.setEtiquetaRespuesta(etiquetaRespuesta);
+                    control.agregarVocalesConsonantes();
+                    control.setRepeticiones(5);
+                    control.practicaMixto();
+                    contador++;
+                }
+                
                 break;
             default:
                 break;

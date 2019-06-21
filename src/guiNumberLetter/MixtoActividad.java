@@ -25,6 +25,7 @@ public class MixtoActividad extends javax.swing.JFrame {
 
     ControlNumberLetter control = ControlNumberLetter.getSingletonInstance();
     ArrayList<JLabel> etiquetas = new ArrayList<>();
+    int contador = 0;
 
     GridBagConstraints gbcRespuesta = new GridBagConstraints();
     GridBagConstraints gbcIzquierda = new GridBagConstraints();
@@ -370,19 +371,24 @@ public class MixtoActividad extends javax.swing.JFrame {
                 control.respuestaMixtos(4, true);
                 break;
             case KeyEvent.VK_SPACE:
-                control.setEtiquetaA(valorASuperiorIzquierdo);
-                control.setEtiquetaB(valorBSuperiorIzquierdo);
-                control.setEtiquetaC(valorASuperiorDerecho);
-                control.setEtiquetaD(valorBSuperiorDerecho);
-                control.setEtiquetaE(valorAInferiorDerecho);
-                control.setEtiquetaF(valorBInferiorDerecho);
-                control.setEtiquetaG(valorAInferiorIzquierdo);
-                control.setEtiquetaH(valorBInferiorIzquierdo);
+                
+                if (contador == 0) {
+                    control.setEtiquetaA(valorASuperiorIzquierdo);
+                    control.setEtiquetaB(valorBSuperiorIzquierdo);
+                    control.setEtiquetaC(valorASuperiorDerecho);
+                    control.setEtiquetaD(valorBSuperiorDerecho);
+                    control.setEtiquetaE(valorAInferiorDerecho);
+                    control.setEtiquetaF(valorBInferiorDerecho);
+                    control.setEtiquetaG(valorAInferiorIzquierdo);
+                    control.setEtiquetaH(valorBInferiorIzquierdo);
 
-                control.setEtiquetaRespuesta(etiquetaRespuesta);
-                control.agregarVocalesConsonantes();
-                control.setRepeticiones(32);
-                control.actividadMixto();
+                    control.setEtiquetaRespuesta(etiquetaRespuesta);
+                    control.agregarVocalesConsonantes();
+                    control.setRepeticiones(32);
+                    control.actividadMixto();
+                    contador++;
+                }
+                
                 break;
             default:
                 break;
