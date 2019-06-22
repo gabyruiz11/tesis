@@ -14,10 +14,10 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import objetosNegocio.Paciente;
-import objetosNegocio.Prueba;
-import objetosNegocio.Usuario;
-import objetosNegocio.Setpruebas;
+import objetosNegocios.Paciente;
+import objetosNegocios.Prueba;
+import objetosNegocios.Usuario;
+import objetosNegocios.Set1;
 
 /**
  *
@@ -49,22 +49,22 @@ public class PruebaJpaController implements Serializable {
                 idUsuario = em.getReference(idUsuario.getClass(), idUsuario.getIdUsuario());
                 prueba.setIdUsuario(idUsuario);
             }
-            Setpruebas setidSet = prueba.getSetidSet();
+            Set1 setidSet = prueba.getSetidSet();
             if (setidSet != null) {
                 setidSet = em.getReference(setidSet.getClass(), setidSet.getIdSet());
                 prueba.setSetidSet(setidSet);
             }
             em.persist(prueba);
             if (folioPaciente != null) {
-                folioPaciente.getPruebaList().add(prueba);
+                folioPaciente.getPruebaCollection().add(prueba);
                 folioPaciente = em.merge(folioPaciente);
             }
             if (idUsuario != null) {
-                idUsuario.getPruebaList().add(prueba);
+                idUsuario.getPruebaCollection().add(prueba);
                 idUsuario = em.merge(idUsuario);
             }
             if (setidSet != null) {
-                setidSet.getPruebaList().add(prueba);
+                setidSet.getPruebaCollection().add(prueba);
                 setidSet = em.merge(setidSet);
             }
             em.getTransaction().commit();
@@ -85,8 +85,8 @@ public class PruebaJpaController implements Serializable {
             Paciente folioPacienteNew = prueba.getFolioPaciente();
             Usuario idUsuarioOld = persistentPrueba.getIdUsuario();
             Usuario idUsuarioNew = prueba.getIdUsuario();
-            Setpruebas setidSetOld = persistentPrueba.getSetidSet();
-            Setpruebas setidSetNew = prueba.getSetidSet();
+            Set1 setidSetOld = persistentPrueba.getSetidSet();
+            Set1 setidSetNew = prueba.getSetidSet();
             if (folioPacienteNew != null) {
                 folioPacienteNew = em.getReference(folioPacienteNew.getClass(), folioPacienteNew.getFolioPaciente());
                 prueba.setFolioPaciente(folioPacienteNew);
@@ -101,27 +101,27 @@ public class PruebaJpaController implements Serializable {
             }
             prueba = em.merge(prueba);
             if (folioPacienteOld != null && !folioPacienteOld.equals(folioPacienteNew)) {
-                folioPacienteOld.getPruebaList().remove(prueba);
+                folioPacienteOld.getPruebaCollection().remove(prueba);
                 folioPacienteOld = em.merge(folioPacienteOld);
             }
             if (folioPacienteNew != null && !folioPacienteNew.equals(folioPacienteOld)) {
-                folioPacienteNew.getPruebaList().add(prueba);
+                folioPacienteNew.getPruebaCollection().add(prueba);
                 folioPacienteNew = em.merge(folioPacienteNew);
             }
             if (idUsuarioOld != null && !idUsuarioOld.equals(idUsuarioNew)) {
-                idUsuarioOld.getPruebaList().remove(prueba);
+                idUsuarioOld.getPruebaCollection().remove(prueba);
                 idUsuarioOld = em.merge(idUsuarioOld);
             }
             if (idUsuarioNew != null && !idUsuarioNew.equals(idUsuarioOld)) {
-                idUsuarioNew.getPruebaList().add(prueba);
+                idUsuarioNew.getPruebaCollection().add(prueba);
                 idUsuarioNew = em.merge(idUsuarioNew);
             }
             if (setidSetOld != null && !setidSetOld.equals(setidSetNew)) {
-                setidSetOld.getPruebaList().remove(prueba);
+                setidSetOld.getPruebaCollection().remove(prueba);
                 setidSetOld = em.merge(setidSetOld);
             }
             if (setidSetNew != null && !setidSetNew.equals(setidSetOld)) {
-                setidSetNew.getPruebaList().add(prueba);
+                setidSetNew.getPruebaCollection().add(prueba);
                 setidSetNew = em.merge(setidSetNew);
             }
             em.getTransaction().commit();
@@ -155,17 +155,17 @@ public class PruebaJpaController implements Serializable {
             }
             Paciente folioPaciente = prueba.getFolioPaciente();
             if (folioPaciente != null) {
-                folioPaciente.getPruebaList().remove(prueba);
+                folioPaciente.getPruebaCollection().remove(prueba);
                 folioPaciente = em.merge(folioPaciente);
             }
             Usuario idUsuario = prueba.getIdUsuario();
             if (idUsuario != null) {
-                idUsuario.getPruebaList().remove(prueba);
+                idUsuario.getPruebaCollection().remove(prueba);
                 idUsuario = em.merge(idUsuario);
             }
-            Setpruebas setidSet = prueba.getSetidSet();
+            Set1 setidSet = prueba.getSetidSet();
             if (setidSet != null) {
-                setidSet.getPruebaList().remove(prueba);
+                setidSet.getPruebaCollection().remove(prueba);
                 setidSet = em.merge(setidSet);
             }
             em.remove(prueba);

@@ -12,12 +12,13 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import objetosNegocio.Setpruebas;
+import objetosNegocios.Set1;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import objetosNegocio.Stopsignal;
+import objetosNegocios.Stopsignal;
 
 /**
  *
@@ -35,27 +36,27 @@ public class StopsignalJpaController implements Serializable {
     }
 
     public void create(Stopsignal stopsignal) {
-        if (stopsignal.getSetpruebasList() == null) {
-            stopsignal.setSetpruebasList(new ArrayList<Setpruebas>());
+        if (stopsignal.getSet1Collection() == null) {
+            stopsignal.setSet1Collection(new ArrayList<Set1>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Setpruebas> attachedSetpruebasList = new ArrayList<Setpruebas>();
-            for (Setpruebas setpruebasListSetpruebasToAttach : stopsignal.getSetpruebasList()) {
-                setpruebasListSetpruebasToAttach = em.getReference(setpruebasListSetpruebasToAttach.getClass(), setpruebasListSetpruebasToAttach.getIdSet());
-                attachedSetpruebasList.add(setpruebasListSetpruebasToAttach);
+            Collection<Set1> attachedSet1Collection = new ArrayList<Set1>();
+            for (Set1 set1CollectionSet1ToAttach : stopsignal.getSet1Collection()) {
+                set1CollectionSet1ToAttach = em.getReference(set1CollectionSet1ToAttach.getClass(), set1CollectionSet1ToAttach.getIdSet());
+                attachedSet1Collection.add(set1CollectionSet1ToAttach);
             }
-            stopsignal.setSetpruebasList(attachedSetpruebasList);
+            stopsignal.setSet1Collection(attachedSet1Collection);
             em.persist(stopsignal);
-            for (Setpruebas setpruebasListSetpruebas : stopsignal.getSetpruebasList()) {
-                Stopsignal oldStopSignalidStopSignalOfSetpruebasListSetpruebas = setpruebasListSetpruebas.getStopSignalidStopSignal();
-                setpruebasListSetpruebas.setStopSignalidStopSignal(stopsignal);
-                setpruebasListSetpruebas = em.merge(setpruebasListSetpruebas);
-                if (oldStopSignalidStopSignalOfSetpruebasListSetpruebas != null) {
-                    oldStopSignalidStopSignalOfSetpruebasListSetpruebas.getSetpruebasList().remove(setpruebasListSetpruebas);
-                    oldStopSignalidStopSignalOfSetpruebasListSetpruebas = em.merge(oldStopSignalidStopSignalOfSetpruebasListSetpruebas);
+            for (Set1 set1CollectionSet1 : stopsignal.getSet1Collection()) {
+                Stopsignal oldStopSignalidStopSignalOfSet1CollectionSet1 = set1CollectionSet1.getStopSignalidStopSignal();
+                set1CollectionSet1.setStopSignalidStopSignal(stopsignal);
+                set1CollectionSet1 = em.merge(set1CollectionSet1);
+                if (oldStopSignalidStopSignalOfSet1CollectionSet1 != null) {
+                    oldStopSignalidStopSignalOfSet1CollectionSet1.getSet1Collection().remove(set1CollectionSet1);
+                    oldStopSignalidStopSignalOfSet1CollectionSet1 = em.merge(oldStopSignalidStopSignalOfSet1CollectionSet1);
                 }
             }
             em.getTransaction().commit();
@@ -72,36 +73,36 @@ public class StopsignalJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Stopsignal persistentStopsignal = em.find(Stopsignal.class, stopsignal.getIdStopSignal());
-            List<Setpruebas> setpruebasListOld = persistentStopsignal.getSetpruebasList();
-            List<Setpruebas> setpruebasListNew = stopsignal.getSetpruebasList();
+            Collection<Set1> set1CollectionOld = persistentStopsignal.getSet1Collection();
+            Collection<Set1> set1CollectionNew = stopsignal.getSet1Collection();
             List<String> illegalOrphanMessages = null;
-            for (Setpruebas setpruebasListOldSetpruebas : setpruebasListOld) {
-                if (!setpruebasListNew.contains(setpruebasListOldSetpruebas)) {
+            for (Set1 set1CollectionOldSet1 : set1CollectionOld) {
+                if (!set1CollectionNew.contains(set1CollectionOldSet1)) {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
-                    illegalOrphanMessages.add("You must retain Setpruebas " + setpruebasListOldSetpruebas + " since its stopSignalidStopSignal field is not nullable.");
+                    illegalOrphanMessages.add("You must retain Set1 " + set1CollectionOldSet1 + " since its stopSignalidStopSignal field is not nullable.");
                 }
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            List<Setpruebas> attachedSetpruebasListNew = new ArrayList<Setpruebas>();
-            for (Setpruebas setpruebasListNewSetpruebasToAttach : setpruebasListNew) {
-                setpruebasListNewSetpruebasToAttach = em.getReference(setpruebasListNewSetpruebasToAttach.getClass(), setpruebasListNewSetpruebasToAttach.getIdSet());
-                attachedSetpruebasListNew.add(setpruebasListNewSetpruebasToAttach);
+            Collection<Set1> attachedSet1CollectionNew = new ArrayList<Set1>();
+            for (Set1 set1CollectionNewSet1ToAttach : set1CollectionNew) {
+                set1CollectionNewSet1ToAttach = em.getReference(set1CollectionNewSet1ToAttach.getClass(), set1CollectionNewSet1ToAttach.getIdSet());
+                attachedSet1CollectionNew.add(set1CollectionNewSet1ToAttach);
             }
-            setpruebasListNew = attachedSetpruebasListNew;
-            stopsignal.setSetpruebasList(setpruebasListNew);
+            set1CollectionNew = attachedSet1CollectionNew;
+            stopsignal.setSet1Collection(set1CollectionNew);
             stopsignal = em.merge(stopsignal);
-            for (Setpruebas setpruebasListNewSetpruebas : setpruebasListNew) {
-                if (!setpruebasListOld.contains(setpruebasListNewSetpruebas)) {
-                    Stopsignal oldStopSignalidStopSignalOfSetpruebasListNewSetpruebas = setpruebasListNewSetpruebas.getStopSignalidStopSignal();
-                    setpruebasListNewSetpruebas.setStopSignalidStopSignal(stopsignal);
-                    setpruebasListNewSetpruebas = em.merge(setpruebasListNewSetpruebas);
-                    if (oldStopSignalidStopSignalOfSetpruebasListNewSetpruebas != null && !oldStopSignalidStopSignalOfSetpruebasListNewSetpruebas.equals(stopsignal)) {
-                        oldStopSignalidStopSignalOfSetpruebasListNewSetpruebas.getSetpruebasList().remove(setpruebasListNewSetpruebas);
-                        oldStopSignalidStopSignalOfSetpruebasListNewSetpruebas = em.merge(oldStopSignalidStopSignalOfSetpruebasListNewSetpruebas);
+            for (Set1 set1CollectionNewSet1 : set1CollectionNew) {
+                if (!set1CollectionOld.contains(set1CollectionNewSet1)) {
+                    Stopsignal oldStopSignalidStopSignalOfSet1CollectionNewSet1 = set1CollectionNewSet1.getStopSignalidStopSignal();
+                    set1CollectionNewSet1.setStopSignalidStopSignal(stopsignal);
+                    set1CollectionNewSet1 = em.merge(set1CollectionNewSet1);
+                    if (oldStopSignalidStopSignalOfSet1CollectionNewSet1 != null && !oldStopSignalidStopSignalOfSet1CollectionNewSet1.equals(stopsignal)) {
+                        oldStopSignalidStopSignalOfSet1CollectionNewSet1.getSet1Collection().remove(set1CollectionNewSet1);
+                        oldStopSignalidStopSignalOfSet1CollectionNewSet1 = em.merge(oldStopSignalidStopSignalOfSet1CollectionNewSet1);
                     }
                 }
             }
@@ -135,12 +136,12 @@ public class StopsignalJpaController implements Serializable {
                 throw new NonexistentEntityException("The stopsignal with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
-            List<Setpruebas> setpruebasListOrphanCheck = stopsignal.getSetpruebasList();
-            for (Setpruebas setpruebasListOrphanCheckSetpruebas : setpruebasListOrphanCheck) {
+            Collection<Set1> set1CollectionOrphanCheck = stopsignal.getSet1Collection();
+            for (Set1 set1CollectionOrphanCheckSet1 : set1CollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
-                illegalOrphanMessages.add("This Stopsignal (" + stopsignal + ") cannot be destroyed since the Setpruebas " + setpruebasListOrphanCheckSetpruebas + " in its setpruebasList field has a non-nullable stopSignalidStopSignal field.");
+                illegalOrphanMessages.add("This Stopsignal (" + stopsignal + ") cannot be destroyed since the Set1 " + set1CollectionOrphanCheckSet1 + " in its set1Collection field has a non-nullable stopSignalidStopSignal field.");
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);

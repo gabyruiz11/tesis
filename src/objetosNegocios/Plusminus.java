@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -77,8 +77,9 @@ public class Plusminus implements Serializable {
     private Double tiempoSuma;
     @Column(name = "tiempoResta")
     private Double tiempoResta;
+    @Basic(optional = false)
     @Column(name = "tiempoAlternado")
-    private Double tiempoAlternado;
+    private double tiempoAlternado;
     @Column(name = "tiempoTotal")
     private Double tiempoTotal;
     @Column(name = "shiftingTotal")
@@ -146,13 +147,18 @@ public class Plusminus implements Serializable {
     @Column(name = "noRespondidasTotales")
     private Integer noRespondidasTotales;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "plusMinusidPlusMinus")
-    private List<Setpruebas> setpruebasList;
+    private Collection<Set1> set1Collection;
 
     public Plusminus() {
     }
 
     public Plusminus(Integer idPlusMinus) {
         this.idPlusMinus = idPlusMinus;
+    }
+
+    public Plusminus(Integer idPlusMinus, double tiempoAlternado) {
+        this.idPlusMinus = idPlusMinus;
+        this.tiempoAlternado = tiempoAlternado;
     }
 
     public Integer getIdPlusMinus() {
@@ -179,11 +185,11 @@ public class Plusminus implements Serializable {
         this.tiempoResta = tiempoResta;
     }
 
-    public Double getTiempoAlternado() {
+    public double getTiempoAlternado() {
         return tiempoAlternado;
     }
 
-    public void setTiempoAlternado(Double tiempoAlternado) {
+    public void setTiempoAlternado(double tiempoAlternado) {
         this.tiempoAlternado = tiempoAlternado;
     }
 
@@ -452,12 +458,12 @@ public class Plusminus implements Serializable {
     }
 
     @XmlTransient
-    public List<Setpruebas> getSetpruebasList() {
-        return setpruebasList;
+    public Collection<Set1> getSet1Collection() {
+        return set1Collection;
     }
 
-    public void setSetpruebasList(List<Setpruebas> setpruebasList) {
-        this.setpruebasList = setpruebasList;
+    public void setSet1Collection(Collection<Set1> set1Collection) {
+        this.set1Collection = set1Collection;
     }
 
     @Override
@@ -480,19 +486,9 @@ public class Plusminus implements Serializable {
         return true;
     }
 
-    /*
     @Override
     public String toString() {
-        return "objetosNegocio.Plusminus[ idPlusMinus=" + idPlusMinus + " ]";
+        return "objetosNegocios.Plusminus[ idPlusMinus=" + idPlusMinus + " ]";
     }
-    */
-
-    @Override
-    public String toString() {
-        return "Plusminus{" + "idPlusMinus=" + idPlusMinus + ", tiempoSuma=" + tiempoSuma + ", tiempoResta=" + tiempoResta + ", tiempoAlternado=" + tiempoAlternado + ", tiempoTotal=" + tiempoTotal + ", shiftingTotal=" + shiftingTotal + ", respuestasSuma=" + respuestasSuma + ", respuestasResta=" + respuestasResta + ", respuestasAlternado=" + respuestasAlternado + ", respuestasTotales=" + respuestasTotales + ", respuestasCorrectasSuma=" + respuestasCorrectasSuma + ", respuestasCorrectasResta=" + respuestasCorrectasResta + ", respuestasCorrectasAlternado=" + respuestasCorrectasAlternado + ", respuestasCorrectasTotales=" + respuestasCorrectasTotales + ", reaccionPromedioSuma=" + reaccionPromedioSuma + ", reaccionPromedioResta=" + reaccionPromedioResta + ", reaccionPromedioAlternado=" + reaccionPromedioAlternado + ", reaccionPromedioTotal=" + reaccionPromedioTotal + ", shiftingReaccionPromedio=" + shiftingReaccionPromedio + ", respuestasIncorrectasSuma=" + respuestasIncorrectasSuma + ", respuestasIncorrectasResta=" + respuestasIncorrectasResta + ", respuestasIncorrectasAlternado=" + respuestasIncorrectasAlternado + ", respuestasIncorrectasTotales=" + respuestasIncorrectasTotales + ", porcentajeCorrectasSumar=" + porcentajeCorrectasSumar + ", porcentajeCorrectasRestar=" + porcentajeCorrectasRestar + ", porcentajeCorrectasAlternado=" + porcentajeCorrectasAlternado + ", porcentajeCorrectasTotal=" + porcentajeCorrectasTotal + ", shiftingRespuestasCorrectasTotales=" + shiftingRespuestasCorrectasTotales + ", porcentajeRelacionSumar=" + porcentajeRelacionSumar + ", porcentajeRelacionRestar=" + porcentajeRelacionRestar + ", porcentajeRelacionAlternado=" + porcentajeRelacionAlternado + ", porcentajeRelacionTotal=" + porcentajeRelacionTotal + ", shiftingRelacionIndividual=" + shiftingRelacionIndividual + ", noRespondidasSumar=" + noRespondidasSumar + ", noRespondidasRestar=" + noRespondidasRestar + ", noRespondidasAlternado=" + noRespondidasAlternado + ", noRespondidasTotales=" + noRespondidasTotales + ", setpruebasList=" + setpruebasList + '}';
-    }
-    
-    
-    
     
 }

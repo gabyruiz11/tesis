@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -52,7 +52,7 @@ public class Prueba implements Serializable {
     private Usuario idUsuario;
     @JoinColumn(name = "Set_idSet", referencedColumnName = "idSet")
     @ManyToOne(optional = false)
-    private Setpruebas setidSet;
+    private Set1 setidSet;
 
     public Prueba() {
     }
@@ -93,11 +93,11 @@ public class Prueba implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Setpruebas getSetidSet() {
+    public Set1 getSetidSet() {
         return setidSet;
     }
 
-    public void setSetidSet(Setpruebas setidSet) {
+    public void setSetidSet(Set1 setidSet) {
         this.setidSet = setidSet;
     }
 
@@ -123,7 +123,7 @@ public class Prueba implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Prueba[ idPrueba=" + idPrueba + " ]";
+        return "objetosNegocios.Prueba[ idPrueba=" + idPrueba + " ]";
     }
     
 }

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,12 +26,12 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author David Hermosillo
  */
 @Entity
-@Table(name = "setpruebas")
+@Table(name = "set")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Setpruebas.findAll", query = "SELECT s FROM Setpruebas s")
-    , @NamedQuery(name = "Setpruebas.findByIdSet", query = "SELECT s FROM Setpruebas s WHERE s.idSet = :idSet")})
-public class Setpruebas implements Serializable {
+    @NamedQuery(name = "Set1.findAll", query = "SELECT s FROM Set1 s")
+    , @NamedQuery(name = "Set1.findByIdSet", query = "SELECT s FROM Set1 s WHERE s.idSet = :idSet")})
+public class Set1 implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -66,12 +66,12 @@ public class Setpruebas implements Serializable {
     @ManyToOne(optional = false)
     private Tonemonotoring toneMonotoringidToneMonotoring;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "setidSet")
-    private List<Prueba> pruebaList;
+    private Collection<Prueba> pruebaCollection;
 
-    public Setpruebas() {
+    public Set1() {
     }
 
-    public Setpruebas(Integer idSet) {
+    public Set1(Integer idSet) {
         this.idSet = idSet;
     }
 
@@ -156,12 +156,12 @@ public class Setpruebas implements Serializable {
     }
 
     @XmlTransient
-    public List<Prueba> getPruebaList() {
-        return pruebaList;
+    public Collection<Prueba> getPruebaCollection() {
+        return pruebaCollection;
     }
 
-    public void setPruebaList(List<Prueba> pruebaList) {
-        this.pruebaList = pruebaList;
+    public void setPruebaCollection(Collection<Prueba> pruebaCollection) {
+        this.pruebaCollection = pruebaCollection;
     }
 
     @Override
@@ -174,10 +174,10 @@ public class Setpruebas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Setpruebas)) {
+        if (!(object instanceof Set1)) {
             return false;
         }
-        Setpruebas other = (Setpruebas) object;
+        Set1 other = (Set1) object;
         if ((this.idSet == null && other.idSet != null) || (this.idSet != null && !this.idSet.equals(other.idSet))) {
             return false;
         }
@@ -186,7 +186,7 @@ public class Setpruebas implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Setpruebas[ idSet=" + idSet + " ]";
+        return "objetosNegocios.Set1[ idSet=" + idSet + " ]";
     }
     
 }

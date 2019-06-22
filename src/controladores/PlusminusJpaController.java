@@ -13,12 +13,13 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import objetosNegocio.Setpruebas;
+import objetosNegocios.Set1;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import objetosNegocio.Plusminus;
+import objetosNegocios.Plusminus;
 
 /**
  *
@@ -36,27 +37,27 @@ public class PlusminusJpaController implements Serializable {
     }
 
     public void create(Plusminus plusminus) throws PreexistingEntityException, Exception {
-        if (plusminus.getSetpruebasList() == null) {
-            plusminus.setSetpruebasList(new ArrayList<Setpruebas>());
+        if (plusminus.getSet1Collection() == null) {
+            plusminus.setSet1Collection(new ArrayList<Set1>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Setpruebas> attachedSetpruebasList = new ArrayList<Setpruebas>();
-            for (Setpruebas setpruebasListSetpruebasToAttach : plusminus.getSetpruebasList()) {
-                setpruebasListSetpruebasToAttach = em.getReference(setpruebasListSetpruebasToAttach.getClass(), setpruebasListSetpruebasToAttach.getIdSet());
-                attachedSetpruebasList.add(setpruebasListSetpruebasToAttach);
+            Collection<Set1> attachedSet1Collection = new ArrayList<Set1>();
+            for (Set1 set1CollectionSet1ToAttach : plusminus.getSet1Collection()) {
+                set1CollectionSet1ToAttach = em.getReference(set1CollectionSet1ToAttach.getClass(), set1CollectionSet1ToAttach.getIdSet());
+                attachedSet1Collection.add(set1CollectionSet1ToAttach);
             }
-            plusminus.setSetpruebasList(attachedSetpruebasList);
+            plusminus.setSet1Collection(attachedSet1Collection);
             em.persist(plusminus);
-            for (Setpruebas setpruebasListSetpruebas : plusminus.getSetpruebasList()) {
-                Plusminus oldPlusMinusidPlusMinusOfSetpruebasListSetpruebas = setpruebasListSetpruebas.getPlusMinusidPlusMinus();
-                setpruebasListSetpruebas.setPlusMinusidPlusMinus(plusminus);
-                setpruebasListSetpruebas = em.merge(setpruebasListSetpruebas);
-                if (oldPlusMinusidPlusMinusOfSetpruebasListSetpruebas != null) {
-                    oldPlusMinusidPlusMinusOfSetpruebasListSetpruebas.getSetpruebasList().remove(setpruebasListSetpruebas);
-                    oldPlusMinusidPlusMinusOfSetpruebasListSetpruebas = em.merge(oldPlusMinusidPlusMinusOfSetpruebasListSetpruebas);
+            for (Set1 set1CollectionSet1 : plusminus.getSet1Collection()) {
+                Plusminus oldPlusMinusidPlusMinusOfSet1CollectionSet1 = set1CollectionSet1.getPlusMinusidPlusMinus();
+                set1CollectionSet1.setPlusMinusidPlusMinus(plusminus);
+                set1CollectionSet1 = em.merge(set1CollectionSet1);
+                if (oldPlusMinusidPlusMinusOfSet1CollectionSet1 != null) {
+                    oldPlusMinusidPlusMinusOfSet1CollectionSet1.getSet1Collection().remove(set1CollectionSet1);
+                    oldPlusMinusidPlusMinusOfSet1CollectionSet1 = em.merge(oldPlusMinusidPlusMinusOfSet1CollectionSet1);
                 }
             }
             em.getTransaction().commit();
@@ -78,36 +79,36 @@ public class PlusminusJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Plusminus persistentPlusminus = em.find(Plusminus.class, plusminus.getIdPlusMinus());
-            List<Setpruebas> setpruebasListOld = persistentPlusminus.getSetpruebasList();
-            List<Setpruebas> setpruebasListNew = plusminus.getSetpruebasList();
+            Collection<Set1> set1CollectionOld = persistentPlusminus.getSet1Collection();
+            Collection<Set1> set1CollectionNew = plusminus.getSet1Collection();
             List<String> illegalOrphanMessages = null;
-            for (Setpruebas setpruebasListOldSetpruebas : setpruebasListOld) {
-                if (!setpruebasListNew.contains(setpruebasListOldSetpruebas)) {
+            for (Set1 set1CollectionOldSet1 : set1CollectionOld) {
+                if (!set1CollectionNew.contains(set1CollectionOldSet1)) {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
-                    illegalOrphanMessages.add("You must retain Setpruebas " + setpruebasListOldSetpruebas + " since its plusMinusidPlusMinus field is not nullable.");
+                    illegalOrphanMessages.add("You must retain Set1 " + set1CollectionOldSet1 + " since its plusMinusidPlusMinus field is not nullable.");
                 }
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            List<Setpruebas> attachedSetpruebasListNew = new ArrayList<Setpruebas>();
-            for (Setpruebas setpruebasListNewSetpruebasToAttach : setpruebasListNew) {
-                setpruebasListNewSetpruebasToAttach = em.getReference(setpruebasListNewSetpruebasToAttach.getClass(), setpruebasListNewSetpruebasToAttach.getIdSet());
-                attachedSetpruebasListNew.add(setpruebasListNewSetpruebasToAttach);
+            Collection<Set1> attachedSet1CollectionNew = new ArrayList<Set1>();
+            for (Set1 set1CollectionNewSet1ToAttach : set1CollectionNew) {
+                set1CollectionNewSet1ToAttach = em.getReference(set1CollectionNewSet1ToAttach.getClass(), set1CollectionNewSet1ToAttach.getIdSet());
+                attachedSet1CollectionNew.add(set1CollectionNewSet1ToAttach);
             }
-            setpruebasListNew = attachedSetpruebasListNew;
-            plusminus.setSetpruebasList(setpruebasListNew);
+            set1CollectionNew = attachedSet1CollectionNew;
+            plusminus.setSet1Collection(set1CollectionNew);
             plusminus = em.merge(plusminus);
-            for (Setpruebas setpruebasListNewSetpruebas : setpruebasListNew) {
-                if (!setpruebasListOld.contains(setpruebasListNewSetpruebas)) {
-                    Plusminus oldPlusMinusidPlusMinusOfSetpruebasListNewSetpruebas = setpruebasListNewSetpruebas.getPlusMinusidPlusMinus();
-                    setpruebasListNewSetpruebas.setPlusMinusidPlusMinus(plusminus);
-                    setpruebasListNewSetpruebas = em.merge(setpruebasListNewSetpruebas);
-                    if (oldPlusMinusidPlusMinusOfSetpruebasListNewSetpruebas != null && !oldPlusMinusidPlusMinusOfSetpruebasListNewSetpruebas.equals(plusminus)) {
-                        oldPlusMinusidPlusMinusOfSetpruebasListNewSetpruebas.getSetpruebasList().remove(setpruebasListNewSetpruebas);
-                        oldPlusMinusidPlusMinusOfSetpruebasListNewSetpruebas = em.merge(oldPlusMinusidPlusMinusOfSetpruebasListNewSetpruebas);
+            for (Set1 set1CollectionNewSet1 : set1CollectionNew) {
+                if (!set1CollectionOld.contains(set1CollectionNewSet1)) {
+                    Plusminus oldPlusMinusidPlusMinusOfSet1CollectionNewSet1 = set1CollectionNewSet1.getPlusMinusidPlusMinus();
+                    set1CollectionNewSet1.setPlusMinusidPlusMinus(plusminus);
+                    set1CollectionNewSet1 = em.merge(set1CollectionNewSet1);
+                    if (oldPlusMinusidPlusMinusOfSet1CollectionNewSet1 != null && !oldPlusMinusidPlusMinusOfSet1CollectionNewSet1.equals(plusminus)) {
+                        oldPlusMinusidPlusMinusOfSet1CollectionNewSet1.getSet1Collection().remove(set1CollectionNewSet1);
+                        oldPlusMinusidPlusMinusOfSet1CollectionNewSet1 = em.merge(oldPlusMinusidPlusMinusOfSet1CollectionNewSet1);
                     }
                 }
             }
@@ -141,12 +142,12 @@ public class PlusminusJpaController implements Serializable {
                 throw new NonexistentEntityException("The plusminus with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
-            List<Setpruebas> setpruebasListOrphanCheck = plusminus.getSetpruebasList();
-            for (Setpruebas setpruebasListOrphanCheckSetpruebas : setpruebasListOrphanCheck) {
+            Collection<Set1> set1CollectionOrphanCheck = plusminus.getSet1Collection();
+            for (Set1 set1CollectionOrphanCheckSet1 : set1CollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
-                illegalOrphanMessages.add("This Plusminus (" + plusminus + ") cannot be destroyed since the Setpruebas " + setpruebasListOrphanCheckSetpruebas + " in its setpruebasList field has a non-nullable plusMinusidPlusMinus field.");
+                illegalOrphanMessages.add("This Plusminus (" + plusminus + ") cannot be destroyed since the Set1 " + set1CollectionOrphanCheckSet1 + " in its set1Collection field has a non-nullable plusMinusidPlusMinus field.");
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);

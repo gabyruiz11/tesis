@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -53,7 +53,7 @@ public class Keeptrack implements Serializable {
     @Column(name = "tiempoTotal")
     private Double tiempoTotal;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "keepTrackidKeepTrack")
-    private List<Setpruebas> setpruebasList;
+    private Collection<Set1> set1Collection;
 
     public Keeptrack() {
     }
@@ -103,12 +103,12 @@ public class Keeptrack implements Serializable {
     }
 
     @XmlTransient
-    public List<Setpruebas> getSetpruebasList() {
-        return setpruebasList;
+    public Collection<Set1> getSet1Collection() {
+        return set1Collection;
     }
 
-    public void setSetpruebasList(List<Setpruebas> setpruebasList) {
-        this.setpruebasList = setpruebasList;
+    public void setSet1Collection(Collection<Set1> set1Collection) {
+        this.set1Collection = set1Collection;
     }
 
     @Override
@@ -133,7 +133,7 @@ public class Keeptrack implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Keeptrack[ idKeepTrack=" + idKeepTrack + " ]";
+        return "objetosNegocios.Keeptrack[ idKeepTrack=" + idKeepTrack + " ]";
     }
     
 }

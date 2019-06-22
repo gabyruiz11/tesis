@@ -372,67 +372,66 @@ public class SumaPracticaInterfaz extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addComponent(jLabel9))
                     .addComponent(jLabel10))
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel19)
+                            .addGap(18, 18, 18)
+                            .addComponent(caja9))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel18)
+                            .addGap(18, 18, 18)
+                            .addComponent(caja8))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel17)
+                            .addGap(18, 18, 18)
+                            .addComponent(caja7))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel16)
+                            .addGap(18, 18, 18)
+                            .addComponent(caja6))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel15)
+                            .addGap(18, 18, 18)
+                            .addComponent(caja5))
+                        .addComponent(jLabel14)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(caja4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(caja3))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(caja2))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel19)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(caja9))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(caja8))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel17)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(caja7))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel16)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(caja6))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel15)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(caja5))
-                                .addComponent(jLabel14)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(caja4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel13)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(caja3))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel12)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(caja2))
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel11)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addComponent(caja10, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel20)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(r10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(r9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(caja10, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(r10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(152, 152, 152))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -507,9 +506,9 @@ public class SumaPracticaInterfaz extends javax.swing.JFrame {
                         .addComponent(jLabel20)
                         .addComponent(caja10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(r10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -544,31 +543,7 @@ public class SumaPracticaInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
-            numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
-            numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
-            numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
-            numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
-            numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
-
-            //control.resultadoSuma(numerosAleatorios, numerosRespuestas, 10);
-            //control.imprimirSumas();
-            caja1.setText("");
-            caja2.setText("");
-            caja3.setText("");
-            caja4.setText("");
-            caja5.setText("");
-            caja6.setText("");
-            caja7.setText("");
-            caja8.setText("");
-            caja9.setText("");
-            caja10.setText("");
-        }
+        
     }//GEN-LAST:event_jPanel1KeyPressed
 
     private void caja1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja1KeyTyped
@@ -660,6 +635,28 @@ public class SumaPracticaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
+        numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
+        numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
+        numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
+        numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
+        numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
+        numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
+        numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
+        numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
+        numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
+
+        caja1.setText("");
+        caja2.setText("");
+        caja3.setText("");
+        caja4.setText("");
+        caja5.setText("");
+        caja6.setText("");
+        caja7.setText("");
+        caja8.setText("");
+        caja9.setText("");
+        caja10.setText("");
+
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
         instrucciones.setVisible(true);
         this.dispose();

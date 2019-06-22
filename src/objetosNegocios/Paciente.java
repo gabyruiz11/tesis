@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,7 +63,7 @@ public class Paciente implements Serializable {
     @Column(name = "estadoCivilPaciente")
     private Integer estadoCivilPaciente;
     @OneToMany(mappedBy = "folioPaciente")
-    private List<Prueba> pruebaList;
+    private Collection<Prueba> pruebaCollection;
 
     public Paciente() {
     }
@@ -145,12 +145,12 @@ public class Paciente implements Serializable {
     }
 
     @XmlTransient
-    public List<Prueba> getPruebaList() {
-        return pruebaList;
+    public Collection<Prueba> getPruebaCollection() {
+        return pruebaCollection;
     }
 
-    public void setPruebaList(List<Prueba> pruebaList) {
-        this.pruebaList = pruebaList;
+    public void setPruebaCollection(Collection<Prueba> pruebaCollection) {
+        this.pruebaCollection = pruebaCollection;
     }
 
     @Override
@@ -175,7 +175,7 @@ public class Paciente implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Paciente[ folioPaciente=" + folioPaciente + " ]";
+        return "objetosNegocios.Paciente[ folioPaciente=" + folioPaciente + " ]";
     }
     
 }

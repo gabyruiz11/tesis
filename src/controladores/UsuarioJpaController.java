@@ -11,12 +11,13 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import objetosNegocio.Prueba;
+import objetosNegocios.Prueba;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import objetosNegocio.Usuario;
+import objetosNegocios.Usuario;
 
 /**
  *
@@ -34,27 +35,27 @@ public class UsuarioJpaController implements Serializable {
     }
 
     public void create(Usuario usuario) {
-        if (usuario.getPruebaList() == null) {
-            usuario.setPruebaList(new ArrayList<Prueba>());
+        if (usuario.getPruebaCollection() == null) {
+            usuario.setPruebaCollection(new ArrayList<Prueba>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Prueba> attachedPruebaList = new ArrayList<Prueba>();
-            for (Prueba pruebaListPruebaToAttach : usuario.getPruebaList()) {
-                pruebaListPruebaToAttach = em.getReference(pruebaListPruebaToAttach.getClass(), pruebaListPruebaToAttach.getIdPrueba());
-                attachedPruebaList.add(pruebaListPruebaToAttach);
+            Collection<Prueba> attachedPruebaCollection = new ArrayList<Prueba>();
+            for (Prueba pruebaCollectionPruebaToAttach : usuario.getPruebaCollection()) {
+                pruebaCollectionPruebaToAttach = em.getReference(pruebaCollectionPruebaToAttach.getClass(), pruebaCollectionPruebaToAttach.getIdPrueba());
+                attachedPruebaCollection.add(pruebaCollectionPruebaToAttach);
             }
-            usuario.setPruebaList(attachedPruebaList);
+            usuario.setPruebaCollection(attachedPruebaCollection);
             em.persist(usuario);
-            for (Prueba pruebaListPrueba : usuario.getPruebaList()) {
-                Usuario oldIdUsuarioOfPruebaListPrueba = pruebaListPrueba.getIdUsuario();
-                pruebaListPrueba.setIdUsuario(usuario);
-                pruebaListPrueba = em.merge(pruebaListPrueba);
-                if (oldIdUsuarioOfPruebaListPrueba != null) {
-                    oldIdUsuarioOfPruebaListPrueba.getPruebaList().remove(pruebaListPrueba);
-                    oldIdUsuarioOfPruebaListPrueba = em.merge(oldIdUsuarioOfPruebaListPrueba);
+            for (Prueba pruebaCollectionPrueba : usuario.getPruebaCollection()) {
+                Usuario oldIdUsuarioOfPruebaCollectionPrueba = pruebaCollectionPrueba.getIdUsuario();
+                pruebaCollectionPrueba.setIdUsuario(usuario);
+                pruebaCollectionPrueba = em.merge(pruebaCollectionPrueba);
+                if (oldIdUsuarioOfPruebaCollectionPrueba != null) {
+                    oldIdUsuarioOfPruebaCollectionPrueba.getPruebaCollection().remove(pruebaCollectionPrueba);
+                    oldIdUsuarioOfPruebaCollectionPrueba = em.merge(oldIdUsuarioOfPruebaCollectionPrueba);
                 }
             }
             em.getTransaction().commit();
@@ -71,30 +72,30 @@ public class UsuarioJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Usuario persistentUsuario = em.find(Usuario.class, usuario.getIdUsuario());
-            List<Prueba> pruebaListOld = persistentUsuario.getPruebaList();
-            List<Prueba> pruebaListNew = usuario.getPruebaList();
-            List<Prueba> attachedPruebaListNew = new ArrayList<Prueba>();
-            for (Prueba pruebaListNewPruebaToAttach : pruebaListNew) {
-                pruebaListNewPruebaToAttach = em.getReference(pruebaListNewPruebaToAttach.getClass(), pruebaListNewPruebaToAttach.getIdPrueba());
-                attachedPruebaListNew.add(pruebaListNewPruebaToAttach);
+            Collection<Prueba> pruebaCollectionOld = persistentUsuario.getPruebaCollection();
+            Collection<Prueba> pruebaCollectionNew = usuario.getPruebaCollection();
+            Collection<Prueba> attachedPruebaCollectionNew = new ArrayList<Prueba>();
+            for (Prueba pruebaCollectionNewPruebaToAttach : pruebaCollectionNew) {
+                pruebaCollectionNewPruebaToAttach = em.getReference(pruebaCollectionNewPruebaToAttach.getClass(), pruebaCollectionNewPruebaToAttach.getIdPrueba());
+                attachedPruebaCollectionNew.add(pruebaCollectionNewPruebaToAttach);
             }
-            pruebaListNew = attachedPruebaListNew;
-            usuario.setPruebaList(pruebaListNew);
+            pruebaCollectionNew = attachedPruebaCollectionNew;
+            usuario.setPruebaCollection(pruebaCollectionNew);
             usuario = em.merge(usuario);
-            for (Prueba pruebaListOldPrueba : pruebaListOld) {
-                if (!pruebaListNew.contains(pruebaListOldPrueba)) {
-                    pruebaListOldPrueba.setIdUsuario(null);
-                    pruebaListOldPrueba = em.merge(pruebaListOldPrueba);
+            for (Prueba pruebaCollectionOldPrueba : pruebaCollectionOld) {
+                if (!pruebaCollectionNew.contains(pruebaCollectionOldPrueba)) {
+                    pruebaCollectionOldPrueba.setIdUsuario(null);
+                    pruebaCollectionOldPrueba = em.merge(pruebaCollectionOldPrueba);
                 }
             }
-            for (Prueba pruebaListNewPrueba : pruebaListNew) {
-                if (!pruebaListOld.contains(pruebaListNewPrueba)) {
-                    Usuario oldIdUsuarioOfPruebaListNewPrueba = pruebaListNewPrueba.getIdUsuario();
-                    pruebaListNewPrueba.setIdUsuario(usuario);
-                    pruebaListNewPrueba = em.merge(pruebaListNewPrueba);
-                    if (oldIdUsuarioOfPruebaListNewPrueba != null && !oldIdUsuarioOfPruebaListNewPrueba.equals(usuario)) {
-                        oldIdUsuarioOfPruebaListNewPrueba.getPruebaList().remove(pruebaListNewPrueba);
-                        oldIdUsuarioOfPruebaListNewPrueba = em.merge(oldIdUsuarioOfPruebaListNewPrueba);
+            for (Prueba pruebaCollectionNewPrueba : pruebaCollectionNew) {
+                if (!pruebaCollectionOld.contains(pruebaCollectionNewPrueba)) {
+                    Usuario oldIdUsuarioOfPruebaCollectionNewPrueba = pruebaCollectionNewPrueba.getIdUsuario();
+                    pruebaCollectionNewPrueba.setIdUsuario(usuario);
+                    pruebaCollectionNewPrueba = em.merge(pruebaCollectionNewPrueba);
+                    if (oldIdUsuarioOfPruebaCollectionNewPrueba != null && !oldIdUsuarioOfPruebaCollectionNewPrueba.equals(usuario)) {
+                        oldIdUsuarioOfPruebaCollectionNewPrueba.getPruebaCollection().remove(pruebaCollectionNewPrueba);
+                        oldIdUsuarioOfPruebaCollectionNewPrueba = em.merge(oldIdUsuarioOfPruebaCollectionNewPrueba);
                     }
                 }
             }
@@ -127,10 +128,10 @@ public class UsuarioJpaController implements Serializable {
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.", enfe);
             }
-            List<Prueba> pruebaList = usuario.getPruebaList();
-            for (Prueba pruebaListPrueba : pruebaList) {
-                pruebaListPrueba.setIdUsuario(null);
-                pruebaListPrueba = em.merge(pruebaListPrueba);
+            Collection<Prueba> pruebaCollection = usuario.getPruebaCollection();
+            for (Prueba pruebaCollectionPrueba : pruebaCollection) {
+                pruebaCollectionPrueba.setIdUsuario(null);
+                pruebaCollectionPrueba = em.merge(pruebaCollectionPrueba);
             }
             em.remove(usuario);
             em.getTransaction().commit();

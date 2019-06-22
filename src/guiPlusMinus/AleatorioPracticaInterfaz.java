@@ -556,31 +556,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(jTextField1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(jTextField2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(jTextField3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(jTextField4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(jTextField5.getText());
-            numerosRespuestas[5] = control.verificaciónTextField(jTextField6.getText());
-            numerosRespuestas[6] = control.verificaciónTextField(jTextField7.getText());
-            numerosRespuestas[7] = control.verificaciónTextField(jTextField8.getText());
-            numerosRespuestas[8] = control.verificaciónTextField(jTextField9.getText());
-            numerosRespuestas[9] = control.verificaciónTextField(jTextField10.getText());
-
-            //control.resultadoSuma(numerosAleatorios, numerosRespuestas, 10);
-            //control.imprimirSumas();
-            jTextField1.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
-            jTextField5.setText("");
-            jTextField6.setText("");
-            jTextField7.setText("");
-            jTextField8.setText("");
-            jTextField9.setText("");
-            jTextField10.setText("");
-        }        // TODO add your handling code here:
+              // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1KeyPressed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
@@ -664,6 +640,30 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField10KeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        numerosRespuestas[0] = control.verificaciónTextField(jTextField1.getText());
+        numerosRespuestas[1] = control.verificaciónTextField(jTextField2.getText());
+        numerosRespuestas[2] = control.verificaciónTextField(jTextField3.getText());
+        numerosRespuestas[3] = control.verificaciónTextField(jTextField4.getText());
+        numerosRespuestas[4] = control.verificaciónTextField(jTextField5.getText());
+        numerosRespuestas[5] = control.verificaciónTextField(jTextField6.getText());
+        numerosRespuestas[6] = control.verificaciónTextField(jTextField7.getText());
+        numerosRespuestas[7] = control.verificaciónTextField(jTextField8.getText());
+        numerosRespuestas[8] = control.verificaciónTextField(jTextField9.getText());
+        numerosRespuestas[9] = control.verificaciónTextField(jTextField10.getText());
+
+        //control.resultadoSuma(numerosAleatorios, numerosRespuestas, 10);
+        //control.imprimirSumas();
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
         instrucciones.setVisible(true);
         this.dispose();
