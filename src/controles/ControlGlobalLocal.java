@@ -2190,7 +2190,7 @@ public class ControlGlobalLocal {
                 this.calculosGlobalLocal();
                 controlGeneral.ejecutarEjercicios(controlGeneral.getPantalla());
             default:
-                return null;
+                return "FELICIDADES HAS ACABADO CON LAS ACTIVIDADES";
 
         }
 
