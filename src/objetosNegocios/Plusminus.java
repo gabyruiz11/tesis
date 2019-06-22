@@ -486,9 +486,18 @@ public class Plusminus implements Serializable {
         return true;
     }
 
+    /*
     @Override
     public String toString() {
         return "objetosNegocios.Plusminus[ idPlusMinus=" + idPlusMinus + " ]";
     }
+    */
+
+    @Override
+    public String toString() {
+        return "Plusminus{" + "idPlusMinus=" + idPlusMinus + ", tiempoSuma=" + tiempoSuma + ", tiempoResta=" + tiempoResta + ", tiempoAlternado=" + tiempoAlternado + ", tiempoTotal=" + tiempoTotal + ", shiftingTotal=" + shiftingTotal + ", respuestasSuma=" + respuestasSuma + ", respuestasResta=" + respuestasResta + ", respuestasAlternado=" + respuestasAlternado + ", respuestasTotales=" + respuestasTotales + ", respuestasCorrectasSuma=" + respuestasCorrectasSuma + ", respuestasCorrectasResta=" + respuestasCorrectasResta + ", respuestasCorrectasAlternado=" + respuestasCorrectasAlternado + ", respuestasCorrectasTotales=" + respuestasCorrectasTotales + ", reaccionPromedioSuma=" + reaccionPromedioSuma + ", reaccionPromedioResta=" + reaccionPromedioResta + ", reaccionPromedioAlternado=" + reaccionPromedioAlternado + ", reaccionPromedioTotal=" + reaccionPromedioTotal + ", shiftingReaccionPromedio=" + shiftingReaccionPromedio + ", respuestasIncorrectasSuma=" + respuestasIncorrectasSuma + ", respuestasIncorrectasResta=" + respuestasIncorrectasResta + ", respuestasIncorrectasAlternado=" + respuestasIncorrectasAlternado + ", respuestasIncorrectasTotales=" + respuestasIncorrectasTotales + ", porcentajeCorrectasSumar=" + porcentajeCorrectasSumar + ", porcentajeCorrectasRestar=" + porcentajeCorrectasRestar + ", porcentajeCorrectasAlternado=" + porcentajeCorrectasAlternado + ", porcentajeCorrectasTotal=" + porcentajeCorrectasTotal + ", shiftingRespuestasCorrectasTotales=" + shiftingRespuestasCorrectasTotales + ", porcentajeRelacionSumar=" + porcentajeRelacionSumar + ", porcentajeRelacionRestar=" + porcentajeRelacionRestar + ", porcentajeRelacionAlternado=" + porcentajeRelacionAlternado + ", porcentajeRelacionTotal=" + porcentajeRelacionTotal + ", shiftingRelacionIndividual=" + shiftingRelacionIndividual + ", noRespondidasSumar=" + noRespondidasSumar + ", noRespondidasRestar=" + noRespondidasRestar + ", noRespondidasAlternado=" + noRespondidasAlternado + ", noRespondidasTotales=" + noRespondidasTotales + ", set1Collection=" + set1Collection + '}';
+    }
+    
+    
     
 }

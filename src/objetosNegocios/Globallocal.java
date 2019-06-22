@@ -656,9 +656,17 @@ public class Globallocal implements Serializable {
         return true;
     }
 
+    /*
     @Override
     public String toString() {
         return "objetosNegocios.Globallocal[ idGlobalLocal=" + idGlobalLocal + " ]";
+    */
+
+    @Override
+    public String toString() {
+        return "Globallocal{" + "idGlobalLocal=" + idGlobalLocal + ", tiempoNegras=" + tiempoNegras + ", tiempoAzules=" + tiempoAzules + ", tiempoAlternado=" + tiempoAlternado + ", tiempoTotal=" + tiempoTotal + ", shiftingGlobalTotal=" + shiftingGlobalTotal + ", shiftingLocalTotal=" + shiftingLocalTotal + ", shiftingGlobalTotalCorrectas=" + shiftingGlobalTotalCorrectas + ", shiftingLocalTotalCorrectas=" + shiftingLocalTotalCorrectas + ", correctasNegras=" + correctasNegras + ", correctasAzules=" + correctasAzules + ", correctasAlternado=" + correctasAlternado + ", correctasTotales=" + correctasTotales + ", shiftingGlobalReaccionCorrectas=" + shiftingGlobalReaccionCorrectas + ", shiftingLocalReaccionCorrectas=" + shiftingLocalReaccionCorrectas + ", shiftingGlobalPorcentajeCorrectas=" + shiftingGlobalPorcentajeCorrectas + ", shiftingLocalPorcentajeCorrectas=" + shiftingLocalPorcentajeCorrectas + ", incorrectasNegras=" + incorrectasNegras + ", incorrectasAzules=" + incorrectasAzules + ", incorrectasAlternado=" + incorrectasAlternado + ", incorrectasTotales=" + incorrectasTotales + ", omisionesNulasNegras=" + omisionesNulasNegras + ", omisionesNulasAzules=" + omisionesNulasAzules + ", omisionesNulasAlternado=" + omisionesNulasAlternado + ", omisionesNulasTotales=" + omisionesNulasTotales + ", tiempoTotalNegras=" + tiempoTotalNegras + ", tiempoTotalAzules=" + tiempoTotalAzules + ", tiempoTotalAlternado=" + tiempoTotalAlternado + ", tiempoTotalTarea=" + tiempoTotalTarea + ", shiftingGlobalTiempoTotal=" + shiftingGlobalTiempoTotal + ", shiftingLocalTiempoTotal=" + shiftingLocalTiempoTotal + ", tiempoReaccionCorrectasNegras=" + tiempoReaccionCorrectasNegras + ", tiempoReaccionCorrectasAzules=" + tiempoReaccionCorrectasAzules + ", tiempoReaccionCorrectasAlternado=" + tiempoReaccionCorrectasAlternado + ", tiempoReaccionCorrectasTotales=" + tiempoReaccionCorrectasTotales + ", shiftingGlobalTiempoTotalCorrectas=" + shiftingGlobalTiempoTotalCorrectas + ", shiftingLocalTiempoTotalCorrectas=" + shiftingLocalTiempoTotalCorrectas + ", correctasTotalesNegras=" + correctasTotalesNegras + ", correctasTotalesAzules=" + correctasTotalesAzules + ", correctasTotalesAlternado=" + correctasTotalesAlternado + ", correctasTotalesTarea=" + correctasTotalesTarea + ", shiftingGlobalTiempoReaccionCorrectas=" + shiftingGlobalTiempoReaccionCorrectas + ", shiftingLocalTiempoReaccionCorrectas=" + shiftingLocalTiempoReaccionCorrectas + ", shiftingGlobalPorcentajeTotalCorrectas=" + shiftingGlobalPorcentajeTotalCorrectas + ", shiftingLocalPorcentajeTotalCorrectas=" + shiftingLocalPorcentajeTotalCorrectas + ", incorrectasTotalesNegras=" + incorrectasTotalesNegras + ", incorrectasTotalesAzules=" + incorrectasTotalesAzules + ", incorrectasTotalesAlternado=" + incorrectasTotalesAlternado + ", incorrectasTotalesTarea=" + incorrectasTotalesTarea + ", omisionesNulasTotalesNegras=" + omisionesNulasTotalesNegras + ", omisionesNulasTotalesAzules=" + omisionesNulasTotalesAzules + ", omisionesNulasTotalesAlternado=" + omisionesNulasTotalesAlternado + ", omisionesNulasTotalesTarea=" + omisionesNulasTotalesTarea + ", set1Collection=" + set1Collection + '}';
     }
+    
+    
     
 }

@@ -656,9 +656,18 @@ public class Numberletter implements Serializable {
         return true;
     }
 
+    /*
     @Override
     public String toString() {
         return "objetosNegocios.Numberletter[ idNumberLetter=" + idNumberLetter + " ]";
     }
+    */
+
+    @Override
+    public String toString() {
+        return "Numberletter{" + "idNumberLetter=" + idNumberLetter + ", tiempoLetras=" + tiempoLetras + ", tiempoNumeros=" + tiempoNumeros + ", tiempoAlternado=" + tiempoAlternado + ", tiempoTotal=" + tiempoTotal + ", shiftingGlobalTotal=" + shiftingGlobalTotal + ", shiftingLocalTotal=" + shiftingLocalTotal + ", shiftingGlobalTotalCorrectas=" + shiftingGlobalTotalCorrectas + ", shiftingLocalTotalCorrectas=" + shiftingLocalTotalCorrectas + ", correctasLetras=" + correctasLetras + ", correctasNumeros=" + correctasNumeros + ", correctasAlternado=" + correctasAlternado + ", correctasTotales=" + correctasTotales + ", shiftingGlobalReaccionCorrectas=" + shiftingGlobalReaccionCorrectas + ", shiftingLocalReaccionCorrectas=" + shiftingLocalReaccionCorrectas + ", shiftingGlobalPorcentajeCorrectas=" + shiftingGlobalPorcentajeCorrectas + ", shiftingLocalPorcentajeCorrectas=" + shiftingLocalPorcentajeCorrectas + ", incorrectasLetras=" + incorrectasLetras + ", incorrectasNumeros=" + incorrectasNumeros + ", incorrectasAlternado=" + incorrectasAlternado + ", incorrectasTotales=" + incorrectasTotales + ", omisionesNulasLetras=" + omisionesNulasLetras + ", omisionesNulasNumeros=" + omisionesNulasNumeros + ", omisionesNulasAlternado=" + omisionesNulasAlternado + ", omisionesNulasTotales=" + omisionesNulasTotales + ", tiempoTotalLetras=" + tiempoTotalLetras + ", tiempoTotalNumeros=" + tiempoTotalNumeros + ", tiempoTotalAlternado=" + tiempoTotalAlternado + ", tiempoTotalTarea=" + tiempoTotalTarea + ", shiftingGlobalTiempoTotal=" + shiftingGlobalTiempoTotal + ", shiftingLocalTiempoTotal=" + shiftingLocalTiempoTotal + ", tiempoReaccionCorrectasLetras=" + tiempoReaccionCorrectasLetras + ", tiempoReaccionCorrectasNumeros=" + tiempoReaccionCorrectasNumeros + ", tiempoReaccionCorrectasAlternado=" + tiempoReaccionCorrectasAlternado + ", tiempoReaccionCorrectasTotales=" + tiempoReaccionCorrectasTotales + ", shiftingGlobalTiempoTotalCorrectas=" + shiftingGlobalTiempoTotalCorrectas + ", shiftingLocalTiempoTotalCorrectas=" + shiftingLocalTiempoTotalCorrectas + ", correctasTotalesLetras=" + correctasTotalesLetras + ", correctasTotalesNumeros=" + correctasTotalesNumeros + ", correctasTotalesAlternado=" + correctasTotalesAlternado + ", correctasTotalesTarea=" + correctasTotalesTarea + ", shiftingGlobalTiempoReaccionCorrectas=" + shiftingGlobalTiempoReaccionCorrectas + ", shiftingLocalTiempoReaccionCorrectas=" + shiftingLocalTiempoReaccionCorrectas + ", shiftingGlobalPorcentajeTotalCorrectas=" + shiftingGlobalPorcentajeTotalCorrectas + ", shiftingLocalPorcentajeTotalCorrectas=" + shiftingLocalPorcentajeTotalCorrectas + ", incorrectasTotalesLetras=" + incorrectasTotalesLetras + ", incorrectasTotalesNumeros=" + incorrectasTotalesNumeros + ", incorrectasTotalesAlternado=" + incorrectasTotalesAlternado + ", incorrectasTotalesTarea=" + incorrectasTotalesTarea + ", omisionesNulasTotalesLetras=" + omisionesNulasTotalesLetras + ", omisionesNulasTotalesNumeros=" + omisionesNulasTotalesNumeros + ", omisionesNulasTotalesAlternado=" + omisionesNulasTotalesAlternado + ", omisionesNulasTotalesTarea=" + omisionesNulasTotalesTarea + ", set1Collection=" + set1Collection + '}';
+    }
+    
+    
     
 }
