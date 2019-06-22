@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -46,7 +46,7 @@ public class Tonemonotoring implements Serializable {
     @Column(name = "tonosIncorrectos")
     private Integer tonosIncorrectos;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "toneMonotoringidToneMonotoring")
-    private List<Setpruebas> setpruebasList;
+    private Collection<Set1> set1Collection;
 
     public Tonemonotoring() {
     }
@@ -80,12 +80,12 @@ public class Tonemonotoring implements Serializable {
     }
 
     @XmlTransient
-    public List<Setpruebas> getSetpruebasList() {
-        return setpruebasList;
+    public Collection<Set1> getSet1Collection() {
+        return set1Collection;
     }
 
-    public void setSetpruebasList(List<Setpruebas> setpruebasList) {
-        this.setpruebasList = setpruebasList;
+    public void setSet1Collection(Collection<Set1> set1Collection) {
+        this.set1Collection = set1Collection;
     }
 
     @Override
@@ -110,7 +110,7 @@ public class Tonemonotoring implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Tonemonotoring[ idToneMonotoring=" + idToneMonotoring + " ]";
+        return "objetosNegocios.Tonemonotoring[ idToneMonotoring=" + idToneMonotoring + " ]";
     }
     
 }

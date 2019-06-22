@@ -349,24 +349,7 @@ public class RestaEjemplosInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(jTextField1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(jTextField2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(jTextField3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(jTextField4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(jTextField5.getText());
-
-            //control.resultadoSuma(numerosAleatorios, numerosRespuestas, 5);
-            //control.imprimirSumas();
-            //double estimatedTime = System.currentTimeMillis() - startTime;
-            //control.tiempoSuma(estimatedTime);
-            jTextField1.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
-            jTextField5.setText("");
-            this.dispose();
-        }
+        
     }//GEN-LAST:event_jPanel1KeyPressed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
@@ -410,6 +393,18 @@ public class RestaEjemplosInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        numerosRespuestas[0] = control.verificaciónTextField(jTextField1.getText());
+        numerosRespuestas[1] = control.verificaciónTextField(jTextField2.getText());
+        numerosRespuestas[2] = control.verificaciónTextField(jTextField3.getText());
+        numerosRespuestas[3] = control.verificaciónTextField(jTextField4.getText());
+        numerosRespuestas[4] = control.verificaciónTextField(jTextField5.getText());
+
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
         instrucciones.setVisible(true);
         this.dispose();        // TODO add your handling code here:

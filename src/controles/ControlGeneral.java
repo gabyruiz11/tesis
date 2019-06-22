@@ -11,6 +11,7 @@ import guiPlusMinus.Instrucciones;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +21,8 @@ public class ControlGeneral {
 
     private ArrayList<Integer> listaEjercicios = new ArrayList<>();
     private static ControlGeneral controlGeneral;
+    private JFrame pantalla;
+    private int contador = 0, idGlobal; 
     
     //Constructor de la clase control general
     private ControlGeneral() {
@@ -36,37 +39,78 @@ public class ControlGeneral {
         return controlGeneral;
     }
     
-    public void ejecutarEjercicios(JFrame pantallaActual) {
+    public void ejecutarEjercicios(JFrame frame) {
         int ejercicio = ThreadLocalRandom.current().nextInt(1, 3 + 1);
         
-        if(listaEjercicios.contains(ejercicio)){
-            if(listaEjercicios.size() == 3) {
+        if (contador == 0) {
+            int auxiliar;
+
+            String id = JOptionPane.showInputDialog("Introduce un ID para el paciente");
+
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se aceptan valores en blanco");
+                return;
+            }
+
+            try {
+                auxiliar = Integer.valueOf(id);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Solo se aceptan números");
+                return;
+            }
+
+            //Aquí se establece el número de paciente
+            this.setIdGlobal(auxiliar);
+            System.out.println(this.getIdGlobal());
+            contador++;
+        }
+
+        if (listaEjercicios.contains(ejercicio)) {
+            if (listaEjercicios.size() == 3) {
                 System.out.println("Ya se acabaron los ejercicios, we");
             } else {
-                ejecutarEjercicios(pantallaActual);
+                ejecutarEjercicios(frame);
             }
         } else {
             listaEjercicios.add(ejercicio);
+
+            switch (ejercicio) {
+                case 1:
+                    controlGeneral.getPantalla().setVisible(false);
+                    Instrucciones plusMinus = Instrucciones.getSingletonInstance();
+                    plusMinus.setVisible(true);
+                    break;
+                case 2:
+                    controlGeneral.getPantalla().setVisible(false);
+                    InstruccionesNumberLetter numberLetter = InstruccionesNumberLetter.getSingletonInstance();
+                    numberLetter.setVisible(true);
+                    break;
+                case 3:
+                    controlGeneral.getPantalla().setVisible(false);
+                    InstruccionesGlobalLocal globalLocal = InstruccionesGlobalLocal.getSingletonInstance();
+                    globalLocal.setVisible(true);
+                    break;
+            }
         }
-        
-        switch (ejercicio) {
-            case 1:
-                pantallaActual.setVisible(false);
-                Instrucciones plusMinus = Instrucciones.getSingletonInstance();
-                plusMinus.setVisible(true);
-                break;
-            case 2:
-                pantallaActual.setVisible(false);
-                InstruccionesNumberLetter numberLetter = InstruccionesNumberLetter.getSingletonInstance();
-                numberLetter.setVisible(true);
-                
-                break;
-            case 3:
-                pantallaActual.setVisible(false);
-                InstruccionesGlobalLocal globalLocal = InstruccionesGlobalLocal.getSingletonInstance();
-                globalLocal.setVisible(true);
-                break;
-        }
+
     }
+
+    public JFrame getPantalla() {
+        return pantalla;
+    }
+
+    public void setPantalla(JFrame pantalla) {
+        this.pantalla = pantalla;
+    }
+
+    public int getIdGlobal() {
+        return idGlobal;
+    }
+
+    public void setIdGlobal(int idGlobal) {
+        this.idGlobal = idGlobal;
+    }
+
+    
     
 }

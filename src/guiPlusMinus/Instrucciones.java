@@ -153,8 +153,12 @@ public class Instrucciones extends javax.swing.JFrame {
     
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
+            System.out.println("antes: " + control.getContador());
+            
             jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
             control.setContador(control.getContador() + 1);
+            
+            System.out.println("despues: " + control.getContador());
         }
     }//GEN-LAST:event_jPanel1KeyPressed
 

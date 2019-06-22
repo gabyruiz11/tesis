@@ -667,7 +667,7 @@ public class RestaEjerciciosInterfaz extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -763,104 +763,105 @@ public class RestaEjerciciosInterfaz extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel30))
-                        .addGap(36, 36, 36))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel46)
-                            .addComponent(jLabel47)
-                            .addComponent(jLabel48)
-                            .addComponent(jLabel49)
-                            .addComponent(jLabel50))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(caja11, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(caja12)
-                    .addComponent(caja13)
-                    .addComponent(caja14)
-                    .addComponent(caja15)
-                    .addComponent(caja16)
-                    .addComponent(caja17)
-                    .addComponent(caja18)
-                    .addComponent(caja19)
-                    .addComponent(caja20))
-                .addGap(74, 74, 74)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel38)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel53)
-                        .addGap(34, 34, 34)
-                        .addComponent(caja23, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel40)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel55)
-                        .addGap(34, 34, 34)
-                        .addComponent(caja25))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel43)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel58)
-                        .addGap(34, 34, 34)
-                        .addComponent(caja28))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel41)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel56)
-                        .addGap(34, 34, 34)
-                        .addComponent(caja26))
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel44)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel59))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel26)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel28)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel30))
+                                .addGap(36, 36, 36))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel45)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel60)))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(caja29)
-                            .addComponent(caja30)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel42)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel57)
-                        .addGap(34, 34, 34)
-                        .addComponent(caja27))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel39)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel54)
-                        .addGap(34, 34, 34)
-                        .addComponent(caja24))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel36)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel51))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel37)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel52)))
-                        .addGap(34, 34, 34)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel46)
+                                    .addComponent(jLabel47)
+                                    .addComponent(jLabel48)
+                                    .addComponent(jLabel49)
+                                    .addComponent(jLabel50))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(caja21, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(caja22))))
+                            .addComponent(caja11, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(caja12)
+                            .addComponent(caja13)
+                            .addComponent(caja14)
+                            .addComponent(caja15)
+                            .addComponent(caja16)
+                            .addComponent(caja17)
+                            .addComponent(caja18)
+                            .addComponent(caja19)
+                            .addComponent(caja20))
+                        .addGap(74, 74, 74)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel38)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel53)
+                                .addGap(34, 34, 34)
+                                .addComponent(caja23, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel40)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel55)
+                                .addGap(34, 34, 34)
+                                .addComponent(caja25))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel43)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel58)
+                                .addGap(34, 34, 34)
+                                .addComponent(caja28))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel41)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel56)
+                                .addGap(34, 34, 34)
+                                .addComponent(caja26))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel44)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel59))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel45)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel60)))
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(caja29)
+                                    .addComponent(caja30)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel42)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel57)
+                                .addGap(34, 34, 34)
+                                .addComponent(caja27))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel39)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel54)
+                                .addGap(34, 34, 34)
+                                .addComponent(caja24))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel36)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel51))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel37)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel52)))
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(caja21, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                    .addComponent(caja22))))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(434, 434, 434))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -999,8 +1000,9 @@ public class RestaEjerciciosInterfaz extends javax.swing.JFrame {
                         .addComponent(caja29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(caja30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1086,47 +1088,6 @@ public class RestaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
-            numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
-            numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
-            numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
-            numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
-            numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
-            numerosRespuestas[10] = control.verificaciónTextField(caja11.getText());
-            numerosRespuestas[11] = control.verificaciónTextField(caja12.getText());
-            numerosRespuestas[12] = control.verificaciónTextField(caja13.getText());
-            numerosRespuestas[13] = control.verificaciónTextField(caja14.getText());
-            numerosRespuestas[14] = control.verificaciónTextField(caja15.getText());
-            numerosRespuestas[15] = control.verificaciónTextField(caja16.getText());
-            numerosRespuestas[16] = control.verificaciónTextField(caja17.getText());
-            numerosRespuestas[17] = control.verificaciónTextField(caja18.getText());
-            numerosRespuestas[18] = control.verificaciónTextField(caja19.getText());
-            numerosRespuestas[19] = control.verificaciónTextField(caja20.getText());
-            numerosRespuestas[20] = control.verificaciónTextField(caja21.getText());
-            numerosRespuestas[21] = control.verificaciónTextField(caja22.getText());
-            numerosRespuestas[22] = control.verificaciónTextField(caja23.getText());
-            numerosRespuestas[23] = control.verificaciónTextField(caja24.getText());
-            numerosRespuestas[24] = control.verificaciónTextField(caja25.getText());
-            numerosRespuestas[25] = control.verificaciónTextField(caja26.getText());
-            numerosRespuestas[26] = control.verificaciónTextField(caja27.getText());
-            numerosRespuestas[27] = control.verificaciónTextField(caja28.getText());
-            numerosRespuestas[28] = control.verificaciónTextField(caja29.getText());
-            numerosRespuestas[29] = control.verificaciónTextField(caja30.getText());
-
-            control.resultadoResta(numerosAleatorios, numerosRespuestas, 30);
-
-            double estimatedTime = System.currentTimeMillis() - startTime;
-            control.tiempoResta(estimatedTime);
-
-            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            instrucciones.setVisible(true);
-            this.dispose();
-        }
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void caja1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja1KeyTyped

@@ -7,17 +7,19 @@ package controladores;
 
 import controladores.exceptions.IllegalOrphanException;
 import controladores.exceptions.NonexistentEntityException;
+import controladores.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import objetosNegocio.Setpruebas;
+import objetosNegocios.Set1;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import objetosNegocio.Numberletter;
+import objetosNegocios.Numberletter;
 
 /**
  *
@@ -34,31 +36,36 @@ public class NumberletterJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Numberletter numberletter) {
-        if (numberletter.getSetpruebasList() == null) {
-            numberletter.setSetpruebasList(new ArrayList<Setpruebas>());
+    public void create(Numberletter numberletter) throws PreexistingEntityException, Exception {
+        if (numberletter.getSet1Collection() == null) {
+            numberletter.setSet1Collection(new ArrayList<Set1>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Setpruebas> attachedSetpruebasList = new ArrayList<Setpruebas>();
-            for (Setpruebas setpruebasListSetpruebasToAttach : numberletter.getSetpruebasList()) {
-                setpruebasListSetpruebasToAttach = em.getReference(setpruebasListSetpruebasToAttach.getClass(), setpruebasListSetpruebasToAttach.getIdSet());
-                attachedSetpruebasList.add(setpruebasListSetpruebasToAttach);
+            Collection<Set1> attachedSet1Collection = new ArrayList<Set1>();
+            for (Set1 set1CollectionSet1ToAttach : numberletter.getSet1Collection()) {
+                set1CollectionSet1ToAttach = em.getReference(set1CollectionSet1ToAttach.getClass(), set1CollectionSet1ToAttach.getIdSet());
+                attachedSet1Collection.add(set1CollectionSet1ToAttach);
             }
-            numberletter.setSetpruebasList(attachedSetpruebasList);
+            numberletter.setSet1Collection(attachedSet1Collection);
             em.persist(numberletter);
-            for (Setpruebas setpruebasListSetpruebas : numberletter.getSetpruebasList()) {
-                Numberletter oldNumberLetteridNumberLetterOfSetpruebasListSetpruebas = setpruebasListSetpruebas.getNumberLetteridNumberLetter();
-                setpruebasListSetpruebas.setNumberLetteridNumberLetter(numberletter);
-                setpruebasListSetpruebas = em.merge(setpruebasListSetpruebas);
-                if (oldNumberLetteridNumberLetterOfSetpruebasListSetpruebas != null) {
-                    oldNumberLetteridNumberLetterOfSetpruebasListSetpruebas.getSetpruebasList().remove(setpruebasListSetpruebas);
-                    oldNumberLetteridNumberLetterOfSetpruebasListSetpruebas = em.merge(oldNumberLetteridNumberLetterOfSetpruebasListSetpruebas);
+            for (Set1 set1CollectionSet1 : numberletter.getSet1Collection()) {
+                Numberletter oldNumberLetteridNumberLetterOfSet1CollectionSet1 = set1CollectionSet1.getNumberLetteridNumberLetter();
+                set1CollectionSet1.setNumberLetteridNumberLetter(numberletter);
+                set1CollectionSet1 = em.merge(set1CollectionSet1);
+                if (oldNumberLetteridNumberLetterOfSet1CollectionSet1 != null) {
+                    oldNumberLetteridNumberLetterOfSet1CollectionSet1.getSet1Collection().remove(set1CollectionSet1);
+                    oldNumberLetteridNumberLetterOfSet1CollectionSet1 = em.merge(oldNumberLetteridNumberLetterOfSet1CollectionSet1);
                 }
             }
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            if (findNumberletter(numberletter.getIdNumberLetter()) != null) {
+                throw new PreexistingEntityException("Numberletter " + numberletter + " already exists.", ex);
+            }
+            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -72,36 +79,36 @@ public class NumberletterJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Numberletter persistentNumberletter = em.find(Numberletter.class, numberletter.getIdNumberLetter());
-            List<Setpruebas> setpruebasListOld = persistentNumberletter.getSetpruebasList();
-            List<Setpruebas> setpruebasListNew = numberletter.getSetpruebasList();
+            Collection<Set1> set1CollectionOld = persistentNumberletter.getSet1Collection();
+            Collection<Set1> set1CollectionNew = numberletter.getSet1Collection();
             List<String> illegalOrphanMessages = null;
-            for (Setpruebas setpruebasListOldSetpruebas : setpruebasListOld) {
-                if (!setpruebasListNew.contains(setpruebasListOldSetpruebas)) {
+            for (Set1 set1CollectionOldSet1 : set1CollectionOld) {
+                if (!set1CollectionNew.contains(set1CollectionOldSet1)) {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
-                    illegalOrphanMessages.add("You must retain Setpruebas " + setpruebasListOldSetpruebas + " since its numberLetteridNumberLetter field is not nullable.");
+                    illegalOrphanMessages.add("You must retain Set1 " + set1CollectionOldSet1 + " since its numberLetteridNumberLetter field is not nullable.");
                 }
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            List<Setpruebas> attachedSetpruebasListNew = new ArrayList<Setpruebas>();
-            for (Setpruebas setpruebasListNewSetpruebasToAttach : setpruebasListNew) {
-                setpruebasListNewSetpruebasToAttach = em.getReference(setpruebasListNewSetpruebasToAttach.getClass(), setpruebasListNewSetpruebasToAttach.getIdSet());
-                attachedSetpruebasListNew.add(setpruebasListNewSetpruebasToAttach);
+            Collection<Set1> attachedSet1CollectionNew = new ArrayList<Set1>();
+            for (Set1 set1CollectionNewSet1ToAttach : set1CollectionNew) {
+                set1CollectionNewSet1ToAttach = em.getReference(set1CollectionNewSet1ToAttach.getClass(), set1CollectionNewSet1ToAttach.getIdSet());
+                attachedSet1CollectionNew.add(set1CollectionNewSet1ToAttach);
             }
-            setpruebasListNew = attachedSetpruebasListNew;
-            numberletter.setSetpruebasList(setpruebasListNew);
+            set1CollectionNew = attachedSet1CollectionNew;
+            numberletter.setSet1Collection(set1CollectionNew);
             numberletter = em.merge(numberletter);
-            for (Setpruebas setpruebasListNewSetpruebas : setpruebasListNew) {
-                if (!setpruebasListOld.contains(setpruebasListNewSetpruebas)) {
-                    Numberletter oldNumberLetteridNumberLetterOfSetpruebasListNewSetpruebas = setpruebasListNewSetpruebas.getNumberLetteridNumberLetter();
-                    setpruebasListNewSetpruebas.setNumberLetteridNumberLetter(numberletter);
-                    setpruebasListNewSetpruebas = em.merge(setpruebasListNewSetpruebas);
-                    if (oldNumberLetteridNumberLetterOfSetpruebasListNewSetpruebas != null && !oldNumberLetteridNumberLetterOfSetpruebasListNewSetpruebas.equals(numberletter)) {
-                        oldNumberLetteridNumberLetterOfSetpruebasListNewSetpruebas.getSetpruebasList().remove(setpruebasListNewSetpruebas);
-                        oldNumberLetteridNumberLetterOfSetpruebasListNewSetpruebas = em.merge(oldNumberLetteridNumberLetterOfSetpruebasListNewSetpruebas);
+            for (Set1 set1CollectionNewSet1 : set1CollectionNew) {
+                if (!set1CollectionOld.contains(set1CollectionNewSet1)) {
+                    Numberletter oldNumberLetteridNumberLetterOfSet1CollectionNewSet1 = set1CollectionNewSet1.getNumberLetteridNumberLetter();
+                    set1CollectionNewSet1.setNumberLetteridNumberLetter(numberletter);
+                    set1CollectionNewSet1 = em.merge(set1CollectionNewSet1);
+                    if (oldNumberLetteridNumberLetterOfSet1CollectionNewSet1 != null && !oldNumberLetteridNumberLetterOfSet1CollectionNewSet1.equals(numberletter)) {
+                        oldNumberLetteridNumberLetterOfSet1CollectionNewSet1.getSet1Collection().remove(set1CollectionNewSet1);
+                        oldNumberLetteridNumberLetterOfSet1CollectionNewSet1 = em.merge(oldNumberLetteridNumberLetterOfSet1CollectionNewSet1);
                     }
                 }
             }
@@ -135,12 +142,12 @@ public class NumberletterJpaController implements Serializable {
                 throw new NonexistentEntityException("The numberletter with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
-            List<Setpruebas> setpruebasListOrphanCheck = numberletter.getSetpruebasList();
-            for (Setpruebas setpruebasListOrphanCheckSetpruebas : setpruebasListOrphanCheck) {
+            Collection<Set1> set1CollectionOrphanCheck = numberletter.getSet1Collection();
+            for (Set1 set1CollectionOrphanCheckSet1 : set1CollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
-                illegalOrphanMessages.add("This Numberletter (" + numberletter + ") cannot be destroyed since the Setpruebas " + setpruebasListOrphanCheckSetpruebas + " in its setpruebasList field has a non-nullable numberLetteridNumberLetter field.");
+                illegalOrphanMessages.add("This Numberletter (" + numberletter + ") cannot be destroyed since the Set1 " + set1CollectionOrphanCheckSet1 + " in its set1Collection field has a non-nullable numberLetteridNumberLetter field.");
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);

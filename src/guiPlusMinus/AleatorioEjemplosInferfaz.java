@@ -343,20 +343,7 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
-
-            caja1.setText("");
-            caja2.setText("");
-            caja3.setText("");
-            caja4.setText("");
-            caja5.setText("");
-            this.dispose();
-        }
+        
     }//GEN-LAST:event_jPanel1KeyPressed
 
     private void caja2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja2KeyTyped
@@ -392,6 +379,18 @@ public class AleatorioEjemplosInferfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_caja5KeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
+        numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
+        numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
+        numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
+        numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
+
+        caja1.setText("");
+        caja2.setText("");
+        caja3.setText("");
+        caja4.setText("");
+        caja5.setText("");
+
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
         instrucciones.setVisible(true);
         this.dispose();

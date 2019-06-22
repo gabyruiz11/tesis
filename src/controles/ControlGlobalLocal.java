@@ -19,7 +19,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import objetosNegocio.Globallocal;
+import objetosNegocios.Globallocal;
+import persistencia.Persistencia;
 
 /**
  *
@@ -34,6 +35,9 @@ public class ControlGlobalLocal {
     
     //Control general
     ControlGeneral controlGeneral = ControlGeneral.getSingletonInstance();
+    
+    //Variable que llama a la persistencia;
+    private final Persistencia persistencia = Persistencia.getSingletonInstance();
 
     //Variable referencia del objeto global local
     private Globallocal objetoLocalGlobal;
@@ -234,8 +238,6 @@ public class ControlGlobalLocal {
      */
     private String[] ordenMixto(int tipo) {
         int auxiliar = ThreadLocalRandom.current().nextInt(0, 2 + 1);
-        System.out.println("Lista: " + auxiliar);
-        System.out.println("------------------");
 
         if (tipo == 0) {
             switch (auxiliar) {
@@ -602,13 +604,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circulocua.png")));
                 this.etiquetaNombre.setText("Circulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -616,13 +620,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circuloequ.png")));
                 this.etiquetaNombre.setText("Circulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -630,13 +636,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circulotri.png")));
                 this.etiquetaNombre.setText("Circulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -644,13 +652,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equiscir.png")));
                 this.etiquetaNombre.setText("Equis");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -658,13 +668,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equiscua.png")));
                 this.etiquetaNombre.setText("Equis");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -672,13 +684,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equistri.png")));
                 this.etiquetaNombre.setText("Equis");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -686,13 +700,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangulocir.png")));
                 this.etiquetaNombre.setText("Triangulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -700,13 +716,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangulocua.png")));
                 this.etiquetaNombre.setText("Triangulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -714,13 +732,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trianguloequ.png")));
                 this.etiquetaNombre.setText("Triangulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -728,13 +748,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradocir.png")));
                 this.etiquetaNombre.setText("Cuadrado");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -742,13 +764,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradoequ.png")));
                 this.etiquetaNombre.setText("Cuadrado");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -756,13 +780,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradotri.png")));
                 this.etiquetaNombre.setText("Cuadrado");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "N";
-                    contador++;
-                } else {
-                    valorDosGlobal = "N";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "N";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "N";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -770,13 +796,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradoazulcir.png")));
                 this.etiquetaNombre.setText("Circulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -784,13 +812,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equisazulcir.png")));
                 this.etiquetaNombre.setText("Circulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -798,13 +828,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trianguloazulcir.png")));
                 this.etiquetaNombre.setText("Circulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -812,13 +844,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circuloazulequ.png")));
                 this.etiquetaNombre.setText("Equis");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -826,13 +860,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradoazulequ.png")));
                 this.etiquetaNombre.setText("Equis");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -840,13 +876,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trianguloazulequ.png")));
                 this.etiquetaNombre.setText("Equis");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -854,13 +892,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circuloazultri.png")));
                 this.etiquetaNombre.setText("Triangulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -868,13 +908,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cuadradoazultri.png")));
                 this.etiquetaNombre.setText("Triangulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -882,13 +924,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equisazultri.png")));
                 this.etiquetaNombre.setText("Triangulo");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -896,13 +940,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/circuloazulcua.png")));
                 this.etiquetaNombre.setText("Cuadrado");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -910,13 +956,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/equisazulcua.png")));
                 this.etiquetaNombre.setText("Cuadrado");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -924,13 +972,15 @@ public class ControlGlobalLocal {
                 this.etiquetaImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trianguloazulcua.png")));
                 this.etiquetaNombre.setText("Cuadrado");
                 
-                if(contador == 0) {
-                    valorUnoGlobal = "A";
-                    contador++;
-                } else {
-                    valorDosGlobal = "A";
-                    auxiliarGlobal = valorDosGlobal;
-                    contador = 0;
+                if (tipo == true) {
+                    if (contador == 0) {
+                        valorUnoGlobal = "A";
+                        contador++;
+                    } else {
+                        valorDosGlobal = "A";
+                        auxiliarGlobal = valorDosGlobal;
+                        contador = 0;
+                    }
                 }
                 
                 break;
@@ -1705,6 +1755,19 @@ public class ControlGlobalLocal {
         this.objetoLocalGlobal.setOmisionesNulasTotalesTarea(contadorOmitidasNegras + 
                                                              contadorOmitidasAzules +
                                                              contadorOmitidasMixtos); 
+        
+        this.objetoLocalGlobal.setIdGlobalLocal(controlGeneral.getIdGlobal());
+        this.objetoLocalGlobal.setSet1Collection(null);
+        
+        /*
+        if(persistencia.agregarGlobalLocalBD(objetoLocalGlobal)){
+            JOptionPane.showMessageDialog(null, "Guardado correctamente en la base de datos");
+        } else {
+            JOptionPane.showMessageDialog(null, "Ocurrió un error al tratar de guardar este objeto");
+        }
+        */
+        
+        System.out.println(objetoLocalGlobal.toString());
     }
 
     /**
@@ -1949,7 +2012,7 @@ public class ControlGlobalLocal {
             getPantalla().setVisible(false);
             InstruccionesGlobalLocal instrucciones = InstruccionesGlobalLocal.getSingletonInstance();
             instrucciones.setVisible(true);
-            setPantalla(instrucciones);
+            controlGeneral.setPantalla(instrucciones);
         }
     };
 
@@ -1957,35 +2020,37 @@ public class ControlGlobalLocal {
     public Object instruccionesPantalla(JFrame frame, JLabel label) {
         switch (contadoraux) {
             case 0:
+                return("GLOBAL LOCAL");
+            case 1:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En esta actividad se te mostrarán diferentes figuras en pantalla.\n"
                         + "Antes de iniciar! \n"
                         + "Para que te familiarices con las teclas que utilizarás,\n"
                         + "realizarás unos ejercicios de práctica. ");
-            case 1:
+            case 2:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación \n\n"
                         + "Se te presentarán \n - Círculos\n - Equis\n - Triángulos \n - Cuadrados\n"
                         + "Uno a la vez, en el centro de la pantalla. ");
 
-            case 2:
+            case 3:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-1_2.png")));
                 return ("Cuando aparezca \n Un CÍRCULO presionarás la tecla “1”. \n"
                         + "Cuando sea una “X” presionarás la tecla “2”. \n"
                         + "Así que, por favor coloca tus dedos medio e índice de la mano izquierda.");
-            case 3:
+            case 4:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado-3_4.png")));
                 return ("Si aparece \n Un TRIÁNGULO, presionarás la tecla “3”. \n"
                         + "Y si se trata de un CUADRADO la tecla “4”. \n"
                         + "Así que, por favor coloca tus dedos medio e índice de \n"
                         + "la mano derecha en las teclas “3” y “4”. ");
-            case 4:
+            case 5:
                 frame.setVisible(false);
                 FamiliarizacionFiguras imagenFiguras = new FamiliarizacionFiguras();
                 imagenFiguras.setVisible(true);
                 this.setPantalla(imagenFiguras);
 
-            case 5:
+            case 6:
                 //this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_Local-global.png")));
                 return ("Recuerda solo presionar:\n\n"
@@ -1993,143 +2058,142 @@ public class ControlGlobalLocal {
                         + "Tecla «2»: Equis\n"
                         + "Tecla «3»: Triángulo \n"
                         + "Tecla «4»: Cuadrado ");
-            case 6:
+            case 7:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación\n Se te presentarán figuras cuyas líneas estarán\n"
                         + "conformadas por figuras más pequeñas.\n"
                         + "Algunas serán de color negro y otras de color azul.");
-            case 7:
+            case 8:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Comenzarás con las figuras de color NEGRO. \n\n"
                         + "Así que, lo que harás es presionar la tecla que \n"
                         + "indique la forma de la figura GRANDE. ");
-            case 8:
+            case 9:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Antes de iniciar\n"
                         + "Podrás ver un ejemplo sobre cómo se presentarán las figuras.\n"
                         + "Así como la manera de responder.");
-            case 9:
+            case 10:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado17.png")));
                 return ("En este caso, presionarías la tecla “1”, \n"
                         + "ya que la figura GRANDE es un CÍRCULO. ");
-            case 10:
+            case 11:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación"
                         + "\nSe te mostrarán una serie de figuras para practicar.\n"
                         + "Trata de responder lo más rápido que puedas. ");
-            case 11:
+            case 12:
                 frame.setVisible(false);
                 PracticaGrandes practicaGrandes = new PracticaGrandes();
                 practicaGrandes.setVisible(true);
                 this.setPantalla(practicaGrandes);
-            case 12:
+            case 13:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste los ejercicios de práctica. ");
-            case 13:
+            case 14:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora va a comenzar la actividad. \n\n"
                         + "Así que, se dejará de indicar cuando la respuesta sea "
                         + "correcta e incorrecta. Haz tu mejor esfuerzo y trata \n"
                         + "de responder lo más rápido posible. ");
-            case 14:
+            case 15:
                 frame.setVisible(false);
                 ActividadGrandes actividadGrandes = new ActividadGrandes();
                 actividadGrandes.setVisible(true);
                 this.setPantalla(actividadGrandes);
 
-            case 15:
+            case 16:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En seguida, realizarás la siguiente parte de la actividad. ");
-            case 16:
+            case 17:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, se te presentarán figuras como las anteriores. \n"
                         + "Sin embargo, ahora serán de color AZUL. Por lo tanto, \n"
                         + "indicarás la forma de las figuras PEQUEÑAS.");
-            case 17:
+            case 18:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Antes de iniciar, podrás ver un ejemplo sobre cómo se \n"
                         + "presentarán las figuras, así como la manera de responder.");
-            case 18:
+            case 19:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado51.png")));
                 return ("En este caso presionarías la tecla “4”, ya que la figura pequeña es un triángulo.");
 
-            case 19:
+            case 20:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora, se te mostrarán una serie de figuras para practicar.\n"
                         + "Recuerda indicar la forma de la figura PEQUEÑA. \n"
                         + "Trata de responder lo más rápido que puedas. ");
-            case 20:
+            case 21:
                 frame.setVisible(false);
                 PracticaPequeñas practicaPequeñas = new PracticaPequeñas();
                 practicaPequeñas.setVisible(true);
                 this.setPantalla(practicaPequeñas);
 
-            case 21:
+            case 22:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica. ");
-            case 22:
+            case 23:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora va a comenzar la actividad. Así que, se dejará de indicar\n"
                         + "cuando la respuesta sea correcta e incorrecta. \n"
                         + "Haz tu mejor esfuerzo y trata de responder lo más rápido posible.");
-            case 23:
+            case 24:
                 frame.setVisible(false);
                 ActividadPequeñas actividadPequeñas = new ActividadPequeñas();
                 actividadPequeñas.setVisible(true);
                 this.setPantalla(actividadPequeñas);
 
-            case 24:
+            case 25:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("A continuación, verás tanto figuras negras como azules.\n"
                         + "Recuerda que indicarás la forma de la figura GRANDE \n"
                         + "cuando sea NEGRA; y la forma de la PEQUEÑA cuando sea AZUL.");
-            case 25:
+            case 26:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("En seguida, se te mostraran una serie de figuras para practicar.\n"
                         + "Trata de responder lo más rápido que puedas. \n"
                         + "Recuerda colocar tus dedos índice y medio de cada \n"
                         + "mano en la tecla que corresponde.");
-            case 26:
+            case 27:
                 frame.setVisible(false);
                 PracticaMixto practicaMixto = new PracticaMixto();
                 practicaMixto.setVisible(true);
                 this.setPantalla(practicaMixto);
 
-            case 27:
+            case 28:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("¡Muy bien! Terminaste todos los ejercicios de práctica. ");
-            case 28:
+            case 29:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Ahora va a comenzar la actividad. \n"
                         + "Así que, se dejará de indicar cuando la respuesta\n"
                         + "sea correcta e incorrecta.Haz tu mejor esfuerzo y trata\n"
                         + "de responder lo más rápido posible. ");
-            case 29:
+            case 30:
                 frame.setVisible(false);
                 ActividadMixto actividadMixto = new ActividadMixto();
                 actividadMixto.setVisible(true);
                 this.setPantalla(actividadMixto);
 
-            case 30:
+            case 31:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
                 return "¡Excelente trabajo! Lo hiciste muy bien."
                         + "Has terminado con esta actividad."
                         + "\n\nFIN DE ACTIVIDAD";
-            
-            case 31:
-                getPantalla().setVisible(false);
-                controlGeneral.ejecutarEjercicios(this.getPantalla());
+            case 32:
+                this.calculosGlobalLocal();
+                controlGeneral.ejecutarEjercicios(controlGeneral.getPantalla());
             default:
                 return null;
-                
+
         }
-        
+
     }
 
     public JLabel getEtiquetaImagen() {

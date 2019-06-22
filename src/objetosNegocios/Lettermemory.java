@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -52,7 +52,7 @@ public class Lettermemory implements Serializable {
     @Column(name = "incorrectasIdentidad")
     private Integer incorrectasIdentidad;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "letterMemoryidLetterMemory")
-    private List<Setpruebas> setpruebasList;
+    private Collection<Set1> set1Collection;
 
     public Lettermemory() {
     }
@@ -102,12 +102,12 @@ public class Lettermemory implements Serializable {
     }
 
     @XmlTransient
-    public List<Setpruebas> getSetpruebasList() {
-        return setpruebasList;
+    public Collection<Set1> getSet1Collection() {
+        return set1Collection;
     }
 
-    public void setSetpruebasList(List<Setpruebas> setpruebasList) {
-        this.setpruebasList = setpruebasList;
+    public void setSet1Collection(Collection<Set1> set1Collection) {
+        this.set1Collection = set1Collection;
     }
 
     @Override
@@ -132,7 +132,7 @@ public class Lettermemory implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Lettermemory[ idLetterMemory=" + idLetterMemory + " ]";
+        return "objetosNegocios.Lettermemory[ idLetterMemory=" + idLetterMemory + " ]";
     }
     
 }

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,7 +48,7 @@ public class Usuario implements Serializable {
     @Column(name = "nivelUsuario")
     private Integer nivelUsuario;
     @OneToMany(mappedBy = "idUsuario")
-    private List<Prueba> pruebaList;
+    private Collection<Prueba> pruebaCollection;
 
     public Usuario() {
     }
@@ -90,12 +90,12 @@ public class Usuario implements Serializable {
     }
 
     @XmlTransient
-    public List<Prueba> getPruebaList() {
-        return pruebaList;
+    public Collection<Prueba> getPruebaCollection() {
+        return pruebaCollection;
     }
 
-    public void setPruebaList(List<Prueba> pruebaList) {
-        this.pruebaList = pruebaList;
+    public void setPruebaCollection(Collection<Prueba> pruebaCollection) {
+        this.pruebaCollection = pruebaCollection;
     }
 
     @Override
@@ -120,7 +120,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Usuario[ idUsuario=" + idUsuario + " ]";
+        return "objetosNegocios.Usuario[ idUsuario=" + idUsuario + " ]";
     }
     
 }

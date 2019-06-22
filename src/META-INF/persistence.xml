@@ -2,31 +2,19 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="tesis-aplicacionPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>objetoNegocio.Paciente</class>
-    <class>objetoNegocio.Usuario</class>
-    <class>objetoNegocio.Simon</class>
-    <class>objetoNegocio.Keeptrack</class>
-    <class>objetoNegocio.Stroop</class>
-    <class>objetoNegocio.Prueba</class>
-    <class>objetoNegocio.Numberletter</class>
-    <class>objetoNegocio.Globallocal</class>
-    <class>objetoNegocio.Lettermemory</class>
-    <class>objetoNegocio.Tonemonotoring</class>
-    <class>objetoNegocio.Plusminus</class>
-    <class>objetoNegocio.Stopsignal</class>
-    <class>objetosNegocio.Numberletter</class>
-    <class>objetosNegocio.Keeptrack</class>
-    <class>objetosNegocio.Setpruebas</class>
-    <class>objetosNegocio.Stopsignal</class>
-    <class>objetosNegocio.Simon</class>
-    <class>objetosNegocio.Tonemonotoring</class>
-    <class>objetosNegocio.Globallocal</class>
-    <class>objetosNegocio.Prueba</class>
-    <class>objetosNegocio.Usuario</class>
-    <class>objetosNegocio.Lettermemory</class>
-    <class>objetosNegocio.Stroop</class>
-    <class>objetosNegocio.Plusminus</class>
-    <class>objetosNegocio.Paciente</class>
+    <class>objetosNegocios.Prueba</class>
+    <class>objetosNegocios.Keeptrack</class>
+    <class>objetosNegocios.Paciente</class>
+    <class>objetosNegocios.Plusminus</class>
+    <class>objetosNegocios.Stroop</class>
+    <class>objetosNegocios.Numberletter</class>
+    <class>objetosNegocios.Usuario</class>
+    <class>objetosNegocios.Stopsignal</class>
+    <class>objetosNegocios.Lettermemory</class>
+    <class>objetosNegocios.Simon</class>
+    <class>objetosNegocios.Set1</class>
+    <class>objetosNegocios.Tonemonotoring</class>
+    <class>objetosNegocios.Globallocal</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/practicas?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

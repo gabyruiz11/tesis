@@ -347,8 +347,8 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
@@ -397,7 +397,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
                             .addComponent(jTextField7)
                             .addComponent(jTextField6)
                             .addComponent(jTextField5)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel11)
@@ -419,7 +419,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(152, 152, 152))
+                .addGap(153, 153, 153))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,9 +505,9 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabel20)
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -524,7 +524,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -548,31 +548,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField10ActionPerformed
 
     private void jPanel1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyTyped
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(jTextField1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(jTextField2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(jTextField3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(jTextField4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(jTextField5.getText());
-            numerosRespuestas[5] = control.verificaciónTextField(jTextField6.getText());
-            numerosRespuestas[6] = control.verificaciónTextField(jTextField7.getText());
-            numerosRespuestas[7] = control.verificaciónTextField(jTextField8.getText());
-            numerosRespuestas[8] = control.verificaciónTextField(jTextField9.getText());
-            numerosRespuestas[9] = control.verificaciónTextField(jTextField10.getText());
-
-            //control.resultadoSuma(numerosAleatorios, numerosRespuestas, 10);
-            //control.imprimirSumas();
-            jTextField1.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
-            jTextField5.setText("");
-            jTextField6.setText("");
-            jTextField7.setText("");
-            jTextField8.setText("");
-            jTextField9.setText("");
-            jTextField10.setText("");
-        }
+        
     }//GEN-LAST:event_jPanel1KeyTyped
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
@@ -656,6 +632,28 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField10KeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        numerosRespuestas[0] = control.verificaciónTextField(jTextField1.getText());
+        numerosRespuestas[1] = control.verificaciónTextField(jTextField2.getText());
+        numerosRespuestas[2] = control.verificaciónTextField(jTextField3.getText());
+        numerosRespuestas[3] = control.verificaciónTextField(jTextField4.getText());
+        numerosRespuestas[4] = control.verificaciónTextField(jTextField5.getText());
+        numerosRespuestas[5] = control.verificaciónTextField(jTextField6.getText());
+        numerosRespuestas[6] = control.verificaciónTextField(jTextField7.getText());
+        numerosRespuestas[7] = control.verificaciónTextField(jTextField8.getText());
+        numerosRespuestas[8] = control.verificaciónTextField(jTextField9.getText());
+        numerosRespuestas[9] = control.verificaciónTextField(jTextField10.getText());
+
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
         instrucciones.setVisible(true);
         this.dispose();

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -62,7 +62,7 @@ public class Stopsignal implements Serializable {
     @Column(name = "eSA")
     private Double eSA;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "stopSignalidStopSignal")
-    private List<Setpruebas> setpruebasList;
+    private Collection<Set1> set1Collection;
 
     public Stopsignal() {
     }
@@ -136,12 +136,12 @@ public class Stopsignal implements Serializable {
     }
 
     @XmlTransient
-    public List<Setpruebas> getSetpruebasList() {
-        return setpruebasList;
+    public Collection<Set1> getSet1Collection() {
+        return set1Collection;
     }
 
-    public void setSetpruebasList(List<Setpruebas> setpruebasList) {
-        this.setpruebasList = setpruebasList;
+    public void setSet1Collection(Collection<Set1> set1Collection) {
+        this.set1Collection = set1Collection;
     }
 
     @Override
@@ -166,7 +166,7 @@ public class Stopsignal implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Stopsignal[ idStopSignal=" + idStopSignal + " ]";
+        return "objetosNegocios.Stopsignal[ idStopSignal=" + idStopSignal + " ]";
     }
     
 }

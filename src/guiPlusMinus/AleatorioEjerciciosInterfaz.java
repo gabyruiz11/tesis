@@ -5,6 +5,7 @@
  */
 package guiPlusMinus;
 
+import controles.ControlGeneral;
 import controles.ControlPlusMinus;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -25,7 +26,8 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
     double startTime;
     GridBagConstraints gbc = new GridBagConstraints();
     ControlPlusMinus control = ControlPlusMinus.getSingletonInstance();
-
+    ControlGeneral controlGeneral = ControlGeneral.getSingletonInstance();
+    
     /**
      * Creates new form SumaEjerciciosInterfaz
      */
@@ -757,27 +759,27 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel30))
-                        .addGap(36, 36, 36))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel46)
-                            .addComponent(jLabel47)
-                            .addComponent(jLabel48)
-                            .addComponent(jLabel49)
-                            .addComponent(jLabel50))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel26)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel28)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel30))
+                                .addGap(36, 36, 36))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel46)
+                                    .addComponent(jLabel47)
+                                    .addComponent(jLabel48)
+                                    .addComponent(jLabel49)
+                                    .addComponent(jLabel50))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(caja11, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                             .addComponent(caja12)
@@ -789,7 +791,7 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
                             .addComponent(caja18)
                             .addComponent(caja19)
                             .addComponent(caja20))
-                        .addGap(74, 74, 74)
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel38)
@@ -1001,7 +1003,7 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1069,61 +1071,16 @@ public class AleatorioEjerciciosInterfaz extends javax.swing.JFrame {
 
         double estimatedTime = System.currentTimeMillis() - startTime;
         control.tiempoAlternado(estimatedTime);
-
-//        control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
+        System.out.println(estimatedTime);
 
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
         instrucciones.setVisible(true);
+        controlGeneral.setPantalla(instrucciones);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
-            numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
-            numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
-            numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
-            numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
-            numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
-            numerosRespuestas[10] = control.verificaciónTextField(caja11.getText());
-            numerosRespuestas[11] = control.verificaciónTextField(caja12.getText());
-            numerosRespuestas[12] = control.verificaciónTextField(caja13.getText());
-            numerosRespuestas[13] = control.verificaciónTextField(caja14.getText());
-            numerosRespuestas[14] = control.verificaciónTextField(caja15.getText());
-            numerosRespuestas[15] = control.verificaciónTextField(caja16.getText());
-            numerosRespuestas[16] = control.verificaciónTextField(caja17.getText());
-            numerosRespuestas[17] = control.verificaciónTextField(caja18.getText());
-            numerosRespuestas[18] = control.verificaciónTextField(caja19.getText());
-            numerosRespuestas[19] = control.verificaciónTextField(caja20.getText());
-            numerosRespuestas[20] = control.verificaciónTextField(caja21.getText());
-            numerosRespuestas[21] = control.verificaciónTextField(caja22.getText());
-            numerosRespuestas[22] = control.verificaciónTextField(caja23.getText());
-            numerosRespuestas[23] = control.verificaciónTextField(caja24.getText());
-            numerosRespuestas[24] = control.verificaciónTextField(caja25.getText());
-            numerosRespuestas[25] = control.verificaciónTextField(caja26.getText());
-            numerosRespuestas[26] = control.verificaciónTextField(caja27.getText());
-            numerosRespuestas[27] = control.verificaciónTextField(caja28.getText());
-            numerosRespuestas[28] = control.verificaciónTextField(caja29.getText());
-            numerosRespuestas[29] = control.verificaciónTextField(caja30.getText());
-
-            control.resultadoAlternado(numerosAleatorios, numerosRespuestas, 30);
-
-            double estimatedTime = System.currentTimeMillis() - startTime;
-            control.tiempoAlternado(estimatedTime);
-
-            //control.obtenerResultados(Integer.valueOf(JOptionPane.showInputDialog("Introduce el folio")));
-
-            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            control.instruccionesPantalla(this, jLabel1);
-            control.setPantalla(instrucciones);
-            instrucciones.show();
-            this.dispose();
-        }
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void caja1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja1KeyTyped

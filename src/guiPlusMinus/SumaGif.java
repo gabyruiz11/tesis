@@ -5,6 +5,7 @@
  */
 package guiPlusMinus;
 
+import controles.ControlPlusMinus;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -17,6 +18,7 @@ import java.awt.event.KeyEvent;
  * @author Gabriela Guadalupe Ruiz Mora
  */
 public class SumaGif extends javax.swing.JFrame {
+    
     
     /**
      * Creates new form Instrucciones
@@ -110,11 +112,7 @@ public class SumaGif extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyPressed
-        if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
-            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            instrucciones.setVisible(true);
-            this.setVisible(false);
-        }
+
     }//GEN-LAST:event_jLabel2KeyPressed
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed

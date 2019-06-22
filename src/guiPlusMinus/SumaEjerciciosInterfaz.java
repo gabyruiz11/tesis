@@ -846,7 +846,7 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
                                 .addComponent(caja24, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(377, 377, 377)
+                .addGap(386, 386, 386)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -990,9 +990,9 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
                             .addComponent(jLabel43)
                             .addComponent(jLabel58)
                             .addComponent(caja28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(25, 25, 25))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1073,47 +1073,6 @@ public class SumaEjerciciosInterfaz extends javax.swing.JFrame {
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(caja1.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(caja2.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(caja3.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(caja4.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(caja5.getText());
-            numerosRespuestas[5] = control.verificaciónTextField(caja6.getText());
-            numerosRespuestas[6] = control.verificaciónTextField(caja7.getText());
-            numerosRespuestas[7] = control.verificaciónTextField(caja8.getText());
-            numerosRespuestas[8] = control.verificaciónTextField(caja9.getText());
-            numerosRespuestas[9] = control.verificaciónTextField(caja10.getText());
-            numerosRespuestas[10] = control.verificaciónTextField(caja11.getText());
-            numerosRespuestas[11] = control.verificaciónTextField(caja12.getText());
-            numerosRespuestas[12] = control.verificaciónTextField(caja13.getText());
-            numerosRespuestas[13] = control.verificaciónTextField(caja14.getText());
-            numerosRespuestas[14] = control.verificaciónTextField(caja15.getText());
-            numerosRespuestas[15] = control.verificaciónTextField(caja16.getText());
-            numerosRespuestas[16] = control.verificaciónTextField(caja17.getText());
-            numerosRespuestas[17] = control.verificaciónTextField(caja18.getText());
-            numerosRespuestas[18] = control.verificaciónTextField(caja19.getText());
-            numerosRespuestas[19] = control.verificaciónTextField(caja20.getText());
-            numerosRespuestas[20] = control.verificaciónTextField(caja21.getText());
-            numerosRespuestas[21] = control.verificaciónTextField(caja22.getText());
-            numerosRespuestas[22] = control.verificaciónTextField(caja23.getText());
-            numerosRespuestas[23] = control.verificaciónTextField(caja24.getText());
-            numerosRespuestas[24] = control.verificaciónTextField(caja25.getText());
-            numerosRespuestas[25] = control.verificaciónTextField(caja26.getText());
-            numerosRespuestas[26] = control.verificaciónTextField(caja27.getText());
-            numerosRespuestas[27] = control.verificaciónTextField(caja28.getText());
-            numerosRespuestas[28] = control.verificaciónTextField(caja29.getText());
-            numerosRespuestas[29] = control.verificaciónTextField(caja30.getText());
-
-            control.resultadoSuma(numerosAleatorios, numerosRespuestas, 30);
-
-            double estimatedTime = System.currentTimeMillis() - startTime;
-            control.tiempoSuma(estimatedTime);
-
-            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            instrucciones.setVisible(true);
-            this.dispose();
-        }
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void jButton1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyReleased

@@ -13,12 +13,13 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import objetosNegocio.Setpruebas;
+import objetosNegocios.Set1;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import objetosNegocio.Simon;
+import objetosNegocios.Simon;
 
 /**
  *
@@ -36,27 +37,27 @@ public class SimonJpaController implements Serializable {
     }
 
     public void create(Simon simon) throws PreexistingEntityException, Exception {
-        if (simon.getSetpruebasList() == null) {
-            simon.setSetpruebasList(new ArrayList<Setpruebas>());
+        if (simon.getSet1Collection() == null) {
+            simon.setSet1Collection(new ArrayList<Set1>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Setpruebas> attachedSetpruebasList = new ArrayList<Setpruebas>();
-            for (Setpruebas setpruebasListSetpruebasToAttach : simon.getSetpruebasList()) {
-                setpruebasListSetpruebasToAttach = em.getReference(setpruebasListSetpruebasToAttach.getClass(), setpruebasListSetpruebasToAttach.getIdSet());
-                attachedSetpruebasList.add(setpruebasListSetpruebasToAttach);
+            Collection<Set1> attachedSet1Collection = new ArrayList<Set1>();
+            for (Set1 set1CollectionSet1ToAttach : simon.getSet1Collection()) {
+                set1CollectionSet1ToAttach = em.getReference(set1CollectionSet1ToAttach.getClass(), set1CollectionSet1ToAttach.getIdSet());
+                attachedSet1Collection.add(set1CollectionSet1ToAttach);
             }
-            simon.setSetpruebasList(attachedSetpruebasList);
+            simon.setSet1Collection(attachedSet1Collection);
             em.persist(simon);
-            for (Setpruebas setpruebasListSetpruebas : simon.getSetpruebasList()) {
-                Simon oldSimonidSimonOfSetpruebasListSetpruebas = setpruebasListSetpruebas.getSimonidSimon();
-                setpruebasListSetpruebas.setSimonidSimon(simon);
-                setpruebasListSetpruebas = em.merge(setpruebasListSetpruebas);
-                if (oldSimonidSimonOfSetpruebasListSetpruebas != null) {
-                    oldSimonidSimonOfSetpruebasListSetpruebas.getSetpruebasList().remove(setpruebasListSetpruebas);
-                    oldSimonidSimonOfSetpruebasListSetpruebas = em.merge(oldSimonidSimonOfSetpruebasListSetpruebas);
+            for (Set1 set1CollectionSet1 : simon.getSet1Collection()) {
+                Simon oldSimonidSimonOfSet1CollectionSet1 = set1CollectionSet1.getSimonidSimon();
+                set1CollectionSet1.setSimonidSimon(simon);
+                set1CollectionSet1 = em.merge(set1CollectionSet1);
+                if (oldSimonidSimonOfSet1CollectionSet1 != null) {
+                    oldSimonidSimonOfSet1CollectionSet1.getSet1Collection().remove(set1CollectionSet1);
+                    oldSimonidSimonOfSet1CollectionSet1 = em.merge(oldSimonidSimonOfSet1CollectionSet1);
                 }
             }
             em.getTransaction().commit();
@@ -78,36 +79,36 @@ public class SimonJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Simon persistentSimon = em.find(Simon.class, simon.getIdSimon());
-            List<Setpruebas> setpruebasListOld = persistentSimon.getSetpruebasList();
-            List<Setpruebas> setpruebasListNew = simon.getSetpruebasList();
+            Collection<Set1> set1CollectionOld = persistentSimon.getSet1Collection();
+            Collection<Set1> set1CollectionNew = simon.getSet1Collection();
             List<String> illegalOrphanMessages = null;
-            for (Setpruebas setpruebasListOldSetpruebas : setpruebasListOld) {
-                if (!setpruebasListNew.contains(setpruebasListOldSetpruebas)) {
+            for (Set1 set1CollectionOldSet1 : set1CollectionOld) {
+                if (!set1CollectionNew.contains(set1CollectionOldSet1)) {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
-                    illegalOrphanMessages.add("You must retain Setpruebas " + setpruebasListOldSetpruebas + " since its simonidSimon field is not nullable.");
+                    illegalOrphanMessages.add("You must retain Set1 " + set1CollectionOldSet1 + " since its simonidSimon field is not nullable.");
                 }
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            List<Setpruebas> attachedSetpruebasListNew = new ArrayList<Setpruebas>();
-            for (Setpruebas setpruebasListNewSetpruebasToAttach : setpruebasListNew) {
-                setpruebasListNewSetpruebasToAttach = em.getReference(setpruebasListNewSetpruebasToAttach.getClass(), setpruebasListNewSetpruebasToAttach.getIdSet());
-                attachedSetpruebasListNew.add(setpruebasListNewSetpruebasToAttach);
+            Collection<Set1> attachedSet1CollectionNew = new ArrayList<Set1>();
+            for (Set1 set1CollectionNewSet1ToAttach : set1CollectionNew) {
+                set1CollectionNewSet1ToAttach = em.getReference(set1CollectionNewSet1ToAttach.getClass(), set1CollectionNewSet1ToAttach.getIdSet());
+                attachedSet1CollectionNew.add(set1CollectionNewSet1ToAttach);
             }
-            setpruebasListNew = attachedSetpruebasListNew;
-            simon.setSetpruebasList(setpruebasListNew);
+            set1CollectionNew = attachedSet1CollectionNew;
+            simon.setSet1Collection(set1CollectionNew);
             simon = em.merge(simon);
-            for (Setpruebas setpruebasListNewSetpruebas : setpruebasListNew) {
-                if (!setpruebasListOld.contains(setpruebasListNewSetpruebas)) {
-                    Simon oldSimonidSimonOfSetpruebasListNewSetpruebas = setpruebasListNewSetpruebas.getSimonidSimon();
-                    setpruebasListNewSetpruebas.setSimonidSimon(simon);
-                    setpruebasListNewSetpruebas = em.merge(setpruebasListNewSetpruebas);
-                    if (oldSimonidSimonOfSetpruebasListNewSetpruebas != null && !oldSimonidSimonOfSetpruebasListNewSetpruebas.equals(simon)) {
-                        oldSimonidSimonOfSetpruebasListNewSetpruebas.getSetpruebasList().remove(setpruebasListNewSetpruebas);
-                        oldSimonidSimonOfSetpruebasListNewSetpruebas = em.merge(oldSimonidSimonOfSetpruebasListNewSetpruebas);
+            for (Set1 set1CollectionNewSet1 : set1CollectionNew) {
+                if (!set1CollectionOld.contains(set1CollectionNewSet1)) {
+                    Simon oldSimonidSimonOfSet1CollectionNewSet1 = set1CollectionNewSet1.getSimonidSimon();
+                    set1CollectionNewSet1.setSimonidSimon(simon);
+                    set1CollectionNewSet1 = em.merge(set1CollectionNewSet1);
+                    if (oldSimonidSimonOfSet1CollectionNewSet1 != null && !oldSimonidSimonOfSet1CollectionNewSet1.equals(simon)) {
+                        oldSimonidSimonOfSet1CollectionNewSet1.getSet1Collection().remove(set1CollectionNewSet1);
+                        oldSimonidSimonOfSet1CollectionNewSet1 = em.merge(oldSimonidSimonOfSet1CollectionNewSet1);
                     }
                 }
             }
@@ -141,12 +142,12 @@ public class SimonJpaController implements Serializable {
                 throw new NonexistentEntityException("The simon with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
-            List<Setpruebas> setpruebasListOrphanCheck = simon.getSetpruebasList();
-            for (Setpruebas setpruebasListOrphanCheckSetpruebas : setpruebasListOrphanCheck) {
+            Collection<Set1> set1CollectionOrphanCheck = simon.getSet1Collection();
+            for (Set1 set1CollectionOrphanCheckSet1 : set1CollectionOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
-                illegalOrphanMessages.add("This Simon (" + simon + ") cannot be destroyed since the Setpruebas " + setpruebasListOrphanCheckSetpruebas + " in its setpruebasList field has a non-nullable simonidSimon field.");
+                illegalOrphanMessages.add("This Simon (" + simon + ") cannot be destroyed since the Set1 " + set1CollectionOrphanCheckSet1 + " in its set1Collection field has a non-nullable simonidSimon field.");
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);

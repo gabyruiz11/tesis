@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objetosNegocio;
+package objetosNegocios;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -87,7 +85,6 @@ public class Numberletter implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idNumberLetter")
     private Integer idNumberLetter;
@@ -197,7 +194,7 @@ public class Numberletter implements Serializable {
     @Column(name = "omisionesNulasTotalesTarea")
     private Integer omisionesNulasTotalesTarea;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "numberLetteridNumberLetter")
-    private List<Setpruebas> setpruebasList;
+    private Collection<Set1> set1Collection;
 
     public Numberletter() {
     }
@@ -631,12 +628,12 @@ public class Numberletter implements Serializable {
     }
 
     @XmlTransient
-    public List<Setpruebas> getSetpruebasList() {
-        return setpruebasList;
+    public Collection<Set1> getSet1Collection() {
+        return set1Collection;
     }
 
-    public void setSetpruebasList(List<Setpruebas> setpruebasList) {
-        this.setpruebasList = setpruebasList;
+    public void setSet1Collection(Collection<Set1> set1Collection) {
+        this.set1Collection = set1Collection;
     }
 
     @Override
@@ -661,7 +658,7 @@ public class Numberletter implements Serializable {
 
     @Override
     public String toString() {
-        return "objetosNegocio.Numberletter[ idNumberLetter=" + idNumberLetter + " ]";
+        return "objetosNegocios.Numberletter[ idNumberLetter=" + idNumberLetter + " ]";
     }
     
 }

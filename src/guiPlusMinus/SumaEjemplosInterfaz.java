@@ -278,7 +278,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonAceptarEjemplo)
-                .addGap(135, 135, 135))
+                .addGap(128, 128, 128))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,9 +319,9 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(cajaCinco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(r5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(28, 28, 28)
                 .addComponent(botonAceptarEjemplo)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -360,19 +360,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
 
     private void jPanel1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyTyped
         // TODO add your handling code here:
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE) {
-            numerosRespuestas[0] = control.verificaciónTextField(cajaUno.getText());
-            numerosRespuestas[1] = control.verificaciónTextField(cajaDos.getText());
-            numerosRespuestas[2] = control.verificaciónTextField(cajaTres.getText());
-            numerosRespuestas[3] = control.verificaciónTextField(cajaCuatro.getText());
-            numerosRespuestas[4] = control.verificaciónTextField(cajaCinco.getText());
-
-            cajaUno.setText("");
-            cajaDos.setText("");
-            cajaTres.setText("");
-            cajaCuatro.setText("");
-            cajaCinco.setText("");
-        }
+        
     }//GEN-LAST:event_jPanel1KeyTyped
 
     private void botonAceptarEjemploKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_botonAceptarEjemploKeyPressed
@@ -380,6 +368,18 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAceptarEjemploKeyPressed
 
     private void botonAceptarEjemploActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarEjemploActionPerformed
+        numerosRespuestas[0] = control.verificaciónTextField(cajaUno.getText());
+        numerosRespuestas[1] = control.verificaciónTextField(cajaDos.getText());
+        numerosRespuestas[2] = control.verificaciónTextField(cajaTres.getText());
+        numerosRespuestas[3] = control.verificaciónTextField(cajaCuatro.getText());
+        numerosRespuestas[4] = control.verificaciónTextField(cajaCinco.getText());
+
+        cajaUno.setText("");
+        cajaDos.setText("");
+        cajaTres.setText("");
+        cajaCuatro.setText("");
+        cajaCinco.setText("");
+        
         Instrucciones instrucciones = Instrucciones.getSingletonInstance();
         instrucciones.setVisible(true);
         this.dispose();

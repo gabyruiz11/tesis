@@ -11,12 +11,13 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import objetosNegocio.Prueba;
+import objetosNegocios.Prueba;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import objetosNegocio.Paciente;
+import objetosNegocios.Paciente;
 
 /**
  *
@@ -34,27 +35,27 @@ public class PacienteJpaController implements Serializable {
     }
 
     public void create(Paciente paciente) {
-        if (paciente.getPruebaList() == null) {
-            paciente.setPruebaList(new ArrayList<Prueba>());
+        if (paciente.getPruebaCollection() == null) {
+            paciente.setPruebaCollection(new ArrayList<Prueba>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Prueba> attachedPruebaList = new ArrayList<Prueba>();
-            for (Prueba pruebaListPruebaToAttach : paciente.getPruebaList()) {
-                pruebaListPruebaToAttach = em.getReference(pruebaListPruebaToAttach.getClass(), pruebaListPruebaToAttach.getIdPrueba());
-                attachedPruebaList.add(pruebaListPruebaToAttach);
+            Collection<Prueba> attachedPruebaCollection = new ArrayList<Prueba>();
+            for (Prueba pruebaCollectionPruebaToAttach : paciente.getPruebaCollection()) {
+                pruebaCollectionPruebaToAttach = em.getReference(pruebaCollectionPruebaToAttach.getClass(), pruebaCollectionPruebaToAttach.getIdPrueba());
+                attachedPruebaCollection.add(pruebaCollectionPruebaToAttach);
             }
-            paciente.setPruebaList(attachedPruebaList);
+            paciente.setPruebaCollection(attachedPruebaCollection);
             em.persist(paciente);
-            for (Prueba pruebaListPrueba : paciente.getPruebaList()) {
-                Paciente oldFolioPacienteOfPruebaListPrueba = pruebaListPrueba.getFolioPaciente();
-                pruebaListPrueba.setFolioPaciente(paciente);
-                pruebaListPrueba = em.merge(pruebaListPrueba);
-                if (oldFolioPacienteOfPruebaListPrueba != null) {
-                    oldFolioPacienteOfPruebaListPrueba.getPruebaList().remove(pruebaListPrueba);
-                    oldFolioPacienteOfPruebaListPrueba = em.merge(oldFolioPacienteOfPruebaListPrueba);
+            for (Prueba pruebaCollectionPrueba : paciente.getPruebaCollection()) {
+                Paciente oldFolioPacienteOfPruebaCollectionPrueba = pruebaCollectionPrueba.getFolioPaciente();
+                pruebaCollectionPrueba.setFolioPaciente(paciente);
+                pruebaCollectionPrueba = em.merge(pruebaCollectionPrueba);
+                if (oldFolioPacienteOfPruebaCollectionPrueba != null) {
+                    oldFolioPacienteOfPruebaCollectionPrueba.getPruebaCollection().remove(pruebaCollectionPrueba);
+                    oldFolioPacienteOfPruebaCollectionPrueba = em.merge(oldFolioPacienteOfPruebaCollectionPrueba);
                 }
             }
             em.getTransaction().commit();
@@ -71,30 +72,30 @@ public class PacienteJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Paciente persistentPaciente = em.find(Paciente.class, paciente.getFolioPaciente());
-            List<Prueba> pruebaListOld = persistentPaciente.getPruebaList();
-            List<Prueba> pruebaListNew = paciente.getPruebaList();
-            List<Prueba> attachedPruebaListNew = new ArrayList<Prueba>();
-            for (Prueba pruebaListNewPruebaToAttach : pruebaListNew) {
-                pruebaListNewPruebaToAttach = em.getReference(pruebaListNewPruebaToAttach.getClass(), pruebaListNewPruebaToAttach.getIdPrueba());
-                attachedPruebaListNew.add(pruebaListNewPruebaToAttach);
+            Collection<Prueba> pruebaCollectionOld = persistentPaciente.getPruebaCollection();
+            Collection<Prueba> pruebaCollectionNew = paciente.getPruebaCollection();
+            Collection<Prueba> attachedPruebaCollectionNew = new ArrayList<Prueba>();
+            for (Prueba pruebaCollectionNewPruebaToAttach : pruebaCollectionNew) {
+                pruebaCollectionNewPruebaToAttach = em.getReference(pruebaCollectionNewPruebaToAttach.getClass(), pruebaCollectionNewPruebaToAttach.getIdPrueba());
+                attachedPruebaCollectionNew.add(pruebaCollectionNewPruebaToAttach);
             }
-            pruebaListNew = attachedPruebaListNew;
-            paciente.setPruebaList(pruebaListNew);
+            pruebaCollectionNew = attachedPruebaCollectionNew;
+            paciente.setPruebaCollection(pruebaCollectionNew);
             paciente = em.merge(paciente);
-            for (Prueba pruebaListOldPrueba : pruebaListOld) {
-                if (!pruebaListNew.contains(pruebaListOldPrueba)) {
-                    pruebaListOldPrueba.setFolioPaciente(null);
-                    pruebaListOldPrueba = em.merge(pruebaListOldPrueba);
+            for (Prueba pruebaCollectionOldPrueba : pruebaCollectionOld) {
+                if (!pruebaCollectionNew.contains(pruebaCollectionOldPrueba)) {
+                    pruebaCollectionOldPrueba.setFolioPaciente(null);
+                    pruebaCollectionOldPrueba = em.merge(pruebaCollectionOldPrueba);
                 }
             }
-            for (Prueba pruebaListNewPrueba : pruebaListNew) {
-                if (!pruebaListOld.contains(pruebaListNewPrueba)) {
-                    Paciente oldFolioPacienteOfPruebaListNewPrueba = pruebaListNewPrueba.getFolioPaciente();
-                    pruebaListNewPrueba.setFolioPaciente(paciente);
-                    pruebaListNewPrueba = em.merge(pruebaListNewPrueba);
-                    if (oldFolioPacienteOfPruebaListNewPrueba != null && !oldFolioPacienteOfPruebaListNewPrueba.equals(paciente)) {
-                        oldFolioPacienteOfPruebaListNewPrueba.getPruebaList().remove(pruebaListNewPrueba);
-                        oldFolioPacienteOfPruebaListNewPrueba = em.merge(oldFolioPacienteOfPruebaListNewPrueba);
+            for (Prueba pruebaCollectionNewPrueba : pruebaCollectionNew) {
+                if (!pruebaCollectionOld.contains(pruebaCollectionNewPrueba)) {
+                    Paciente oldFolioPacienteOfPruebaCollectionNewPrueba = pruebaCollectionNewPrueba.getFolioPaciente();
+                    pruebaCollectionNewPrueba.setFolioPaciente(paciente);
+                    pruebaCollectionNewPrueba = em.merge(pruebaCollectionNewPrueba);
+                    if (oldFolioPacienteOfPruebaCollectionNewPrueba != null && !oldFolioPacienteOfPruebaCollectionNewPrueba.equals(paciente)) {
+                        oldFolioPacienteOfPruebaCollectionNewPrueba.getPruebaCollection().remove(pruebaCollectionNewPrueba);
+                        oldFolioPacienteOfPruebaCollectionNewPrueba = em.merge(oldFolioPacienteOfPruebaCollectionNewPrueba);
                     }
                 }
             }
@@ -127,10 +128,10 @@ public class PacienteJpaController implements Serializable {
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The paciente with id " + id + " no longer exists.", enfe);
             }
-            List<Prueba> pruebaList = paciente.getPruebaList();
-            for (Prueba pruebaListPrueba : pruebaList) {
-                pruebaListPrueba.setFolioPaciente(null);
-                pruebaListPrueba = em.merge(pruebaListPrueba);
+            Collection<Prueba> pruebaCollection = paciente.getPruebaCollection();
+            for (Prueba pruebaCollectionPrueba : pruebaCollection) {
+                pruebaCollectionPrueba.setFolioPaciente(null);
+                pruebaCollectionPrueba = em.merge(pruebaCollectionPrueba);
             }
             em.remove(paciente);
             em.getTransaction().commit();
