@@ -662,7 +662,7 @@ public class ControlNumberLetter {
         }
         
         long transcurrido = System.currentTimeMillis() - inicio;
-        System.out.println(transcurrido);
+        
         
         if(transcurrido > 200 && transcurrido < 10000) {
             acumuladoTiempoMixtos += transcurrido;

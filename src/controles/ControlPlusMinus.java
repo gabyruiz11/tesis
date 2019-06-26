@@ -321,7 +321,7 @@ public class ControlPlusMinus {
                 + this.objetoPlusMinus.getNoRespondidasAlternado());
 
         this.objetoPlusMinus.setIdPlusMinus(controlGeneral.getIdGlobal());
-        System.out.println(controlGeneral.getIdGlobal());
+        
         this.objetoPlusMinus.setSet1Collection(null);
         
         /*
