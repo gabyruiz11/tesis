@@ -151,7 +151,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel11.setText("- 3 =");
+        jLabel11.setText("-  3  =");
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -169,7 +169,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel12.setText("- 3 =");
+        jLabel12.setText("-  3  =");
 
         jTextField2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -187,7 +187,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jLabel3.setText("jLabel3");
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel13.setText("- 3 =");
+        jLabel13.setText("-  3  =");
 
         jTextField3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -205,7 +205,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel14.setText("- 3 =");
+        jLabel14.setText("-  3  =");
 
         jTextField4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -223,7 +223,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel15.setText("- 3 =");
+        jLabel15.setText("-  3  =");
 
         jTextField5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -241,10 +241,10 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jLabel6.setText("jLabel6");
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel16.setText("- 3 =");
+        jLabel16.setText("-  3  =");
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel17.setText("- 3 =");
+        jLabel17.setText("-  3  =");
 
         jTextField6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -277,7 +277,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
 
         jLabel18.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel18.setText("- 3 =");
+        jLabel18.setText("-  3  =");
 
         jTextField8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -295,7 +295,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jLabel9.setText("jLabel9");
 
         jLabel19.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel19.setText("- 3 =");
+        jLabel19.setText("-  3  =");
 
         jTextField9.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField9.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -310,10 +310,10 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel10.setText("jLabel0");
+        jLabel10.setText("jLabe0");
 
         jLabel20.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel20.setText("- 3 =");
+        jLabel20.setText("-  3  =");
 
         jTextField10.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -416,10 +416,10 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
                     .addComponent(r9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(r10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(70, 70, 70))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(83, 83, 83)
                 .addComponent(jButton1)
-                .addGap(153, 153, 153))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,7 +505,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabel20)
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -515,7 +515,7 @@ public class RestaPracticaInterfaz extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

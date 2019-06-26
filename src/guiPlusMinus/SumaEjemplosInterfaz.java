@@ -127,7 +127,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel8.setText("+ 3=");
+        jLabel8.setText("+  3  =");
 
         cajaUno.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cajaUno.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -151,7 +151,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel9.setText("+ 3=");
+        jLabel9.setText("+  3  =");
 
         cajaDos.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cajaDos.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -169,7 +169,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
         jLabel3.setText("jLabel3");
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel10.setText("+ 3=");
+        jLabel10.setText("+  3  =");
 
         cajaTres.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cajaTres.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -187,7 +187,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel11.setText("+ 3=");
+        jLabel11.setText("+  3  =");
 
         cajaCuatro.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cajaCuatro.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -205,7 +205,7 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel12.setText("+ 3=");
+        jLabel12.setText("+  3  =");
 
         cajaCinco.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cajaCinco.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -275,10 +275,10 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
                     .addComponent(r4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(r5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(102, 102, 102)
                 .addComponent(botonAceptarEjemplo)
-                .addGap(128, 128, 128))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,15 +313,15 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
                                 .addComponent(jLabel11)
                                 .addComponent(jLabel4))
                             .addComponent(r4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
+                        .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel12)
                             .addComponent(cajaCinco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(r5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(36, 36, 36)
                 .addComponent(botonAceptarEjemplo)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -331,14 +331,14 @@ public class SumaEjemplosInterfaz extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

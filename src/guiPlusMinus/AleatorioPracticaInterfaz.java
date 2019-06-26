@@ -150,7 +150,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel11.setText("+ 3 =");
+        jLabel11.setText("+  3  =");
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -168,7 +168,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel12.setText("- 3 =");
+        jLabel12.setText("-   3  =");
 
         jTextField2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -191,7 +191,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel3.setText("jLabel3");
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel13.setText("+ 3 =");
+        jLabel13.setText("+  3  =");
 
         jTextField3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -209,7 +209,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel14.setText("- 3 =");
+        jLabel14.setText("-   3  =");
 
         jTextField4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -227,7 +227,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel15.setText("+ 3 =");
+        jLabel15.setText("+  3  =");
 
         jTextField5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -245,7 +245,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel6.setText("jLabel6");
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel16.setText("- 3 =");
+        jLabel16.setText("-   3  =");
 
         jTextField6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -263,7 +263,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel17.setText("+ 3 =");
+        jLabel17.setText("+  3  =");
 
         jTextField7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -281,7 +281,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
 
         jLabel18.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel18.setText("- 3 =");
+        jLabel18.setText("-   3  =");
 
         jTextField8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -299,7 +299,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         jLabel9.setText("jLabel9");
 
         jLabel19.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel19.setText("+ 3 =");
+        jLabel19.setText("+  3  =");
 
         jTextField9.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField9.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -314,10 +314,10 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel10.setText("jLabel10");
+        jLabel10.setText("jLabel0");
 
         jLabel20.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel20.setText("- 3 =");
+        jLabel20.setText("-   3  =");
 
         jTextField10.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -390,7 +390,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
                                 .addComponent(jTextField9))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel18)
-                                .addGap(45, 45, 45)
+                                .addGap(39, 39, 39)
                                 .addComponent(jTextField8))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel17)
@@ -398,7 +398,7 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
                                 .addComponent(jTextField7))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
-                                .addGap(45, 45, 45)
+                                .addGap(39, 39, 39)
                                 .addComponent(jTextField6))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
@@ -406,11 +406,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
                                 .addComponent(jTextField5))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addGap(45, 45, 45)
+                                .addGap(39, 39, 39)
                                 .addComponent(jTextField2))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -422,10 +422,11 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
                                     .addComponent(jTextField4)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(157, 157, 157)))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(r4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -439,10 +440,10 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
                     .addComponent(r10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(r7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
                 .addComponent(jButton1)
-                .addGap(169, 169, 169))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,19 +519,19 @@ public class AleatorioPracticaInterfaz extends javax.swing.JFrame {
                             .addComponent(jLabel20)
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(r10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
