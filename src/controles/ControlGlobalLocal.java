@@ -1119,6 +1119,9 @@ public class ControlGlobalLocal {
      * Método que hace los cálculos de las variables de análisis
      */
     public void calculosGlobalLocal() {
+        
+        
+        try {
         //I - Tn - REVISADA - Tiempo total en el bloque de figuras negras
         this.objetoLocalGlobal.setTiempoNegras((double) this.tiempoValidoNegras);
         
@@ -1768,6 +1771,10 @@ public class ControlGlobalLocal {
         */
         
         System.out.println(objetoLocalGlobal.toString());
+        
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     /**
@@ -1994,6 +2001,9 @@ public class ControlGlobalLocal {
         hiloActividadMixto.start();
     }
 
+    /**
+     * 
+     */
     Runnable runnableActividadMixtas = new Runnable() {
         @Override
         public void run() {
@@ -2016,7 +2026,12 @@ public class ControlGlobalLocal {
         }
     };
 
-    
+    /**
+     * 
+     * @param frame
+     * @param label
+     * @return 
+     */
     public Object instruccionesPantalla(JFrame frame, JLabel label) {
         switch (contadoraux) {
             case 0:
@@ -2051,7 +2066,7 @@ public class ControlGlobalLocal {
                 this.setPantalla(imagenFiguras);
 
             case 6:
-                //this.setContadoraux(this.getContadoraux() + 1);
+                this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_Local-global.png")));
                 return ("Recuerda solo presionar:\n\n"
                         + "Tecla «1»: Círculo\n"
@@ -2179,7 +2194,6 @@ public class ControlGlobalLocal {
                 ActividadMixto actividadMixto = new ActividadMixto();
                 actividadMixto.setVisible(true);
                 this.setPantalla(actividadMixto);
-
             case 31:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));

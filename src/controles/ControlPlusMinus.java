@@ -430,7 +430,6 @@ public class ControlPlusMinus {
                this.setPantalla(gifResta);
                 
             case 14:
-                this.setContador(this.getContador()+1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("Antes de iniciar, podrás ver un ejemplo sobre cómo responder la \n"
                         + "actividad. Recuerda que restarás 3 a cada número \n"

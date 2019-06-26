@@ -6,7 +6,6 @@
 package guiPlusMinus;
 
 import controles.ControlPlusMinus;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.GridBagConstraints;
@@ -18,7 +17,7 @@ import java.awt.event.KeyEvent;
  * @author Gabriela Guadalupe Ruiz Mora
  */
 public class SumaGif extends javax.swing.JFrame {
-    
+    ControlPlusMinus control = ControlPlusMinus.getSingletonInstance();
     
     /**
      * Creates new form Instrucciones
@@ -117,6 +116,7 @@ public class SumaGif extends javax.swing.JFrame {
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
        if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
+            control.setContador(control.getContador()+1);
             Instrucciones instrucciones = Instrucciones.getSingletonInstance();
             instrucciones.setVisible(true);
             this.setVisible(false);

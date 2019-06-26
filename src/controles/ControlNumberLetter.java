@@ -1238,6 +1238,7 @@ public class ControlNumberLetter {
     
     public void calculosNumberLetter() {
         
+        try{
         //I - Tl - REVISADA - Tiempo total en el bloque de letras sin distinción de errores y aciertos
         this.objetoNumberLetter.setTiempoLetras((double)acumuladoTiempoLetra);
         
@@ -1881,6 +1882,10 @@ public class ControlNumberLetter {
         }*/
   
         System.out.println(objetoNumberLetter.toString());
+        
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     /**
@@ -2156,6 +2161,7 @@ public class ControlNumberLetter {
      * Instrucciones de pantalla
      *
      * @param frame
+     * @param label
      * @return
      */
     public Object instruccionesPantalla(JFrame frame, JLabel label) {
@@ -2381,6 +2387,7 @@ public class ControlNumberLetter {
                         + "terminado con esta actividad."
                         + "\n\nFIN DE ACTIVIDAD";
             case 38:
+                
                 this.calculosNumberLetter();
                 controlGeneral.ejecutarEjercicios(controlGeneral.getPantalla());
             default:

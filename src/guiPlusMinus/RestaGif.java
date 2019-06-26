@@ -10,24 +10,15 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *
  * @author Gabriela Guadalupe Ruiz Mora
  */
 public class RestaGif extends javax.swing.JFrame {
-
+    ControlPlusMinus control = ControlPlusMinus.getSingletonInstance();
+    
     /**
      * Creates new form Instrucciones
      */
@@ -109,6 +100,7 @@ public class RestaGif extends javax.swing.JFrame {
 
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
+            control.setContador(control.getContador()+1);
             Instrucciones instrucciones = Instrucciones.getSingletonInstance();
             instrucciones.setVisible(true);
             this.setVisible(false);
@@ -116,11 +108,7 @@ public class RestaGif extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1KeyPressed
 
     private void jLabel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyPressed
-        if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
-            Instrucciones instrucciones = Instrucciones.getSingletonInstance();
-            instrucciones.setVisible(true);
-            this.setVisible(false);
-        }
+        
     }//GEN-LAST:event_jLabel2KeyPressed
 
 
