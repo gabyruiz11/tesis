@@ -135,7 +135,6 @@ public class ActividadMixto extends javax.swing.JFrame {
                 control.respuestas("Cuadrado", etiquetaNombre, true, "m");
                 break;
             case KeyEvent.VK_SPACE:
-                
                 if (contador == 0) {
                     control.setEtiquetaImagen(etiquetaImagen);
                     control.setEtiquetaRespuesta(etiquetaRespuesta);
@@ -143,7 +142,6 @@ public class ActividadMixto extends javax.swing.JFrame {
                     control.iniciarActividadMixtos();
                     contador++;
                 }
-                
                 break;
         }
     }//GEN-LAST:event_panelPrincipalKeyPressed

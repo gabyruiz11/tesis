@@ -79,16 +79,19 @@ public class ControlGeneral {
                     controlGeneral.getPantalla().setVisible(false);
                     Instrucciones plusMinus = Instrucciones.getSingletonInstance();
                     plusMinus.setVisible(true);
+                    System.out.println("Plus minus");
                     break;
                 case 2:
                     controlGeneral.getPantalla().setVisible(false);
                     InstruccionesNumberLetter numberLetter = InstruccionesNumberLetter.getSingletonInstance();
                     numberLetter.setVisible(true);
+                    System.out.println("Number letter");
                     break;
                 case 3:
                     controlGeneral.getPantalla().setVisible(false);
                     InstruccionesGlobalLocal globalLocal = InstruccionesGlobalLocal.getSingletonInstance();
                     globalLocal.setVisible(true);
+                    System.out.println("Globa local");
                     break;
             }
         }
