@@ -2184,7 +2184,7 @@ public class ControlNumberLetter {
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_par-impar.png")));
                 return ("Por favor, coloca tus dedos índice y medio \n"
                         + "de la mano derecha en las teclas “P” (pares)\n"
-                        + "y “I” (impares). ");
+                        + "y “I” (impares). "); 
             case 4:
                 frame.setVisible(false);
                 FamiliarizacionNumeros imagenNumeros = new FamiliarizacionNumeros();
@@ -2198,8 +2198,7 @@ public class ControlNumberLetter {
                         + "Tecla «P»: Número par \n"
                         + "\n"
                         + "Tecla «I»: Número impar \n"
-                        + "\n"
-                        + "Añadir teclado");
+                        + "\n");
             case 6:
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/teclado_espacio.png")));
                 return ("La actividad está por comenzar.\n\n"
