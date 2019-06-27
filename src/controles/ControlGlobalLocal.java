@@ -2197,7 +2197,7 @@ public class ControlGlobalLocal {
             case 31:
                 this.setContadoraux(this.getContadoraux() + 1);
                 label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chango.png")));
-                return "¡Excelente trabajo! Lo hiciste muy bien."
+                return "¡Excelente trabajo!\n\n Lo hiciste muy bien.\n"
                         + "Has terminado con esta actividad."
                         + "\n\nFIN DE ACTIVIDAD";
             case 32:
