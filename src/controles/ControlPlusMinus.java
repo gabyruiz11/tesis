@@ -17,7 +17,6 @@ import guiPlusMinus.SumaEjerciciosInterfaz;
 import guiPlusMinus.SumaGif;
 import guiPlusMinus.SumaPracticaInterfaz;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import objetosNegocios.Plusminus;
 import persistencia.Persistencia;
 import java.util.concurrent.ThreadLocalRandom;
@@ -331,6 +330,8 @@ public class ControlPlusMinus {
             JOptionPane.showMessageDialog(null, "Ocurrió un error al tratar de guardar este objeto");
         }
         */
+        
+        this.controlGeneral.setObjetoPlusMinus(objetoPlusMinus);
         
         System.out.println(objetoPlusMinus.toString());
         
