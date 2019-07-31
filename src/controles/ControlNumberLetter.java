@@ -1880,6 +1880,8 @@ public class ControlNumberLetter {
         } else {
             JOptionPane.showMessageDialog(null, "Ocurrió un error al tratar de guardar este objeto");
         }*/
+        
+        this.controlGeneral.setObjetoNumberLetter(objetoNumberLetter);
   
         System.out.println(objetoNumberLetter.toString());
         

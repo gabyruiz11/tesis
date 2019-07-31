@@ -1770,6 +1770,8 @@ public class ControlGlobalLocal {
         }
         */
         
+        this.controlGeneral.setObjetoGlobalLocal(objetoLocalGlobal);
+        
         System.out.println(objetoLocalGlobal.toString());
         
         } catch (Exception ex) {
