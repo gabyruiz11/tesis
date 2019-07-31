@@ -80,7 +80,20 @@ public class ControlGeneral {
 
         if (listaEjercicios.contains(ejercicio)) {
             if (listaEjercicios.size() == 3) {
-                this.guardarExcel();
+                int opcion = this.guardarExcel();
+                
+                switch(opcion) {
+                    case -1:
+                        JOptionPane.showMessageDialog(null, "Ocurrió un error al guardar el archivo");
+                        break;
+                    case 0:
+                        JOptionPane.showMessageDialog(null, "Se guardó el archivo correctamente");
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "Se decidió no guardar el archivo");
+                        break;
+                }
+                
             } else {
                 ejecutarEjercicios(frame);
             }
