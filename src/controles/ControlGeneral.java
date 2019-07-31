@@ -127,7 +127,7 @@ public class ControlGeneral {
         this.idGlobal = idGlobal;
     }
 
-    public boolean guardarExcel() {
+    public int guardarExcel() {
 
         /*
         boolean primerTexto = true;
@@ -156,10 +156,11 @@ public class ControlGeneral {
         guardar.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         File archivo = guardar.getSelectedFile();
 
-        if (!(opcion == 0)) {
-            return false;
+        if (opcion == JFileChooser.CANCEL_OPTION) {
+            return 1;
+        } else if (opcion == JFileChooser.ERROR_OPTION) {
+            return -1;
         } else {
-
             try (PrintWriter writer = new PrintWriter(archivo + ".csv")) {
 
                 StringBuilder sb = new StringBuilder();
@@ -740,11 +741,11 @@ public class ControlGeneral {
 
                 writer.write(sb.toString());
                 writer.close();
-                return true;
+                return 0;
 
             } catch (FileNotFoundException e) {
                 System.out.println(e.getMessage());
-                return false;
+                return -1;
             }
         }
     }
