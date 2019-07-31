@@ -41,6 +41,10 @@ public class MenuAdministrador extends javax.swing.JFrame {
         gbc.fill = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.BOTH;
         jPanel1.add(jLabel1, gbc);
+        
+        jMenu1.setVisible(false);
+        jMenu2.setVisible(false);
+        jMenu4.setVisible(false);
     }
 
     /**
