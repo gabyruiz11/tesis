@@ -30,14 +30,16 @@ public class ControlGeneral {
     private static ControlGeneral controlGeneral;
     private JFrame pantalla;
     private int contador = 0, idGlobal; 
+    private ControlRegistro registro;
     
     private Plusminus objetoPlusMinus;
     private Numberletter objetoNumberLetter;
     private Globallocal objetoGlobalLocal;
     
+    
     //Constructor de la clase control general
     private ControlGeneral() {
-       
+       registro = ControlRegistro.getSingletonInstance();
     }
     
     //Método singleton de la clase control general
@@ -52,6 +54,11 @@ public class ControlGeneral {
     
     public void ejecutarEjercicios(JFrame frame) {
         int ejercicio = ThreadLocalRandom.current().nextInt(1, 3 + 1);
+        
+        if(registro.getObjetoPaciente().getFolioPaciente() == null) {
+            JOptionPane.showMessageDialog(null, "No se pueden realizar pruebas si no hay datos del paciente");
+            return;
+        }
         
         /*
         if (contador == 0) {
@@ -121,7 +128,6 @@ public class ControlGeneral {
                     break;
             }
         }
-
     }
 
     public JFrame getPantalla() {

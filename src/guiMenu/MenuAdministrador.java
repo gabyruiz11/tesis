@@ -6,6 +6,9 @@
 package guiMenu;
 
 import controles.ControlGeneral;
+import controles.ControlRegistro;
+import guiDatos.AgregarPaciente;
+import guiDatos.ModificarPaciente;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
@@ -19,6 +22,7 @@ import java.awt.Toolkit;
  */
 public class MenuAdministrador extends javax.swing.JFrame {
     ControlGeneral controlGeneral = ControlGeneral.getSingletonInstance();
+    ControlRegistro controlRegistro = ControlRegistro.getSingletonInstance();
     
     /**
      * Creates new form MenuAdministrador
@@ -42,7 +46,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         jPanel1.add(jLabel1, gbc);
         
-        jMenu1.setVisible(false);
         jMenu2.setVisible(false);
         jMenu4.setVisible(false);
     }
@@ -63,7 +66,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -126,19 +128,30 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jMenuItem1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuItem1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jMenuItem1.setText("Agregar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jMenuItem2.setText("Editar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jMenuItem3.setText("Eliminar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
-
-        jMenuItem4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jMenuItem4.setText("Buscar");
-        jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
 
@@ -239,7 +252,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
-
         jMenu1.setBackground(Color.red);// TODO add your handling code here:
     }//GEN-LAST:event_jMenu1MouseEntered
 
@@ -250,6 +262,25 @@ public class MenuAdministrador extends javax.swing.JFrame {
     private void jMenu1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1MouseReleased
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        AgregarPaciente datos = new AgregarPaciente();
+        datos.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        ModificarPaciente datos = new ModificarPaciente();
+        datos.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        controlRegistro.eliminarPaciente();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,7 +332,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
