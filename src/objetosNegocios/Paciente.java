@@ -173,9 +173,16 @@ public class Paciente implements Serializable {
         return true;
     }
 
+    /*
     @Override
     public String toString() {
         return "objetosNegocios.Paciente[ folioPaciente=" + folioPaciente + " ]";
+    }
+    */
+
+    @Override
+    public String toString() {
+        return "Paciente{" + "folioPaciente = " + folioPaciente + ", edadPaciente=" + edadPaciente + ", consumidorPaciente=" + consumidorPaciente + ", celularPaciente=" + celularPaciente + ", leerEscribirPaciente=" + leerEscribirPaciente + ", ocupacionPaciente=" + ocupacionPaciente + ", tiempoOcupacionPaciente=" + tiempoOcupacionPaciente + ", tiempoDesempleoPaciente=" + tiempoDesempleoPaciente + ", estadoCivilPaciente=" + estadoCivilPaciente + '}';
     }
     
 }
