@@ -2275,5 +2275,5 @@ public class ControlGlobalLocal {
     public void setContadoraux(int contadoraux) {
         this.contadoraux = contadoraux;
     }
-
+    
 }

@@ -28,7 +28,7 @@ import javax.swing.JLabel;
 public class ControlPlusMinus {
     
     //Variable que crea el objeto plus minus
-    private final objetosNegocios.Plusminus objetoPlusMinus;
+    private objetosNegocios.Plusminus objetoPlusMinus;
     
     //Variable que llama a la persistencia;
     private final Persistencia persistencia = Persistencia.getSingletonInstance();
@@ -532,5 +532,13 @@ public class ControlPlusMinus {
     public void setContador(int contador) {
         this.contador = contador;
     }
-    
+
+    public Plusminus getObjetoPlusMinus() {
+        return objetoPlusMinus;
+    }
+
+    public void setObjetoPlusMinus(Plusminus objetoPlusMinus) {
+        this.objetoPlusMinus = objetoPlusMinus;
+    }
+
 }

@@ -5,6 +5,7 @@
  */
 package guiMenu;
 
+import controles.ControlExcel;
 import controles.ControlGeneral;
 import controles.ControlRegistro;
 import guiDatos.AgregarPaciente;
@@ -23,6 +24,7 @@ import java.awt.Toolkit;
 public class MenuAdministrador extends javax.swing.JFrame {
     ControlGeneral controlGeneral = ControlGeneral.getSingletonInstance();
     ControlRegistro controlRegistro = ControlRegistro.getSingletonInstance();
+    ControlExcel controlExcel = ControlExcel.getSingletonInstance();
     
     /**
      * Creates new form MenuAdministrador
@@ -46,7 +48,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         jPanel1.add(jLabel1, gbc);
         
-        jMenu2.setVisible(false);
         jMenu4.setVisible(false);
     }
 
@@ -68,9 +69,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -157,29 +155,17 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         jMenu2.setBackground(new java.awt.Color(255, 255, 255));
         jMenu2.setBorder(null);
-        jMenu2.setText("Aplicadores");
+        jMenu2.setText("Excel");
         jMenu2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
         jMenuItem5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jMenuItem5.setText("Agregar");
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jMenuItem6.setText("Editar");
-        jMenu2.add(jMenuItem6);
-
-        jMenuItem7.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jMenuItem7.setText("Eliminar");
-        jMenu2.add(jMenuItem7);
-
-        jMenuItem8.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jMenuItem8.setText("Buscar");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem5.setText("Generar CSV");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                jMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem8);
+        jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
 
@@ -236,10 +222,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         controlGeneral.setPantalla(this);
@@ -248,7 +230,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
        
-     
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
@@ -281,6 +262,11 @@ public class MenuAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         controlRegistro.eliminarPaciente();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        controlExcel.verificacionExcel();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,9 +319,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

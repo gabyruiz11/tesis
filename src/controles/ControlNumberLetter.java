@@ -33,7 +33,7 @@ import persistencia.Persistencia;
 public class ControlNumberLetter {
 
     //Variable que crea el objeto number letter
-    private final objetosNegocios.Numberletter objetoNumberLetter;
+    private objetosNegocios.Numberletter objetoNumberLetter;
 
     //Variable que llama a la persistencia;
     private final Persistencia persistencia = Persistencia.getSingletonInstance();
@@ -2508,4 +2508,12 @@ public class ControlNumberLetter {
         this.contadoraux = contadoraux;
     }
 
+    public Numberletter getObjetoNumberLetter() {
+        return objetoNumberLetter;
+    }
+
+    public void setObjetoNumberLetter(Numberletter objetoNumberLetter) {
+        this.objetoNumberLetter = objetoNumberLetter;
+    }
+    
 }
