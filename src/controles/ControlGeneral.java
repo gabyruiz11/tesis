@@ -8,12 +8,8 @@ package controles;
 import guiGlobalLocal.InstruccionesGlobalLocal;
 import guiNumberLetter.InstruccionesNumberLetter;
 import guiPlusMinus.Instrucciones;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import objetosNegocios.Globallocal;
@@ -29,7 +25,7 @@ public class ControlGeneral {
     private ArrayList<Integer> listaEjercicios = new ArrayList<>();
     private static ControlGeneral controlGeneral;
     private JFrame pantalla;
-    private int contador = 0, idGlobal; 
+    private int idGlobal; 
     private ControlRegistro registro;
     
     private Plusminus objetoPlusMinus;
@@ -60,6 +56,8 @@ public class ControlGeneral {
             return;
         }
         
+        this.setIdGlobal(registro.getObjetoPaciente().getFolioPaciente());
+        
         /*
         if (contador == 0) {
             int auxiliar;
@@ -87,6 +85,8 @@ public class ControlGeneral {
 
         if (listaEjercicios.contains(ejercicio)) {
             if (listaEjercicios.size() == 3) {
+                
+                /*
                 int opcion = this.guardarExcel();
                 
                 switch(opcion) {
@@ -100,6 +100,7 @@ public class ControlGeneral {
                         JOptionPane.showMessageDialog(null, "Se decidió no guardar el archivo");
                         break;
                 }
+                */
                 
             } else {
                 ejecutarEjercicios(frame);
@@ -130,25 +131,9 @@ public class ControlGeneral {
         }
     }
 
-    public JFrame getPantalla() {
-        return pantalla;
-    }
-
-    public void setPantalla(JFrame pantalla) {
-        this.pantalla = pantalla;
-    }
-
-    public int getIdGlobal() {
-        return idGlobal;
-    }
-
-    public void setIdGlobal(int idGlobal) {
-        this.idGlobal = idGlobal;
-    }
-
+    /*
     public int guardarExcel() {
-
-        /*
+        
         boolean primerTexto = true;
         String folio = null;
         int opcionUno = JOptionPane.showConfirmDialog(null, "¿Desear guardar los resultados");
@@ -168,7 +153,6 @@ public class ControlGeneral {
         } else {
             return false;
         }
-        */
         
         JFileChooser guardar = new JFileChooser();
         int opcion = guardar.showSaveDialog(guardar);
@@ -768,6 +752,7 @@ public class ControlGeneral {
             }
         }
     }
+    */
 
     public Plusminus getObjetoPlusMinus() {
         return objetoPlusMinus;
@@ -791,6 +776,22 @@ public class ControlGeneral {
 
     public void setObjetoGlobalLocal(Globallocal objetoGlobalLocal) {
         this.objetoGlobalLocal = objetoGlobalLocal;
+    }
+
+    public JFrame getPantalla() {
+        return pantalla;
+    }
+
+    public void setPantalla(JFrame pantalla) {
+        this.pantalla = pantalla;
+    }
+
+    public int getIdGlobal() {
+        return idGlobal;
+    }
+
+    public void setIdGlobal(int idGlobal) {
+        this.idGlobal = idGlobal;
     }
     
 }
