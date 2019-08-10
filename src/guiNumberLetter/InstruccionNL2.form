@@ -71,6 +71,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="   "/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MousePressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

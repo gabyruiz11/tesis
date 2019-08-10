@@ -14,24 +14,24 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+
 /**
  *
  * @author Gabriela Guadalupe Ruiz Mora
  */
 public class Instrucciones extends javax.swing.JFrame {
-  
+
     //Objeto del tipo instrucciones
     private static Instrucciones instrucciones;
-    
+
     ControlPlusMinus control = ControlPlusMinus.getSingletonInstance();
-    
+
     /**
      * Creates new form Instrucciones
      */
-    
     GridBagConstraints gbc = new GridBagConstraints();
     GridBagConstraints gbc2 = new GridBagConstraints();
-    
+
     private Instrucciones() {
         initComponents();
         //inicializa el jtextpanel
@@ -69,17 +69,17 @@ public class Instrucciones extends javax.swing.JFrame {
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
         jPanel1.requestFocus();
         jTextPane1.setVisible(true);
-        
+
         jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
         control.setContador(control.getContador() + 1);
     }
-    
+
     public static Instrucciones getSingletonInstance() {
         if (instrucciones == null) {
             instrucciones = new Instrucciones();
-            
+
         } else {
-            
+
         }
         return instrucciones;
     }
@@ -110,6 +110,14 @@ public class Instrucciones extends javax.swing.JFrame {
         jTextPane1.setEditable(false);
         jTextPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jTextPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextPane1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTextPane1MouseReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextPane1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -150,13 +158,20 @@ public class Instrucciones extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
         if (evt.getKeyChar() == KeyEvent.VK_SPACE) {
             jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
             control.setContador(control.getContador() + 1);
         }
     }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void jTextPane1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPane1MouseReleased
+    }//GEN-LAST:event_jTextPane1MouseReleased
+
+    private void jTextPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPane1MousePressed
+        jPanel1.requestFocus();       
+    }//GEN-LAST:event_jTextPane1MousePressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -189,7 +204,7 @@ public class Instrucciones extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -16,6 +16,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -32,6 +33,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     GridBagConstraints gbc = new GridBagConstraints();
     public MenuAdministrador() {
         initComponents();
+//        this.setIconImage(new ImageIcon(getClass().getResource("/images/icono.jpg")).getImage());
         //se cambia el tamaño del panel y el frame para que este a la resolucion de la pantalla
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension d = tk.getScreenSize();

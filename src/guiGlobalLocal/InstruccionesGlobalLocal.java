@@ -66,12 +66,12 @@ public class InstruccionesGlobalLocal extends javax.swing.JFrame {
         SimpleAttributeSet center = new SimpleAttributeSet();
         StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
-       
+
         jTextPane1.setVisible(true);
-        
+
         jTextPane1.setText(String.valueOf(control.instruccionesPantalla(this, jLabel1)));
         control.setContadoraux(control.getContadoraux() + 1);
-         jPanel1.requestFocus();
+        jPanel1.requestFocus();
     }
 
     public static InstruccionesGlobalLocal getSingletonInstance() {
@@ -104,9 +104,15 @@ public class InstruccionesGlobalLocal extends javax.swing.JFrame {
             }
         });
 
+        jTextPane1.setEditable(false);
         jTextPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jTextPane1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextPane1MousePressed(evt);
+            }
+        });
         jTextPane1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextPane1KeyPressed(evt);
@@ -164,6 +170,10 @@ public class InstruccionesGlobalLocal extends javax.swing.JFrame {
             control.setContadoraux(control.getContadoraux() + 1);
         }
     }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void jTextPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPane1MousePressed
+        jPanel1.requestFocus();        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextPane1MousePressed
     /**
      * @param args the command line arguments
      */
