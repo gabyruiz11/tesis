@@ -66,6 +66,11 @@ public class InstruccionNL2 extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("   ");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -111,6 +116,10 @@ public class InstruccionNL2 extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jPanel2KeyPressed
+
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+      // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MousePressed
 
     /**
      * @param args the command line arguments
