@@ -16,6 +16,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,6 +70,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -166,6 +168,15 @@ public class MenuAdministrador extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem5);
+
+        jMenuItem4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jMenuItem4.setText("Prueba");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
 
@@ -268,6 +279,13 @@ public class MenuAdministrador extends javax.swing.JFrame {
         controlExcel.verificacionExcel();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        String folio = JOptionPane.showInputDialog("Folio a buscar");
+        
+        controlExcel.actividadesRealizadas(folio);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,6 +336,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;

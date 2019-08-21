@@ -6,6 +6,7 @@
 package controles;
 
 import guiGlobalLocal.InstruccionesGlobalLocal;
+import guiMenu.MenuAdministrador;
 import guiNumberLetter.InstruccionesNumberLetter;
 import guiPlusMinus.Instrucciones;
 import java.util.ArrayList;
@@ -85,6 +86,13 @@ public class ControlGeneral {
 
         if (listaEjercicios.contains(ejercicio)) {
             if (listaEjercicios.size() == 3) {
+                
+                this.getPantalla().setVisible(false);
+                
+                ControlExcel controlexcel = ControlExcel.getSingletonInstance();
+                controlexcel.verificacionExcel();
+                MenuAdministrador menuAdministrador = new MenuAdministrador();
+                menuAdministrador.setVisible(true);
                 
                 /*
                 int opcion = this.guardarExcel();

@@ -5,8 +5,14 @@
  */
 package controles;
 
-import guiDatos.ModificarPaciente;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import guiMenu.MenuAdministrador;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import objetosNegocios.Paciente;
@@ -19,6 +25,10 @@ public class ControlRegistro {
     
     private Paciente objetoPaciente;
     private static ControlRegistro controlRegistro;
+    
+    //was added here cause it makes a infinite loop 
+    private static final String ARCHIVO = "./principal.csv";
+    private List<String[]> records;
     
     /**
      * Constructor de la clase control registro
@@ -46,6 +56,11 @@ public class ControlRegistro {
     
     public void agregarPaciente(String folio, String edad, boolean consumidor, String celular, boolean leerEscribir, String ocupacion, 
                                 String tiempoOcupacion, String tiempoDesempleado, String estadoCivil, JFrame menu){
+        
+        if(buscarExcel(folio) != -1) {
+            JOptionPane.showMessageDialog(null, "El folio ya se encuentra en el archivo");
+            return;
+        }
         
         try {
             int folioFinal = Integer.parseInt(folio);
@@ -164,6 +179,32 @@ public class ControlRegistro {
         } else {
             JOptionPane.showMessageDialog(null, "No hay datos del paciente que eliminar");
         }
+    }
+    
+    public int buscarExcel(String folio) {
+        int contador = 0;
+        int error;
+        
+        try (
+            Reader reader = Files.newBufferedReader(Paths.get(ARCHIVO));
+            CSVReader csvReader = new CSVReaderBuilder(reader).build();
+        ) {
+            // Reading Records One by One in a String array
+            records = csvReader.readAll();
+            
+            for (String[] record : records) {
+                if (record[0].equals(folio)) {
+                    return contador++;
+                }
+                contador++;
+            }
+            
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        error = -1;
+        return error;
     }
 
     public Paciente getObjetoPaciente() {

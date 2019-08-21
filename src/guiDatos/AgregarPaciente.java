@@ -7,6 +7,12 @@ package guiDatos;
 
 import controles.ControlRegistro;
 import guiMenu.MenuAdministrador;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Toolkit;
 import javax.swing.WindowConstants;
 
 /**
@@ -18,8 +24,27 @@ public class AgregarPaciente extends javax.swing.JFrame {
     /**
      * Creates new form menuDatos
      */
+        GridBagConstraints gbc = new GridBagConstraints();
+
     public AgregarPaciente() {
         initComponents();
+        //se cambia el tamaño del panel y el frame para que este a la resolucion de la pantalla
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        jPanel2.setFocusable(true);
+        Dimension d = tk.getScreenSize();
+        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setSize((int) d.getWidth(), (int) d.getHeight());
+        jPanel2.setSize((int) d.getWidth(), (int) d.getHeight());
+        this.add(jPanel2, BorderLayout.CENTER);
+        //se centra el texPanel en el panel
+        jPanel2.setLayout(new GridBagLayout());
+        gbc.gridwidth = 2; // El área de texto ocupa dos columnas.
+        gbc.gridheight = 2; // El área de texto ocupa 2 filas.
+        gbc.weightx = 2;
+        gbc.weightx = 0.1;
+        gbc.fill = GridBagConstraints.CENTER;
+        jPanel2.add(jPanel1, gbc);
+        jPanel2.setFocusable(true);
     }
 
     /**
@@ -31,6 +56,7 @@ public class AgregarPaciente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
@@ -55,24 +81,52 @@ public class AgregarPaciente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel1.setText("Folio");
 
+        txtFolio.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Edad");
 
+        txtEdad.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel3.setText("Consumidor");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel4.setText("Celular");
 
+        txtCelular.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel5.setText("Leer y escribir");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel7.setText("Ocupación");
 
+        txtOcupacion.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel8.setText("Tiempo de ocupación");
 
+        txtTiempoOcupacion.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel9.setText("Tiempo de desempleo");
 
+        txtTiempoDesempleo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel10.setText("Estado civil");
 
+        txtEstadoCivil.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        btnAgregarPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnAgregarPaciente.setText("Registro");
         btnAgregarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,10 +134,13 @@ public class AgregarPaciente extends javax.swing.JFrame {
             }
         });
 
+        comboConsumidor.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         comboConsumidor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
 
+        comboLeer.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         comboLeer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
 
+        btnRegresar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,9 +194,9 @@ public class AgregarPaciente extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegresar)
-                    .addComponent(btnAgregarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAgregarPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(74, 74, 74))
         );
         jPanel1Layout.setVerticalGroup(
@@ -188,21 +245,31 @@ public class AgregarPaciente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -323,6 +390,7 @@ public class AgregarPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEstadoCivil;

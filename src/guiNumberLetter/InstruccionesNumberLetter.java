@@ -103,9 +103,15 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
             }
         });
 
+        jTextPane1.setEditable(false);
         jTextPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jTextPane1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextPane1MousePressed(evt);
+            }
+        });
         jTextPane1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextPane1KeyPressed(evt);
@@ -160,6 +166,11 @@ public class InstruccionesNumberLetter extends javax.swing.JFrame {
             control.setContadoraux(control.getContadoraux() + 1);
         }
     }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void jTextPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPane1MousePressed
+            
+       jPanel1.requestFocus();
+    }//GEN-LAST:event_jTextPane1MousePressed
     /**
      * @param args the command line arguments
      */

@@ -110,6 +110,11 @@ public class Instrucciones extends javax.swing.JFrame {
         jTextPane1.setEditable(false);
         jTextPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jTextPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextPane1MousePressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextPane1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -157,6 +162,10 @@ public class Instrucciones extends javax.swing.JFrame {
             control.setContador(control.getContador() + 1);
         }
     }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void jTextPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextPane1MousePressed
+jPanel1.requestFocus();        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextPane1MousePressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

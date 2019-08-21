@@ -5,8 +5,15 @@
  */
 package controles;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +29,10 @@ public class ControlExcel {
     private ControlGlobalLocal controlGlobalLocal;
     
     private static ControlExcel controlExcel;
+    
+    private List<String[]> records;
+    private int contador;
+    private String mensaje = "Las siguientes actividades no fueron realizadas: \n";
     
     //Constructor de la clase control excel
     private ControlExcel() {
@@ -76,7 +87,7 @@ public class ControlExcel {
                                              String.valueOf(controlRegistro.getObjetoPaciente().getTiempoOcupacionPaciente()),
                                              String.valueOf(controlRegistro.getObjetoPaciente().getTiempoDesempleoPaciente()),
                                              String.valueOf(controlRegistro.getObjetoPaciente().getEstadoCivilPaciente()),
-                                             String.valueOf(""),
+                                             String.valueOf(controlRegistro.getObjetoPaciente().getFolioPaciente()),
                                              String.valueOf(controlPlusMinus.getObjetoPlusMinus().getTiempoSuma()),
                                              String.valueOf(controlPlusMinus.getObjetoPlusMinus().getTiempoResta()),
                                              String.valueOf(controlPlusMinus.getObjetoPlusMinus().getTiempoAlternado()),
@@ -113,7 +124,7 @@ public class ControlExcel {
                                              String.valueOf(controlPlusMinus.getObjetoPlusMinus().getNoRespondidasRestar()),
                                              String.valueOf(controlPlusMinus.getObjetoPlusMinus().getNoRespondidasAlternado()),
                                              String.valueOf(controlPlusMinus.getObjetoPlusMinus().getNoRespondidasTotales()),
-                                             String.valueOf(""),
+                                             String.valueOf(controlRegistro.getObjetoPaciente().getFolioPaciente()),
                                              String.valueOf(controlNumberLetter.getObjetoNumberLetter().getTiempoLetras()),
                                              String.valueOf(controlNumberLetter.getObjetoNumberLetter().getTiempoNumeros()),
                                              String.valueOf(controlNumberLetter.getObjetoNumberLetter().getTiempoAlternado()),
@@ -166,7 +177,7 @@ public class ControlExcel {
                                              String.valueOf(controlNumberLetter.getObjetoNumberLetter().getOmisionesNulasTotalesNumeros()),
                                              String.valueOf(controlNumberLetter.getObjetoNumberLetter().getOmisionesNulasTotalesAlternado()),
                                              String.valueOf(controlNumberLetter.getObjetoNumberLetter().getOmisionesNulasTotalesTarea()),
-                                             String.valueOf(""),
+                                             String.valueOf(controlRegistro.getObjetoPaciente().getFolioPaciente()),
                                              String.valueOf(controlGlobalLocal.getObjetoLocalGlobal().getTiempoNegras()),
                                              String.valueOf(controlGlobalLocal.getObjetoLocalGlobal().getTiempoAzules()),
                                              String.valueOf(controlGlobalLocal.getObjetoLocalGlobal().getTiempoAlternado()),
@@ -220,10 +231,49 @@ public class ControlExcel {
                                              String.valueOf(controlGlobalLocal.getObjetoLocalGlobal().getOmisionesNulasTotalesAlternado()),
                                              String.valueOf(controlGlobalLocal.getObjetoLocalGlobal().getOmisionesNulasTotalesTarea())});
             
-            JOptionPane.showMessageDialog(null, "Los datos se guardaron correctamente");
+            JOptionPane.showMessageDialog(null, "Los datos fueron guardados");
             
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error al obtener los datos");
+        }
+    }
+    
+    public int buscarExcel(String folio) {
+        contador = 0;
+        int error;
+        
+        try (
+            Reader reader = Files.newBufferedReader(Paths.get(ARCHIVO));
+            CSVReader csvReader = new CSVReaderBuilder(reader).build();
+        ) {
+            // Reading Records One by One in a String array
+            records = csvReader.readAll();
+            
+            for (String[] record : records) {
+                if (record[0].equals(folio)) {
+                    return contador++;
+                }
+                contador++;
+            }
+            
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        error = -1;
+        return error;
+    }
+    
+    public void actividadesRealizadas(String folio){
+        if(buscarExcel(folio) == -1) {
+            JOptionPane.showMessageDialog(null, "Ese folio no existe registrado en el archivo");
+        } else {
+            
+            if(records.get(contador)[9].isEmpty()) {
+                mensaje += "Plus minus \n";
+            }
+            
+            JOptionPane.showMessageDialog(null, mensaje);
         }
     }
     
